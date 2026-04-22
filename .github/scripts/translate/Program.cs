@@ -311,6 +311,9 @@ public class Translator
 
         Console.WriteLine($"\n📚 找到 {files.Count} 個 .md 檔案\n{new string('─', 55)}");
 
+        // 先複製非 .md 檔案（圖片、PDF 等），不等 .md 翻譯完
+        CopyNonMarkdownFiles();
+
         int success = 0, skipped = 0, failed = 0;
         int consecutiveFailures = 0;
         const int MaxConsecutiveFailures = 5;   // 連續 5 次翻譯失敗就停（可能是 API 有系統性問題）
@@ -421,9 +424,6 @@ public class Translator
 
         // earlyStop 時正常結束（讓 workflow 繼續執行 commit），否則有失敗才報錯
         if (!earlyStop && failed > 0) Environment.Exit(1);
-
-        // 複製非 .md 檔案（圖片、PDF 等），來源比目標新才複製
-        CopyNonMarkdownFiles();
     }
 
     private static int _consecutivePushFailures = 0;
