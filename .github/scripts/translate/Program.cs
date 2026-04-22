@@ -855,7 +855,32 @@ public class Translator
             5. 所有英文的 ## 章節標題、段落說明、清單項目都必須翻譯成繁體中文，不得保留英文原文。
             6. 程式碼區塊（``` 包住的部分）以外，絕對不允許出現整段英文句子或英文段落。
             """;
+
+        // 背景計時器：每 15 秒顯示等待狀態，讓使用者知道 API 仍在回應中
+        var startTime = DateTime.UtcNow;
+        using var cts = new System.Threading.CancellationTokenSource();
+        var ticker = Task.Run(async () =>
+        {
+            try
+            {
+                while (true)
+                {
+                    await Task.Delay(15_000, cts.Token);
+                    var elapsed = (int)(DateTime.UtcNow - startTime).TotalSeconds;
+                    Console.WriteLine($"    ⏱️  等待 Gemini 回應... {elapsed}s");
+                }
+            }
+            catch (OperationCanceledException) { }
+        });
+
         var response = await _model.GenerateContent(prompt);
+        cts.Cancel();
+        await ticker;
+
+        var elapsed2 = (int)(DateTime.UtcNow - startTime).TotalSeconds;
+        if (elapsed2 >= 15)
+            Console.WriteLine($"    ✅ 回應完成（{elapsed2}s）");
+
         var text = response.Text;
         if (string.IsNullOrWhiteSpace(text))
             throw new Exception("Gemini 回傳空內容");
