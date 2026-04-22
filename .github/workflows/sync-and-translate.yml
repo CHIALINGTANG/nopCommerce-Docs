@@ -102,6 +102,15 @@ jobs:
         run: |
           git merge upstream/master --no-edit --allow-unrelated-histories -X theirs || true
           git checkout HEAD -- .github/
+          # 若 auto-translate 比 master 超前，代表上次翻譯進度尚未 merge 回 master
+          # 還原 zh-Hant/，避免重複翻譯已完成的檔案
+          if git rev-parse origin/auto-translate >/dev/null 2>&1; then
+            AHEAD=$(git rev-list --count origin/master..origin/auto-translate 2>/dev/null || echo 0)
+            if [ "$AHEAD" -gt "0" ]; then
+              git checkout origin/auto-translate -- zh-Hant/ 2>/dev/null || true
+              echo "📥 已還原上次翻譯進度（auto-translate 超前 master ${AHEAD} 個 commit）"
+            fi
+          fi
 
       - name: Run C# translator
         if: steps.check_changes.outputs.has_changes == 'true'
