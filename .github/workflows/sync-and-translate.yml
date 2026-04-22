@@ -128,6 +128,7 @@ jobs:
             --project .github/scripts/translate/translate.csproj \
             --configuration Release \
             -- --source-dir en --target-dir zh-Hant --api-key "$COMBINED_KEYS" \
+            --since-hash "${{ steps.check_changes.outputs.last_sync }}" \
             $([ -n "${{ github.event.inputs.specific_file }}" ] && echo "--specific-file ${{ github.event.inputs.specific_file }}") \
             $([ "${{ github.event.inputs.force_retranslate }}" = "true" ] && echo "--force")
 

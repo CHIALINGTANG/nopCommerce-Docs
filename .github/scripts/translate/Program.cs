@@ -22,14 +22,18 @@ var specificFileOption = new Option<string>(
 var forceOption = new Option<bool>(
     "--force", () => false, "強制重新翻譯（忽略已存在的 zh-Hant 檔案）");
 
+var sinceHashOption = new Option<string>(
+    "--since-hash", () => "", "上游同步基準 commit hash（用於 git diff 偵測異動）");
+
 var rootCommand = new RootCommand("nopCommerce Docs 繁體中文自動翻譯工具");
 rootCommand.AddOption(sourceOption);
 rootCommand.AddOption(targetOption);
 rootCommand.AddOption(apiKeyOption);
 rootCommand.AddOption(specificFileOption);
 rootCommand.AddOption(forceOption);
+rootCommand.AddOption(sinceHashOption);
 
-rootCommand.SetHandler(async (sourceDir, targetDir, apiKey, specificFile, force) =>
+rootCommand.SetHandler(async (sourceDir, targetDir, apiKey, specificFile, force, sinceHash) =>
 {
     if (string.IsNullOrWhiteSpace(apiKey))
     {
@@ -38,9 +42,9 @@ rootCommand.SetHandler(async (sourceDir, targetDir, apiKey, specificFile, force)
     }
 
     var translator = new Translator(apiKey, sourceDir, targetDir, force);
-    await translator.RunAsync(specificFile);
+    await translator.RunAsync(specificFile, sinceHash);
 
-}, sourceOption, targetOption, apiKeyOption, specificFileOption, forceOption);
+}, sourceOption, targetOption, apiKeyOption, specificFileOption, forceOption, sinceHashOption);
 
 return await rootCommand.InvokeAsync(args);
 
@@ -48,8 +52,6 @@ return await rootCommand.InvokeAsync(args);
 // ── PlaceholderContext ─────────────────────────────────────────────────────────
 public class PlaceholderContext
 {
-    // 預編譯的 Regex（class 級別共用，避免每次呼叫重建）
-    // 支援縮排的 fenced code block（在有序/無序清單內的 ``` 有前置空格）
     private static readonly Regex _reFencedCodeBlock = new(
         @"(?m)^([ \t]*)(```|~~~)[^\n]*\n[\s\S]*?\n\1\2[ \t]*$",
         RegexOptions.Compiled);
@@ -74,7 +76,6 @@ public class PlaceholderContext
         @"(!?)\[([^\]]*)\]\(([^)]+)\)",
         RegexOptions.Compiled);
 
-    // 常見英文佔位連結文字（Gemini 翻譯不穩定，整塊保護）
     private static readonly HashSet<string> _placeholderLinkWords = new(StringComparer.OrdinalIgnoreCase)
     {
         "", "here", "this", "link", "this link", "click here",
@@ -96,13 +97,9 @@ public class PlaceholderContext
 
     public string Restore(string content)
     {
-        // 反向順序還原：最後 Store 的先還原，避免嵌套 placeholder 的替換順序問題
-        // 用 ToList + for 迴圈反向走，避免 Reverse() 產生中間集合
         var entries = _map.ToList();
         for (int i = entries.Count - 1; i >= 0; i--)
-        {
             content = content.Replace(entries[i].Key, entries[i].Value);
-        }
         return content;
     }
 
@@ -120,7 +117,6 @@ public class PlaceholderContext
 
     private string ProtectYamlFrontMatter(string content)
     {
-        // 統一換行符，確保 regex 能正確匹配（處理 BOM 與 \r\n）
         bool hasCrLf = content.Contains("\r\n");
         content = content.Replace("\r\n", "\n");
 
@@ -129,13 +125,7 @@ public class PlaceholderContext
             var body = m.Groups[1].Value;
             var lines = body.Split('\n');
             var processed = lines.Select(line =>
-            {
-                // uid 整行保護（key 與值都不能動）
-                if (_reUidLine.IsMatch(line))
-                    return Store(line);
-                // 其他所有 key 完整交給 AI 翻譯（key 名稱與值都可翻）
-                return line;
-            });
+                _reUidLine.IsMatch(line) ? Store(line) : line);
             return $"---\n{string.Join("\n", processed)}\n---\n";
         });
 
@@ -159,16 +149,12 @@ public class PlaceholderContext
             var textPart = m.Groups[2].Value;
             var url      = m.Groups[3].Value;
 
-            // 圖片：整塊保護（alt 不翻譯）
             if (isImage)
                 return Store(m.Value);
 
-            // 連結文字為空或是常見的英文佔位詞（here/this/link/click here 等）
-            // 這類文字 Gemini 翻譯結果不穩定，整塊保護讓結構不被破壞
             if (_placeholderLinkWords.Contains(textPart.Trim()))
                 return Store(m.Value);
 
-            // 一般連結：只保護 URL，讓 Gemini 翻譯文字部分
             return $"[{textPart}]({Store(url)})";
         });
     }
@@ -181,15 +167,12 @@ public class Translator
     private const int CooldownMs = 4_000;
     private const int ChunkThreshold = 5_000;
     private const string ModelName = "gemini-3.1-flash-lite-preview";
-
-    // 429 專用：等待 66 秒後重試一次，若還是 429 則切換 key
     private const int QuotaWaitMs = 66_000;
 
     private readonly string _sourceDir;
     private readonly string _targetDir;
     private readonly bool _force;
 
-    // ── 多 Key 輪替 ──
     private readonly List<string> _apiKeys;
     private int _currentKeyIndex;
     private GenerativeModel _model;
@@ -200,8 +183,6 @@ public class Translator
         _targetDir = targetDir;
         _force = force;
 
-        // 解析 API keys（支援逗號或 | 分隔，單組或多組皆可）
-        // TrimEntries 去掉空白，再過濾掉長度不合法的 Key
         var allKeys = (apiKeyCsv ?? "")
             .Split(new[] { ',', '|' }, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)
             .Distinct()
@@ -233,14 +214,8 @@ public class Translator
     }
 
     private static GenerativeModel CreateModel(string apiKey)
-    {
-        return new GoogleAI(apiKey)
-            .GenerativeModel(model: ModelName);
-    }
+        => new GoogleAI(apiKey).GenerativeModel(model: ModelName);
 
-    /// <summary>
-    /// 切換到下一組 API Key。回傳 true 表示成功切換，false 表示所有 key 都用完了。
-    /// </summary>
     private bool SwitchToNextKey()
     {
         _currentKeyIndex++;
@@ -263,30 +238,42 @@ public class Translator
                 Console.WriteLine($"  ⏳ 第 {attempt} 次重試，等待 {wait.TotalSeconds:F0} 秒... ({ex.Message[..Math.Min(60, ex.Message.Length)]})")
         );
 
-    public async Task RunAsync(string specificFile)
+    // ── 主流程 ────────────────────────────────────────────────────────────────
+
+    public async Task RunAsync(string specificFile, string sinceHash)
     {
-        List<string> files;
+        // 1. 取得上游異動清單（git diff 偵測 added/modified）
+        var upstreamChanged = await GetUpstreamChangedFilesAsync(sinceHash);
+        if (upstreamChanged.Count > 0)
+            Console.WriteLine($"🔍 上游異動：{upstreamChanged.Count} 個檔案");
+
+        // 2. 非 MD 同步：孤兒刪除 + 複製 + 一次性推送
+        await SyncNonMarkdownFilesAsync(upstreamChanged);
+
+        // 3. 刪除 MD 孤兒（en/ 已不存在的 zh-Hant/*.md）
+        DeleteMdOrphans();
+
+        // 4. 決定需要翻譯的 MD 清單
+        List<string> mdFiles;
 
         if (!string.IsNullOrWhiteSpace(specificFile))
         {
             if (Directory.Exists(specificFile))
             {
-                // 指定目錄：翻譯該目錄下所有 .md
-                files = Directory
+                mdFiles = Directory
                     .EnumerateFiles(specificFile, "*.md", SearchOption.AllDirectories)
                     .OrderBy(f => f)
                     .ToList();
-                if (files.Count == 0)
+                if (mdFiles.Count == 0)
                 {
                     Console.Error.WriteLine($"❌ 指定目錄下沒有找到任何 .md 檔案：{specificFile}");
                     Environment.Exit(1);
                 }
-                Console.WriteLine($"📂 指定目錄：{specificFile}（共 {files.Count} 個檔案）");
+                Console.WriteLine($"📂 指定目錄：{specificFile}（共 {mdFiles.Count} 個檔案）");
             }
             else if (File.Exists(specificFile))
             {
-                // 指定單一檔案
-                files = [specificFile];
+                mdFiles = [specificFile];
             }
             else
             {
@@ -295,86 +282,52 @@ public class Translator
                 return;
             }
         }
-        else
+        else if (_force)
         {
-            files = Directory
+            mdFiles = Directory
                 .EnumerateFiles(_sourceDir, "*.md", SearchOption.AllDirectories)
                 .OrderBy(f => f)
                 .ToList();
         }
-
-        if (files.Count == 0)
+        else
         {
-            Console.WriteLine("✅ 沒有找到任何 .md 檔案");
+            // 一般模式：zh-Hant 不存在 OR 上游有異動
+            mdFiles = Directory
+                .EnumerateFiles(_sourceDir, "*.md", SearchOption.AllDirectories)
+                .Where(src =>
+                {
+                    var rel     = Path.GetRelativePath(_sourceDir, src);
+                    var dst     = Path.Combine(_targetDir, rel);
+                    var gitPath = $"{_sourceDir}/{rel}".Replace('\\', '/');
+                    return !File.Exists(dst) || upstreamChanged.Contains(gitPath);
+                })
+                .OrderBy(f => f)
+                .ToList();
+        }
+
+        if (mdFiles.Count == 0)
+        {
+            Console.WriteLine("✅ 沒有需要翻譯的 .md 檔案");
             return;
         }
 
-        Console.WriteLine($"\n📚 找到 {files.Count} 個 .md 檔案\n{new string('─', 55)}");
+        Console.WriteLine($"\n📚 需要翻譯：{mdFiles.Count} 個 .md 檔案\n{new string('─', 55)}");
 
-        // 先複製非 .md 檔案（圖片、PDF 等），不等 .md 翻譯完
-        CopyNonMarkdownFiles();
-
-        // 刪除 en/ 已不存在、但 zh-Hant/ 還有的孤兒譯文
-        if (Directory.Exists(_targetDir))
-        {
-            var orphans = Directory
-                .EnumerateFiles(_targetDir, "*.md", SearchOption.AllDirectories)
-                .Where(t =>
-                {
-                    var rel = Path.GetRelativePath(_targetDir, t);
-                    var src = Path.Combine(_sourceDir, rel);
-                    return !File.Exists(src);
-                })
-                .ToList();
-            foreach (var orphan in orphans)
-            {
-                File.Delete(orphan);
-                var hashFile = orphan + ".srchash";
-                if (File.Exists(hashFile)) File.Delete(hashFile);
-                Console.WriteLine($"  🗑️  已刪除孤兒譯文：{Path.GetRelativePath(_targetDir, orphan)}");
-            }
-        }
-
-        int success = 0, skipped = 0, failed = 0;
+        // 5. 逐一翻譯，每完成一個就 push（方便中斷後恢復）
+        int success = 0, failed = 0;
         int consecutiveFailures = 0;
-        const int MaxConsecutiveFailures = 5;   // 連續 5 次翻譯失敗就停（可能是 API 有系統性問題）
-        const int PushEvery = 1; // 每翻成功 1 個就 push，避免程式中斷時浪費已翻譯的 token
+        const int MaxConsecutiveFailures = 5;
+        const int PushEvery = 1;
         bool earlyStop = false;
         var failedFiles = new List<string>();
 
-        for (int i = 0; i < files.Count; i++)
+        for (int i = 0; i < mdFiles.Count; i++)
         {
-            var sourcePath = files[i];
+            var sourcePath = mdFiles[i];
             var relPath    = Path.GetRelativePath(_sourceDir, sourcePath);
             var targetPath = Path.Combine(_targetDir, relPath);
 
-            Console.WriteLine($"\n[{i + 1}/{files.Count}] {relPath}");
-
-            if (!_force && File.Exists(targetPath))
-            {
-                var sourceHash = await GetGitHashAsync(sourcePath);
-                var hashFile   = targetPath + ".srchash";
-
-                if (sourceHash != null && File.Exists(hashFile) &&
-                    (await File.ReadAllTextAsync(hashFile)).Trim() == sourceHash)
-                {
-                    Console.WriteLine("  ⏭️  已存在且無更新，略過");
-                    skipped++;
-                    continue;
-                }
-
-                // zh-Hant 存在但沒有 srchash → 補建 hash 並跳過（不重翻）
-                if (!File.Exists(hashFile))
-                {
-                    if (sourceHash != null)
-                        await File.WriteAllTextAsync(hashFile, sourceHash, new UTF8Encoding(false));
-                    Console.WriteLine("  ⏭️  已存在（補建 hash），略過");
-                    skipped++;
-                    continue;
-                }
-
-                Console.WriteLine("  🔄 來源已更新，重新翻譯...");
-            }
+            Console.WriteLine($"\n[{i + 1}/{mdFiles.Count}] {relPath}");
 
             var result = false;
             try
@@ -384,7 +337,7 @@ public class Translator
             catch (QuotaExhaustedException ex)
             {
                 Console.WriteLine($"\n⛔ {ex.Message}");
-                Console.WriteLine($"   今日已成功：{success}  已略過：{skipped}（使用了 {_currentKeyIndex + 1}/{_apiKeys.Count} 組 Key）");
+                Console.WriteLine($"   今日已成功：{success}（使用了 {_currentKeyIndex + 1}/{_apiKeys.Count} 組 Key）");
                 Console.WriteLine($"   已翻好的檔案將會 commit，明天排程會繼續補翻。");
                 earlyStop = true;
                 break;
@@ -401,36 +354,31 @@ public class Translator
                 failedFiles.Add(sourcePath);
                 consecutiveFailures++;
 
-                // 保護 1：連續失敗過多
                 if (consecutiveFailures >= MaxConsecutiveFailures)
                 {
                     Console.WriteLine($"\n⛔ 連續失敗 {MaxConsecutiveFailures} 次，提早結束以節省 API 配額。");
-                    Console.WriteLine($"   已成功：{success}  已略過：{skipped}  失敗：{failed}");
-                    Console.WriteLine($"   失敗的檔案清單會寫入 .translation-failed.txt，下次排程會重試。");
+                    Console.WriteLine($"   已成功：{success}  失敗：{failed}");
                     earlyStop = true;
                     break;
                 }
 
-                // 保護 2：整體失敗率過高（至少嘗試 10 個之後才檢查）
                 var attempted = success + failed;
                 if (attempted >= 10 && (double)failed / attempted > 0.5)
                 {
-                    Console.WriteLine($"\n⛔ 失敗率過高（{failed}/{attempted} = {(double)failed / attempted:P0}），提早結束以節省 token。");
-                    Console.WriteLine($"   已成功：{success}  已略過：{skipped}  失敗：{failed}");
+                    Console.WriteLine($"\n⛔ 失敗率過高（{failed}/{attempted} = {(double)failed / attempted:P0}），提早結束。");
                     earlyStop = true;
                     break;
                 }
             }
 
-            if (i < files.Count - 1)
+            if (i < mdFiles.Count - 1)
             {
-                // 記錄 API 完成時間，push 利用冷卻時間執行，結束後補足剩餘冷卻
                 var apiDoneAt = DateTime.UtcNow;
 
                 if (result && success % PushEvery == 0)
                     await PushProgressAsync(success);
 
-                var elapsed = (int)(DateTime.UtcNow - apiDoneAt).TotalMilliseconds;
+                var elapsed   = (int)(DateTime.UtcNow - apiDoneAt).TotalMilliseconds;
                 var remaining = CooldownMs - elapsed;
                 if (remaining > 0)
                     await Task.Delay(remaining);
@@ -438,9 +386,8 @@ public class Translator
         }
 
         Console.WriteLine($"\n{new string('─', 55)}");
-        Console.WriteLine($"✅ 成功：{success}  ⏭️  略過：{skipped}  ❌ 失敗：{failed}");
+        Console.WriteLine($"✅ 成功：{success}  ❌ 失敗：{failed}");
 
-        // 寫入失敗清單，方便手動補翻
         var failedListPath = Path.Combine(_targetDir, ".translation-failed.txt");
         if (failedFiles.Count > 0)
         {
@@ -451,34 +398,166 @@ public class Translator
         }
         else if (File.Exists(failedListPath))
         {
-            // 全部成功就刪掉舊的失敗清單
             File.Delete(failedListPath);
         }
 
-        // earlyStop 時正常結束（讓 workflow 繼續執行 commit），否則有失敗才報錯
         if (!earlyStop && failed > 0) Environment.Exit(1);
     }
+
+    // ── 上游異動偵測 ──────────────────────────────────────────────────────────
+
+    /// <summary>
+    /// 執行 git diff --name-status SINCE HEAD -- en/，回傳 Added/Modified 的路徑集合。
+    /// Deleted 由孤兒掃描處理，不在此集合中。
+    /// </summary>
+    private async Task<HashSet<string>> GetUpstreamChangedFilesAsync(string sinceHash)
+    {
+        var changed = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+        if (string.IsNullOrWhiteSpace(sinceHash)) return changed;
+
+        try
+        {
+            var output = await RunGitOutputAsync($"diff --name-status {sinceHash} HEAD -- {_sourceDir}/");
+            foreach (var line in output.Split('\n', StringSplitOptions.RemoveEmptyEntries))
+            {
+                var parts = line.Split('\t', 2);
+                if (parts.Length < 2) continue;
+                var status = parts[0].Trim();
+                if (status == "D") continue; // 刪除由孤兒掃描處理
+                var path = parts[1].Trim().Replace('\\', '/');
+                changed.Add(path);
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"  ⚠️  無法取得上游異動清單：{ex.Message}（將以檔案存在性判斷）");
+        }
+
+        return changed;
+    }
+
+    // ── 非 MD 同步 ────────────────────────────────────────────────────────────
+
+    private async Task SyncNonMarkdownFilesAsync(HashSet<string> upstreamChanged)
+    {
+        // 刪除孤兒非 MD 檔（zh-Hant/ 有但 en/ 已不存在）
+        if (Directory.Exists(_targetDir))
+        {
+            foreach (var targetPath in Directory
+                .EnumerateFiles(_targetDir, "*", SearchOption.AllDirectories)
+                .Where(f => !f.EndsWith(".md", StringComparison.OrdinalIgnoreCase)
+                         && !f.EndsWith(".translation-failed.txt", StringComparison.OrdinalIgnoreCase))
+                .ToList())
+            {
+                var rel     = Path.GetRelativePath(_targetDir, targetPath);
+                var srcPath = Path.Combine(_sourceDir, rel);
+                if (!File.Exists(srcPath))
+                {
+                    File.Delete(targetPath);
+                    Console.WriteLine($"  🗑️  已刪除孤兒資源：{rel}");
+                }
+            }
+        }
+
+        var nonMdFiles = Directory
+            .EnumerateFiles(_sourceDir, "*", SearchOption.AllDirectories)
+            .Where(f => !f.EndsWith(".md", StringComparison.OrdinalIgnoreCase))
+            .OrderBy(f => f)
+            .ToList();
+
+        if (nonMdFiles.Count == 0) return;
+
+        Console.WriteLine("\n📁 同步非 .md 檔案...");
+        int copied = 0, skipped = 0;
+
+        foreach (var sourcePath in nonMdFiles)
+        {
+            var relPath    = Path.GetRelativePath(_sourceDir, sourcePath);
+            var targetPath = Path.Combine(_targetDir, relPath);
+            var gitPath    = $"{_sourceDir}/{relPath}".Replace('\\', '/');
+
+            bool shouldCopy = _force
+                || !File.Exists(targetPath)
+                || upstreamChanged.Contains(gitPath);
+
+            if (!shouldCopy) { skipped++; continue; }
+
+            try
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(targetPath)!);
+                File.Copy(sourcePath, targetPath, overwrite: true);
+                copied++;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"  ⚠️  複製失敗 {relPath}：{ex.Message}");
+            }
+        }
+
+        Console.WriteLine($"  📁 複製：{copied}  略過：{skipped}");
+
+        if (copied == 0) return;
+
+        Console.WriteLine("  💾 推送非 .md 資源...");
+        try
+        {
+            await RunGitAsync("add zh-Hant/");
+            try
+            {
+                await RunGitAsync("commit -m \"📦 同步非文字資源（圖片、PDF 等）\"");
+            }
+            catch
+            {
+                Console.WriteLine("  ℹ️  無新變更需要 commit");
+                return;
+            }
+            await RunGitAsync("push origin auto-translate --force");
+            Console.WriteLine("  ✅ 推送成功");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"  ⚠️  推送失敗：{ex.Message}（翻譯完成後會一起推送）");
+        }
+    }
+
+    // ── MD 孤兒清理 ───────────────────────────────────────────────────────────
+
+    private void DeleteMdOrphans()
+    {
+        if (!Directory.Exists(_targetDir)) return;
+
+        foreach (var targetPath in Directory
+            .EnumerateFiles(_targetDir, "*.md", SearchOption.AllDirectories)
+            .ToList())
+        {
+            var rel     = Path.GetRelativePath(_targetDir, targetPath);
+            var srcPath = Path.Combine(_sourceDir, rel);
+            if (!File.Exists(srcPath))
+            {
+                File.Delete(targetPath);
+                Console.WriteLine($"  🗑️  已刪除孤兒譯文：{rel}");
+            }
+        }
+    }
+
+    // ── 中途推送（MD 翻譯用） ─────────────────────────────────────────────────
 
     private static int _consecutivePushFailures = 0;
     private const int MaxPushFailures = 3;
 
     private static async Task PushProgressAsync(int count)
     {
-        // 連續 push 失敗超過上限，不再嘗試（避免浪費時間，翻譯結果保留在本地）
         if (_consecutivePushFailures >= MaxPushFailures)
         {
             if (_consecutivePushFailures == MaxPushFailures)
             {
-                Console.WriteLine($"\n  🚫 已連續 {MaxPushFailures} 次 push 失敗，後續不再嘗試中途推送。翻譯結果保留在本地，由 workflow 最後統一推送。");
-                _consecutivePushFailures++; // 只印一次提示
+                Console.WriteLine($"\n  🚫 已連續 {MaxPushFailures} 次 push 失敗，後續不再嘗試中途推送。");
+                _consecutivePushFailures++;
             }
             return;
         }
 
         Console.WriteLine($"\n  💾 中途儲存：已完成 {count} 個，推送至 GitHub...");
-
-        // 在 auto-translate branch 上，只有 workflow 自己在操作
-        // 不需要 pull，直接 add → commit → push --force
 
         try { await RunGitAsync("add zh-Hant/"); }
         catch (Exception ex)
@@ -492,14 +571,14 @@ public class Translator
         catch
         {
             Console.WriteLine("  ℹ️  沒有新變更需要 commit");
-            return; // 沒東西 commit 不算失敗
+            return;
         }
 
         try
         {
             await RunGitAsync("push origin auto-translate --force");
             Console.WriteLine($"  ✅ 中途推送成功");
-            _consecutivePushFailures = 0; // 成功就歸零
+            _consecutivePushFailures = 0;
         }
         catch (Exception ex)
         {
@@ -509,6 +588,8 @@ public class Translator
                 Console.WriteLine($"  🚫 已連續 {MaxPushFailures} 次 push 失敗，後續將停止中途推送。");
         }
     }
+
+    // ── Git 工具 ──────────────────────────────────────────────────────────────
 
     private static async Task RunGitAsync(string args)
     {
@@ -520,11 +601,9 @@ public class Translator
         };
         using var proc = System.Diagnostics.Process.Start(psi)!;
 
-        // 同時讀取 stdout/stderr，避免 buffer 滿導致 deadlock
         var stdoutTask = proc.StandardOutput.ReadToEndAsync();
         var stderrTask = proc.StandardError.ReadToEndAsync();
 
-        // 最多等 300 秒（5 分鐘），避免大量圖片 push 時被誤殺
         using var cts = new System.Threading.CancellationTokenSource(TimeSpan.FromSeconds(300));
         try
         {
@@ -533,7 +612,7 @@ public class Translator
         catch (OperationCanceledException)
         {
             proc.Kill(entireProcessTree: true);
-            throw new Exception($"git {args} 逾時（超過 60 秒）");
+            throw new Exception($"git {args} 逾時（超過 300 秒）");
         }
 
         var err = await stderrTask;
@@ -541,58 +620,27 @@ public class Translator
             throw new Exception($"git {args} 失敗：{err.Trim()}");
     }
 
-    private void CopyNonMarkdownFiles()
+    private static async Task<string> RunGitOutputAsync(string args)
     {
-        var nonMdFiles = Directory
-            .EnumerateFiles(_sourceDir, "*", SearchOption.AllDirectories)
-            .Where(f => !f.EndsWith(".md", StringComparison.OrdinalIgnoreCase))
-            .OrderBy(f => f)
-            .ToList();
-
-        if (nonMdFiles.Count == 0) return;
-
-        int copied = 0, skipped = 0;
-        Console.WriteLine($"\n📁 複製非 .md 檔案...");
-
-        foreach (var sourcePath in nonMdFiles)
+        var psi = new System.Diagnostics.ProcessStartInfo("git", args)
         {
-            var relPath    = Path.GetRelativePath(_sourceDir, sourcePath);
-            var targetPath = Path.Combine(_targetDir, relPath);
-
-            // 來源比目標新（或目標不存在）才複製
-            if (File.Exists(targetPath))
-            {
-                var sourceTime = File.GetLastWriteTimeUtc(sourcePath);
-                var targetTime = File.GetLastWriteTimeUtc(targetPath);
-                if (sourceTime <= targetTime)
-                {
-                    skipped++;
-                    continue;
-                }
-            }
-
-            try
-            {
-                Directory.CreateDirectory(Path.GetDirectoryName(targetPath)!);
-                File.Copy(sourcePath, targetPath, overwrite: true);
-                Console.WriteLine($"  📄 {relPath}");
-                copied++;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"  ⚠️  複製失敗 {relPath}：{ex.Message}");
-            }
-        }
-
-        Console.WriteLine($"  📁 複製：{copied}  略過：{skipped}");
+            RedirectStandardOutput = true,
+            RedirectStandardError  = true,
+            UseShellExecute        = false,
+        };
+        using var proc = System.Diagnostics.Process.Start(psi)!;
+        var output = await proc.StandardOutput.ReadToEndAsync();
+        await proc.WaitForExitAsync();
+        return output;
     }
+
+    // ── 翻譯核心 ──────────────────────────────────────────────────────────────
 
     private async Task<bool> TranslateFileAsync(string sourcePath, string targetPath)
     {
         string content;
         try { content = await File.ReadAllTextAsync(sourcePath, new UTF8Encoding(false)); }
         catch (Exception ex) { Console.WriteLine($"  ❌ 讀取失敗：{ex.Message}"); return false; }
-        // 移除 BOM，確保 YAML front matter regex 能正確匹配
         content = content.TrimStart('\uFEFF');
 
         if (content.Trim().Length < 10)
@@ -608,33 +656,23 @@ public class Translator
         string translated;
         try
         {
-            // 先在整篇層面做 Placeholder 保護（保護 code block、URL 等）
             var ctx = new PlaceholderContext();
             var protectedContent = ctx.Extract(content);
 
             string raw;
             if (content.Length > ChunkThreshold)
-            {
-                // 大檔案：按標題切段，每段獨立翻譯
                 raw = await TranslateInChunksAsync(protectedContent);
-            }
             else
-            {
-                // 小檔案：整篇一次翻
                 raw = await TranslateWithRetryAsync(protectedContent);
-            }
 
-            // 先還原 placeholder，再做 PostProcess
             translated = PostProcess(ctx.Restore(raw));
         }
         catch (QuotaExhaustedException)
         {
-            // 往上拋，由 RunAsync 處理 earlyStop
             throw;
         }
         catch (Exception ex)
         {
-            // 404 表示模型不存在，繼續重試也沒用，立刻終止整個程式
             if (ex.Message.Contains("404") || ex.Message.Contains("NOT_FOUND") || ex.Message.Contains("not found for API"))
             {
                 Console.Error.WriteLine($"\n⛔ 致命錯誤：模型不存在或 API 版本不支援，請確認模型名稱。");
@@ -642,7 +680,6 @@ public class Translator
                 Environment.Exit(2);
             }
             Console.WriteLine($"  ❌ 翻譯失敗：{ex.Message}");
-            // 刪除半成品，下次排程會重新翻譯
             if (File.Exists(targetPath))
             {
                 File.Delete(targetPath);
@@ -654,40 +691,12 @@ public class Translator
         Directory.CreateDirectory(Path.GetDirectoryName(targetPath)!);
         await File.WriteAllTextAsync(targetPath, translated, new UTF8Encoding(false));
 
-        // 記錄本次翻譯時的 en/ 檔案 hash，下次用來判斷是否需要重翻
-        var hash = await GetGitHashAsync(sourcePath);
-        if (hash != null)
-            await File.WriteAllTextAsync(targetPath + ".srchash", hash, new UTF8Encoding(false));
-
         Console.WriteLine($"  ✅ → {targetPath}");
         return true;
     }
 
-    /// <summary>取得檔案在 git 中的 blob hash（用於判斷內容是否有變更）</summary>
-    private static async Task<string?> GetGitHashAsync(string filePath)
-    {
-        try
-        {
-            var psi = new System.Diagnostics.ProcessStartInfo(
-                "git", $"hash-object \"{filePath}\"")
-            {
-                RedirectStandardOutput = true,
-                RedirectStandardError  = true,
-                UseShellExecute        = false,
-            };
-            using var proc = System.Diagnostics.Process.Start(psi)!;
-            var output = await proc.StandardOutput.ReadToEndAsync();
-            await proc.WaitForExitAsync();
-            var hash = output.Trim();
-            return string.IsNullOrEmpty(hash) ? null : hash;
-        }
-        catch
-        {
-            return null;
-        }
-    }
+    // ── PostProcess ───────────────────────────────────────────────────────────
 
-    // PostProcess 用到的預編譯 Regex
     private static readonly Regex _reHeadFrontMatter = new(
         @"\A---\n[\s\S]*?\n---[ \t]*\n?", RegexOptions.Compiled);
     private static readonly Regex _reFakeFrontMatter = new(
@@ -705,22 +714,11 @@ public class Translator
     private static readonly Regex _reUidEn = new(
         @"(uid:\s*)en/", RegexOptions.Compiled);
 
-    /// <summary>
-    /// 翻譯完成後的後處理：
-    /// 1. 移除 Gemini 在分段翻譯時擅自插入的額外 YAML front matter 區塊（非檔案開頭的 --- ... ---）
-    /// 2. 移除 Gemini 偶爾吐回的成對孤立 --- 分隔線（來自 prompt 裡的 ---\n{content}\n--- 結構）
-    /// 3. xref:en/ → xref:zh-Hant/
-    /// 4. uid: en/ → uid: zh-Hant/
-    /// 5. 將首段 front matter 的 key 名稱翻成中文
-    /// </summary>
     private static string PostProcess(string content)
     {
-        // 先統一換行方便 regex 處理
         bool hasCrLf = content.Contains("\r\n");
         content = content.Replace("\r\n", "\n");
 
-        // 1. 先抽出「檔案開頭」的合法 front matter（以 \A--- 開頭）
-        //    暫時保留，避免後續步驟誤刪
         string? headFrontMatter = null;
         var headMatch = _reHeadFrontMatter.Match(content);
         if (headMatch.Success)
@@ -729,21 +727,13 @@ public class Translator
             content = content[headMatch.Length..];
         }
 
-        // 2. 移除「中間位置」Gemini 擅自生成的偽 front matter 區塊
-        //    特徵：以 --- 獨立一行開頭，內含至少一行 key: value，以 --- 獨立一行結尾
         content = _reFakeFrontMatter.Replace(content, "");
-
-        // 3. 移除 Gemini 從 prompt 結構吐回的「成對孤立 ---」
-        //    只在它們與區塊邊界相鄰時移除，避免誤刪合法的 Markdown 水平分隔線。
         content = _reConsecutiveDashes.Replace(content, "");
         content = _reDashBeforeHeading.Replace(content, "");
 
-        // 3.5 確保段落結構正確：標題與區塊引用前要有空行
         content = _reBlankLineBeforeHeading.Replace(content, "${prev}\n\n");
         content = _reBlankLineBeforeAlert.Replace(content, "${prev}\n\n");
 
-        // 4. 在「還原 headFrontMatter 之前」先對它做 xref/uid + key 翻譯
-        //    這樣後續只要把處理好的 headFrontMatter 貼回去即可，避免切片位移 bug
         if (headFrontMatter != null)
         {
             headFrontMatter = _reXrefEn.Replace(headFrontMatter, "xref:zh-Hant/");
@@ -753,11 +743,9 @@ public class Translator
             headFrontMatter = Regex.Replace(headFrontMatter, @"(?m)^title:(?=\s|$)", "標題:");
         }
 
-        // 5. body 部分也做 xref/uid 替換（針對內文中的 xref:en/...、uid: en/...）
         content = _reXrefEn.Replace(content, "xref:zh-Hant/");
         content = _reUidEn.Replace(content, "$1zh-Hant/");
 
-        // 6. 還原 headFrontMatter
         if (headFrontMatter != null)
             content = headFrontMatter + content;
 
@@ -767,7 +755,8 @@ public class Translator
         return content;
     }
 
-    // 高頻使用的 Regex（每次翻譯都會跑）
+    // ── 翻譯重試與分段 ────────────────────────────────────────────────────────
+
     private static readonly Regex _rePlaceholder = new(
         @"\[\[PROTECT_\d+\]\]", RegexOptions.Compiled);
     private static readonly Regex _reInputMarker = new(
@@ -781,20 +770,17 @@ public class Translator
 
     private async Task<string> TranslateWithRetryAsync(string content)
     {
-        // 品質偵測重試：最多 3 次（Polly 負責 503，這裡負責翻譯不全）
         const int maxQualityRetries = 3;
         for (int attempt = 1; attempt <= maxQualityRetries; attempt++)
         {
             var translated = await _retryPolicy.ExecuteAsync(() => CallGeminiAsyncWithKeyRetry(content));
 
-            // 移除佔位符後再判斷，避免「只有佔位符」的段落誤觸發
             var cleanOriginal   = _rePlaceholder.Replace(content,    "").Trim();
             var cleanTranslated = _rePlaceholder.Replace(translated, "").Trim();
 
             var enChars = cleanOriginal.Count(c => (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
             var zhChars = cleanTranslated.Count(c => c >= 0x4E00 && c <= 0x9FFF);
 
-            // 原文有足夠英文但譯文完全沒有中文 → 視為翻譯失敗
             if (cleanOriginal.Length > 10 && enChars > 50 && zhChars == 0)
             {
                 Console.WriteLine($"  ⚠️ 翻譯不全（譯文無中文，原文英文:{enChars}）" +
@@ -806,7 +792,6 @@ public class Translator
             return translated;
         }
 
-        // 不應該到這裡，但為了編譯器
         throw new Exception("Translation failed: unexpected state.");
     }
 
@@ -840,9 +825,6 @@ public class Translator
         }
     }
 
-    /// <summary>
-    /// 判斷是否為 API Key 無效的錯誤（認證/授權失敗）。
-    /// </summary>
     private static bool IsInvalidKeyError(Exception ex)
     {
         var msg = ex.Message;
@@ -878,7 +860,6 @@ public class Translator
         if (string.IsNullOrWhiteSpace(text))
             throw new Exception("Gemini 回傳空內容");
 
-        // 偵測輸出是否被截斷（finishReason 不是 STOP）
         var finishReason = response.Candidates?.FirstOrDefault()?.FinishReason;
         if (finishReason?.ToString()?.Contains("MaxTokens", StringComparison.OrdinalIgnoreCase) == true ||
             finishReason?.ToString()?.Contains("MAX_TOKENS", StringComparison.OrdinalIgnoreCase) == true)
@@ -887,11 +868,8 @@ public class Translator
                 $"Gemini 輸出被截斷（finishReason={finishReason}），段落太大。已輸出 {text.Length} 字元。");
         }
 
-        // 清除 Gemini 可能回吐的 prompt 分隔標記
         text = _reInputMarker.Replace(text, "");
         text = _reEndMarker.Replace(text, "");
-
-        // 清除 Gemini 有時外包的 markdown fence（如 ```markdown ... ```）
         text = _reMarkdownFenceStart.Replace(text, "");
         text = _reMarkdownFenceEnd.Replace(text, "");
 
@@ -915,7 +893,6 @@ public class Translator
 
     private static List<string> SplitSafely(string content)
     {
-        // 用 ## / ### 標題作為切割點，每個章節獨立翻譯（不合併）
         var rawSections = Regex
             .Split(content, @"(?=^#{2,3} )", RegexOptions.Multiline)
             .Where(s => s.Trim().Length > 0)
@@ -929,9 +906,7 @@ public class Translator
                 result.Add(section);
                 continue;
             }
-            // 超過上限的大段落，在空行處切開
-            var subChunks = SplitOnBlankLines(section);
-            result.AddRange(subChunks);
+            result.AddRange(SplitOnBlankLines(section));
         }
         return result;
     }
