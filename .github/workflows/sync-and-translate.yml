@@ -1,0 +1,180 @@
+name: Sync Upstream & Auto Translate to zh-Hant
+
+on:
+  schedule:
+    # 這會在 UTC 00:10 和 12:10 執行
+    # 對應台灣時間 08:10 和 20:10
+    - cron: '10 0,12 * * *'
+  workflow_dispatch:
+    inputs:
+      force_retranslate:
+        description: '強制重新翻譯（覆蓋已存在的 zh-Hant 檔案）'
+        required: false
+        default: 'false'
+      specific_file:
+        description: '只翻譯單一檔案或目錄（例如：en/getting-started/index.md 或 en/developer/plugins）'
+        required: false
+        default: ''
+
+# 同一時間只能跑一個翻譯 workflow，避免多個實例互相衝突
+concurrency:
+  group: translate
+  cancel-in-progress: false
+
+jobs:
+  sync-and-translate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Clean build
+        run: dotnet clean .github/scripts/translate/translate.csproj || true
+
+      - name: Restore NuGet packages
+        run: dotnet restore .github/scripts/translate/translate.csproj
+
+      - name: Configure git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Add upstream remote & fetch
+        run: |
+          git remote add upstream https://github.com/nopSolutions/nopCommerce-Docs.git || true
+          git fetch upstream master
+
+      - name: Check for upstream changes
+        id: check_changes
+        run: |
+          if [ -f ".last-upstream-sync" ]; then
+            LAST_SYNC=$(cat .last-upstream-sync)
+          else
+            LAST_SYNC=$(git rev-parse upstream/master~1)
+          fi
+
+          CURRENT_UPSTREAM=$(git rev-parse upstream/master)
+          echo "last_sync=$LAST_SYNC" >> $GITHUB_OUTPUT
+          echo "current_upstream=$CURRENT_UPSTREAM" >> $GITHUB_OUTPUT
+
+          FORCE="${{ github.event.inputs.force_retranslate }}"
+          SPECIFIC="${{ github.event.inputs.specific_file }}"
+
+          # 檢查 zh-Hant/ 是否有缺少對應的翻譯檔案
+          MISSING=0
+          for f in $(find en -name "*.md" 2>/dev/null); do
+            target="zh-Hant/${f#en/}"
+            if [ ! -f "$target" ]; then
+              MISSING=1
+              echo "缺少翻譯：$target"
+              break
+            fi
+          done
+
+          if [ "$LAST_SYNC" = "$CURRENT_UPSTREAM" ] && [ "$FORCE" != "true" ] && [ -z "$SPECIFIC" ] && [ "$MISSING" = "0" ]; then
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+            echo "✅ 上游沒有新變動且無缺少翻譯，跳過"
+          else
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+            echo "🔄 準備執行翻譯"
+          fi
+
+      # ── 在獨立 branch 上工作，避免與手動 push 到 master 的修改衝突 ──
+      - name: Create translation branch
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git checkout -B auto-translate origin/master
+          echo "📌 已切到 auto-translate branch（基於最新 master）"
+
+      - name: Merge upstream into en/
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          git merge upstream/master --no-edit --allow-unrelated-histories -X theirs || true
+          git checkout HEAD -- .github/
+
+      - name: Run C# translator
+        if: steps.check_changes.outputs.has_changes == 'true'
+        env:
+          GEMINI_API_KEY1: ${{ secrets.GEMINI_API_KEY1 }}
+          GEMINI_API_KEY2: ${{ secrets.GEMINI_API_KEY2 }}
+          GEMINI_API_KEY3: ${{ secrets.GEMINI_API_KEY3 }}
+          GEMINI_API_KEY4: ${{ secrets.GEMINI_API_KEY4 }}
+          GEMINI_API_KEY5: ${{ secrets.GEMINI_API_KEY5 }}
+        run: |
+          # 將多個 Key 用 | 合併（過濾掉未設定的空值）
+          COMBINED_KEYS=""
+          for KEY in "$GEMINI_API_KEY1" "$GEMINI_API_KEY2" "$GEMINI_API_KEY3" "$GEMINI_API_KEY4" "$GEMINI_API_KEY5"; do
+            if [ -n "$KEY" ]; then
+              if [ -n "$COMBINED_KEYS" ]; then
+                COMBINED_KEYS="$COMBINED_KEYS|$KEY"
+              else
+                COMBINED_KEYS="$KEY"
+              fi
+            fi
+          done
+
+          dotnet run \
+            --project .github/scripts/translate/translate.csproj \
+            --configuration Release \
+            -- --source-dir en --target-dir zh-Hant --api-key "$COMBINED_KEYS" \
+            $([ -n "${{ github.event.inputs.specific_file }}" ] && echo "--specific-file ${{ github.event.inputs.specific_file }}") \
+            $([ "${{ github.event.inputs.force_retranslate }}" = "true" ] && echo "--force")
+
+      - name: Update last sync marker
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          echo "${{ steps.check_changes.outputs.current_upstream }}" > .last-upstream-sync
+
+      - name: Commit translation results
+        if: steps.check_changes.outputs.has_changes == 'true'
+        id: commit_translation
+        run: |
+          git add zh-Hant/ .last-upstream-sync
+
+          if git diff --staged --quiet; then
+            echo "ℹ️  本次沒有新的 staged 變更（可能 C# 程式已中途 commit 過）"
+          else
+            SHORT=$(echo "${{ steps.check_changes.outputs.current_upstream }}" | cut -c1-7)
+            git commit -m "🌐 自動翻譯更新 [upstream: ${SHORT}]
+
+            - 同步上游 nopCommerce-Docs 變更
+            - 翻譯新增/修改的 .md 為繁體中文 → zh-Hant/
+            - 翻譯引擎：Google Gemini Flash"
+          fi
+
+          # 判斷 auto-translate 是否比 origin/master 超前（有 commit 要 merge）
+          git fetch origin master
+          AHEAD=$(git rev-list --count origin/master..HEAD)
+          echo "auto-translate 比 master 超前 ${AHEAD} 個 commit"
+          if [ "$AHEAD" = "0" ]; then
+            echo "has_new_commits=false" >> $GITHUB_OUTPUT
+          else
+            echo "has_new_commits=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Push & merge to master
+        if: steps.commit_translation.outputs.has_new_commits == 'true'
+        run: |
+          # 1. 推送翻譯分支
+          git push origin auto-translate --force
+          echo "✅ auto-translate branch 已推送"
+
+          # 2. 切回 master，明確指定 origin 避免與 upstream 衝突
+          git checkout -B master origin/master
+          git pull origin master
+
+          # 3. 合併翻譯結果，衝突時以 auto-translate（新翻譯）為準
+          git merge auto-translate --no-edit -X theirs -m "🔀 合併翻譯結果 (auto-translate → master)"
+          git push origin master
+          echo "✅ 翻譯結果已合併到 master"
