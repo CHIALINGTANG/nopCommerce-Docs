@@ -486,12 +486,26 @@ public class Translator
             UseShellExecute        = false,
         };
         using var proc = System.Diagnostics.Process.Start(psi)!;
-        await proc.WaitForExitAsync();
-        if (proc.ExitCode != 0)
+
+        // 同時讀取 stdout/stderr，避免 buffer 滿導致 deadlock
+        var stdoutTask = proc.StandardOutput.ReadToEndAsync();
+        var stderrTask = proc.StandardError.ReadToEndAsync();
+
+        // 最多等 60 秒，避免 git 操作無限 hang 住
+        using var cts = new System.Threading.CancellationTokenSource(TimeSpan.FromSeconds(60));
+        try
         {
-            var err = await proc.StandardError.ReadToEndAsync();
-            throw new Exception($"git {args} 失敗：{err.Trim()}");
+            await proc.WaitForExitAsync(cts.Token);
         }
+        catch (OperationCanceledException)
+        {
+            proc.Kill(entireProcessTree: true);
+            throw new Exception($"git {args} 逾時（超過 60 秒）");
+        }
+
+        var err = await stderrTask;
+        if (proc.ExitCode != 0)
+            throw new Exception($"git {args} 失敗：{err.Trim()}");
     }
 
     private void CopyNonMarkdownFiles()
