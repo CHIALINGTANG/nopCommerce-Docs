@@ -352,10 +352,9 @@ public class Translator
 
             if (!_force && File.Exists(targetPath))
             {
-                // 比較 en/ 檔案的 git hash 與上次翻譯時記錄的 hash
-                // 若相同表示上游沒有更新，略過
                 var sourceHash = await GetGitHashAsync(sourcePath);
                 var hashFile   = targetPath + ".srchash";
+
                 if (sourceHash != null && File.Exists(hashFile) &&
                     (await File.ReadAllTextAsync(hashFile)).Trim() == sourceHash)
                 {
@@ -363,7 +362,18 @@ public class Translator
                     skipped++;
                     continue;
                 }
-                Console.WriteLine(File.Exists(hashFile) ? "  🔄 來源已更新，重新翻譯..." : "  🔄 無 hash 記錄，重新翻譯...");
+
+                // zh-Hant 存在但沒有 srchash → 補建 hash 並跳過（不重翻）
+                if (!File.Exists(hashFile))
+                {
+                    if (sourceHash != null)
+                        await File.WriteAllTextAsync(hashFile, sourceHash, new UTF8Encoding(false));
+                    Console.WriteLine("  ⏭️  已存在（補建 hash），略過");
+                    skipped++;
+                    continue;
+                }
+
+                Console.WriteLine("  🔄 來源已更新，重新翻譯...");
             }
 
             var result = false;
@@ -514,8 +524,8 @@ public class Translator
         var stdoutTask = proc.StandardOutput.ReadToEndAsync();
         var stderrTask = proc.StandardError.ReadToEndAsync();
 
-        // 最多等 60 秒，避免 git 操作無限 hang 住
-        using var cts = new System.Threading.CancellationTokenSource(TimeSpan.FromSeconds(60));
+        // 最多等 300 秒（5 分鐘），避免大量圖片 push 時被誤殺
+        using var cts = new System.Threading.CancellationTokenSource(TimeSpan.FromSeconds(300));
         try
         {
             await proc.WaitForExitAsync(cts.Token);
