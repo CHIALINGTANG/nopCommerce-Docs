@@ -803,25 +803,44 @@ public class Translator
         }
         catch (Exception ex) when (IsInvalidKeyError(ex))
         {
-            Console.WriteLine($"  ⚠️  API Key 無效：{ex.Message[..Math.Min(80, ex.Message.Length)]}");
+            // 401 / 403 / API_KEY_INVALID → Key 本身有問題，直接換下一組
+            Console.WriteLine($"    ❌ [Key {_currentKeyIndex + 1}/{_apiKeys.Count}] 驗證失敗（401/403）：{ex.Message[..Math.Min(60, ex.Message.Length)]}");
             if (SwitchToNextKey())
                 return await CallGeminiAsync(content);
             throw new QuotaExhaustedException($"所有 {_apiKeys.Count} 組 API Key 都無效或已耗盡。");
         }
         catch (Exception ex) when (ex.Message.Contains("429") || ex.Message.Contains("quota"))
         {
-            Console.WriteLine($"  ⚠️  429 Too Many Requests，等待 {QuotaWaitMs / 1000} 秒後重試...");
-            await Task.Delay(QuotaWaitMs);
+            // 429 → 等待 66s 後以同一組 Key 重試一次；若仍 429 才換 Key
+            Console.WriteLine($"    ⚠️  [Key {_currentKeyIndex + 1}/{_apiKeys.Count}] 429 配額耗盡，等待 {QuotaWaitMs / 1000}s 後重試...");
+            await QuotaWaitWithProgressAsync();
+            Console.WriteLine($"    🔁 [Key {_currentKeyIndex + 1}/{_apiKeys.Count}] 重試中...");
             try
             {
                 return await CallGeminiAsync(content);
             }
             catch (Exception retryEx) when (retryEx.Message.Contains("429") || retryEx.Message.Contains("quota"))
             {
+                Console.WriteLine($"    ⚠️  [Key {_currentKeyIndex + 1}/{_apiKeys.Count}] 重試後仍 429，切換 Key...");
                 if (SwitchToNextKey())
                     return await CallGeminiAsync(content);
                 throw new QuotaExhaustedException($"所有 {_apiKeys.Count} 組 API Key 的今日配額皆已耗盡。");
             }
+        }
+    }
+
+    /// <summary>429 等待期間每 15s 印一次進度，讓使用者知道正在倒數</summary>
+    private static async Task QuotaWaitWithProgressAsync()
+    {
+        const int intervalMs = 15_000;
+        int waited = 0;
+        while (waited < QuotaWaitMs)
+        {
+            int next = Math.Min(intervalMs, QuotaWaitMs - waited);
+            await Task.Delay(next);
+            waited += next;
+            if (waited < QuotaWaitMs)
+                Console.WriteLine($"    ⏳  配額等待中... {waited / 1000}s / {QuotaWaitMs / 1000}s");
         }
     }
 
@@ -837,6 +856,8 @@ public class Translator
 
     private async Task<string> CallGeminiAsync(string content)
     {
+        var keyLabel = $"Key {_currentKeyIndex + 1}/{_apiKeys.Count}";
+
         var prompt = $"""
             {SystemPrompt.Text}
             【任務示範】
@@ -856,7 +877,8 @@ public class Translator
             6. 程式碼區塊（``` 包住的部分）以外，絕對不允許出現整段英文句子或英文段落。
             """;
 
-        // 背景計時器：每 15 秒顯示等待狀態，讓使用者知道 API 仍在回應中
+        // 顯示使用哪組 Key 發出請求，並啟動背景計時器（每 15s 提示仍在等待）
+        Console.WriteLine($"    📡 [{keyLabel}] 送出請求...");
         var startTime = DateTime.UtcNow;
         using var cts = new System.Threading.CancellationTokenSource();
         var ticker = Task.Run(async () =>
@@ -867,7 +889,7 @@ public class Translator
                 {
                     await Task.Delay(15_000, cts.Token);
                     var elapsed = (int)(DateTime.UtcNow - startTime).TotalSeconds;
-                    Console.WriteLine($"    ⏱️  等待 Gemini 回應... {elapsed}s");
+                    Console.WriteLine($"    ⏱️  [{keyLabel}] 等待回應... {elapsed}s");
                 }
             }
             catch (OperationCanceledException) { }
@@ -877,9 +899,8 @@ public class Translator
         cts.Cancel();
         await ticker;
 
-        var elapsed2 = (int)(DateTime.UtcNow - startTime).TotalSeconds;
-        if (elapsed2 >= 15)
-            Console.WriteLine($"    ✅ 回應完成（{elapsed2}s）");
+        var totalSec = (int)(DateTime.UtcNow - startTime).TotalSeconds;
+        Console.WriteLine($"    ✅ [{keyLabel}] 收到回應（{totalSec}s）");
 
         var text = response.Text;
         if (string.IsNullOrWhiteSpace(text))
