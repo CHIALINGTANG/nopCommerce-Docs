@@ -314,6 +314,27 @@ public class Translator
         // 先複製非 .md 檔案（圖片、PDF 等），不等 .md 翻譯完
         CopyNonMarkdownFiles();
 
+        // 刪除 en/ 已不存在、但 zh-Hant/ 還有的孤兒譯文
+        if (Directory.Exists(_targetDir))
+        {
+            var orphans = Directory
+                .EnumerateFiles(_targetDir, "*.md", SearchOption.AllDirectories)
+                .Where(t =>
+                {
+                    var rel = Path.GetRelativePath(_targetDir, t);
+                    var src = Path.Combine(_sourceDir, rel);
+                    return !File.Exists(src);
+                })
+                .ToList();
+            foreach (var orphan in orphans)
+            {
+                File.Delete(orphan);
+                var hashFile = orphan + ".srchash";
+                if (File.Exists(hashFile)) File.Delete(hashFile);
+                Console.WriteLine($"  🗑️  已刪除孤兒譯文：{Path.GetRelativePath(_targetDir, orphan)}");
+            }
+        }
+
         int success = 0, skipped = 0, failed = 0;
         int consecutiveFailures = 0;
         const int MaxConsecutiveFailures = 5;   // 連續 5 次翻譯失敗就停（可能是 API 有系統性問題）
@@ -331,16 +352,18 @@ public class Translator
 
             if (!_force && File.Exists(targetPath))
             {
-                // 若來源比目標新（上游有更新），自動重翻
-                var sourceTime = File.GetLastWriteTimeUtc(sourcePath);
-                var targetTime = File.GetLastWriteTimeUtc(targetPath);
-                if (sourceTime <= targetTime)
+                // 比較 en/ 檔案的 git hash 與上次翻譯時記錄的 hash
+                // 若相同表示上游沒有更新，略過
+                var sourceHash = await GetGitHashAsync(sourcePath);
+                var hashFile   = targetPath + ".srchash";
+                if (sourceHash != null && File.Exists(hashFile) &&
+                    (await File.ReadAllTextAsync(hashFile)).Trim() == sourceHash)
                 {
                     Console.WriteLine("  ⏭️  已存在且無更新，略過");
                     skipped++;
                     continue;
                 }
-                Console.WriteLine("  🔄 來源已更新，重新翻譯...");
+                Console.WriteLine(File.Exists(hashFile) ? "  🔄 來源已更新，重新翻譯..." : "  🔄 無 hash 記錄，重新翻譯...");
             }
 
             var result = false;
@@ -620,8 +643,38 @@ public class Translator
 
         Directory.CreateDirectory(Path.GetDirectoryName(targetPath)!);
         await File.WriteAllTextAsync(targetPath, translated, new UTF8Encoding(false));
+
+        // 記錄本次翻譯時的 en/ 檔案 hash，下次用來判斷是否需要重翻
+        var hash = await GetGitHashAsync(sourcePath);
+        if (hash != null)
+            await File.WriteAllTextAsync(targetPath + ".srchash", hash, new UTF8Encoding(false));
+
         Console.WriteLine($"  ✅ → {targetPath}");
         return true;
+    }
+
+    /// <summary>取得檔案在 git 中的 blob hash（用於判斷內容是否有變更）</summary>
+    private static async Task<string?> GetGitHashAsync(string filePath)
+    {
+        try
+        {
+            var psi = new System.Diagnostics.ProcessStartInfo(
+                "git", $"hash-object \"{filePath}\"")
+            {
+                RedirectStandardOutput = true,
+                RedirectStandardError  = true,
+                UseShellExecute        = false,
+            };
+            using var proc = System.Diagnostics.Process.Start(psi)!;
+            var output = await proc.StandardOutput.ReadToEndAsync();
+            await proc.WaitForExitAsync();
+            var hash = output.Trim();
+            return string.IsNullOrEmpty(hash) ? null : hash;
+        }
+        catch
+        {
+            return null;
+        }
     }
 
     // PostProcess 用到的預編譯 Regex
