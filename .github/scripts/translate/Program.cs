@@ -655,8 +655,9 @@ public class Translator
 
         Console.WriteLine($"\n  💾 中途儲存：已完成 {count} 個，推送至 GitHub...");
 
-        // zh-Hant/ 加上 .last-upstream-sync 一起 commit
-        try { await RunGitAsync("add zh-Hant/"); }
+        // 只 stage 磁碟上有的檔案（新增 + 修改），完全不動磁碟上沒有的檔案
+        // 避免 git add zh-Hant/ 把磁碟上缺少的舊檔案標記為「刪除」
+        try { await RunGitAsync("add --no-all zh-Hant/"); }
         catch (Exception ex)
         {
             Console.WriteLine($"  ⚠️  git add 失敗，跳過本次推送：{ex.Message}");
