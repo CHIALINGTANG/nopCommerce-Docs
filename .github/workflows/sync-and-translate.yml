@@ -183,15 +183,8 @@ jobs:
             $([ "${{ github.event.inputs.force_retranslate }}" = "true" ] && echo "--force") \
             $([ -n "${{ github.event.inputs.start_key_index }}" ] && echo "--start-key-index ${{ github.event.inputs.start_key_index }}")
 
-      # ── 步驟 11：更新上次同步的 commit 紀錄 ───────────────────────────────────
-      # 此時已在 auto-translate 分支上，直接寫入即可
-      - name: Update last sync marker
-        if: steps.check_changes.outputs.has_changes == 'true'
-        run: |
-          echo "${{ steps.check_changes.outputs.current_upstream }}" > .last-upstream-sync
-          echo "✅ 已更新 .last-upstream-sync"
-
       # ── 步驟 12：把翻譯結果 commit 到 auto-translate ──────────────────────────
+      # 注意：.last-upstream-sync 由 C# 程式在翻譯開始前寫入，不需要 workflow 另外處理
       - name: Commit to auto-translate
         if: steps.check_changes.outputs.has_changes == 'true'
         id: commit_translation
