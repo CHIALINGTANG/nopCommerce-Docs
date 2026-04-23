@@ -34,11 +34,6 @@ var sinceHashOption = new Option<string>(
 var startKeyIndexOption = new Option<int>(
     "--start-key-index", () => 1, "從第幾組 API Key 開始使用（1-based）");
 
-// 上游目前最新的 commit hash，翻譯完成後寫入 .last-upstream-sync
-// 下次執行時用來判斷有沒有新變動
-var currentHashOption = new Option<string>(
-    "--current-hash", () => "", "上游目前最新 commit hash（翻完後寫入 .last-upstream-sync）");
-
 var rootCommand = new RootCommand("nopCommerce Docs 繁體中文自動翻譯工具");
 rootCommand.AddOption(sourceOption);
 rootCommand.AddOption(targetOption);
@@ -47,9 +42,8 @@ rootCommand.AddOption(specificFileOption);
 rootCommand.AddOption(forceOption);
 rootCommand.AddOption(sinceHashOption);
 rootCommand.AddOption(startKeyIndexOption);
-rootCommand.AddOption(currentHashOption);
 
-rootCommand.SetHandler(async (sourceDir, targetDir, apiKey, specificFile, force, sinceHash, startKeyIndex, currentHash) =>
+rootCommand.SetHandler(async (sourceDir, targetDir, apiKey, specificFile, force, sinceHash, startKeyIndex) =>
 {
     if (string.IsNullOrWhiteSpace(apiKey))
     {
@@ -58,9 +52,9 @@ rootCommand.SetHandler(async (sourceDir, targetDir, apiKey, specificFile, force,
     }
 
     var translator = new Translator(apiKey, sourceDir, targetDir, force, startKeyIndex);
-    await translator.RunAsync(specificFile, sinceHash, currentHash);
+    await translator.RunAsync(specificFile, sinceHash);
 
-}, sourceOption, targetOption, apiKeyOption, specificFileOption, forceOption, sinceHashOption, startKeyIndexOption, currentHashOption);
+}, sourceOption, targetOption, apiKeyOption, specificFileOption, forceOption, sinceHashOption, startKeyIndexOption);
 
 return await rootCommand.InvokeAsync(args);
 
@@ -225,7 +219,6 @@ public class Translator
 
     // 所有可用的 API Key 清單（支援多組輪換）
     private readonly List<string> _apiKeys;
-    private int _startKeyIndex;     // 起始 Key 索引（0-based）
     private int _currentKeyIndex;   // 目前使用的 Key 索引（0-based）
     private int _keyUsedCount;      // 已使用的 Key 數量（用於判斷是否輪完一圈）
     private GenerativeModel _model; // 目前使用的 Gemini 模型實例
@@ -259,8 +252,7 @@ public class Translator
         Console.WriteLine($"🔑 已載入 {_apiKeys.Count} 組 API Key");
 
         // 從指定的 Key 開始（轉為 0-based，並確保不超出範圍）
-        _startKeyIndex = Math.Clamp(startKeyIndex - 1, 0, _apiKeys.Count - 1);
-        _currentKeyIndex = _startKeyIndex;
+        _currentKeyIndex = Math.Clamp(startKeyIndex - 1, 0, _apiKeys.Count - 1);
         _keyUsedCount = 1; // 已使用第一組
         if (_currentKeyIndex > 0)
             Console.WriteLine($"⏩ 從第 {_currentKeyIndex + 1} 組 Key 開始，將輪流使用所有 {_apiKeys.Count} 組");
@@ -313,16 +305,13 @@ public class Translator
 
     // ── 主流程 ────────────────────────────────────────────────────────────────
 
-    public async Task RunAsync(string specificFile, string sinceHash, string currentHash = "")
+    public async Task RunAsync(string specificFile, string sinceHash)
     {
         // 0. 翻譯開始前先寫入 .last-upstream-sync，確保中途推送時能一起帶上去
-        //    寫入的是 currentHash（這次同步後的新基準點），不是 sinceHash（上次的位置）
-        //    這樣下次執行時才能正確判斷有沒有新變動
-        var hashToWrite = !string.IsNullOrWhiteSpace(currentHash) ? currentHash : sinceHash;
-        if (!string.IsNullOrWhiteSpace(hashToWrite))
+        if (!string.IsNullOrWhiteSpace(sinceHash))
         {
-            await File.WriteAllTextAsync(".last-upstream-sync", hashToWrite.Trim(), new UTF8Encoding(false));
-            Console.WriteLine($"📝 已寫入 .last-upstream-sync（{hashToWrite[..Math.Min(7, hashToWrite.Length)]}）");
+            await File.WriteAllTextAsync(".last-upstream-sync", sinceHash.Trim(), new UTF8Encoding(false));
+            Console.WriteLine($"📝 已寫入 .last-upstream-sync（{sinceHash[..Math.Min(7, sinceHash.Length)]}）");
         }
 
         // 1. 用 git diff 找出上游有新增或修改的檔案清單
@@ -403,7 +392,6 @@ public class Translator
         int success = 0, failed = 0;
         int consecutiveFailures = 0;
         const int MaxConsecutiveFailures = 5;   // 連續失敗幾次就提早結束
-        const int PushEvery = 1;                // 每翻完幾個就中途推送一次
         bool earlyStop = false;
         var failedFiles = new List<string>();
 
@@ -464,8 +452,8 @@ public class Translator
             {
                 var apiDoneAt = DateTime.UtcNow;
 
-                // 每翻完 PushEvery 個就中途推送，方便中斷後從斷點繼續
-                if (result && success % PushEvery == 0)
+                // 每翻完一個就中途推送，方便中斷後從斷點繼續
+                if (result)
                     await PushProgressAsync(success);
 
                 // 確保兩次 API 呼叫之間至少間隔 CooldownMs 毫秒
@@ -601,7 +589,7 @@ public class Translator
         Console.WriteLine("  💾 推送非 .md 資源...");
         try
         {
-            await RunGitAsync("add zh-Hant/");
+            await RunGitAsync("add --no-all zh-Hant/");
             try
             {
                 await RunGitAsync("commit -m \"📦 同步非文字資源（圖片、PDF 等）\"");
