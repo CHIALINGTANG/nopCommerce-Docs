@@ -73,6 +73,7 @@ jobs:
             LAST_SYNC=$(cat .last-upstream-sync)
           else
             LAST_SYNC=$(git rev-parse upstream/master~1)
+            echo "$LAST_SYNC" > .last-upstream-sync  # 第一次執行時建立
           fi
 
           CURRENT_UPSTREAM=$(git rev-parse upstream/master)
