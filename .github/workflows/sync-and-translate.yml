@@ -69,11 +69,13 @@ jobs:
         id: check_changes
         run: |
           # 讀取上次同步的 commit 位置（記錄在 .last-upstream-sync 檔案中）
-          if [ -f ".last-upstream-sync" ]; then
-            LAST_SYNC=$(cat .last-upstream-sync)
+          # 優先從 auto-translate 分支讀取（那裡才是真正存放的地方）
+          if git show origin/auto-translate:.last-upstream-sync >/dev/null 2>&1; then
+            LAST_SYNC=$(git show origin/auto-translate:.last-upstream-sync)
+            echo "📖 從 auto-translate 讀取上次同步位置：${LAST_SYNC:0:7}"
           else
             LAST_SYNC=$(git rev-parse upstream/master~1)
-            echo "$LAST_SYNC" > .last-upstream-sync  # 第一次執行時建立
+            echo "🆕 第一次執行，從上游前一個 commit 開始：${LAST_SYNC:0:7}"
           fi
 
           CURRENT_UPSTREAM=$(git rev-parse upstream/master)
@@ -139,9 +141,6 @@ jobs:
           # 從上游取出最新的 en/ 覆蓋到 auto-translate 分支
           git checkout upstream/master -- en/ 2>/dev/null || true
 
-          # 同步 .last-upstream-sync（從 master 取，若不存在則略過）
-          git checkout origin/master -- .last-upstream-sync 2>/dev/null || true
-
           # 同步 master 上已翻好但 auto-translate 還沒有的 zh-Hant/ 檔案
           # （避免 master 上有更新的翻譯，但 auto-translate 分支不知道）
           git checkout origin/master -- zh-Hant/ 2>/dev/null || true
@@ -180,10 +179,12 @@ jobs:
             $([ "${{ github.event.inputs.force_retranslate }}" = "true" ] && echo "--force")
 
       # ── 步驟 11：更新上次同步的 commit 紀錄 ───────────────────────────────────
+      # 此時已在 auto-translate 分支上，直接寫入即可
       - name: Update last sync marker
         if: steps.check_changes.outputs.has_changes == 'true'
         run: |
           echo "${{ steps.check_changes.outputs.current_upstream }}" > .last-upstream-sync
+          echo "✅ 已更新 .last-upstream-sync"
 
       # ── 步驟 12：把翻譯結果 commit 到 auto-translate ──────────────────────────
       - name: Commit to auto-translate
