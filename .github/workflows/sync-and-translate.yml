@@ -16,6 +16,10 @@ on:
         description: '只翻譯單一檔案或目錄（例如：en/getting-started/index.md 或 en/developer/plugins）'
         required: false
         default: ''
+      start_key_index:
+        description: '從第幾組 API Key 開始使用（1-based，預設從第 1 組，前幾組已耗盡時可跳過）'
+        required: false
+        default: '1'
 
 # ── 防止同時執行多個翻譯 ───────────────────────────────────────────────────────
 # 同一時間只允許一個翻譯 workflow 在跑，後觸發的會等前一個跑完才執行
@@ -176,7 +180,8 @@ jobs:
             --source-dir en --target-dir zh-Hant --api-key "$COMBINED_KEYS" \
             --since-hash "${{ steps.check_changes.outputs.last_sync }}" \
             $([ -n "${{ github.event.inputs.specific_file }}" ] && echo "--specific-file ${{ github.event.inputs.specific_file }}") \
-            $([ "${{ github.event.inputs.force_retranslate }}" = "true" ] && echo "--force")
+            $([ "${{ github.event.inputs.force_retranslate }}" = "true" ] && echo "--force") \
+            $([ -n "${{ github.event.inputs.start_key_index }}" ] && echo "--start-key-index ${{ github.event.inputs.start_key_index }}")
 
       # ── 步驟 11：更新上次同步的 commit 紀錄 ───────────────────────────────────
       # 此時已在 auto-translate 分支上，直接寫入即可
