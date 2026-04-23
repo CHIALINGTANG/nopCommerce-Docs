@@ -198,8 +198,8 @@ jobs:
         run: |
           SHORT=$(echo "${{ steps.check_changes.outputs.current_upstream }}" | cut -c1-7)
 
-          # 先 stage .last-upstream-sync（不論 zh-Hant 有沒有變化都要記錄）
-          git add .last-upstream-sync 2>/dev/null || true
+          # 先 stage .last-upstream-sync（-f 強制加入，不論是否為新檔案）
+          git add -f .last-upstream-sync 2>/dev/null || true
 
           # 再 stage 真正有內容變化的 zh-Hant/ 檔案
           git diff --name-only HEAD -- zh-Hant/ | xargs -r git add
