@@ -127,12 +127,12 @@ jobs:
         if: steps.check_changes.outputs.has_changes == 'true'
         run: |
           if git rev-parse origin/auto-translate >/dev/null 2>&1; then
-            # auto-translate 已存在 → 直接切過去，保留上次的翻譯進度
+            # auto-translate 已存在 → 切過去並強制從遠端完整還原
             git checkout auto-translate
-            git pull origin auto-translate
-            # 孤兒分支 pull 後不會自動寫入磁碟
-            # 用 git reset --hard 強制讓工作目錄和 HEAD 完全一致
-            git reset --hard HEAD
+            # 強制讓本地分支和遠端完全一致（會清除任何本地差異）
+            git reset --hard origin/auto-translate
+            # 確保所有追蹤的檔案都實際寫到磁碟
+            git checkout-index -a -f
             echo "📌 已切到既有的 auto-translate branch"
             TRACKED=$(git ls-files zh-Hant/ | wc -l)
             ONDISK=$(find zh-Hant -name "*.md" 2>/dev/null | wc -l)
