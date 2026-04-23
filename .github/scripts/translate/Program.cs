@@ -773,6 +773,7 @@ public class Translator
             return false;
         }
 
+        // 確保目錄存在後寫入譯文（不含 BOM）
         Directory.CreateDirectory(Path.GetDirectoryName(targetPath)!);
         await File.WriteAllTextAsync(targetPath, translated, new UTF8Encoding(false));
 
