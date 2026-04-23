@@ -47,11 +47,7 @@ jobs:
         with:
           dotnet-version: '8.0.x'
 
-      # ── 步驟 3：清除舊的編譯結果，確保重新編譯 ────────────────────────────────
-      - name: Clean build
-        run: dotnet clean .github/scripts/translate/translate.csproj || true
-
-      # ── 步驟 4：還原 NuGet 套件（C# 翻譯程式的相依套件）──────────────────────
+      # ── 步驟 3：還原 NuGet 套件（C# 翻譯程式的相依套件）──────────────────────
       - name: Restore NuGet packages
         run: dotnet restore .github/scripts/translate/translate.csproj
 
@@ -127,29 +123,10 @@ jobs:
         if: steps.check_changes.outputs.has_changes == 'true'
         run: |
           if git rev-parse origin/auto-translate >/dev/null 2>&1; then
-            # auto-translate 已存在 → 切過去並強制從遠端完整還原
+            # auto-translate 已存在 → 切過去
             git checkout auto-translate
             git reset --hard origin/auto-translate
-
-            echo "📊 寫入前：磁碟上 $(find zh-Hant -name '*.md' 2>/dev/null | wc -l) 個 .md"
-
-            # 方法 1：先清空工作目錄，再強制從 HEAD 還原（確保重寫所有檔案）
-            git rm -rf --cached zh-Hant/ 2>/dev/null || true
-            rm -rf zh-Hant/
-            git reset --hard HEAD
-
-            echo "📊 方法1後：磁碟上 $(find zh-Hant -name '*.md' 2>/dev/null | wc -l) 個 .md"
-
-            # 方法 2：如果還是不行，用 git checkout-index 強制寫入
-            if [ "$(find zh-Hant -name '*.md' 2>/dev/null | wc -l)" -lt 100 ]; then
-              git checkout-index -a -f --prefix=./ 2>&1 | head -5 || true
-              echo "📊 方法2後：磁碟上 $(find zh-Hant -name '*.md' 2>/dev/null | wc -l) 個 .md"
-            fi
-
-            echo "📌 已切到既有的 auto-translate branch"
-            TRACKED=$(git ls-files zh-Hant/ | wc -l)
-            ONDISK=$(find zh-Hant -name "*.md" 2>/dev/null | wc -l)
-            echo "📊 最終：git 追蹤：${TRACKED} 個，磁碟上：${ONDISK} 個 .md"
+            echo "📌 已切到既有的 auto-translate branch（共 $(find zh-Hant -name '*.md' 2>/dev/null | wc -l) 個 .md）"
           else
             # auto-translate 不存在 → 建立全新的空分支
             git checkout --orphan auto-translate
@@ -166,17 +143,13 @@ jobs:
 
           # 把 master 上有、但磁碟上還沒有的 zh-Hant/ 檔案補進來
           # 翻譯結果同步回 master 後，auto-translate 可能缺少部分已翻檔案
-          BEFORE=$(find zh-Hant -name "*.md" 2>/dev/null | wc -l)
-          MASTER_COUNT=$(git ls-tree -r --name-only origin/master -- zh-Hant/ | wc -l)
-          echo "  📋 origin/master 的 zh-Hant/ 共 ${MASTER_COUNT} 個檔案"
           git ls-tree -r --name-only origin/master -- zh-Hant/ | while IFS= read -r f; do
             if [ ! -f "$f" ]; then
               mkdir -p "$(dirname "$f")"
               git show "origin/master:$f" > "$f"
             fi
           done
-          AFTER=$(find zh-Hant -name "*.md" 2>/dev/null | wc -l)
-          echo "✅ zh-Hant/ 補齊完成：${BEFORE} → ${AFTER} 個 .md 檔案" 
+          echo "✅ en/ 和 zh-Hant/ 已同步完成（磁碟共 $(find zh-Hant -name '*.md' 2>/dev/null | wc -l) 個 .md）" 
 
       # ── 步驟 11：執行 C# 翻譯程式 ────────────────────────────────────────────
       - name: Run C# translator
