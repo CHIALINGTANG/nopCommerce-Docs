@@ -107,7 +107,14 @@ jobs:
             echo "🔄 準備執行翻譯"
           fi
 
-      # ── 步驟 8：準備 auto-translate 分支 ─────────────────────────────────────
+      # ── 步驟 8：編譯 C# 翻譯程式（在 master 上，才有 .github/）────────────────
+      - name: Build translator
+        if: steps.check_changes.outputs.has_changes == 'true'
+        run: |
+          dotnet build .github/scripts/translate/translate.csproj             --configuration Release --no-restore
+          echo "✅ 編譯完成"
+
+      # ── 步驟 9：準備 auto-translate 分支 ─────────────────────────────────────
       # auto-translate 分支只存放 en/、zh-Hant/、.last-upstream-sync
       # 不包含 .github/ 或其他檔案，避免每次 push 動到不相關的東西
       - name: Prepare auto-translate branch
@@ -125,7 +132,7 @@ jobs:
             echo "📌 已建立全新的 auto-translate branch（空分支）"
           fi
 
-      # ── 步驟 9：同步上游最新英文內容到 en/ ────────────────────────────────────
+      # ── 步驟 10：同步上游最新英文內容到 en/ ───────────────────────────────────
       - name: Sync upstream en/ content
         if: steps.check_changes.outputs.has_changes == 'true'
         run: |
@@ -141,7 +148,7 @@ jobs:
 
           echo "✅ en/ 已同步至上游最新版本"
 
-      # ── 步驟 10：執行 C# 翻譯程式 ────────────────────────────────────────────
+      # ── 步驟 11：執行 C# 翻譯程式 ────────────────────────────────────────────
       - name: Run C# translator
         if: steps.check_changes.outputs.has_changes == 'true'
         env:
@@ -164,10 +171,10 @@ jobs:
             fi
           done
 
-          dotnet run \
-            --project .github/scripts/translate/translate.csproj \
-            --configuration Release \
-            -- --source-dir en --target-dir zh-Hant --api-key "$COMBINED_KEYS" \
+          # 切換到 auto-translate 後 .github/ 不存在，改用已編譯好的 dll 執行
+          DLL=$(find /home/runner/work -name "translate.dll" -path "*/Release/*" | head -1)
+          dotnet "$DLL" \
+            --source-dir en --target-dir zh-Hant --api-key "$COMBINED_KEYS" \
             --since-hash "${{ steps.check_changes.outputs.last_sync }}" \
             $([ -n "${{ github.event.inputs.specific_file }}" ] && echo "--specific-file ${{ github.event.inputs.specific_file }}") \
             $([ "${{ github.event.inputs.force_retranslate }}" = "true" ] && echo "--force")
