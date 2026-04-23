@@ -867,10 +867,10 @@ public class Translator
             catch (OperationCanceledException) { }
         });
 
-        GenerateContentResponse response;
+        var responseTask = _model.GenerateContent(prompt);
         try
         {
-            response = await _model.GenerateContent(prompt).WaitAsync(timeoutCts.Token);
+            await responseTask.WaitAsync(timeoutCts.Token);
         }
         catch (OperationCanceledException) when (timeoutCts.IsCancellationRequested)
         {
@@ -881,6 +881,8 @@ public class Translator
         }
         tickerCts.Cancel();
         await ticker;
+
+        var response = await responseTask;
 
         var totalSec = (int)(DateTime.UtcNow - startTime).TotalSeconds;
         Console.WriteLine($"    ✅ [{keyLabel}] 收到回應（{totalSec}s）");
