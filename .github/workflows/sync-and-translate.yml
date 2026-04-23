@@ -147,12 +147,16 @@ jobs:
 
           # 同步 master 上已翻好但 auto-translate 還沒有的 zh-Hant/ 檔案
           # （避免 master 上有更新的翻譯，但 auto-translate 分支不知道）
-          # 先從 master 把已翻好的 zh-Hant/ 補進來
-          git checkout origin/master -- zh-Hant/ 2>/dev/null || true
-          # 再把 auto-translate 自己已有的翻譯蓋回來（進度優先於 master）
-          git checkout HEAD -- zh-Hant/ 2>/dev/null || true
+          # 只把 master 有、但磁碟上還沒有的 zh-Hant/ 檔案補進來
+          # 用磁碟上有沒有檔案來判斷，不用 git 追蹤狀態
+          git ls-tree -r --name-only origin/master -- zh-Hant/ | while read f; do
+            if [ ! -f "$f" ]; then
+              # 磁碟上沒有這個檔案，從 master 補進來
+              git checkout origin/master -- "$f" 2>/dev/null || true
+            fi
+          done
 
-          echo "✅ en/ 已同步至上游最新版本，zh-Hant/ 已補齊缺少的翻譯" 
+          echo "✅ en/ 已同步至上游最新版本，已補齊缺少的 zh-Hant/ 檔案" 
 
       # ── 步驟 11：執行 C# 翻譯程式 ────────────────────────────────────────────
       - name: Run C# translator
