@@ -225,7 +225,9 @@ public class Translator
 
     // 所有可用的 API Key 清單（支援多組輪換）
     private readonly List<string> _apiKeys;
-    private int _currentKeyIndex;   // 目前使用的 Key 索引
+    private int _startKeyIndex;     // 起始 Key 索引（0-based）
+    private int _currentKeyIndex;   // 目前使用的 Key 索引（0-based）
+    private int _keyUsedCount;      // 已使用的 Key 數量（用於判斷是否輪完一圈）
     private GenerativeModel _model; // 目前使用的 Gemini 模型實例
 
     public Translator(string apiKeyCsv, string sourceDir, string targetDir, bool force, int startKeyIndex = 1)
@@ -257,9 +259,11 @@ public class Translator
         Console.WriteLine($"🔑 已載入 {_apiKeys.Count} 組 API Key");
 
         // 從指定的 Key 開始（轉為 0-based，並確保不超出範圍）
-        _currentKeyIndex = Math.Clamp(startKeyIndex - 1, 0, _apiKeys.Count - 1);
+        _startKeyIndex = Math.Clamp(startKeyIndex - 1, 0, _apiKeys.Count - 1);
+        _currentKeyIndex = _startKeyIndex;
+        _keyUsedCount = 1; // 已使用第一組
         if (_currentKeyIndex > 0)
-            Console.WriteLine($"⏩ 從第 {_currentKeyIndex + 1} 組 Key 開始（跳過前 {_currentKeyIndex} 組）");
+            Console.WriteLine($"⏩ 從第 {_currentKeyIndex + 1} 組 Key 開始，將輪流使用所有 {_apiKeys.Count} 組");
         _model = CreateModel(_apiKeys[_currentKeyIndex]);
     }
 
@@ -275,16 +279,21 @@ public class Translator
         => new GoogleAI(apiKey).GenerativeModel(model: ModelName);
 
     /// <summary>
-    /// 切換到下一組 API Key。
-    /// 回傳 true 表示切換成功，false 表示已無可用 Key。
+    /// 切換到下一組 API Key，支援循環輪換。
+    /// 例如：從第 4 組開始 → 4 → 5 → 1 → 2 → 3 → 全部用完。
+    /// 回傳 true 表示切換成功，false 表示所有 Key 都已用過。
     /// </summary>
     private bool SwitchToNextKey()
     {
-        _currentKeyIndex++;
-        if (_currentKeyIndex >= _apiKeys.Count)
+        // 已輪過所有 Key，不再切換
+        if (_keyUsedCount >= _apiKeys.Count)
             return false;
 
-        Console.WriteLine($"\n  🔄 切換到第 {_currentKeyIndex + 1}/{_apiKeys.Count} 組 API Key（{MaskKey(_apiKeys[_currentKeyIndex])}）");
+        // 循環到下一組（超過最後一組就回到第一組）
+        _currentKeyIndex = (_currentKeyIndex + 1) % _apiKeys.Count;
+        _keyUsedCount++;
+
+        Console.WriteLine($"\n  🔄 切換到第 {_currentKeyIndex + 1}/{_apiKeys.Count} 組 API Key（{MaskKey(_apiKeys[_currentKeyIndex])}）[已用 {_keyUsedCount}/{_apiKeys.Count} 組]");
         _model = CreateModel(_apiKeys[_currentKeyIndex]);
         return true;
     }
