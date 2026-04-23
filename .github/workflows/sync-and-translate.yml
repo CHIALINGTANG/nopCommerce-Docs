@@ -147,9 +147,12 @@ jobs:
 
           # 同步 master 上已翻好但 auto-translate 還沒有的 zh-Hant/ 檔案
           # （避免 master 上有更新的翻譯，但 auto-translate 分支不知道）
+          # 先從 master 把已翻好的 zh-Hant/ 補進來
           git checkout origin/master -- zh-Hant/ 2>/dev/null || true
+          # 再把 auto-translate 自己已有的翻譯蓋回來（進度優先於 master）
+          git checkout HEAD -- zh-Hant/ 2>/dev/null || true
 
-          echo "✅ en/ 已同步至上游最新版本"
+          echo "✅ en/ 已同步至上游最新版本，zh-Hant/ 已補齊缺少的翻譯" 
 
       # ── 步驟 11：執行 C# 翻譯程式 ────────────────────────────────────────────
       - name: Run C# translator
