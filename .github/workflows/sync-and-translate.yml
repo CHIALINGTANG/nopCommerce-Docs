@@ -131,6 +131,9 @@ jobs:
             git checkout auto-translate
             git pull origin auto-translate
             echo "📌 已切到既有的 auto-translate branch"
+            TRACKED=$(git ls-files zh-Hant/ | wc -l)
+            ONDISK=$(find zh-Hant -name "*.md" 2>/dev/null | wc -l)
+            echo "📊 git 追蹤：${TRACKED} 個，磁碟上：${ONDISK} 個 .md"
           else
             # auto-translate 不存在 → 建立全新的空分支
             git checkout --orphan auto-translate
