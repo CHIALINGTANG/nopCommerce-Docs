@@ -980,7 +980,7 @@ public class Translator
     /// <summary>
     /// 實際呼叫 Gemini API 翻譯內容。
     /// - 每 15 秒印出等待提示，讓使用者知道程式還在跑
-    /// - 超過 60 秒沒回應視為 timeout，拋出例外讓外層換 Key
+    /// - 無 timeout，等待 API 回應直到完成
     /// </summary>
     private async Task<string> CallGeminiAsync(string content)
     {
@@ -1007,12 +1007,10 @@ public class Translator
 
         Console.WriteLine($"    📡 [{keyLabel}] 送出請求...");
         var startTime = DateTime.UtcNow;
-        const int RequestTimeoutSec = 60; // 超過 60 秒沒回應視為 timeout，換 Key
 
-        using var tickerCts  = new System.Threading.CancellationTokenSource();
-        using var timeoutCts = new System.Threading.CancellationTokenSource(TimeSpan.FromSeconds(RequestTimeoutSec));
+        using var tickerCts = new System.Threading.CancellationTokenSource();
 
-        // 背景計時器：每 15 秒印一次等待提示
+        // 背景計時器：每 15 秒印一次等待提示，讓使用者知道程式還在跑
         var ticker = Task.Run(async () =>
         {
             try
@@ -1027,24 +1025,10 @@ public class Translator
             catch (OperationCanceledException) { }
         });
 
-        // 送出請求，並設定 timeout
-        var responseTask = _model.GenerateContent(prompt);
-        try
-        {
-            await responseTask.WaitAsync(timeoutCts.Token);
-        }
-        catch (OperationCanceledException) when (timeoutCts.IsCancellationRequested)
-        {
-            tickerCts.Cancel();
-            await ticker;
-            // 逾時視同 429，拋出讓外層換 Key
-            throw new Exception($"429 request timeout after {RequestTimeoutSec}s");
-        }
+        // 直接等待 API 回應，無 timeout，不浪費 token
+        var response = await _model.GenerateContent(prompt);
         tickerCts.Cancel();
         await ticker;
-
-        // 取出回應結果（Task 已完成，不會再等待）
-        var response = await responseTask;
 
         var totalSec = (int)(DateTime.UtcNow - startTime).TotalSeconds;
         Console.WriteLine($"    ✅ [{keyLabel}] 收到回應（{totalSec}s）");
