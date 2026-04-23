@@ -147,9 +147,15 @@ jobs:
 
           # 同步 master 上已翻好但 auto-translate 還沒有的 zh-Hant/ 檔案
           # （避免 master 上有更新的翻譯，但 auto-translate 分支不知道）
-          # master 的 zh-Hant/ 用 git archive 解壓縮到磁碟，不走 git checkout
-          # 這樣不會動到 git index，也不會失敗
-          git archive origin/master zh-Hant/ | tar -x --skip-old-files
+          # 把 master 上有、但磁碟上還沒有的 zh-Hant/ 檔案補進來
+          # 用 git show 逐檔複製，磁碟上已有的完全不動
+          git ls-tree -r --name-only origin/master zh-Hant/ | while IFS= read -r f; do
+            if [ ! -f "$f" ]; then
+              mkdir -p "$(dirname "$f")"
+              git show "origin/master:$f" > "$f" 2>/dev/null || true
+              echo "  📥 補入：$f"
+            fi
+          done
 
           echo "✅ en/ 已同步至上游最新版本，zh-Hant/ 已補齊缺少的翻譯" 
 
@@ -181,6 +187,7 @@ jobs:
           dotnet "$DLL" \
             --source-dir en --target-dir zh-Hant --api-key "$COMBINED_KEYS" \
             --since-hash "${{ steps.check_changes.outputs.last_sync }}" \
+            --current-hash "${{ steps.check_changes.outputs.current_upstream }}" \
             $([ -n "${{ github.event.inputs.specific_file }}" ] && echo "--specific-file ${{ github.event.inputs.specific_file }}") \
             $([ "${{ github.event.inputs.force_retranslate }}" = "true" ] && echo "--force") \
             $([ -n "${{ github.event.inputs.start_key_index }}" ] && echo "--start-key-index ${{ github.event.inputs.start_key_index }}")
