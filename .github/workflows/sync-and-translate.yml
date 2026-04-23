@@ -217,14 +217,16 @@ jobs:
 
       # ── 步驟 13：將 zh-Hant/ 同步回 master ────────────────────────────────────
       # 切回 master，只把 zh-Hant/ 從 auto-translate 取出來合併，其他完全不動
+      # 注意：不依賴步驟 12 的結果，因為中途推送可能已經把變更 push 出去了
+      #       只要有翻譯工作啟動（has_changes == true）就執行同步
       - name: Sync zh-Hant back to master
-        if: steps.commit_translation.outputs.has_new_commits == 'true'
+        if: steps.check_changes.outputs.has_changes == 'true'
         run: |
           git checkout master
           git pull origin master
 
           # 只取出 zh-Hant/ 覆蓋回 master
-          git checkout auto-translate -- zh-Hant/
+          git checkout origin/auto-translate -- zh-Hant/
 
           # 只 stage 真正有內容變化的檔案，避免刷新未變動檔案的時間
           git diff --name-only HEAD -- zh-Hant/ | xargs -r git add
