@@ -639,6 +639,7 @@ public class Translator
 
         Console.WriteLine($"\n  💾 中途儲存：已完成 {count} 個，推送至 GitHub...");
 
+        // zh-Hant/ 加上 .last-upstream-sync 一起 commit
         try { await RunGitAsync("add zh-Hant/"); }
         catch (Exception ex)
         {
@@ -646,6 +647,9 @@ public class Translator
             _consecutivePushFailures++;
             return;
         }
+        // -f 強制加入，不論是否為新檔案
+        try { await RunGitAsync("add -f .last-upstream-sync"); }
+        catch { /* 不存在時忽略 */ }
 
         try { await RunGitAsync($"commit -m \"🌐 翻譯進度：已完成 {count} 個檔案\""); }
         catch
