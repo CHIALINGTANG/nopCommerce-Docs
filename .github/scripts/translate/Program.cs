@@ -167,7 +167,7 @@ public class Translator
     private const int CooldownMs = 8_000;           // ← 改為 8 秒
     private const int ChunkThreshold = 5_000;
     private const string ModelName = "gemini-3.1-flash-lite-preview";
-    private const int QuotaWaitMs = 66_000;
+
 
     private readonly string _sourceDir;
     private readonly string _targetDir;
@@ -406,10 +406,6 @@ public class Translator
 
     // ── 上游異動偵測 ──────────────────────────────────────────────────────────
 
-    /// <summary>
-    /// 執行 git diff --name-status SINCE HEAD -- en/，回傳 Added/Modified 的路徑集合。
-    /// Deleted 由孤兒掃描處理，不在此集合中。
-    /// </summary>
     private async Task<HashSet<string>> GetUpstreamChangedFilesAsync(string sinceHash)
     {
         var changed = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
@@ -423,7 +419,7 @@ public class Translator
                 var parts = line.Split('\t', 2);
                 if (parts.Length < 2) continue;
                 var status = parts[0].Trim();
-                if (status == "D") continue; // 刪除由孤兒掃描處理
+                if (status == "D") continue;
                 var path = parts[1].Trim().Replace('\\', '/');
                 changed.Add(path);
             }
@@ -440,7 +436,6 @@ public class Translator
 
     private async Task SyncNonMarkdownFilesAsync(HashSet<string> upstreamChanged)
     {
-        // 刪除孤兒非 MD 檔（zh-Hant/ 有但 en/ 已不存在）
         if (Directory.Exists(_targetDir))
         {
             foreach (var targetPath in Directory
@@ -811,36 +806,11 @@ public class Translator
         }
         catch (Exception ex) when (ex.Message.Contains("429") || ex.Message.Contains("quota"))
         {
-            // 429 → 等待 66s 後以同一組 Key 重試一次；若仍 429 才換 Key
-            Console.WriteLine($"    ⚠️  [Key {_currentKeyIndex + 1}/{_apiKeys.Count}] 429 配額耗盡，等待 {QuotaWaitMs / 1000}s 後重試...");
-            await QuotaWaitWithProgressAsync();
-            Console.WriteLine($"    🔁 [Key {_currentKeyIndex + 1}/{_apiKeys.Count}] 重試中...");
-            try
-            {
+            // 429 → 立即換下一組 Key
+            Console.WriteLine($"    ⚠️  [Key {_currentKeyIndex + 1}/{_apiKeys.Count}] 429 配額耗盡，立即切換 Key...");
+            if (SwitchToNextKey())
                 return await CallGeminiAsync(content);
-            }
-            catch (Exception retryEx) when (retryEx.Message.Contains("429") || retryEx.Message.Contains("quota"))
-            {
-                Console.WriteLine($"    ⚠️  [Key {_currentKeyIndex + 1}/{_apiKeys.Count}] 重試後仍 429，切換 Key...");
-                if (SwitchToNextKey())
-                    return await CallGeminiAsync(content);
-                throw new QuotaExhaustedException($"所有 {_apiKeys.Count} 組 API Key 的今日配額皆已耗盡。");
-            }
-        }
-    }
-
-    /// <summary>429 等待期間每 15s 印一次進度，讓使用者知道正在倒數</summary>
-    private static async Task QuotaWaitWithProgressAsync()
-    {
-        const int intervalMs = 15_000;
-        int waited = 0;
-        while (waited < QuotaWaitMs)
-        {
-            int next = Math.Min(intervalMs, QuotaWaitMs - waited);
-            await Task.Delay(next);
-            waited += next;
-            if (waited < QuotaWaitMs)
-                Console.WriteLine($"    ⏳  配額等待中... {waited / 1000}s / {QuotaWaitMs / 1000}s");
+            throw new QuotaExhaustedException($"所有 {_apiKeys.Count} 組 API Key 的今日配額皆已耗盡。");
         }
     }
 
@@ -877,17 +847,19 @@ public class Translator
             6. 程式碼區塊（``` 包住的部分）以外，絕對不允許出現整段英文句子或英文段落。
             """;
 
-        // 顯示使用哪組 Key 發出請求，並啟動背景計時器（每 15s 提示仍在等待）
         Console.WriteLine($"    📡 [{keyLabel}] 送出請求...");
         var startTime = DateTime.UtcNow;
-        using var cts = new System.Threading.CancellationTokenSource();
+        const int RequestTimeoutSec = 60;
+        using var tickerCts = new System.Threading.CancellationTokenSource();
+        using var timeoutCts = new System.Threading.CancellationTokenSource(TimeSpan.FromSeconds(RequestTimeoutSec));
+
         var ticker = Task.Run(async () =>
         {
             try
             {
                 while (true)
                 {
-                    await Task.Delay(15_000, cts.Token);
+                    await Task.Delay(15_000, tickerCts.Token);
                     var elapsed = (int)(DateTime.UtcNow - startTime).TotalSeconds;
                     Console.WriteLine($"    ⏱️  [{keyLabel}] 等待回應... {elapsed}s");
                 }
@@ -895,8 +867,19 @@ public class Translator
             catch (OperationCanceledException) { }
         });
 
-        var response = await _model.GenerateContent(prompt);
-        cts.Cancel();
+        GenerateContentResponse response;
+        try
+        {
+            response = await _model.GenerateContent(prompt).WaitAsync(timeoutCts.Token);
+        }
+        catch (OperationCanceledException) when (timeoutCts.IsCancellationRequested)
+        {
+            tickerCts.Cancel();
+            await ticker;
+            // 逾時視同 429，拋出讓外層換 Key
+            throw new Exception($"429 request timeout after {RequestTimeoutSec}s");
+        }
+        tickerCts.Cancel();
         await ticker;
 
         var totalSec = (int)(DateTime.UtcNow - startTime).TotalSeconds;
