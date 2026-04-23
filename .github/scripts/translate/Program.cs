@@ -29,6 +29,11 @@ var forceOption = new Option<bool>(
 var sinceHashOption = new Option<string>(
     "--since-hash", () => "", "上游同步基準 commit hash（用於 git diff 偵測異動）");
 
+// 指定從第幾組 Key 開始使用（1-based，預設從第 1 組開始）
+// 適合用於前幾組 Key 已知耗盡時，直接跳過避免等待 timeout
+var startKeyIndexOption = new Option<int>(
+    "--start-key-index", () => 1, "從第幾組 API Key 開始使用（1-based）");
+
 var rootCommand = new RootCommand("nopCommerce Docs 繁體中文自動翻譯工具");
 rootCommand.AddOption(sourceOption);
 rootCommand.AddOption(targetOption);
@@ -36,8 +41,9 @@ rootCommand.AddOption(apiKeyOption);
 rootCommand.AddOption(specificFileOption);
 rootCommand.AddOption(forceOption);
 rootCommand.AddOption(sinceHashOption);
+rootCommand.AddOption(startKeyIndexOption);
 
-rootCommand.SetHandler(async (sourceDir, targetDir, apiKey, specificFile, force, sinceHash) =>
+rootCommand.SetHandler(async (sourceDir, targetDir, apiKey, specificFile, force, sinceHash, startKeyIndex) =>
 {
     if (string.IsNullOrWhiteSpace(apiKey))
     {
@@ -45,10 +51,10 @@ rootCommand.SetHandler(async (sourceDir, targetDir, apiKey, specificFile, force,
         Environment.Exit(1);
     }
 
-    var translator = new Translator(apiKey, sourceDir, targetDir, force);
+    var translator = new Translator(apiKey, sourceDir, targetDir, force, startKeyIndex);
     await translator.RunAsync(specificFile, sinceHash);
 
-}, sourceOption, targetOption, apiKeyOption, specificFileOption, forceOption, sinceHashOption);
+}, sourceOption, targetOption, apiKeyOption, specificFileOption, forceOption, sinceHashOption, startKeyIndexOption);
 
 return await rootCommand.InvokeAsync(args);
 
@@ -216,7 +222,7 @@ public class Translator
     private int _currentKeyIndex;   // 目前使用的 Key 索引
     private GenerativeModel _model; // 目前使用的 Gemini 模型實例
 
-    public Translator(string apiKeyCsv, string sourceDir, string targetDir, bool force)
+    public Translator(string apiKeyCsv, string sourceDir, string targetDir, bool force, int startKeyIndex = 1)
     {
         _sourceDir = sourceDir;
         _targetDir = targetDir;
@@ -244,7 +250,10 @@ public class Translator
 
         Console.WriteLine($"🔑 已載入 {_apiKeys.Count} 組 API Key");
 
-        _currentKeyIndex = 0;
+        // 從指定的 Key 開始（轉為 0-based，並確保不超出範圍）
+        _currentKeyIndex = Math.Clamp(startKeyIndex - 1, 0, _apiKeys.Count - 1);
+        if (_currentKeyIndex > 0)
+            Console.WriteLine($"⏩ 從第 {_currentKeyIndex + 1} 組 Key 開始（跳過前 {_currentKeyIndex} 組）");
         _model = CreateModel(_apiKeys[_currentKeyIndex]);
     }
 
