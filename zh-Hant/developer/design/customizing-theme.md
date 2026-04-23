@@ -1,0 +1,100 @@
+---
+標題: 自訂 nopCommerce 佈景主題
+uid: zh-Hant/developer/design/customizing-theme
+作者: git.AndreiMaz
+貢獻者: git.DmitriyKulagin, git.exileDev
+---
+
+# 自訂 nopCommerce 佈景主題
+
+## 上傳您的商店 Logo
+
+若要將商店 Logo 上傳至 nopCommerce 網站，有兩種方法：
+
+### 第一種方法
+
+透過管理後台上傳您的 Logo。請參閱 [上傳您的 Logo](xref:zh-Hant/getting-started/design-your-store/uploading-your-logo) 文章以了解操作方式。
+
+### 第二種方法
+
+1. 前往 nopCommerce 根目錄 `/Themes/YOUR THEME/Content/images/`
+1. 找到 `logo.png` 影像檔案
+1. 用您的商店 Logo 取代該 `logo.png`，並將其命名為 `logo.png`（維持相同尺寸：寬 250px、高 50px）
+
+如果您希望在樣式表中針對 Logo 進行修改，請在您的 `styles.css` 中尋找以下程式碼：
+
+```css
+.header-logo {
+    margin: 0 0 20px;
+    text-align: center;
+}
+.header-logo a {
+    display: inline-block;
+    max-width: 100%;
+    line-height: 0; /*firefox line-height bug fix*/
+}
+.header-logo a img {
+    max-width: 100%;
+    opacity: 1;
+}
+```
+
+> [!IMPORTANT]
+> 您可能需要清除瀏覽器快取（或使用 Ctrl+F5 重新整理頁面）才能看到變更（新的商店 Logo）。
+
+## 如何變更版面配置
+
+1. 如果您想要自訂或修改 nopCommerce 網站的基本版面配置（即 `_Root.cshtml`），請在您的 `styles.css` 檔案中尋找此 CSS 程式碼：
+
+    ```css
+    .master-wrapper-content {
+        position: relative;
+        z-index: 0;
+        width: 90%;
+        margin: 0 auto;
+    }
+    .master-column-wrapper {
+        position: relative;
+        z-index: 0;
+    }
+    .master-column-wrapper:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    ```
+
+1. 如果您想要自訂或修改 `_ColumnOne.cshtml` 的版面配置，請在您的 `style.css` 中尋找此 CSS 程式碼：
+
+    ```css
+    .center-1 {
+        margin: 0 0 100px;
+    }
+    ```
+
+1. 如果您想要自訂或修改 `_ColumnTwo.cshtml` 的版面配置，請在您的 `style.css` 中尋找此 CSS 程式碼：
+
+    ```css
+    .center-2, .side-2 {
+        margin: 0 0 50px;
+    }
+    .side-2:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    ```
+
+## 如何修改頁首選單（頂部選單）
+
+1. 如果您想要自訂或修改 nopCommerce 網站的頁首選單（頂部選單），請前往下列路徑：
+
+    前往 nopCommerce 根目錄 `/Views/Shared/Components/TopMenu/Default.cshtml`
+1. 開啟 `Default.cshtml` 檔案 - 您可以根據您的需求在 `<li>` 中新增或移除選單項目。
+
+## 如何修改頁尾（或頁尾連結）
+
+1. 如果您想要自訂或修改 nopCommerce 網站的頁尾（或頁尾連結），請前往下列路徑：
+
+    前往 nopCommerce 根目錄 `/Views/Shared/Components/Footer/Default.cshtml`
+1. 開啟 `Default.cshtml` 檔案 - 您可以根據您的需求在 `<li>` 中新增或移除連結，或是修改整個 `<ul>`。
