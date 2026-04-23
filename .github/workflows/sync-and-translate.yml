@@ -145,12 +145,19 @@ jobs:
           # 從上游取出最新的 en/ 覆蓋到 auto-translate 分支
           git checkout upstream/master -- en/ 2>/dev/null || true
 
-          # 同步 master 上已翻好但 auto-translate 還沒有的 zh-Hant/ 檔案
-          # （避免 master 上有更新的翻譯，但 auto-translate 分支不知道）
-          # auto-translate 分支已經有最新的翻譯進度
-          # 用 git pull 確保本地已是最新狀態（步驟 9 已做，這裡只是確認）
+          # 把 master 上有、但磁碟上還沒有的 zh-Hant/ 檔案補進來
+          # 翻譯結果同步回 master 後，auto-translate 可能缺少部分已翻檔案
+          BEFORE=$(find zh-Hant -name "*.md" 2>/dev/null | wc -l)
+          MASTER_COUNT=$(git ls-tree -r --name-only origin/master -- zh-Hant/ | wc -l)
+          echo "  📋 origin/master 的 zh-Hant/ 共 ${MASTER_COUNT} 個檔案"
+          git ls-tree -r --name-only origin/master -- zh-Hant/ | while IFS= read -r f; do
+            if [ ! -f "$f" ]; then
+              mkdir -p "$(dirname "$f")"
+              git show "origin/master:$f" > "$f"
+            fi
+          done
           AFTER=$(find zh-Hant -name "*.md" 2>/dev/null | wc -l)
-          echo "✅ zh-Hant/ 目前共 ${AFTER} 個 .md 檔案（來自 auto-translate 本身）" 
+          echo "✅ zh-Hant/ 補齊完成：${BEFORE} → ${AFTER} 個 .md 檔案" 
 
       # ── 步驟 11：執行 C# 翻譯程式 ────────────────────────────────────────────
       - name: Run C# translator
