@@ -187,7 +187,6 @@ jobs:
           dotnet "$DLL" \
             --source-dir en --target-dir zh-Hant --api-key "$COMBINED_KEYS" \
             --since-hash "${{ steps.check_changes.outputs.last_sync }}" \
-            --current-hash "${{ steps.check_changes.outputs.current_upstream }}" \
             $([ -n "${{ github.event.inputs.specific_file }}" ] && echo "--specific-file ${{ github.event.inputs.specific_file }}") \
             $([ "${{ github.event.inputs.force_retranslate }}" = "true" ] && echo "--force") \
             $([ -n "${{ github.event.inputs.start_key_index }}" ] && echo "--start-key-index ${{ github.event.inputs.start_key_index }}")
