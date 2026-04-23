@@ -130,6 +130,8 @@ jobs:
             # auto-translate 已存在 → 直接切過去，保留上次的翻譯進度
             git checkout auto-translate
             git pull origin auto-translate
+            # 孤兒分支 pull 後不會自動寫入磁碟，需要強制 checkout 把所有檔案寫出來
+            git checkout HEAD -- . 2>/dev/null || true
             echo "📌 已切到既有的 auto-translate branch"
             TRACKED=$(git ls-files zh-Hant/ | wc -l)
             ONDISK=$(find zh-Hant -name "*.md" 2>/dev/null | wc -l)
