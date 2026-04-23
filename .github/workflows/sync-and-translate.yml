@@ -129,14 +129,27 @@ jobs:
           if git rev-parse origin/auto-translate >/dev/null 2>&1; then
             # auto-translate 已存在 → 切過去並強制從遠端完整還原
             git checkout auto-translate
-            # 強制讓本地分支和遠端完全一致（會清除任何本地差異）
             git reset --hard origin/auto-translate
-            # 確保所有追蹤的檔案都實際寫到磁碟
-            git checkout-index -a -f
+
+            echo "📊 寫入前：磁碟上 $(find zh-Hant -name '*.md' 2>/dev/null | wc -l) 個 .md"
+
+            # 方法 1：先清空工作目錄，再強制從 HEAD 還原（確保重寫所有檔案）
+            git rm -rf --cached zh-Hant/ 2>/dev/null || true
+            rm -rf zh-Hant/
+            git reset --hard HEAD
+
+            echo "📊 方法1後：磁碟上 $(find zh-Hant -name '*.md' 2>/dev/null | wc -l) 個 .md"
+
+            # 方法 2：如果還是不行，用 git checkout-index 強制寫入
+            if [ "$(find zh-Hant -name '*.md' 2>/dev/null | wc -l)" -lt 100 ]; then
+              git checkout-index -a -f --prefix=./ 2>&1 | head -5 || true
+              echo "📊 方法2後：磁碟上 $(find zh-Hant -name '*.md' 2>/dev/null | wc -l) 個 .md"
+            fi
+
             echo "📌 已切到既有的 auto-translate branch"
             TRACKED=$(git ls-files zh-Hant/ | wc -l)
             ONDISK=$(find zh-Hant -name "*.md" 2>/dev/null | wc -l)
-            echo "📊 git 追蹤：${TRACKED} 個，磁碟上：${ONDISK} 個 .md"
+            echo "📊 最終：git 追蹤：${TRACKED} 個，磁碟上：${ONDISK} 個 .md"
           else
             # auto-translate 不存在 → 建立全新的空分支
             git checkout --orphan auto-translate
