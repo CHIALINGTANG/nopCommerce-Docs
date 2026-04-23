@@ -300,6 +300,14 @@ public class Translator
 
     public async Task RunAsync(string specificFile, string sinceHash)
     {
+        // 0. 翻譯開始前先寫入 .last-upstream-sync，確保中途推送時能一起帶上去
+        //    不能等 workflow 步驟 11 才寫，因為那時候翻譯已經跑完了
+        if (!string.IsNullOrWhiteSpace(sinceHash))
+        {
+            await File.WriteAllTextAsync(".last-upstream-sync", sinceHash.Trim(), new UTF8Encoding(false));
+            Console.WriteLine($"📝 已寫入 .last-upstream-sync（{sinceHash[..Math.Min(7, sinceHash.Length)]}）");
+        }
+
         // 1. 用 git diff 找出上游有新增或修改的檔案清單
         //    這樣只翻「真正有變動的」，不用每次全部重翻
         var upstreamChanged = await GetUpstreamChangedFilesAsync(sinceHash);
