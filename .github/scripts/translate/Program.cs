@@ -966,6 +966,7 @@ public class Translator
 
             throw new QuotaExhaustedException($"所有 {_apiKeys.Count} 組 API Key 都已嘗試，仍遇到配額耗盡或模型暫時不可用。");
         }
+    }    
 
     // 判斷是否為 Key 驗證失敗的錯誤
     private static bool IsInvalidKeyError(Exception ex)
