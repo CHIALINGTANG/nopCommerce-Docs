@@ -945,23 +945,27 @@ public class Translator
         {
             return await CallGeminiAsync(content);
         }
-        catch (Exception ex) when (IsInvalidKeyError(ex))
+        catch (Exception ex) when (
+            ex.Message.Contains("429") ||
+            ex.Message.Contains("quota", StringComparison.OrdinalIgnoreCase) ||
+            ex.Message.Contains("503") ||
+            ex.Message.Contains("UNAVAILABLE") ||
+            ex.Message.Contains("high demand", StringComparison.OrdinalIgnoreCase))
         {
-            // 401 / 403 / API_KEY_INVALID → Key 本身有問題，直接換下一組
-            Console.WriteLine($"    ❌ [Key {_currentKeyIndex + 1}/{_apiKeys.Count}] 驗證失敗（401/403）：{ex.Message[..Math.Min(60, ex.Message.Length)]}");
+            // 429：配額耗盡 → 立即換下一組 Key
+            // 503 / UNAVAILABLE / high demand：模型目前高需求或暫時不可用 → 立即換下一組 Key
+            var reason =
+                ex.Message.Contains("503") || ex.Message.Contains("UNAVAILABLE") || ex.Message.Contains("high demand", StringComparison.OrdinalIgnoreCase)
+                    ? "503 模型高需求 / 暫時不可用"
+                    : "429 配額耗盡";
+
+            Console.WriteLine($"    ⚠️  [Key {_currentKeyIndex + 1}/{_apiKeys.Count}] {reason}，立即切換 Key...");
+
             if (SwitchToNextKey())
                 return await CallGeminiAsync(content);
-            throw new QuotaExhaustedException($"所有 {_apiKeys.Count} 組 API Key 都無效或已耗盡。");
+
+            throw new QuotaExhaustedException($"所有 {_apiKeys.Count} 組 API Key 都已嘗試，仍遇到配額耗盡或模型暫時不可用。");
         }
-        catch (Exception ex) when (ex.Message.Contains("429") || ex.Message.Contains("quota"))
-        {
-            // 429 → 立即換下一組 Key
-            Console.WriteLine($"    ⚠️  [Key {_currentKeyIndex + 1}/{_apiKeys.Count}] 429 配額耗盡，立即切換 Key...");
-            if (SwitchToNextKey())
-                return await CallGeminiAsync(content);
-            throw new QuotaExhaustedException($"所有 {_apiKeys.Count} 組 API Key 的今日配額皆已耗盡。");
-        }
-    }
 
     // 判斷是否為 Key 驗證失敗的錯誤
     private static bool IsInvalidKeyError(Exception ex)
