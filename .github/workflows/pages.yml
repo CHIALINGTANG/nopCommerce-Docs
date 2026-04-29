@@ -67,6 +67,9 @@ jobs:
           }
 
           for path in site_dir.rglob("*"):
+              if not path.is_file():
+                  continue
+
               if path.suffix.lower() not in [".html", ".htm", ".js", ".css", ".json"]:
                   continue
 
@@ -76,7 +79,6 @@ jobs:
               for old, new in replacements.items():
                   text = text.replace(old, new)
 
-              # 修正 CSS 裡面的 url(/xxx)
               text = text.replace("url(/styles/", f"url({base}/styles/")
               text = text.replace("url(/public/", f"url({base}/public/")
               text = text.replace("url(/assets/", f"url({base}/assets/")
