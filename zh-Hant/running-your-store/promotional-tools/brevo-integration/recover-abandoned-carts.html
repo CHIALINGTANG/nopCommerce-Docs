@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>復原廢棄購物車 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="復原廢棄購物車 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="preload" href="../../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/running-your-store/promotional-tools/brevo-integration/recover-abandoned-carts">
+<h1 id="復原廢棄購物車">復原廢棄購物車</h1>
+
+<p>在本教學中，您將學習如何建立廢棄購物車電子郵件，以及如何設定工作流程來找回流失的銷售。您也將了解哪些 nopCommerce 訂單資料與 Brevo 平台相容。</p>
+<h2 id="開始之前">開始之前</h2>
+<p>您需要準備以下項目：</p>
+<ul>
+<li>Brevo 帳號憑證。如果您尚未擁有，請<a href="https://get.brevo.com/v70whp">免費註冊</a>。</li>
+<li>請確保您的帳號已啟用 Brevo 的 <a href="https://get.brevo.com/eg4z2v"><em>New Template Language</em></a> 電子郵件範本語言。</li>
+<li>請依照<a class="xref" href="set-up-brevo-plugin.html">這些步驟</a>來設定 Brevo 外掛。</li>
+</ul>
+<h2 id="建立購物車未結帳提醒郵件範本">建立購物車未結帳提醒郵件範本</h2>
+<p>首先，登入您的 Brevo 帳號，接著前往 Automation 平台 &gt; <a href="https://get.brevo.com/e8j7a">Email Templates</a>。點選右上角的 <strong>New Template</strong> 按鈕。</p>
+<p>此郵件範本可以使用多種資料類型進行個人化設定：</p>
+<ul>
+<li><a href="#personalize-your-email-with-contact-attributes">儲存在 Brevo 清單中的聯絡人屬性</a></li>
+<li><a href="#personalize-your-email-with-the-abandoned-items-details">未結帳商品詳細資訊</a></li>
+<li><a href="#personalize-your-email-with-the-abandoned-cart-details">購物車未結帳詳細資訊</a></li>
+</ul>
+<h3 id="使用聯絡人屬性個人化您的電子郵件">使用聯絡人屬性個人化您的電子郵件</h3>
+<p>讓我們從 <a href="https://get.brevo.com/bynyff">使用聯絡人屬性進行個人化</a> 開始。</p>
+<p>在下方的範例中，我們包含了以下個人化內容：</p>
+<ul>
+<li>使用 {{ contact.FIRSTNAME }} 顯示收件人的名字</li>
+<li>使用 {{ contact.LASTNAME }} 顯示收件人的姓氏</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>FIRSTNAME 和 LASTNAME 必須是您 Brevo 帳戶中已存在的屬性。</p>
+</div>
+<p><img src="_static/recover-abandoned-carts/attribute-personalization.gif" alt="Attribute personalization"></p>
+<p>現在，讓我們使用訂單變數（例如遺留商品的名稱、圖片、價格等）來個人化電子郵件範本。為此，我們將使用 <em>New Template Language</em> 來插入動態清單。</p>
+<h3 id="使用棄置商品詳細資訊個人化您的電子郵件">使用棄置商品詳細資訊個人化您的電子郵件</h3>
+<p>您可以直接從 Brevo 範本內容中的動態清單加入以下變數：</p>
+<table>
+<thead>
+<tr>
+<th>商品資料</th>
+<th>在您的範本中插入此佔位符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>名稱</td>
+<td>{{ item.name }}</td>
+</tr>
+<tr>
+<td>SKU</td>
+<td>{{ item.sku }}</td>
+</tr>
+<tr>
+<td>類別</td>
+<td>{{ item.category }}</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>{{ item.id }}</td>
+</tr>
+<tr>
+<td>商品變體 ID</td>
+<td>{{ item.variant_id }}</td>
+</tr>
+<tr>
+<td>商品變體名稱</td>
+<td>{{ item.variant_name }}</td>
+</tr>
+<tr>
+<td>價格</td>
+<td>{{ item.price }}</td>
+</tr>
+<tr>
+<td>數量</td>
+<td>{{ item.quantity }}</td>
+</tr>
+<tr>
+<td>購買商品的商店前台連結</td>
+<td>{{ item.url }}</td>
+</tr>
+<tr>
+<td>圖片</td>
+<td>{{ item.image }}</td>
+</tr>
+</tbody>
+</table>
+<p>在 <em>拖放編輯器 (Drag &amp; Drop Editor)</em> 中，選取您想要顯示棄置商品的區塊。</p>
+<ol>
+<li>點擊 <strong>鉛筆圖示</strong> 來編輯設計區塊的設定。</li>
+<li>啟用 <strong>動態清單 (dynamic list)</strong> 選項。</li>
+<li>在 <strong>參數 (parameter)</strong> 欄位中，輸入 <code>items</code>。</li>
+<li>在 <strong>變數 (variable)</strong> 欄位中，輸入 <code>item</code>。</li>
+<li>設定要顯示的商品數量上限。例如，如果購物車中剩下 5 件商品，而您將上限設為 3，則電子郵件中只會顯示 3 件商品。</li>
+</ol>
+<p><img src="_static/recover-abandoned-carts/items.jpg" alt="Email editor"></p>
+<p>現在將變數加入到您的電子郵件範本中。在上述範例中，我們加入了：</p>
+<ul>
+<li><code>{{ item.name }}</code> - 商品名稱</li>
+<li><code>{{ item.quantity }}</code> - 商品數量</li>
+<li><code>{{ item.price | floatformat: 2 }}</code> - 商品價格</li>
+</ul>
+<p>若要加入商品連結，請選取 <strong>行動呼籲 (CTA)</strong> 按鈕。在右側邊欄的 <em>連結 (Link)</em> 下方，輸入 <code>{{ item.url }}</code>。</p>
+<p><img src="_static/recover-abandoned-carts/item-url.jpg" alt="item.url"></p>
+<p>若要加入商品圖片，請選取該圖片。在右側邊欄的 <em>圖片來源 (Image source)</em> 下方，選擇 <em>來自 URL (From URL)</em>，然後輸入 <code>{{ item.image }}</code>。</p>
+<p><img src="_static/recover-abandoned-carts/item-image.jpg" alt="item.image"></p>
+<p>完成設計後，點擊綠色的 <strong>儲存並離開 (Save &amp; Quit)</strong> 按鈕。接著點擊 <strong>儲存並啟用 (Save &amp; Activate)</strong> 按鈕。</p>
+<h3 id="使用遺失購物車明細個人化您的電子郵件">使用遺失購物車明細個人化您的電子郵件</h3>
+<p>您可以將下列變數直接包含在您的 Brevo 範本內容中：</p>
+<table>
+<thead>
+<tr>
+<th>購物車明細</th>
+<th>插入此佔位符</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>關聯（Affiliation）</td>
+<td>{{ params.affiliation }}</td>
+</tr>
+<tr>
+<td>貨幣</td>
+<td>{{ params.currency }}</td>
+</tr>
+<tr>
+<td>折扣</td>
+<td>{{ params.discount }}</td>
+</tr>
+<tr>
+<td>運費</td>
+<td>{{ params.shipping }}</td>
+</tr>
+<tr>
+<td>小計</td>
+<td>{{ params.subtotal }}</td>
+</tr>
+<tr>
+<td>稅額</td>
+<td>{{ params.tax }}</td>
+</tr>
+<tr>
+<td>稅前總計</td>
+<td>{{ params.tax }}</td>
+</tr>
+<tr>
+<td>總計</td>
+<td>{{ params.total_before_tax }}</td>
+</tr>
+<tr>
+<td>購物車連結</td>
+<td>{{ params.url }}</td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<h5>Note</h5>
+<p>購物車連結頁面中顯示的項目，會根據開啟該連線的裝置來源而有所不同。例如，假設顧客正在使用筆記型電腦瀏覽，如果他們從手機點擊了遺失購物車的電子郵件，將不會顯示他們先前遺失的購物車內容。</p>
+</div>
+<p>在「拖放編輯器」（Drag &amp; Drop Editor）中，選取您想要顯示遺失購物車資訊的區塊，然後加入您想要的訂單變數。</p>
+<p>我們建議使用 <a href="https://get.brevo.com/ogcn5b">floatformat</a> 來格式化數字。在下方的範例中，我們加入了：</p>
+<ul>
+<li><code>{{ params.currency }}</code> - 遺失購物車的貨幣</li>
+<li><code>{{ params.subtotal | floatformat: 2 }}</code> - 遺失購物車的小計</li>
+<li><code>{{ params.discount | floatformat: 2 }}</code> - 遺失購物車的折扣</li>
+<li><code>{{ params.total | floatformat: 2 }}</code> - 遺失購物車的總計</li>
+</ul>
+<p><img src="_static/recover-abandoned-carts/cart.jpg" alt="Cart"></p>
+<p>若要加入遺失購物車的連結，請選取 <strong>行動呼籲 (CTA)</strong> 按鈕。在右側邊欄的「連結」（Link）下方，輸入 <code>{{ params.url }}</code>。</p>
+<p><img src="_static/recover-abandoned-carts/url.jpg" alt="params.url"></p>
+<p>一旦設計完成，請點擊綠色的 <strong>儲存並離開</strong> (Save &amp; Quit) 按鈕。接著點擊 <strong>儲存並啟用</strong> (Save &amp; Activate) 按鈕。</p>
+<h2 id="建立購物車未結帳流程">建立購物車未結帳流程</h2>
+<div class="NOTE">
+<h5>Note</h5>
+<p>顧客必須透過電子郵件地址進行識別才能觸發此流程，意即顧客需登入您 nopCommerce 商店的帳戶，或是在結帳過程中輸入他們的電子郵件地址。</p>
+</div>
+<p>前往您的 Brevo 帳戶中的 <a href="https://get.brevo.com/tvl7ng">Automation</a> 分頁。</p>
+<p>點擊 <strong>+ CREATE A NEW WORKFLOW</strong>，接著選擇 <strong>Detailed Abandoned Cart</strong> 並依照步驟操作。</p>
+<p><img src="_static/recover-abandoned-carts/detailed-abandoned-cart.jpg" alt="Detailed Abandoned Cart"></p>
+<p>在 <em>Send an email</em>（發送電子郵件）步驟中，從下拉式選單選擇您剛才建立並啟用的電子郵件範本。</p>
+<p>當流程設定完成後，點擊 <strong>DONE</strong> 以儲存並啟用它。</p>
+<p>歡迎參考以下教學課程，以協助您建立此流程：</p>
+<ul>
+<li><a href="https://get.brevo.com/gqqwh">復原未結帳購物車：自動發送電子郵件 (步驟 3)</a></li>
+</ul>
+<h2 id="範例">範例</h2>
+<p>假設顧客 Jean Blue <a href="mailto:jean.blue@brevo.com">jean.blue@brevo.com</a> 已經造訪過您的商店，但購物車中仍留有以下 3 項商品。</p>
+<p><img src="_static/recover-abandoned-carts/cart-example.jpg" alt="Cart example"></p>
+<p>您的範本看起來會像這樣：</p>
+<p><img src="_static/recover-abandoned-carts/template.jpg" alt="Cart example"></p>
+<p>Jean Blue 收到的電子郵件看起來會像這樣：</p>
+<p><img src="_static/recover-abandoned-carts/email.jpg" alt="Cart example"></p>
+<h2 id="深入了解">深入了解</h2>
+<ul>
+<li><a class="xref" href="send-an-order-confirmation-email.html">發送訂單確認電子郵件</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/running-your-store/promotional-tools/brevo-integration/recover-abandoned-carts.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Send an order confirmation email </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Send an order confirmation email ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="preload" href="../../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/running-your-store/promotional-tools/brevo-integration/send-an-order-confirmation-email">
+<h1 id="send-an-order-confirmation-email">Send an order confirmation email</h1>
+
+<p>In this tutorial, you will learn how to create an order confirmation email template and set up a workflow to keep buyers engaged. You will also learn which nopCommerce order data are compatible with the Brevo platform.</p>
+<h2 id="before-getting-started">Before getting started</h2>
+<p>You will need the following:</p>
+<ul>
+<li>Brevo account credentials. If you don't have one, <a href="https://get.brevo.com/v70whp">sign up for free</a>.</li>
+<li>Make sure that Brevo <a href="https://get.brevo.com/eg4z2v"><em>New Template Language</em></a> for emails is enabled in your account.</li>
+<li>Follow <a class="xref" href="set-up-brevo-plugin.html">these steps</a> to set up the brevo plugin.</li>
+</ul>
+<h2 id="create-the-order-confirmation-email-template">Create the order confirmation email template</h2>
+<p>First, log in to your Brevo account, then go to the Automation platform &gt; <a href="https://get.brevo.com/e8j7a">Email Templates</a>. Click the <strong>New Template</strong> button in the top right.</p>
+<p>The email template can be personalized with several types of data:</p>
+<ul>
+<li><a href="#personalize-your-email-with-contact-attributes">contact attributes saved in your Brevo list</a></li>
+<li><a href="#personalize-your-email-with-the-order-details">order details</a></li>
+<li><a href="#personalize-your-email-with-the-ordered-items-details">ordered item details</a></li>
+</ul>
+<h3 id="personalize-your-email-with-contact-attributes">Personalize your email with contact attributes</h3>
+<p>Let's start by personalizing with <a href="https://get.brevo.com/bynyff">contact attributes</a>.</p>
+<p>In the example below, we have included personalization of:</p>
+<ul>
+<li>the recipient's first name using <code>{{ contact.FIRSTNAME }}</code></li>
+<li>the recipient's last name using <code>{{ contact.LASTNAME }}</code></li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>FIRSTNAME and LASTNAME should be existing attributes in your Brevo account.</p>
+</div>
+<p><img src="_static/send-an-order-confirmation-email/attribute-personalization.gif" alt="Attribute personalization"></p>
+<h3 id="personalize-your-email-with-the-order-details">Personalize your email with the order details</h3>
+<p>The following variables can be included directly within your Brevo template content:</p>
+<table>
+<thead>
+<tr>
+<th>Order data</th>
+<th>Shipping address data</th>
+<th>Billing address data</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{{ params.url }}</td>
+<td>{{ params.shipping_address.firstname }}</td>
+<td>{{ params.billing_address.firstname }}</td>
+</tr>
+<tr>
+<td>{{ params.currency }}</td>
+<td>{{ params.shipping_address.lastname }}</td>
+<td>{{ params.billing_address.lastname }}</td>
+</tr>
+<tr>
+<td>{{ params.date }}</td>
+<td>{{ params.shipping_address.company }}</td>
+<td>{{ params.billing_address.company }}</td>
+</tr>
+<tr>
+<td>{{ params.discount }}</td>
+<td>{{ params.shipping_address.phone }}</td>
+<td>{{ params.billing_address.phone }}</td>
+</tr>
+<tr>
+<td>{{ params.id }}</td>
+<td>{{ params.shipping_address.address1 }}</td>
+<td>{{ params.billing_address.address1 }}</td>
+</tr>
+<tr>
+<td>{{ params.revenue }}</td>
+<td>{{ params.shipping_address.address2 }}</td>
+<td>{{ params.billing_address.address2 }}</td>
+</tr>
+<tr>
+<td>{{ params.shipping }}</td>
+<td>{{ params.shipping_address.city }}</td>
+<td>{{ params.billing_address.city }}</td>
+</tr>
+<tr>
+<td>{{ params.subtotal }}</td>
+<td>{{ params.shipping_address.country }}</td>
+<td>{{ params.billing_address.country }}</td>
+</tr>
+<tr>
+<td>{{ params.tax }}</td>
+<td>{{ params.shipping_address.state }}</td>
+<td>{{ params.billing_address.state }}</td>
+</tr>
+<tr>
+<td>{{ params.total_before_tax }}</td>
+<td>{{ params.shipping_address.zipcode }}</td>
+<td>{{ params.billing_address.zipcode }}</td>
+</tr>
+</tbody>
+</table>
+<p>In the <em>Drag &amp; Drop Editor</em>, select your desired block that will display the order information, then add your variables.</p>
+<p>We recommend formatting numbers using <a href="https://get.brevo.com/ogcn5b">floatformat</a>. In the example below, we have added:</p>
+<ul>
+<li><code>{{ params.currency | floatformat: 2 }}</code> - the currency of the order</li>
+<li><code>{{ params.subtotal | floatformat: 2 }}</code> - the subtotal of the order</li>
+<li><code>{{ params.discount | floatformat: 2 }}</code> - the discount of the order</li>
+<li><code>{{ params.total | floatformat: 2 }}</code> - the total of the order</li>
+</ul>
+<p><img src="_static/send-an-order-confirmation-email/order.jpg" alt="Order summary"></p>
+<p>Now let's personalize the email template with ordered items. To do so, we're using the <em>New Template Language</em> to insert a dynamic list.</p>
+<h3 id="personalize-your-email-with-the-ordered-items-details">Personalize your email with the ordered items details</h3>
+<p>The following variables can be included directly from a dynamic list within your Brevo template content:</p>
+<table>
+<thead>
+<tr>
+<th>Items data</th>
+<th>Insert this placeholder in your template</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>{{ item.name }}</td>
+</tr>
+<tr>
+<td>SKU</td>
+<td>{{ item.sku }}</td>
+</tr>
+<tr>
+<td>Category</td>
+<td>{{ item.category }}</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>{{ item.id }}</td>
+</tr>
+<tr>
+<td>ID of the item variation</td>
+<td>{{ item.variant_id }}</td>
+</tr>
+<tr>
+<td>Name of the item variation</td>
+<td>{{ item.variant_name }}</td>
+</tr>
+<tr>
+<td>Price</td>
+<td>{{ item.price }}</td>
+</tr>
+<tr>
+<td>Quantity</td>
+<td>{{ item.quantity }}</td>
+</tr>
+<tr>
+<td>Storefront link to the purchased item</td>
+<td>{{ item.url }}</td>
+</tr>
+<tr>
+<td>Image</td>
+<td>{{ item.image }}</td>
+</tr>
+</tbody>
+</table>
+<p>In the <em>Drag &amp; Drop Editor</em>, select your desired block that will display the ordered items.</p>
+<ol>
+<li>Click the <strong>pencil icon</strong> to edit the settings for the design block.</li>
+<li>Enable the <strong>dynamic list</strong> option.</li>
+<li>In the <strong>parameter</strong> field, type <code>items</code>.</li>
+<li>In the <strong>variable</strong> field, type <code>item</code>.</li>
+<li>Set the limit for the number of items that will be displayed. For example, if there are 5 items, and you set 3 as the limit, only 3 items will be shown in the email.</li>
+</ol>
+<p><img src="_static/send-an-order-confirmation-email/items.jpg" alt="Items"></p>
+<p>Now add the variables to your email template. In the example above, we have added:</p>
+<ul>
+<li><code>{{ item.name }}</code> - the name of the item</li>
+<li><code>{{ item.quantity }}</code> - the quantity of the item</li>
+<li><code>{{ item.price | floatformat: 2 }}</code> - the price of the item</li>
+</ul>
+<p>To add the link to the item, select the <strong>Call-To-Action (CTA)</strong> button. On the right sidebar, under <em>Link</em>, type <code>{{ item.url }}</code>.</p>
+<p><img src="_static/send-an-order-confirmation-email/item.jpg" alt="Item"></p>
+<p>To add the image of the item, select the image. On the right sidebar, under <em>Image source</em>, choose <em>From URL</em>, then type <code>{{ item.image }}</code>.</p>
+<p><img src="_static/send-an-order-confirmation-email/image.jpg" alt="Image"></p>
+<p>Once your design is complete, click the green <strong>Save &amp; Quit</strong> button. Then click the <strong>Save &amp; Activate</strong> button.</p>
+<h2 id="creating-the-order-confirmation-workflow">Creating the order confirmation workflow</h2>
+<div class="NOTE">
+<h5>Note</h5>
+<p>A customer has to be identified by their email address to trigger the workflow, that is, a customer should be logged in to their account on your nopCommerce store or enter their email address during checkout.</p>
+</div>
+<p>Navigate to the <a href="https://get.brevo.com/tvl7ng">Automation</a> tab of your Brevo account.</p>
+<p>Click <strong>+ CREATE A NEW WORKFLOW</strong>, then select <strong>Product Purchase</strong> and follow the steps.</p>
+<ol>
+<li><p><strong>Step 1/3</strong> — An event happens</p>
+<ul>
+<li>Select <em>Custom Event (Track Event)</em>.</li>
+<li>Type <code>order_completed</code>.</li>
+<li>Click <strong>NEXT</strong>.</li>
+</ul>
+</li>
+<li><p><strong>Step 2/3</strong> — Add a delay</p>
+<ul>
+<li>Choose a delay. For example, 5 seconds.</li>
+<li>Click <strong>NEXT</strong>.</li>
+</ul>
+</li>
+<li><p><strong>Step 3/3</strong> — Send an email</p>
+<ul>
+<li>From the dropdown list, select the email template you have just created and    activated.</li>
+<li>Select <strong>Use my event data to customize the email</strong>.</li>
+<li>Select <strong>The event data which triggered the workflow</strong>.</li>
+<li>Click <strong>FINISH</strong>.</li>
+</ul>
+</li>
+</ol>
+<p><img src="_static/send-an-order-confirmation-email/create-workflow.gif" alt="Create workflow"></p>
+<p>When your workflow is complete, click <strong>DONE</strong> to save and activate it.</p>
+<h2 id="example">Example</h2>
+<p>Let's say that customer Jean Blue <a href="mailto:jean.blue@brevo.com">jean.blue@brevo.com</a> has purchased the following 3 items from your store.</p>
+<p><img src="_static/send-an-order-confirmation-email/order-items.jpg" alt="Order items"></p>
+<p>Your template will look like this:</p>
+<p><img src="_static/send-an-order-confirmation-email/template.jpg" alt="Template"></p>
+<p>The email received by Jean Blue at <a href="mailto:jean.blue@brevo.com">jean.blue@brevo.com</a> will look like this:</p>
+<p><img src="_static/send-an-order-confirmation-email/email.jpg" alt="Email"></p>
+<h2 id="learn-more">Learn more</h2>
+<ul>
+<li><a class="xref" href="recover-abandoned-carts.html">Recover abandoned carts</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/running-your-store/promotional-tools/brevo-integration/send-an-order-confirmation-email.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

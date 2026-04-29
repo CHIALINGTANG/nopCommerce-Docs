@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>擴充權限 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="擴充權限 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/developer/tutorials/permissions">
+<h1 id="擴充權限">擴充權限</h1>
+
+<p><strong>權限 (Permissions)</strong> 是應用程式資源安全的重要元素。透過它們，您可以限制對應用程式特定部分的存取，或者反過來，提供讀取或變更特定區域的必要權利。</p>
+<p>所有用於控制範圍的可用權限皆位於「存取控制清單 (ACL)」區段中。</p>
+<p>與應用程式中的任何其他變更一樣，建議透過外掛來進行。因此，讓我們來看看如何透過抽象外掛來新增權限。本教學旨在向您展示如何管理權限，若要了解如何建立外掛本身，請參閱 <a class="xref" href="../plugins/index.html">此頁面</a>。</p>
+<h2 id="在-nopcommerce-480-及以上版本中新增自訂權限">在 nopCommerce 4.80 及以上版本中新增自訂權限</h2>
+<p>首先，讓我們建立一個類別來描述新的權限，這就是權限提供者（permission provider）。此類別必須實作 <code>IPermissionConfigManager</code> 介面。</p>
+<pre><code class="lang-csharp">public partial class WebApiBackendPermissionConfigManager : IPermissionConfigManager
+{
+    public const string ACCESS_WEB_API = &quot;AccessWebApi&quot;;
+
+    /// &lt;summary&gt;
+    /// Gets all permission configurations
+    /// &lt;/summary&gt;
+    public IList&lt;PermissionConfig&gt; AllConfigs =&gt;
+        new List&lt;PermissionConfig&gt;
+        {
+            new(&quot;Access Web API Backend&quot;, ACCESS_WEB_API , nameof(StandardPermission.System), NopCustomerDefaults.AdministratorsRoleName)
+        };
+}
+</code></pre>
+<p>指定的記錄將會安裝到資料庫中，無需任何額外操作。</p>
+<p>在此範例中，權限僅設定給 <em>系統管理員角色（administrator role）</em>，但如有需要，可以擴充此清單。</p>
+<p>別忘了在移除外掛時，也要在 <code>UninstallAsync()</code> 方法中一併移除該權限：</p>
+<pre><code class="lang-csharp">//delete permission
+var permissionRecord = (await _permissionService.GetAllPermissionRecordsAsync())
+    .FirstOrDefault(x =&gt; x.SystemName == WebApiBackendPermissionConfigManager.ACCESS_WEB_API);
+
+await _permissionService.DeletePermissionRecordAsync(permissionRecord);
+</code></pre>
+<p>現在，在任何需要檢查使用者存取特定資源是否合法的程式碼中，我們都需要呼叫 <code>IPermissionService</code> 服務的 <code>AuthorizeAsync()</code> 方法並傳入該權限：</p>
+<pre><code class="lang-csharp"> //check whether current customer has access to Web API
+ if (await _permissionService.AuthorizeAsync(WebApiBackendPermissionConfigManager.ACCESS_WEB_API))
+     return;
+</code></pre>
+<p>另一種將權限作為控制器動作篩選器（controller action filter）屬性的使用方式如下：</p>
+<pre><code class="lang-csharp">[CheckPermission(WebApiBackendPermissionConfigManager.ACCESS_WEB_API)]
+public virtual async Task&lt;IActionResult&gt; Configure()
+{
+    ...
+}
+</code></pre>
+<p>基本上就是這樣，安裝外掛後，您可以在 <strong>ACL</strong> 區段中看到您新增的權限。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>如果您想直接使用預設權限，它們都列在 <code>StandardPermission</code> 類別中（位於 <code>Nop.Services.Security</code> 命名空間）。
+例如：</p>
+<pre><code class="lang-csharp">[CheckPermission(StandardPermission.Configuration.MANAGE_SETTINGS)]
+</code></pre>
+</div>
+<h2 id="在-nopcommerce-470-及更早版本中新增自訂權限">在 nopCommerce 4.70 及更早版本中新增自訂權限</h2>
+<p>首先，讓我們建立一個描述新權限的類別，這將會是權限提供者。此類別必須實作 <code>IPermissionProvider</code> 介面。</p>
+<pre><code class="lang-csharp">public partial class WebApiBackendPermissionProvider : IPermissionProvider
+{
+    public static readonly PermissionRecord AccessWebApiBackend = new ()
+    {
+        Name = &quot;Access Web API Backend&quot;, SystemName = &quot;AccessWebApi&quot;, Category= &quot;Standard&quot;
+    };
+    /// &lt;summary&gt;
+    /// Get permissions
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;Permissions&lt;/returns&gt;
+    public virtual IEnumerable&lt;PermissionRecord&gt; GetPermissions()
+    {
+        return new[]
+        {
+            AccessWebApiBackend
+        };
+    }
+    /// &lt;summary&gt;
+    /// Get default permissions
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;Permissions&lt;/returns&gt;
+    public virtual HashSet&lt;(string systemRoleName, PermissionRecord[]permissions)&gt; GetDefaultPermissions()
+    {
+        return new () { (NopCustomerDefaults.AdministratorsRoleName, new [] { AccessWebApiBackend }) };
+    }
+}
+</code></pre>
+<p>在此範例中，該權限僅針對 <em>管理員角色 (administrator role)</em> 進行設定，但若有需要，此清單可以擴充。</p>
+<p>現在，我們將在外掛安裝時新增此權限。這必須在 <code>InstallAsync()</code> 方法中完成：</p>
+<pre><code class="lang-csharp">//add permission
+await _permissionService.InstallPermissionsAsync(new WebApiBackendPermissionProvider());
+</code></pre>
+<p>別忘了在移除外掛時，也要在 <code>UninstallAsync()</code> 方法中移除該權限：</p>
+<pre><code class="lang-csharp">//delete permission
+var permissionRecord = (await _permissionService.GetAllPermissionRecordsAsync())
+    .FirstOrDefault(x =&gt; x.SystemName == WebApiBackendPermissionProvider.AccessWebApiBackend.SystemName);
+var listMappingCustomerRolePermissionRecord = await _permissionService.GetMappingByPermissionRecordIdAsync(permissionRecord.Id);
+foreach (var mappingCustomerPermissionRecord in listMappingCustomerRolePermissionRecord)
+    await _permissionService.DeletePermissionRecordCustomerRoleMappingAsync(
+        mappingCustomerPermissionRecord.PermissionRecordId,
+        mappingCustomerPermissionRecord.CustomerRoleId);
+
+await _permissionService.DeletePermissionRecordAsync(permissionRecord);
+</code></pre>
+<p>現在，在任何需要檢查使用者是否具有存取特定資源權限的地方，我們都需要呼叫 <code>IPermissionService</code> 服務的 <code>AuthorizeAsync()</code> 方法，並傳入該權限：</p>
+<pre><code class="lang-csharp">//check whether current customer has access to Web API
+if (await _permissionService.AuthorizeAsync(WebApiBackendPermissionProvider.AccessWebApiBackend))
+    return;
+</code></pre>
+<p>這基本上就是所有步驟了，安裝外掛後，您可以在 <strong>ACL</strong> 區段中看到您新增的權限。</p>
+<h2 id="參閱">參閱</h2>
+<ul>
+<li><a class="xref" href="../../running-your-store/customer-management/access-control-list.html">存取控制清單 (Access control list)</a></li>
+</ul>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/developer/tutorials/permissions.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

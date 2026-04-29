@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Order settings </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Order settings ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/running-your-store/order-management/order-settings">
+<h1 id="order-settings">Order settings</h1>
+
+<p>To define order settings, go to <strong>Configuration → Settings → Order settings</strong>. The <em>Order settings</em> window will be displayed.</p>
+<p>This page enables multi-store configuration; it means that the same settings can be defined for all stores or differ from store to store. If you want to manage settings for a certain store, choose its name from the multi-store configuration dropdown list and select all the checkboxes needed on the left to set custom values for them. For further details, refer to <a class="xref" href="../../getting-started/advanced-configuration/multi-store.html">Multi-store</a>.</p>
+<p>In this window, you can define the following order settings:</p>
+<h2 id="checkout">Checkout</h2>
+<p>Define the following settings in the <em>Checkout</em> panel:
+<img src="_static/order-settings/checkout.jpg" alt="Checkout"></p>
+<ul>
+<li><strong>Checkout disabled</strong> to disable the checkout process.</li>
+<li><strong>Anonymous checkout allowed</strong> to enable customers to purchase products without registration/logging in.</li>
+<li><strong>Use one page checkout</strong>, which is a single webpage your customers would use to buy a product or a service from you.</li>
+<li><strong>Order totals on payment info tab</strong> to display a product list and order totals in the payment info tab (one-page checkout).</li>
+<li>Whether to require customers to accept the <strong>Terms of service</strong> before processing the order (<strong>on the shopping cart page</strong>).</li>
+<li>Whether to require customers to accept the <strong>Terms of service</strong> before processing the order (<strong>on the confirm order page</strong>).</li>
+<li><strong>Disable &quot;Billing address&quot; step</strong> during checkout. The billing address will be pre-filled and saved using the default registration data (cannot be used with guest checkout selected). In <strong>Configuration → Settings → Customer settings</strong>, ensure the appropriate address fields that cannot be prefilled are not required (or disabled).</li>
+<li><strong>Disable &quot;Order completed&quot; page</strong> to automatically redirect a customer to the order details page after an order is placed.</li>
+<li><strong>Display &quot;Pickup in store&quot; on &quot;Shipping method&quot; page</strong> or on the shipping address page.</li>
+</ul>
+<h2 id="order-totals">Order totals</h2>
+<p>Define the following settings in the <em>Order totals</em> panel:
+<img src="_static/order-settings/totals.jpg" alt="Totals"></p>
+<ul>
+<li><strong>Min order sub-total amount</strong>. Orders below this amount will not be issued.</li>
+<li><strong>Calculate &quot;Min order sub-total amount&quot; including tax</strong>. In this case, an order subtotal will be calculated including tax when validating <strong>Min order sub-total amount field</strong> specified in the previous step.</li>
+<li><strong>Min order total amount</strong>. Orders below this amount will not be issued.</li>
+<li><strong>Auto update order totals</strong> to have the order totals automatically updated on editing an order in the admin area (currently in BETA testing).</li>
+</ul>
+<h2 id="common">Common</h2>
+<p>Define the following settings in the <em>Common</em> panel:
+<img src="_static/order-settings/common.jpg" alt="Common"></p>
+<ul>
+<li>The <strong>Order ID</strong> counter. This is useful if you want your orders to start with a certain number. This only affects orders created after defining. The value must be greater than the current maximum order ID.</li>
+<li>In <strong>Order number mask</strong>, you can create a custom order number. For example, starting with {YYYY} — the year of the order creation date.</li>
+<li><strong>Is re-order allowed</strong> to enable customers to re-order. The re-order mechanism automatically adds all items that were in a previous order to the shopping cart.</li>
+<li><strong>Complete order when delivered</strong> to set order status to &quot;Complete&quot; only when its shipping status is &quot;Delivered.&quot; Otherwise, the &quot;Shipped&quot; status will be enough.</li>
+<li><strong>Export orders with products</strong>.</li>
+<li><strong>Allow admins to buy &quot;Call for price&quot; products</strong> to allow administrators (in impersonation mode) to buy products marked as &quot;Call for price.&quot;</li>
+<li><strong>Show product thumbnail in order details page</strong> to show product thumbnail in order details page.</li>
+</ul>
+<h2 id="pdf-invoice">PDF invoice</h2>
+<p>Define the following settings in the <em>PDF invoice</em> panel:
+<img src="_static/order-settings/pdf-invoice.jpg" alt="PDF invoice"></p>
+<ul>
+<li><strong>To Attach PDF invoice (&quot;order placed&quot; email)</strong>.</li>
+<li><strong>To Attach PDF invoice (&quot;order paid&quot; email)</strong>.</li>
+<li><strong>Attach PDF invoice (&quot;order processing&quot; email)</strong>.</li>
+<li><strong>To Attach PDF invoice (&quot;order completed&quot; email)</strong>.</li>
+</ul>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Learn how to set up PDF in the <a class="xref" href="../../getting-started/advanced-configuration/pdf-settings.html">PDF settings</a> chapter.</p>
+</div>
+<h2 id="gift-cards">Gift cards</h2>
+<p>Define the following settings in the <em>Gift cards</em> panel:
+<img src="_static/order-settings/gift-cards.jpg" alt="Gift cards"></p>
+<ul>
+<li><strong>Activate gift cards after completing of an order</strong> to activate related gift cards when an order is completed.</li>
+<li><strong>Deactivate gift cards after cancelling of an order</strong> to deactivate related gift cards when an order is canceled.</li>
+<li><strong>Deactivate gift cards after deleting of an order</strong> to deactivate related gift cards when an order is deleted.</li>
+<li><strong>Delete gift card usage history after order cancellation</strong> to delete gift card usage history after an order is canceled.</li>
+</ul>
+<h2 id="return-request-settings">Return request settings</h2>
+<p>In the <em>Return request settings</em> panel, you can set up return requests. For more details, see the <a class="xref" href="return-requests.html#return-request-settings">Return request settings</a> section.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="orders.html">Orders</a></li>
+<li><a class="xref" href="return-requests.html">Return requests</a></li>
+<li><a class="xref" href="../../getting-started/advanced-configuration/pdf-settings.html">PDF settings</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/running-your-store/order-management/order-settings.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

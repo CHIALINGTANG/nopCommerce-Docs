@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>匯入/匯出商品 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="匯入/匯出商品 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="preload" href="../../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/running-your-store/catalog/products/import-export-products">
+<h1 id="匯入匯出商品">匯入/匯出商品</h1>
+
+<p>nopCommerce 支援從 Excel 格式匯入商品，以及匯出 XML 或 Excel 格式的商品。您也可以從目錄中將商品下載為 PDF 格式。
+您可以在頁面左上方，透過 <strong>目錄 → 商品</strong> 找到這些選項。</p>
+<p><img src="_static/import-export-products/buttons.jpg" alt="Products"></p>
+<h2 id="匯出商品">匯出商品</h2>
+<p>您可以點擊 <strong>匯出</strong> 按鈕，將商品匯出為 XML 或 Excel 格式。點擊 <strong>匯出</strong> 按鈕後，您會看到下拉式選單，可讓您選擇 <strong>匯出為 XML (所有找到的項目)</strong> 或 <strong>匯出為 XML (已選項目)</strong>，以及 <strong>匯出為 Excel (所有找到的項目)</strong> 或 <strong>匯出為 Excel (已選項目)</strong>。</p>
+<p><img src="_static/import-export-products/exporting_product.png" alt="Exporting product"></p>
+<p>如果您不需要下載所有商品，請使用 <em>搜尋</em> 面板來尋找所需的商品，或是使用核取方塊來選取商品。系統將會下載一個包含您所選擇商品的檔案。該檔案將包含商品編輯頁面各面板中的所有商品特徵（商品資訊、SEO、圖片等）。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>如果您使用了商品屬性，匯出的 Excel 表格將會以列進行分組。若要檢視屬性詳細資訊，請點擊表格中商品旁邊的 + 號。
+<img src="_static/import-export-products/simple_product.png" alt="Simple product"></p>
+</div>
+<h2 id="匯入商品">匯入商品</h2>
+<p>如果您不想手動將所有商品新增到目錄中，可以使用匯入選項。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>在開始匯入之前，您應該先下載 Excel 格式的匯入表格範本，正如 <a href="#exporting-products">匯出商品</a> 章節中所述。為了準確且正確地匯入您的商品，將表格中的所有欄位正確命名（必須與下載的表格完全一致）至關重要。</p>
+</div>
+<p>並非必須填寫表格中的所有欄位。商品將會根據已填寫的欄位進行建立。</p>
+<p>匯入的商品會以 SKU 作為辨識依據。如果 SKU 已經存在，則該商品將會被更新。</p>
+<p>匯入過程需要大量的記憶體資源。因此，不建議一次匯入超過 500–1000 筆記錄。如果您有更多的記錄，建議將它們拆分成多個 Excel 檔案並分別匯入。</p>
+<h3 id="範例">範例</h3>
+<p>例如，我們想要將「舞鞋」加入到我們的目錄中。讓我們在表格中建立一個新列：</p>
+<p><img src="_static/import-export-products/product_table.png" alt="product table"></p>
+<p>然後點擊 <strong>匯入</strong>，選擇檔案，並點擊 <strong>從 Excel 匯入</strong> 按鈕。接著檢查目錄中是否已出現新的商品。</p>
+<p><img src="_static/import-export-products/product_catalog.png" alt="product catalog"></p>
+<h2 id="匯入位於外部資源上的商品圖片">匯入位於外部資源上的商品圖片</h2>
+<p>有時需要匯入位於外部資源上的商品圖片。nopCommerce 支援此類情境。然而，為了安全起見，此選項預設為停用。您可以在管理後台的 <strong>「目錄設定」</strong> 頁面啟用它。只需啟用 <strong>「匯出/匯入商品。允許下載圖片」</strong> 設定即可。</p>
+<p>在此圖片載入方法中，.NET 平台提供了位址驗證碼。儘管位址完全符合 <a href="https://datatracker.ietf.org/doc/html/rfc3986">RFC3986</a> 規範，但此機制並不總是能正確判定位址的正確性。我們建議避免在 URL 中使用特殊字元，例如 <strong>^</strong> 或 <strong>~</strong>。因此，請確保所有指定的 URL 僅包含拉丁字母。</p>
+<h2 id="匯入包含類別與供應商的商品">匯入包含類別與供應商的商品</h2>
+<p>匯入類別與供應商的工作較為特殊，因為一個商品可以屬於多個類別或供應商。此儲存格中的每個新值必須以 <strong>;</strong> 字元分隔。請避免使用空白來進行格式化，儘管演算法應該會忽略它們（例如，1;2;3 優於 1; 2; 3）。</p>
+<p><strong>類別</strong> 與 <strong>供應商</strong> 欄位可以包含對應物件的識別碼 (ID) 或名稱（您可以選擇使用其中一種方式，或兩者混用）。如果您想要依名稱匯入類別，可以指定名稱本身，或是完整的類別名稱階層。在此情況下，父類別與子類別之間應以 <strong>&gt;&gt;</strong> 符號分隔。例如：「電腦 &gt;&gt; 桌上型電腦;」</p>
+<p>依名稱匯入類別與供應商具有區分大小寫的特性，也就是說，「<strong>T</strong>est 類別/供應商名稱」與「<strong>t</strong>est 類別/供應商名稱」是不一樣的。</p>
+<h2 id="設定匯入匯出">設定匯入/匯出</h2>
+<p>下列章節說明了匯入/匯出設定：<a class="xref" href="../catalog-settings.html#exportimport">匯出/匯入</a>。</p>
+<h2 id="參閱">參閱</h2>
+<ul>
+<li><a class="xref" href="add-products.html">新增商品</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/running-your-store/catalog/products/import-export-products.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

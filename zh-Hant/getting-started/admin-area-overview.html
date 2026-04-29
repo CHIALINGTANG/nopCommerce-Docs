@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>nopCommerce 介面 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="nopCommerce 介面 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="preload" href="../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+  
+  <meta property="docfx:rel" content="../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/getting-started/admin-area-overview">
+<h1 id="nopcommerce-介面">nopCommerce 介面</h1>
+
+<p>本章涵蓋 nopCommerce 介面的基礎知識。</p>
+<p>登入後，您應該會在網站頂端看到 <strong>Administration</strong>（管理）超連結。或者，您也可以直接在網站 URL 後面加上 <code>/admin</code> 來開啟管理後台。例如：<code>www.example.com/admin</code>。</p>
+<p>登入 nopCommerce 管理後台後，第一個顯示的畫面是 <em>儀表板 (Dashboard)</em>：</p>
+<p><img src="_static/admin-area-overview/dashboard.png" alt="dashboard"></p>
+<p>儀表板包含以下區塊：</p>
+<ul>
+<li><p><strong>開始接受訂單 (Start accepting orders)</strong>：此區塊包含所有與商店設定相關的主要內容頁面。此精靈將會引導您逐步操作管理後台，並說明各項功能的運作方式。</p>
+</li>
+<li><p><strong>nopCommerce 新聞 (nopCommerce news)</strong>：此區塊顯示來自 nopCommerce 的重要新聞、銷售與促銷資訊。</p>
+</li>
+<li><p><strong>一般統計 (Common statistics)</strong>：顯示您網店的統計數據，包括訂單數量、待處理的退貨請求、已註冊的顧客，以及低庫存商品。</p>
+</li>
+<li><p>顯示網店重要統計數據的其他區塊：<strong>訂單 (orders)、新顧客 (new customers)、訂單總額 (order totals)、未完成訂單 (incomplete orders)、最新訂單 (latest orders)、熱門搜尋關鍵字 (popular search keywords)、依數量排行的暢銷商品 (bestsellers by quantity)、依金額排行的暢銷商品 (bestsellers by amount)</strong>：</p>
+</li>
+</ul>
+<p><img src="_static/admin-area-overview/stats.jpg" alt="Stats"></p>
+<p>深入了解 <a class="xref" href="../running-your-store/reports.html">這些報告請點此</a>。</p>
+<p>儀表板區塊可以透過點擊 <img src="_static/admin-area-overview/item.png" alt="item"> 圖示輕鬆收合。</p>
+<h2 id="常見的-nopcommerce-頁面元素">常見的 nopCommerce 頁面元素</h2>
+<h3 id="側邊欄-sidebar">側邊欄 (Sidebar)</h3>
+<p><img src="_static/admin-area-overview/sidebar.png" alt="Sidebar"></p>
+<p>側邊欄位於管理後台每個頁面的左側，讓您能夠瀏覽 nopCommerce 管理員的功能。</p>
+<p>您可以透過點擊標誌旁邊的「漢堡」圖示來輕鬆收合側邊欄 <img src="_static/admin-area-overview/hamburger.jpg" alt="dashboard2">。</p>
+<h3 id="搜尋欄位-search-field">搜尋欄位 (Search field)</h3>
+<p><img src="_static/admin-area-overview/search.jpg" alt="dashboard3"></p>
+<p>在側邊欄的最上方有一個搜尋欄位。開始輸入您想要前往的區塊名稱，搜尋列會自動建議選項，並直接將您導向所需的頁面。</p>
+<h3 id="系統選單-system-menu">系統選單 (System menu)</h3>
+<p><img src="_static/admin-area-overview/menu.jpg" alt="dashboard4"></p>
+<p>介面的這個部分顯示目前登入的使用者名稱、登出按鈕、前台網站連結，以及一個小選單，使用者可從中選擇清除快取或重新啟動應用程式。</p>
+<h2 id="基礎與進階模式">基礎與進階模式</h2>
+<p>在管理後台的某些頁面上，您會看到以下切換開關：</p>
+<p><img src="_static/admin-area-overview/dashboard5.png" alt="dashboard5"></p>
+<p>此 <em>基礎 (Basic)</em> 與 <em>進階 (Advanced)</em> 的雙位置開關，允許您在頁面顯示模式之間切換。</p>
+<p>為了方便使用，我們建立了 <strong>基礎</strong> 模式，其中僅顯示最常用的設定。</p>
+<p>如果您在頁面上找不到所需的設定，請切換至 <strong>進階</strong> 模式以查看所有可用的設定。</p>
+<p>在某些頁面上，開關旁邊會有一個 <strong>設定 (Settings)</strong> 按鈕。您可以透過此按鈕來新增或移除所需的設定，藉此根據您的需求調整基礎模式。</p>
+<p><img src="_static/admin-area-overview/dashboard6.png" alt="dashboard6"></p>
+<p>點擊 <strong>設定</strong> 以查看可用設定的清單。勾選 <strong>所需設定</strong> 的核取方塊。新增後的設定隨即會顯示在 <strong>基礎</strong> 模式中。</p>
+<p><img src="_static/admin-area-overview/dashboard7.png" alt="dashboard7"></p>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/getting-started/admin-area-overview.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

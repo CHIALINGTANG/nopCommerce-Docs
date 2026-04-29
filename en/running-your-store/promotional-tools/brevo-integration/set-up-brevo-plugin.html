@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Brevo integration </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Brevo integration ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="preload" href="../../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/running-your-store/promotional-tools/brevo-integration/set-up-brevo-plugin">
+<h1 id="set-up-brevo-plugin">Set up Brevo plugin</h1>
+
+<p>This section describes how to integrate Brevo into your store.</p>
+<h2 id="install-and-enable-the-plugin">Install and enable the plugin</h2>
+<p>The Brevo plugin is an out-of-the-box nopCommerce plugin. You can find it here: <strong>Configuration → Local plugins</strong>. To find the plugin faster, use the <strong>Group</strong> field in the search panel to filter the plugins by <em>Misc</em> type:
+<img src="_static/set-up-brevo-plugin/plugin-list.jpg" alt="Find the plugin"></p>
+<p>Install the plugin using the <strong>Install</strong> button if it is uninstalled. Then enable it by clicking the <strong>Edit</strong> button. You will see the <em>Edit plugin details</em> window in this case. Mark the plugin as enabled using the <strong>Is enabled</strong> checkbox and click the <strong>Save</strong> button.</p>
+<h2 id="how-to-configure-the-plugin">How to configure the plugin</h2>
+<ol>
+<li><p>Click the <strong>Configure</strong> button. You will see the <em>Configure - Brevo</em> window:
+<img src="_static/set-up-brevo-plugin/configure-window.jpg" alt="Configure - Brevo"></p>
+</li>
+<li><p>You will need to create a free Brevo account using <a href="https://get.brevo.com/5f897rrc6cwa">this link</a>.</p>
+</li>
+<li><p>Enter your <strong>API v3 key</strong> from your Brevo account on the <a href="https://account.brevo.com/advanced/api/">SMTP &amp; API</a> page.</p>
+</li>
+<li><p>Click the <strong>Save</strong> button.</p>
+</li>
+<li><p>Once you have done this, you should be able to see your account details.
+<img src="_static/set-up-brevo-plugin/general-panel.jpg" alt="After th first save"></p>
+</li>
+<li><p>Go to the <strong>Contacts</strong> panel to synchronize your nopCommerce customers with your Brevo account.
+<img src="_static/set-up-brevo-plugin/contacts-panel.jpg" alt="Contacts"></p>
+</li>
+</ol>
+<ul>
+<li>To create a new Brevo list, click the <strong>Create a list</strong> button to be redirected to your Brevo account.</li>
+<li>From the dropdown list, select the list where your nopCommerce subscribers and their contact data will be added. Click the <strong>Save</strong> button.</li>
+</ul>
+<h3 id="what-data-is-synced">What data is synced?</h3>
+<p>The following form fields are synced as contact attributes:</p>
+<ul>
+<li>EMAIL</li>
+<li>FIRSTNAME</li>
+<li>LASTNAME</li>
+<li>SMS</li>
+<li>STORE_ID</li>
+<li>USERNAME</li>
+<li>PHONE</li>
+<li>COUNTRY</li>
+<li>GENDER</li>
+<li>DATE_OF_BIRTH</li>
+<li>COMPANY</li>
+<li>ADDRESS_1</li>
+<li>ADDRESS_2</li>
+<li>ZIP_CODE</li>
+<li>CITY</li>
+<li>COUNTY</li>
+<li>STATE</li>
+<li>FAX</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>For the sync, note that these form fields need to be enabled for customers. Go to <strong>Configuration → Settings → Customer settings → Customer form fields</strong>.</p>
+</div>
+<p>Order data is synced as transactional attributes:</p>
+<ul>
+<li>ORDER_ID: ID of the order</li>
+<li>ORDER_PRICE: amount of the order</li>
+<li>ORDER_DATE: date of the order</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Orders are synced when their payment status is &quot;Paid.&quot;</p>
+</div>
+<h3 id="how-often-are-contacts-synced">How often are contacts synced?</h3>
+<p>After the initial sync, a task is scheduled to run every 6000 seconds to automatically add your new subscribers to your Brevo list.</p>
+<p>Click the <strong>Sync now</strong> button to sync right away.</p>
+<p>To change the sync frequency, go to <strong>System → Schedule tasks</strong>.
+<img src="_static/set-up-brevo-plugin/configure-task.jpg" alt="Schedule tasks"></p>
+<h2 id="sending-transactional-emails">Sending transactional emails</h2>
+<p>Go to the <strong>Transactional emails</strong> panel to send your transactional emails via brevo SMTP.
+<img src="_static/set-up-brevo-plugin/email-panel.jpg" alt="Sending transactional emails"></p>
+<ol>
+<li>Select the <strong>Use Brevo SMTP</strong> checkbox.</li>
+<li>Paste your SMTP password, which can be found <a href="https://account.brevo.com/advanced/api">here</a>.</li>
+<li>From the dropdown list, select the sender you wish to send your emails from.</li>
+<li>Click the <strong>Save</strong> button.</li>
+</ol>
+<p>You should then be able to see the email notification list. This lists all the transactional emails (like order confirmation ones) that you send.
+<img src="_static/set-up-brevo-plugin/email-list.jpg" alt="Notification list"></p>
+<p>For each template, you can:</p>
+<ul>
+<li>Choose if it is active or inactive.</li>
+<li>Choose between the default nopCommerce template and a Brevo template. To do this:</li>
+</ul>
+<ol>
+<li>Click the <strong>Edit</strong> button</li>
+<li>From the dropdown, choose your template</li>
+<li>Click <strong>Update</strong></li>
+</ol>
+<ul>
+<li>Edit its content.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If you <em>have selected</em> the <strong>Brevo email template</strong>, then click <strong>Edit template</strong> to edit the content of your template on your Brevo account.
+If you <em>haven't selected</em> the <strong>Brevo email template</strong>, then clicking <strong>Edit template</strong> will redirect you to the message template edit page in the nopCommerce admin area. Read more about the message template editing process <a class="xref" href="../../content-management/message-templates.html">here</a>. You can also send a test email from that page to check the content. Note that an email credit will be used for each test email.</p>
+</div>
+<h2 id="sending-sms">Sending SMS</h2>
+<p>Go to the <strong>SMS</strong> panel to send SMS notifications to your customers in addition to emails.
+<img src="_static/set-up-brevo-plugin/sms-panel.jpg" alt="Sms panel"></p>
+<ol>
+<li>Select the <strong>Use SMS notifications</strong> checkbox.</li>
+<li>Enter an alphanumerical sender (maximum of 11 characters).</li>
+<li>Type your telephone number.</li>
+<li>Click the <strong>Save</strong> button.</li>
+</ol>
+<p>To send an SMS campaign to a Brevo list:
+<img src="_static/set-up-brevo-plugin/sma-campaigns.jpg" alt="Sms panel"></p>
+<ol>
+<li>Go to the <strong>SMS campaigns</strong> block.</li>
+<li>Choose a <strong>List</strong> of contacts to send the SMS campaign.</li>
+<li>Enter the name of the sender to the <strong>Send SMS campaign from</strong> field. The number of characters is limited to 11 (alphanumeric format).</li>
+<li>Specify the SMS campaign content using the <strong>Text</strong> field. The number of characters is limited to 160 for one message.</li>
+<li>Click <strong>Save campaign</strong>.</li>
+</ol>
+<p>The plugin is now configured. You can access all your transactional email stats directly from Brevo.</p>
+<h2 id="setting-up-marketing-automation-workflows">Setting up Marketing Automation workflows</h2>
+<div class="NOTE">
+<h5>Note</h5>
+<p>A customer has to be identified by their email address to trigger a workflow, that is, a customer should be logged in to their account on the nopCommerce store or enter their email address during checkout.</p>
+</div>
+<p>Go to the <strong>Marketing Automation</strong> panel to install the marketing automation tracking script to track the activity of shoppers in your store. You will be able to automate your marketing by sending a series of emails or SMS once a visitor has signed up, a prospect has abandoned their cart, a customer has made a purchase or in case of other event.
+<img src="_static/set-up-brevo-plugin/marketing-automation.jpg" alt="Marketing automation"></p>
+<ol>
+<li>Select the <strong>Use Marketing Automation</strong> checkbox.</li>
+<li>If the <em>Marketing Automation platform</em> is enabled on your Brevo account, then the plugin will automatically fill your <strong>Tracker ID</strong>.</li>
+<li>Paste the tracking script generated by Brevo to the <strong>Tracking script</strong> field. {TRACKING_ID} and {CUSTOMER_EMAIL} will be dynamically replaced.</li>
+<li>Make sure that the Brevo widget is activated on the <strong>Configuration → Widgets</strong> page.</li>
+<li>Click the <strong>Save</strong> button.</li>
+</ol>
+<p>Once Marketing Automation is enabled and functioning properly, you will find the following logs in your Brevo account under <em>Automation → Logs → Event logs</em>:</p>
+<ul>
+<li>Page</li>
+<li>Identify</li>
+<li>Track events</li>
+</ul>
+<p>The plugin will automatically track the activity of shoppers for you to set up workflows to recover lost sales and order confirmation workflows. 3 track events are passed:</p>
+<ul>
+<li>cart_updated is passed when an item is added to a cart.</li>
+<li>cart_deleted is passed when a cart is emptied.</li>
+<li>order_completed is passed when an order has been made. This means that the payment status is &quot;Paid.&quot;
+<img src="_static/set-up-brevo-plugin/logs.png" alt="Logs"></li>
+</ul>
+<h2 id="learn-more">Learn more</h2>
+<ul>
+<li>Learn how to <a class="xref" href="recover-abandoned-carts.html">create an abandoned cart email</a>.</li>
+<li>Learn how to <a class="xref" href="send-an-order-confirmation-email.html">create an order confirmation email</a>.</li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/running-your-store/promotional-tools/brevo-integration/set-up-brevo-plugin.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

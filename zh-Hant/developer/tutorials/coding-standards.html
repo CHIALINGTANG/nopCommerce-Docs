@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>程式碼撰寫標準 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="程式碼撰寫標準 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/developer/tutorials/coding-standards">
+<h1 id="程式碼撰寫標準">程式碼撰寫標準</h1>
+
+<p>nopCommerce 擁有特定的程式碼撰寫準則，開發人員在撰寫原始碼時應當遵循。Visual Studio 中的 <a href="https://github.com/nopSolutions/nopCommerce/blob/develop/.editorconfig">.editorconfig</a> 檔案有助於強制執行所需的程式碼風格。</p>
+<p>共有三類受支援的 .NET 程式碼慣例：</p>
+<ul>
+<li>語言慣例</li>
+<li>格式慣例</li>
+<li>命名慣例</li>
+</ul>
+<h2 id="語言規範">語言規範</h2>
+<h3 id="net-程式碼風格設定">.NET 程式碼風格設定</h3>
+<h4 id="this-限定詞">&quot;this.&quot; 限定詞</h4>
+<p>此風格規則可應用於欄位、屬性、方法或事件。</p>
+<ul>
+<li><p>建議程式碼元素「不」使用 <code>this.</code> 作為前綴。</p>
+</li>
+<li><p>建議欄位「不」使用 <code>this.</code> 作為前綴。</p>
+<pre><code class="lang-csharp">//Right
+capacity = 0;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+this.capacity = 0;
+</code></pre>
+</li>
+<li><p>建議屬性「不」使用 <code>this.</code> 作為前綴。</p>
+<pre><code class="lang-csharp">//Right
+ID = 0;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+this.ID = 0;
+</code></pre>
+</li>
+<li><p>建議方法「不」使用 <code>this.</code> 作為前綴。</p>
+<pre><code class="lang-csharp">//Right
+Display();
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+this.Display();
+</code></pre>
+</li>
+<li><p>建議事件「不」使用 <code>this.</code> 作為前綴。</p>
+<pre><code class="lang-csharp">//Right
+Elapsed += Handler;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+this.Elapsed += Handler;
+</code></pre>
+</li>
+</ul>
+<h4 id="使用語言關鍵字而非框架型別名稱進行型別參考">使用語言關鍵字而非框架型別名稱進行型別參考</h4>
+<p>此風格規則可應用於區域變數、方法參數、類別成員，或作為型別成員存取運算式的獨立規則。</p>
+<ul>
+<li><p>對於有對應關鍵字的型別，建議針對區域變數、方法參數及類別成員使用語言關鍵字，而非型別名稱。</p>
+<pre><code class="lang-csharp">//Right
+private int _member;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+private Int32 _member;
+</code></pre>
+</li>
+<li><p>對於有對應關鍵字的型別，建議針對成員存取運算式使用語言關鍵字，而非型別名稱。</p>
+<pre><code class="lang-csharp">//Right
+var local = int.MaxValue;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var local = Int32.MaxValue;
+</code></pre>
+</li>
+</ul>
+<h4 id="修飾詞偏好">修飾詞偏好</h4>
+<p>本節中的風格規則涉及修飾詞偏好，包括要求存取修飾詞、指定所需的修飾詞排序，以及要求唯讀 (read-only) 修飾詞。</p>
+<ul>
+<li><p>建議宣告存取修飾詞，公開介面成員除外。</p>
+<pre><code class="lang-csharp">//Right
+class MyClass
+{
+    private const string thisFieldIsConst = &quot;constant&quot;;
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+class MyClass
+{
+    const string thisFieldIsConst = &quot;constant&quot;;
+}
+</code></pre>
+</li>
+<li><p>建議使用指定的排序方式：</p>
+<p><em><code>public, private, protected, internal, static, extern, new, virtual, abstract, sealed, override, readonly, unsafe, volatile, async:silent</code></em></p>
+<pre><code class="lang-csharp">//Right
+class MyClass
+{
+    private static readonly int _daysInYear = 365;
+}
+</code></pre>
+</li>
+</ul>
+<h4 id="小括號偏好">小括號偏好</h4>
+<p>本節中的風格規則涉及小括號偏好，包括在算術、關係與其他二元運算子中使用小括號。</p>
+<ul>
+<li><p>建議使用小括號來釐清算術運算子 (*, /, %, +, -, &lt;&lt;, &gt;&gt;, &amp;, ^, |) 的優先順序。</p>
+<pre><code class="lang-csharp">//Right
+var v = a + (b * c);
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var v = a + b * c;
+</code></pre>
+</li>
+<li><p>建議使用小括號來釐清關係運算子 (&gt;, &lt;, &lt;=, &gt;=, is, as, ==, !=) 的優先順序。</p>
+<pre><code class="lang-csharp">//Right
+var v = (a &lt; b) == (c &gt; d);
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var v = a &lt; b == c &gt; d;
+</code></pre>
+</li>
+<li><p>建議使用小括號來釐清其他二元運算子 (&amp;&amp;, ||, ??) 的優先順序。</p>
+<pre><code class="lang-csharp">//Right
+var v = a || (b &amp;&amp; c);
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var v = a || b &amp;&amp; c;
+</code></pre>
+</li>
+<li><p>當運算子優先順序明確時，建議不要使用小括號。</p>
+<pre><code class="lang-csharp">//Right
+var v = a.b.Length;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var v = (a.b).Length;
+</code></pre>
+</li>
+</ul>
+<h4 id="運算式層級偏好">運算式層級偏好</h4>
+<p>本節中的風格規則涉及運算式層級的偏好，包括物件初始設定式、集合初始設定式、明確或推斷的元組 (tuple) 名稱，以及推斷的匿名型別的使用。</p>
+<ul>
+<li><p>在可能的情況下，建議使用物件初始設定式來初始化物件。</p>
+<pre><code class="lang-csharp">//Right
+var c = new Customer() { Age = 21 };
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var c = new Customer();
+c.Age = 21;
+</code></pre>
+</li>
+<li><p>在可能的情況下，建議使用集合初始設定式來初始化集合。</p>
+<pre><code class="lang-csharp">//Right
+var list = new List&lt;int&gt; { 1, 2, 3 };
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var list = new List&lt;int&gt;();
+list.Add(1);
+list.Add(2);
+list.Add(3);
+</code></pre>
+</li>
+<li><p>建議使用元組名稱而非 ItemX 屬性。</p>
+<pre><code class="lang-csharp">//Right
+(string name, int age) customer = GetCustomer();
+var name = customer.name;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+(string name, int age) customer = GetCustomer();
+var name = customer.Item1;
+</code></pre>
+</li>
+<li><p>建議使用推斷的元組元素名稱。</p>
+<pre><code class="lang-csharp">//Right
+var tuple = (age, name);
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var tuple = (age: age, name: name);
+</code></pre>
+</li>
+<li><p>建議使用明確的匿名型別成員名稱。</p>
+<pre><code class="lang-csharp">//Right
+var anon = new { age = age, name = name };
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var anon = new { age, name };
+</code></pre>
+</li>
+<li><p>建議使用自動屬性 (auto-properties) 而非具有私有備份欄位的屬性。</p>
+<pre><code class="lang-csharp">//Right
+private int Age { get; }
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+private int age;
+
+public int Age
+{
+    get
+    {
+        return age;
+    }
+}
+</code></pre>
+</li>
+<li><p>建議使用帶有模式比對的 null 檢查，而非 <em><code>object.ReferenceEquals</code></em>。</p>
+<pre><code class="lang-csharp">//Right
+if (value is null)
+    return;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+if (object.ReferenceEquals(value, null))
+    return;
+</code></pre>
+</li>
+<li><p>建議使用三元條件運算式進行指派，而非使用 if-else 陳述式。</p>
+<pre><code class="lang-csharp">//Right
+string s = expr ? &quot;hello&quot; : &quot;world&quot;;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+string s;
+if (expr)
+{
+    s = &quot;hello&quot;;
+}
+else
+{
+    s = &quot;world&quot;;
+}
+</code></pre>
+</li>
+<li><p>建議 return 陳述式使用三元條件運算式，而非使用 if-else 陳述式。</p>
+<pre><code class="lang-csharp">//Right
+return expr ? &quot;hello&quot; : &quot;world&quot;;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+if (expr)
+{
+    return &quot;hello&quot;;
+}
+else
+{
+    return &quot;world&quot;;
+}
+</code></pre>
+</li>
+<li><p>建議使用複合指派運算式。</p>
+<pre><code class="lang-csharp">//Right
+x += 1;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+x = x + 1;
+</code></pre>
+</li>
+</ul>
+<h4 id="null-檢查偏好">Null 檢查偏好</h4>
+<p>本節中的風格規則涉及 Null 檢查的偏好。</p>
+<ul>
+<li><p>建議使用 null 合併運算式 (null coalescing expressions)，而非三元運算子檢查。</p>
+<pre><code class="lang-csharp">//Right
+var v = x ?? y;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var v = x != null ? x : y; // or
+var v = x == null ? y : x;
+</code></pre>
+</li>
+<li><p>在可能的情況下，建議使用 null 條件運算子 (null-conditional operator)。</p>
+<pre><code class="lang-csharp">//Right
+var v = o?.ToString();
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var v = o == null ? null : o.ToString(); // or
+var v = o != null ? o.String() : null;
+</code></pre>
+</li>
+</ul>
+<h3 id="c-程式碼風格設定">C# 程式碼風格設定</h3>
+<h4 id="隱式與顯式型別">隱式與顯式型別</h4>
+<p>本節的風格規則涉及在變數宣告中使用 <code>var</code> 關鍵字與顯式型別的選擇。此規則可分別應用於內建型別（當型別明確時）及其他情況。</p>
+<ul>
+<li><p>當宣告內建系統型別（如 <code>int</code>）的變數時，建議使用 <em><code>var</code></em></p>
+<pre><code class="lang-csharp">//Right
+var x = 5;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+int x = 5;
+</code></pre>
+</li>
+<li><p>當型別已在宣告表達式的右側提及時，建議使用 <em><code>var</code></em></p>
+<pre><code class="lang-csharp">//Right
+var obj = new Customer();
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+Customer obj = new Customer();
+</code></pre>
+</li>
+<li><p>除非被其他程式碼風格規則覆寫，否則在所有情況下，建議優先使用 <em><code>var</code></em> 而非顯式型別</p>
+<pre><code class="lang-csharp">//Right
+var f = this.Init();
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+bool f = this.Init();
+</code></pre>
+</li>
+</ul>
+<h4 id="表達式主體成員-expression-bodied-members">表達式主體成員 (Expression-bodied members)</h4>
+<p>本節的風格規則涉及在邏輯僅由單一表達式組成時，使用 <a href="https://docs.microsoft.com/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members">表達式主體成員</a> 的方式。此規則可應用於方法、建構函式、運算子、屬性、索引子及存取子。</p>
+<ul>
+<li><p>針對方法，建議使用區塊主體</p>
+<pre><code class="lang-csharp">//Right
+public int GetAge() { return this.Age; }
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+public int GetAge() =&gt; this.Age;
+</code></pre>
+</li>
+<li><p>針對建構函式，建議使用區塊主體</p>
+<pre><code class="lang-csharp">//Right
+public Customer(int age) { Age = age; }
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+public Customer(int age) =&gt; Age = age;
+</code></pre>
+</li>
+<li><p>針對運算子，建議使用區塊主體</p>
+<pre><code class="lang-csharp">//Right
+public static ComplexNumber operator + (ComplexNumber c1, ComplexNumber c2)
+{ return new ComplexNumber(c1.Real + c2.Real, c1.Imaginary + c2.Imaginary); }
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+public static ComplexNumber operator + (ComplexNumber c1, ComplexNumber c2)
+    =&gt; new ComplexNumber(c1.Real + c2.Real, c1.Imaginary + c2.Imaginary);
+</code></pre>
+</li>
+<li><p>當屬性僅為單行時，建議使用表達式主體</p>
+<pre><code class="lang-csharp">//Right
+public int Age =&gt; _age;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+public int Age { get { return _age; }}
+</code></pre>
+</li>
+<li><p>針對索引子，建議使用表達式主體</p>
+<pre><code class="lang-csharp">//Right
+public T this[int i] =&gt; _values[i];
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+public T this[int i] { get { return _values[i]; } }
+</code></pre>
+</li>
+<li><p>針對存取子，建議使用表達式主體</p>
+<pre><code class="lang-csharp">//Right
+public int Age { get =&gt; _age; set =&gt; _age = value; }
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+public int Age { get { return _age; } set { _age = value; } }
+</code></pre>
+</li>
+<li><p>針對 Lambda 表達式，建議使用表達式主體</p>
+<pre><code class="lang-csharp">//Right
+Func&lt;int, int&gt; square = x =&gt; x * x;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+Func&lt;int, int&gt; square = x =&gt; { return x * x; };
+</code></pre>
+</li>
+</ul>
+<h4 id="模式比對-pattern-matching">模式比對 (Pattern matching)</h4>
+<p>本節的風格規則涉及在 C# 中使用 <a href="https://docs.microsoft.com/dotnet/csharp/pattern-matching">模式比對</a>。</p>
+<ul>
+<li><p>建議使用模式比對，而非帶有型別轉型的 <code>is</code> 表達式</p>
+<pre><code class="lang-csharp">//Right
+if (o is int i) {...}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+if (o is int) {var i = (int)o; ... }
+</code></pre>
+</li>
+<li><p>建議使用模式比對，而非使用 <code>as</code> 表達式配合 null 檢查來判斷某個物件是否為特定型別</p>
+<pre><code class="lang-csharp">//Right
+if (o is string s) {...}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var s = o as string;
+if (s != null) {...}
+</code></pre>
+</li>
+</ul>
+<h4 id="內嵌變數宣告">內嵌變數宣告</h4>
+<p>此風格規則涉及 <code>out</code> 變數是否應採用內嵌方式宣告。從 C# 7 開始，您可以 <a href="https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/out-parameter-modifier#calling-a-method-with-an-out-argument">在方法呼叫的引數列表中宣告 <code>out</code> 變數</a>，而不必在個別的變數宣告中進行。</p>
+<ul>
+<li><p>盡可能在方法呼叫的引數列表中以內嵌方式宣告 <em><code>out</code></em> 變數</p>
+<pre><code class="lang-csharp">//Right
+if (int.TryParse(value, out int i)) {...}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+int i;
+if (int.TryParse(value, out i)) {...}
+</code></pre>
+</li>
+</ul>
+<h4 id="c-表達式層級偏好設定">C# 表達式層級偏好設定</h4>
+<p>此風格規則涉及在編譯器可以推斷表達式型別時，使用 <a href="https://docs.microsoft.com/dotnet/csharp/programming-guide/statements-expressions-operators/default-value-expressions#default-literal-and-type-inference">default 常值作為預設值表達式</a>。</p>
+<ul>
+<li><p>建議使用 <em><code>default</code></em> 而非 <em><code>default(T)</code></em></p>
+<pre><code class="lang-csharp">//Right
+void DoWork(CancellationToken cancellationToken = default) { ... }
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+void DoWork(CancellationToken cancellationToken = default(CancellationToken)) {   ... }
+</code></pre>
+</li>
+</ul>
+<h4 id="c-null-檢查偏好設定">C# null 檢查偏好設定</h4>
+<p>這些風格規則涉及 null 檢查相關的語法，包含是否使用 throw 表達式或 throw 陳述式，以及在呼叫 <a href="https://docs.microsoft.com/dotnet/csharp/lambda-expressions">Lambda 表達式</a> 時，應執行 null 檢查還是使用條件式合併運算子 (<code>?.</code>)。</p>
+<ul>
+<li><p>建議使用 throw 表達式，而非 throw 陳述式</p>
+<pre><code class="lang-csharp">//Right
+this.s = s ?? throw new ArgumentNullException(nameof(s));
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+if (s == null) { throw new ArgumentNullException(nameof(s)); }
+this.s = s;
+</code></pre>
+</li>
+<li><p>在呼叫 Lambda 表達式時，建議使用條件式合併運算子 (<code>?.</code>)，而非執行 null 檢查</p>
+<pre><code class="lang-csharp">//Right
+func?.Invoke(args);
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+if (func != null) { func(args); }
+</code></pre>
+</li>
+</ul>
+<h4 id="程式碼區塊偏好設定">程式碼區塊偏好設定</h4>
+<p>此風格規則涉及使用大括號 <code>{ }</code> 來包覆程式碼區塊。</p>
+<ul>
+<li><p>若允許，建議不使用大括號</p>
+<pre><code class="lang-csharp">//Right
+if (test) this.Display();
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+if (test) { this.Display(); }
+</code></pre>
+</li>
+</ul>
+<h2 id="格式規範">格式規範</h2>
+<h3 id="net-格式化設定">.NET 格式化設定</h3>
+<h3 id="組織-using-指示詞">組織 using 指示詞</h3>
+<p>這些格式規則與 <em><code>using</code></em> 指示詞和 <em><code>Imports</code></em> 陳述式的排序及顯示方式有關。</p>
+<ul>
+<li><p>請將 <code>System.*</code> <em><code>using</code></em> 指示詞按字母順序排列，並置於其他 using 指示詞之前。</p>
+<pre><code class="lang-csharp">//Right
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Octokit;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+using System.Collections.Generic;
+using Octokit;
+using System.Threading.Tasks;
+</code></pre>
+</li>
+<li><p>請勿在不同的 using 指示詞群組之間插入空白行。</p>
+<pre><code class="lang-csharp">//Right
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Octokit;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+using Octokit;
+</code></pre>
+</li>
+</ul>
+<h3 id="c-格式化設定">C# 格式化設定</h3>
+<p>本節中的格式化規則僅適用於 C# 程式碼。</p>
+<h4 id="新行選項">新行選項</h4>
+<p>這些格式化規則與使用新行來格式化程式碼有關。</p>
+<ul>
+<li><p>要求所有運算式的右大括號必須位於新行（「Allman」風格）。</p>
+<pre><code class="lang-csharp">//Right
+void MyMethod()
+{
+    if (...)
+    {
+        ...
+    }
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+void MyMethod() {
+    if (...) {
+        ...
+    }
+}
+</code></pre>
+</li>
+<li><p>將 <code>else</code> 陳述式置於新行。</p>
+<pre><code class="lang-csharp">//Right
+if (...) 
+{
+    ...
+}
+else 
+{
+    ...
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+if (...) {
+    ...
+} else {
+    ...
+}
+</code></pre>
+</li>
+<li><p>將 <code>catch</code> 陳述式置於新行。</p>
+<pre><code class="lang-csharp">//Right
+try 
+{
+    ...
+}
+catch (Exception e) 
+{
+    ...
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+try {
+    ...
+} catch (Exception e) {
+    ...
+}
+</code></pre>
+</li>
+<li><p>要求 <code>finally</code> 陳述式在右大括號後必須位於新行。</p>
+<pre><code class="lang-csharp">//Right
+try 
+{
+    ...
+}
+catch (Exception e) 
+{
+    ...
+}
+finally 
+{
+    ...
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+try {
+    ...
+} catch (Exception e) {
+    ...
+} finally {
+    ...
+}
+</code></pre>
+</li>
+<li><p>要求物件初始化運算式的成員必須位於獨立的行。</p>
+<pre><code class="lang-csharp">//Right
+var z = new B()
+{
+    A = 3,
+    B = 4
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var z = new B()
+{
+    A = 3, B = 4
+}
+</code></pre>
+</li>
+<li><p>要求匿名型別的成員必須位於獨立的行。</p>
+<pre><code class="lang-csharp">//Right
+var z = new
+{
+    A = 3,
+    B = 4
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var z = new
+{
+    A = 3, B = 4
+}
+</code></pre>
+</li>
+<li><p>要求查詢運算式子句的元素必須位於獨立的行。</p>
+<pre><code class="lang-csharp">//Right
+var q = from a in e
+        from b in e
+        select a * b;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var q = from a in e from b in e
+        select a * b;
+</code></pre>
+</li>
+</ul>
+<h4 id="縮排選項">縮排選項</h4>
+<p>這些格式化規則與使用縮排來格式化程式碼有關。</p>
+<ul>
+<li><p>縮排 <em><code>switch</code></em> case 的內容。</p>
+<pre><code class="lang-csharp">//Right
+switch(c) 
+{
+    case Color.Red:
+        Console.WriteLine(&quot;The color is red&quot;);
+        break;
+    case Color.Blue:
+        Console.WriteLine(&quot;The color is blue&quot;);
+        break;
+    default:
+        Console.WriteLine(&quot;The color is unknown.&quot;);
+        break;
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+switch(c) {
+    case Color.Red:
+    Console.WriteLine(&quot;The color is red&quot;);
+    break;
+    case Color.Blue:
+    Console.WriteLine(&quot;The color is blue&quot;);
+    break;
+    default:
+    Console.WriteLine(&quot;The color is unknown.&quot;);
+    break;
+}
+</code></pre>
+</li>
+<li><p>縮排 <em><code>switch</code></em> 標籤。</p>
+<pre><code class="lang-csharp">//Right
+switch(c) 
+{
+    case Color.Red:
+        Console.WriteLine(&quot;The color is red&quot;);
+        break;
+    case Color.Blue:
+        Console.WriteLine(&quot;The color is blue&quot;);
+        break;
+    default:
+        Console.WriteLine(&quot;The color is unknown.&quot;);
+        break;
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+switch(c) {
+case Color.Red:
+    Console.WriteLine(&quot;The color is red&quot;);
+    break;
+case Color.Blue:
+    Console.WriteLine(&quot;The color is blue&quot;);
+    break;
+default:
+    Console.WriteLine(&quot;The color is unknown.&quot;);
+    break;
+}
+</code></pre>
+</li>
+<li><p>將標籤放置於與當前內容相同的縮排層級。</p>
+<pre><code class="lang-csharp">//Right
+class C
+{
+    private string MyMethod(...)
+    {          
+        if (...) 
+        {
+            goto error;
+        }
+        error:
+        throw new Exception(...);
+    }
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+class C
+{
+    private string MyMethod(...)
+    {
+        if (...) {
+            goto error;
+        }
+error:
+        throw new Exception(...);
+    }
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+class C
+{
+    private string MyMethod(...)
+    {
+        if (...) {
+            goto error;
+        }
+    error:
+        throw new Exception(...);
+    }
+}
+</code></pre>
+</li>
+</ul>
+<h4 id="間距選項">間距選項</h4>
+<p>這些格式化規則與使用空格字元來格式化程式碼有關。</p>
+<ul>
+<li><p>移除轉型 (cast) 與值之間的空格。</p>
+<pre><code class="lang-csharp">//Right
+int y = (int)x;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+int y = (int) x;
+</code></pre>
+</li>
+<li><p>在控制流程陳述式（例如 <em><code>for</code></em> 迴圈）的關鍵字後放置一個空格字元。</p>
+<pre><code class="lang-csharp">//Right
+for (int i;i&lt;x;i++) { ... }
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+for(int i;i&lt;x;i++) { ... }
+</code></pre>
+</li>
+<li><p>在型別宣告中，於基底類別或介面冒號前放置一個空格字元。</p>
+<pre><code class="lang-csharp">//Right
+interface I
+{
+
+}
+
+class C : I
+{
+
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+interface I
+{
+
+}
+
+class C: I
+{
+
+}
+</code></pre>
+</li>
+<li><p>在型別宣告中，於基底類別或介面冒號後放置一個空格字元。</p>
+<pre><code class="lang-csharp">//Right
+interface I
+{
+
+}
+
+class C : I
+{
+
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+interface I
+{
+
+}
+
+class C :I
+{
+
+}
+</code></pre>
+</li>
+<li><p>在二元運算子前後插入空格。</p>
+<pre><code class="lang-csharp">//Right
+return x * (x - y);
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+return x*(x-y);
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+return x  *  (x-y);
+</code></pre>
+</li>
+<li><p>移除方法宣告參數清單中，左括號後與右括號前的空格字元。</p>
+<pre><code class="lang-csharp">//Right
+void Bark(int x) { ... }
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+void Bark( int x ) { ... }
+</code></pre>
+</li>
+<li><p>移除方法宣告的空白參數清單括號內的空格。</p>
+<pre><code class="lang-csharp">//Right
+void Goo()
+{
+    Goo(1);
+}
+
+void Goo(int x)
+{
+    Goo();
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+void Goo( )
+{
+    Goo(1);
+}
+
+void Goo(int x)
+{
+    Goo();
+}
+
+</code></pre>
+</li>
+<li><p>移除方法宣告中，方法名稱與左括號之間的空格字元。</p>
+<pre><code class="lang-csharp">//Right
+void M() { }
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+void M () { }
+</code></pre>
+</li>
+<li><p>移除方法呼叫中，左括號後與右括號前的空格字元。</p>
+<pre><code class="lang-csharp">//Right
+MyMethod(argument);
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+MyMethod( argument );
+</code></pre>
+</li>
+<li><p>移除空白引數清單括號內的空格。</p>
+<pre><code class="lang-csharp">//Right
+void Goo()
+{
+    Goo(1);
+}
+
+void Goo(int x)
+{
+    Goo();
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+void Goo()
+{
+    Goo(1);
+}
+
+void Goo(int x)
+{
+    Goo( );
+}
+</code></pre>
+</li>
+<li><p>移除方法呼叫名稱與左括號之間的空格。</p>
+<pre><code class="lang-csharp">//Right
+void Goo()
+{
+    Goo(1);
+}
+
+void Goo(int x)
+{
+    Goo();
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+void Goo()
+{
+    Goo(1);
+}
+
+void Goo(int x)
+{
+    Goo ();
+}
+</code></pre>
+</li>
+<li><p>在逗號後插入空格。</p>
+<pre><code class="lang-csharp">//Right
+int[] x = new int[] { 1, 2, 3, 4, 5 };
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+int[] x = new int[] { 1,2,3,4,5 };
+</code></pre>
+</li>
+<li><p>移除逗號前的空格。</p>
+<pre><code class="lang-csharp">//Right
+int[] x = new int[] { 1, 2, 3, 4, 5 };
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+int[] x = new int[] { 1 , 2 , 3 , 4 , 5 };
+</code></pre>
+</li>
+<li><p>在 <code>for</code> 陳述式的每個分號後插入空格。</p>
+<pre><code class="lang-csharp">//Right
+for (int i = 0; i &lt; x.Length; i++)
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+for (int i = 0;i &lt; x.Length;i++)
+</code></pre>
+</li>
+<li><p>移除 <code>for</code> 陳述式的每個分號前的空格。</p>
+<pre><code class="lang-csharp">//Right
+for (int i = 0; i &lt; x.Length; i++)
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+for (int i = 0 ; i &lt; x.Length ; i++)
+</code></pre>
+</li>
+<li><p>移除宣告陳述式中多餘的空格字元。</p>
+<pre><code class="lang-csharp">//Right
+int x = 0;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+int    x    =    0   ;
+</code></pre>
+</li>
+<li><p>移除左方括號 <em><code>[</code></em> 前的空格。</p>
+<pre><code class="lang-csharp">//Right
+int[] numbers = new int[] { 1, 2, 3, 4, 5 };
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+int [] numbers = new int [] { 1, 2, 3, 4, 5 };
+</code></pre>
+</li>
+<li><p>移除空白方括號 <em><code>[]</code></em> 之間的空格。</p>
+<pre><code class="lang-csharp">//Right
+int[] numbers = new int[] { 1, 2, 3, 4, 5 };
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+int[ ] numbers = new int[ ] { 1, 2, 3, 4, 5 };
+</code></pre>
+</li>
+<li><p>移除包含內容的方括號 <em><code>[0]</code></em> 內的空格字元。</p>
+<pre><code class="lang-csharp">//Right
+int index = numbers[0];
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+int index = numbers[ 0 ];
+</code></pre>
+</li>
+</ul>
+<h4 id="換行選項">換行選項</h4>
+<p>這些格式化規則與陳述式和程式碼區塊應使用單行還是獨立行有關。</p>
+<ul>
+<li><p>保持陳述式與成員宣告位於不同的行。</p>
+<pre><code class="lang-csharp">//Right
+int i = 0;
+string name = &quot;John&quot;;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+int i = 0; string name = &quot;John&quot;;
+</code></pre>
+</li>
+<li><p>保持程式碼區塊位於單行。</p>
+<pre><code class="lang-csharp">//Right
+public int Foo { get; set; }
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+public int MyProperty
+{
+    get; set;
+}
+</code></pre>
+</li>
+</ul>
+<h2 id="命名慣例">命名慣例</h2>
+<ul>
+<li><p>常數僅能使用大寫字母命名，並以底線 <em><code>_</code></em> 作為分隔符</p>
+<pre><code class="lang-csharp">//Right
+const int TEST_CONSTANT = 1;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+const int Test_Constant = 1;
+</code></pre>
+</li>
+<li><p>具有 <em><code>public</code></em> 存取層級的欄位應使用 PascalCase 標記法</p>
+<pre><code class="lang-csharp">//Right
+public int TestField;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+public int testField;
+</code></pre>
+</li>
+<li><p>介面名稱必須使用 PascalCase 標記法，並具有前綴 <em><code>I</code></em></p>
+<pre><code class="lang-csharp">//Right
+public interface ITestInterface;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+public interface testInterface;
+</code></pre>
+</li>
+<li><p>類別、結構、方法、列舉、事件、屬性、命名空間與委派的名稱應使用 PascalCase 標記法</p>
+<pre><code class="lang-csharp">//Right
+public class SomeClass;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+public class someClass;
+</code></pre>
+</li>
+<li><p>泛型型別的參數請使用 PascalCase 的描述性名稱，除非單一字母已足夠且描述性名稱無法增加額外價值。</p>
+<pre><code class="lang-csharp">//Right
+public interface ISessionChannel&lt;TSession&gt; { /*...*/ }
+public delegate TOutput Converter&lt;TInput, TOutput&gt;(TInput from);
+public class List&lt;T&gt; { /*...*/ }
+</code></pre>
+</li>
+<li><p>若型別僅包含單一字母的型別參數，請使用型別參數 <em><code>T</code></em> 的名稱</p>
+<pre><code class="lang-csharp">//Right
+public int IComparer&lt;T&gt;() { return 0; }
+public delegate bool Predicate&lt;T&gt;(T item);
+public struct Nullable&lt;T&gt; where T : struct { /*...*/ }
+</code></pre>
+</li>
+<li><p>請使用前綴 <em><code>T</code></em> 作為型別參數的描述性名稱</p>
+<pre><code class="lang-csharp">//Right
+public interface ISessionChannel&lt;TSession&gt;
+{
+    TSession Session { get; }
+}
+</code></pre>
+<p>請在名稱中指定與該型別參數相關的限制。例如，受 <em><code>ISession</code></em> 限制的參數可以命名為 <em><code>TSession</code></em>。</p>
+</li>
+<li><p>私有 (Private) 與受保護 (Protected) 的類別欄位必須以底線 <em><code>_</code></em> 作為前綴</p>
+<pre><code class="lang-csharp">//Right
+private int _testField;
+protected int _testField;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+private int testField;
+protected int testField;
+</code></pre>
+</li>
+<li><p>所有其他程式碼元素，例如變數、方法參數以及類別欄位（公開欄位除外），皆應使用 camelCase 標記法。</p>
+<pre><code class="lang-csharp">//Right
+var testVar = new Object();
+public void Foo(int firstParam, string secondParam)
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var TestVar = new Object();
+public void Foo(int FirstParam, string SecondParam)
+</code></pre>
+</li>
+</ul>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/developer/tutorials/coding-standards.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

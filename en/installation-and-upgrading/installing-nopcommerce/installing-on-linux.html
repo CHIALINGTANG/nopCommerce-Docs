@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Installing on Linux </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Installing on Linux ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/installation-and-upgrading/installing-nopcommerce/installing-on-linux">
+<h1 id="installing-on-linux">Installing on Linux</h1>
+
+<p>This chapter describes how to install the nopCommerce software on Linux system on the example of <em>Xubuntu 22.04</em>:</p>
+<ul>
+<li><a href="#installing-on-linux">Installing on Linux</a>
+<ul>
+<li><a href="#install-and-configure-software">Install and configure software</a>
+<ul>
+<li><a href="#add-the-net-repository">Add the .Net repository</a></li>
+<li><a href="#install-the-net-core-runtime">Install the .NET Core Runtime</a></li>
+<li><a href="#install-mysql-server">Install MySql Server</a></li>
+<li><a href="#install-nginx">Install nginx</a></li>
+</ul>
+</li>
+<li><a href="#get-nopcommerce">Get nopCommerce</a></li>
+<li><a href="#create-the-nopcommerce-service">Create the nopCommerce service</a></li>
+<li><a href="#installation-process">Installation process</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a>
+<ul>
+<li><a href="#gdip">Gdip</a></li>
+<li><a href="#ssl">SSL</a></li>
+</ul>
+</li>
+<li><a href="#see-also">See also</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="install-and-configure-software">Install and configure software</h2>
+<p>.NET is available in the Ubuntu .NET backports package repository.</p>
+<h3 id="add-the-net-repository">Add the .Net repository</h3>
+<p>Open a terminal and run the following commands:</p>
+<pre><code class="lang-cmd">sudo add-apt-repository ppa:dotnet/backports
+</code></pre>
+<p><img src="_static/installing-on-linux/add_repository.png" alt="nopCommerce installation"></p>
+<h3 id="install-the-net-core-runtime">Install the .NET Core Runtime</h3>
+<p>Update the products available for installation, then install the .NET runtime:</p>
+<pre><code class="lang-cmd">sudo apt-get update
+
+sudo apt-get install -y aspnetcore-runtime-9.0
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If you have an error, see the detailed information on the <a href="https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu-install">Install .NET SDK or .NET Runtime on Ubuntu</a> page.</p>
+</div>
+<p>You can see all installed .Net Core runtimes by the following command:</p>
+<pre><code class="lang-cmd">dotnet --list-runtimes
+</code></pre>
+<h3 id="install-mysql-server">Install MySql Server</h3>
+<p>Install the MySql server 8.0 version:</p>
+<pre><code class="lang-cmd">sudo apt-get install mysql-server-8.0
+</code></pre>
+<p><img src="_static/installing-on-linux/install_mysql.png" alt="nopCommerce installation"></p>
+<p>By default, the root password is empty; let's set it. Run the following command to access the MySQL prompt:</p>
+<pre><code class="lang-cmd">sudo mysql
+</code></pre>
+<p>Run the following ALTER USER command to switch the root user’s authentication method to mysql_native_password, which uses a password. Replace ‘password’ with your desired new password, and make sure to keep the single quotes around the password:</p>
+<pre><code class="lang-cmd">ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>It’s important to choose a strong, unique password for your MySQL root user. A strong password should be at least 12 characters long, include a mix of uppercase and lowercase letters, numbers, and special characters.</p>
+</div>
+<p>Type <strong>exit</strong> and press Enter to exit the MySQL prompt.</p>
+<p><img src="_static/installing-on-linux/config_mysql.png" alt="nopCommerce installation"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If you have a problem with configuring root password on your MySql server, please read the following articles:
+<a href="https://dev.mysql.com/doc/refman/8.0/en/resetting-permissions.html">How to Reset the Root Password</a> and
+<a href="https://stackoverflow.com/questions/41645309/mysql-error-access-denied-for-user-rootlocalhost">MySQL Error: 'Access denied for user 'root'@'localhost'</a>.</p>
+</div>
+<h3 id="install-nginx">Install nginx</h3>
+<p>Install the nginx package:</p>
+<pre><code class="lang-cmd">sudo apt-get install nginx
+</code></pre>
+<p><img src="_static/installing-on-linux/install_nginx.png" alt="nopCommerce installation"></p>
+<p>Run the nginx service:</p>
+<pre><code class="lang-cmd">sudo systemctl start nginx
+</code></pre>
+<p>and check its status:</p>
+<pre><code class="lang-cmd">sudo systemctl status nginx
+</code></pre>
+<p><img src="_static/installing-on-linux/status_nginx.png" alt="nopCommerce installation"></p>
+<p>To configure nginx as a reverse proxy to forward requests to your ASP.NET Core app, modify /etc/nginx/sites-available/default. Open it in a text editor and replace the contents with the following:</p>
+<pre><code class="lang-cmd"># Default server configuration
+#
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    server_name   nopCommerce.com;
+
+    location / {
+    proxy_pass         http://localhost:5000;
+    proxy_http_version 1.1;
+    proxy_set_header   Upgrade $http_upgrade;
+    proxy_set_header   Connection keep-alive;
+    proxy_set_header   Host $host;
+    proxy_cache_bypass $http_upgrade;
+    proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header   X-Forwarded-Proto $scheme;
+    }
+
+    # SSL configuration
+    #
+    # listen 443 ssl default_server;
+    # listen [::]:443 ssl default_server;
+    #
+    # Note: You should disable gzip for SSL traffic.
+    # See: https://bugs.debian.org/773332
+    #
+    # Read up on ssl_ciphers to ensure a secure configuration.
+    # See: https://bugs.debian.org/765782
+    #
+    # Self signed certs generated by the ssl-cert package
+    # Don't use them in a production server!
+    #
+    # include snippets/snakeoil.conf;
+}
+</code></pre>
+<h2 id="get-nopcommerce">Get nopCommerce</h2>
+<p>Create a directory:</p>
+<pre><code class="lang-cmd">sudo mkdir /var/www/nopCommerce
+</code></pre>
+<p>Download and unpack nopCommerce:</p>
+<pre><code class="lang-cmd">cd /var/www/nopCommerce
+
+sudo wget https://github.com/nopSolutions/nopCommerce/releases/download/release-4.90.4/nopCommerce_4.90.4_NoSource_linux_x64.zip
+
+sudo apt-get install unzip
+
+sudo unzip nopCommerce_4.90.4_NoSource_linux_x64.zip
+</code></pre>
+<p>Create couple directories to run nopCommerce:</p>
+<pre><code class="lang-cmd">sudo mkdir bin
+sudo mkdir logs
+</code></pre>
+<p>Change the file permissions:</p>
+<pre><code class="lang-cmd">cd ..
+sudo chgrp -R www-data nopCommerce/
+sudo chown -R www-data nopCommerce/
+</code></pre>
+<h2 id="create-the-nopcommerce-service">Create the nopCommerce service</h2>
+<p>Create the <em>/etc/systemd/system/nopCommerce.service</em> file with the following contents:</p>
+<pre><code class="lang-cmd">[Unit]
+Description=Example nopCommerce app running on Xubuntu
+
+[Service]
+WorkingDirectory=/var/www/nopCommerce
+ExecStart=/usr/bin/dotnet /var/www/nopCommerce/Nop.Web.dll
+Restart=always
+# Restart service after 10 seconds if the dotnet service crashes:
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=nopCommerce-example
+User=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>Start the service:</p>
+<pre><code class="lang-cmd">sudo systemctl start nopCommerce.service
+</code></pre>
+<p>Check the nopCommerce service status:</p>
+<pre><code class="lang-cmd">sudo systemctl status nopCommerce.service
+</code></pre>
+<p><img src="_static/installing-on-linux/status_nopCommerce.png" alt="nopCommerce installation"></p>
+<p>Restart the nginx server:</p>
+<pre><code class="lang-cmd">sudo systemctl restart nginx
+</code></pre>
+<p>Now that everything is ready, you can proceed to install and configure the store.</p>
+<h2 id="installation-process">Installation process</h2>
+<p>The further installation process for nopCommerce is the same as the installation process on Windows; you can see the instruction following <a class="xref" href="installing-on-windows.html#install-nopcommerce">this link</a>.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="gdip">Gdip</h3>
+<p><em>If you have a problem with loading images in the RichText Box (The type initializer for 'Gdip' threw an exception), just install the libgdiplus library</em>:</p>
+<pre><code class="lang-cmd">sudo apt-get install libgdiplus
+</code></pre>
+<h3 id="ssl">SSL</h3>
+<p><em>If you want to use SSL on your site, don't forget to set the <code>UseProxy</code> setting to <strong><code>true</code></strong> in the <strong>appsettings.json</strong> file</em>.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://www.nopcommerce.com/running-nopcommerce-on-linux-vps-part-2">Running nopCommerce on Linux VPS. Part 2</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/installation-and-upgrading/installing-nopcommerce/installing-on-linux.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Full-text search based on Elasticsearch </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Full-text search based on Elasticsearch ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="preload" href="../../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/running-your-store/catalog/catalog-settings/full-text-search/elasticsearch-configure">
+<h1 id="full-text-search-based-on-elasticsearch">Full-text search based on Elasticsearch</h1>
+
+<p>Please get the official integration with Elasticsearch <a href="https://www.nopcommerce.com/full-text-search-elasticsearch?utm_source=docs.nopcommerce&amp;utm_medium=documentation&amp;utm_campaign=full-text-search-elasticsearch">here</a>.</p>
+<p>Elasticsearch is a search engine based on the Lucene library. It provides a distributed, multitenant-capable full-text search engine with an HTTP web interface and schema-free JSON documents.</p>
+<p>Our integration provides a strongly-typed API and query DSL to interact with the Elasticsearch server. The plugin includes high-level operations for products, such as bulk indexing, update operations, and search.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The integration is based on the v8 .NET client for use with Elasticsearch 8.x versions</p>
+</div>
+<h2 id="available-features">Available features</h2>
+<p>Here is a list of supported features:</p>
+<ul>
+<li>Automatic updating of product data on the elastic server (in real-time or on a schedule).</li>
+<li>Automatic matching of the available indexing language to the current store language.</li>
+<li>Several built-in search types:
+<ul>
+<li>Fuzzy search is used for the phrases that are spelled incorrectly. For example, if you type ‘test’ instead of ‘text’, results will still be found.</li>
+<li>Wildcard search is used for matching phrase patterns instead of searching full phrases. The integration uses the <code>*</code> wildcard operator to represent word endings.</li>
+<li>Exact search strictly matches the query to indexed tokens.</li>
+</ul>
+</li>
+<li>Several authentication methods to access an Elasticsearch cluster.</li>
+</ul>
+<h2 id="plugin-installation">Plugin installation</h2>
+<p>This section describes how to integrate Elasticsearch into your store.</p>
+<ol>
+<li>Purchase the integration at <a href="https://www.nopcommerce.com/full-text-search-elasticsearch?utm_source=docs.nopcommerce&amp;utm_medium=documentation&amp;utm_campaign=full-text-search-elasticsearch">https://www.nopcommerce.com/full-text-search-elasticsearch</a></li>
+<li>Download the plugin archive.</li>
+<li>Go to admin area &gt; configuration &gt; local plugins. Upload the plugin archive using the &quot;Upload plugin or theme&quot; plugin.</li>
+<li>Scroll down through the list of plugins to find the newly installed plugin. Click on the &quot;Install&quot; button to install the plugin.</li>
+</ol>
+<p>You can find more information about how to install plugins <a href="https://docs.nopcommerce.com/getting-started/advanced-configuration/plugins-in-nopcommerce.html">here</a>.</p>
+<p>The Elasticsearch must be configured for correct work of the plugin. Find more about the Elasticsearch installation process <a href="https://www.elastic.co/downloads/elasticsearch">here</a>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The plugin belongs to the <strong>Search provider</strong> group. Use the <strong>Group</strong> field in the search panel to filter plugins for faster navigation.</p>
+</div>
+<p><img src="_static/local-plugins-elasticsearch.png" alt="Local plugins"></p>
+<h2 id="plugin-configuration">Plugin configuration</h2>
+<p>Click the <strong>Configure</strong> button beside the Elastic search provider option in the list. Next, follow the steps to complete configuring the plugin:</p>
+<p><img src="_static/elasticsearch-config-page.png" alt="Lucene configuration page"></p>
+<ol>
+<li>Enter the Node endpoint URL that the plugin will use to connect to your Elasticsearch cluster.</li>
+<li>Input the index name that will be used for requests to the Elasticsearch server (<em>nopcommerceproducts</em> by default)</li>
+<li>Enter your Elasticsearch server credentials:
+<ul>
+<li><strong>Authentication type</strong>. Select the authentication method that will be used to grant access to the Elasticsearch cluster.</li>
+<li><strong>Username</strong>. This is the username you use with the Basic authentication scheme.</li>
+<li><strong>Password</strong>. This is the password you use with the Basic authentication scheme.</li>
+<li><strong>Api Key</strong>. This is the keyword you use with the bearer authentication scheme.</li>
+</ul>
+</li>
+<li>Choose a search algorithm:
+<ul>
+<li>The &quot;<strong>Fuzzy</strong>&quot; search is based on the Levenshtein Distance (For example, searches for a &quot;roam&quot; term will find terms like &quot;foam&quot; and &quot;roams&quot;).</li>
+<li>The &quot;<strong>Contains</strong>&quot; search looks for 0 or more characters based on the wildcard searches with &quot;*&quot; at the end (For example, to search for &quot;test&quot;, &quot;tests&quot;, or &quot;tester&quot;, you can use the &quot;test&quot; term).</li>
+<li>The &quot;<strong>None</strong>&quot; option is based on exact matching.</li>
+</ul>
+</li>
+<li>Choose a rule for matching terms in a search query:
+<ul>
+<li>The &quot;<strong>Should</strong>&quot; operator - terms should appear in a field of the matching product, but are optional</li>
+<li>The &quot;<strong>Must</strong>&quot; operator - terms must appear in a field of the matching product.</li>
+</ul>
+</li>
+<li>Set up the behavior of updating the search index documents. Check the <strong>Immediately update indexes</strong> to immediately apply changes for the mapped product (for example, their names or descriptions were changed). Otherwise, the reindexing will be scheduled.
+<div class="NOTE">
+<h5>Note</h5>
+<p>You may also manually click the &quot;Rebuild index&quot; button to start reindexing.</p>
+</div>
+</li>
+<li>Enter the <strong>Result limit</strong>, if necessary. The Result limit is the maximum number of result matches that will be retrieved from the Elasticsearch server for search queries.</li>
+<li>Enter additional delimiter characters to split a search query into terms. Please note that search queries are always splitted by space, in addition to the entered delimiters.</li>
+<li>Click the <strong>Save</strong> button</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>To toggle the plugin state, use the &quot;<strong>Enable</strong>&quot; or &quot;<strong>Disable</strong>&quot; buttons. They are displayed depending on the current state.</p>
+</div>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/running-your-store/catalog/full-text-search/elasticsearch-configure.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

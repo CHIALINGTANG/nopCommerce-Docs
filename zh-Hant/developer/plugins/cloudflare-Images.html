@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Cloudflare Images 整合 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Cloudflare Images 整合 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/developer/plugins/cloudflare-images">
+<h1 id="cloudflare-images-整合">Cloudflare Images 整合</h1>
+
+<h2 id="概述">概述</h2>
+<p>從 4.90 版本開始，縮圖管理功能已進行重構以提供更高的彈性。系統引入了一個新的介面 <code>IThumbService</code> 來處理先前由 <code>IPictureService</code> 所管理的所有縮圖相關操作。</p>
+<p>以下方法已移至 <code>IThumbService</code>：</p>
+<ul>
+<li><code>GetThumbLocalPathAsync</code></li>
+<li><code>GeneratedThumbExistsAsync</code></li>
+<li><code>SaveThumbAsync</code></li>
+<li><code>GetThumbLocalPathByFileNameAsync</code></li>
+<li><code>GetThumbUrlAsync</code></li>
+<li><code>DeletePictureThumbsAsync</code></li>
+</ul>
+<p>作為此項變更的一部分，縮圖儲存邏輯已從核心應用程式中解耦，改為獨立的外掛。現有的 <strong>Azure Blob Storage</strong> 功能現在是一個獨立的外掛。此外，我們也開發了一個新的外掛，將 <strong>Cloudflare Images</strong> 作為縮圖儲存解決方案整合進來。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>預設情況下，Azure Blob 和 Cloudflare Images 外掛（<code>Misc.AzureBlob</code> 和 <code>Misc.CloudflareImages</code>）都會列在 <code>InstallationConfig.DisabledPlugins</code> 屬性中。這確保了這些外掛不會在全新安裝時自動啟用，讓商店負責人能根據需求選擇並安裝最合適的儲存解決方案。</p>
+</div>
+<h2 id="設定-azure-blob-storage">設定 Azure Blob Storage</h2>
+<p>我們可以使用 <em>Azure Blob Storage</em> 來儲存 Blob 資料。nopCommerce 已經內建此功能的整合，您只需要正確設定以下資訊即可使用。這些設定值可以在您於 <em>Azure</em> 建立儲存帳戶時取得。</p>
+<p><img src="_static/cloudflare-images/azure-blob.png" alt="Image"></p>
+<ul>
+<li><strong>ConnectionString</strong> 此設定需要一個字串值。您需要在此處加入您的 <code>AzureBlobStorage</code> 連接字串。</li>
+<li><strong>ContainerName</strong> 此設定的值同樣為字串類型。在此設定中，我們指定 <em>Azure BLOB storage</em> 的容器名稱。</li>
+<li><strong>EndPoint</strong> 此設定同樣需要一個字串值。我們需要在這裡設定 <em>Azure BLOB storage</em> 的端點。</li>
+<li><strong>AppendContainerName</strong> 此設定需要一個布林值。根據在建構 URL 時是否需要將容器名稱附加到 <code>EndPoint</code>，將此值設為 <strong><code>true</code></strong> 或 <strong><code>false</code></strong>。</li>
+</ul>
+<h2 id="設定-cloudflare-images">設定 Cloudflare Images</h2>
+<p>此外掛的設定相當簡單，除了總開關之外，包含四個欄位。</p>
+<p><img src="_static/cloudflare-images/cloudflare-images.png" alt="Image"></p>
+<p>其中一個關鍵欄位是 <strong>Delivery URL</strong>。它必須依照下列特定格式進行設定：</p>
+<pre><code class="lang-bash">https://imagedelivery.net/[account_hash]/&lt;image_id&gt;/&lt;variant_name&gt;
+</code></pre>
+<p>此 URL 作為一個範本。此外掛將動態插入所需的 <code>image_id</code> 和 <code>variant_name</code>，以產生顯示在網站上的縮圖最終 URL。</p>
+<h2 id="使用方式">使用方式</h2>
+<p>一旦設定完成並啟用，此外掛便會在背景自動運作，與 Azure Blob storage 的整合方式類似。它會無縫處理以下事項：</p>
+<ul>
+<li>將新縮圖上傳至 Cloudflare Images 服務。</li>
+<li>在所有公開頁面上，將本機縮圖 URL 取代為對應的 Cloudflare Images URL。</li>
+</ul>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/developer/plugins/cloudflare-Images.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

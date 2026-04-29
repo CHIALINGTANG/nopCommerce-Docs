@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Develop a New Plugin </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Develop a New Plugin ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/developer/tutorials/guide-to-expanding-the-functionality-of-the-basic-functions-of-nop-commerce-through-a-plugin">
+<h1 id="develop-a-new-plugin">Develop a New Plugin</h1>
+
+<h2 id="overview">Overview</h2>
+<p>nopCommerce uses the plugins system to extend the functionality of the admin panel and uses a widget system to extend the functionality of the website. Plugins and Widgets are a set of independent programs or components that can be added to an existing system to extend some specific functionality and also can be removed from the system without affecting the main system during the process. So by using the concept of Plugins and widgets we can add more functionality to our system and we can build them without altering or editing the core source code of the nopCommerce solution. This enables us to upgrade or downgrade our nopCommerce solution to the latest version or older version as we desire without having to rewrite plugins and widgets we already created.</p>
+<h2 id="plugins-vs-widgets">Plugins vs. Widgets</h2>
+<p>As we know both plugins and widgets are for extending the functionality of the nopCommerce solution. Well, then you may ask &quot;What is the difference between them&quot;. Ultimately in nopCommerce, you can think of widgets as a plugin but with an extra feature. To create a widget the process is mostly the same as creating a plugin, but by using widgets we can show some UI (User Interface) to the nopCommerce public website in some specific areas predefined by nopCommerce which are known as widget-zones. Which we cannot achieve only via a plugin. You may think of a Widget as a subset of a Plugin.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>All available widget zones can be found in the <code>Nop.Web.Framework.Infrastructure</code> namespace:</p>
+<ul>
+<li><p>The admin panel widget-zones can be found in the <strong>AdminWidgetZones.cs</strong> file.</p>
+</li>
+<li><p>The public store widget-zones can be found in the <strong>PublicWidgetZones.cs</strong> file.</p>
+</li>
+</ul>
+</div>
+<p>You must be a bit more clear about what widgets and plugins are when they can be used and what is the benefits of using them. So, now let's go and create a simple widget that shows a &quot;Hello World&quot; message to the public site, to understand how to create a widget in nopCommerce.</p>
+<h2 id="initialize-plugin-project">Initialize Plugin Project</h2>
+<h3 id="step-1-create-a-new-project">Step 1: Create a new project</h3>
+<p>Go to the nopCommerce official website and download the latest nopCommerce source code. Open your nopCommerce solution in your favorite IDE (Microsoft Visual Studio is recommended). If you want to know more about the structure of the project, then first check out the article <a class="xref" href="source-code-organization.html">&quot;Source code organization&quot;</a>. On the top of the solution, you will see a <em>Plugins</em> folder, expand that folder and you will see a list of plugin projects shipped with nopCommerce by default.</p>
+<p><img src="_static/guide-to-expanding-the-functionality-of-the-basic-functions-of-nop-commerce-through-a-plugin/image1.png" alt="image1"></p>
+<p>In order to create a new Widget project, Right-click on <em>Plugins</em> folder: <strong>Add</strong> -&gt; <strong>New Project</strong>, and the &quot;add new project&quot; window will appear.</p>
+<p><img src="_static/guide-to-expanding-the-functionality-of-the-basic-functions-of-nop-commerce-through-a-plugin/image2.png" alt="image2"></p>
+<p>Select the <strong>Class Library</strong> project template and go to the next step, where you will need to specify the name of the project.</p>
+<p><img src="_static/guide-to-expanding-the-functionality-of-the-basic-functions-of-nop-commerce-through-a-plugin/image2_1.png" alt="image2_1"></p>
+<p>nopCommerce follows some standard naming conventions, which you can get more information from nopCommerce documentation. I have chosen <code>Nop.Plugin.Widget.HelloWorld</code> as my project name by following the naming convention of nopCommerce. And the location should be inside the <em>/src/Plugins</em> directory. Now click <strong>Next</strong>.</p>
+<p><img src="_static/guide-to-expanding-the-functionality-of-the-basic-functions-of-nop-commerce-through-a-plugin/image2_2.png" alt="image2_2"></p>
+<p>This should create a new project inside the Plugin directory. And you may see in your solution like this:</p>
+<p><img src="_static/guide-to-expanding-the-functionality-of-the-basic-functions-of-nop-commerce-through-a-plugin/image3.png" alt="image3"></p>
+<h3 id="step-2-configure-your-new-project-to-be-used-as-a-widget">Step 2: Configure your new project to be used as a Widget</h3>
+<p>We need to configure a couple of things in our project for it to be used as a <em>Plugin</em> or a <em>Widget</em>.</p>
+<p>After you create your project successfully open its <code>.csproj</code> file, for that right-click on your project, and click the <code>{Your_Project_Name.csproj}</code> menu from the context menu and replace its content with the following code.</p>
+<pre><code class="lang-xml">&lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;
+    &lt;PropertyGroup&gt;
+        &lt;TargetFramework&gt;net9.0&lt;/TargetFramework&gt;
+        &lt;Copyright&gt;SOME_COPYRIGHT&lt;/Copyright&gt;
+        &lt;Company&gt;YOUR_COMPANY&lt;/Company&gt;
+        &lt;Authors&gt;SOME_AUTHORS&lt;/Authors&gt;
+        &lt;PackageLicenseUrl&gt;PACKAGE_LICENSE_URL&lt;/PackageLicenseUrl&gt;
+        &lt;PackageProjectUrl&gt;PACKAGE_PROJECT_URL&lt;/PackageProjectUrl&gt;
+        &lt;RepositoryUrl&gt;REPOSITORY_URL&lt;/RepositoryUrl&gt;
+        &lt;RepositoryType&gt;Git&lt;/RepositoryType&gt;
+        &lt;OutputPath&gt;$(SolutionDir)\Presentation\Nop.Web\Plugins\{PLUGIN_OUTPUT_DIRECTORY}&lt;/OutputPath&gt;
+        &lt;OutDir&gt;$(OutputPath)&lt;/OutDir&gt;
+        &lt;!--Set this parameter to true to get the dlls copied from the NuGet cache to the output of your    project. You need to set this parameter to true if your plugin has a nuget package to ensure that   the dlls copied from the NuGet cache to the output of your project--&gt;
+        &lt;CopyLocalLockFileAssemblies&gt;false&lt;/CopyLocalLockFileAssemblies&gt;
+        &lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;
+    &lt;/PropertyGroup&gt;
+    &lt;ItemGroup&gt;
+        &lt;ProjectReference Include=&quot;$(SolutionDir)\Presentation\Nop.Web.Framework\Nop.Web.Framework.csproj&quot; /&gt;
+        &lt;ClearPluginAssemblies Include=&quot;$(SolutionDir)\Build\ClearPluginAssemblies.proj&quot; /&gt;
+    &lt;/ItemGroup&gt;
+    &lt;!-- This target execute after &quot;Build&quot; target --&gt;
+    &lt;Target Name=&quot;NopTarget&quot; AfterTargets=&quot;Build&quot;&gt;
+        &lt;!-- Delete unnecessary libraries from plugins path --&gt;
+        &lt;MSBuild Projects=&quot;@(ClearPluginAssemblies)&quot; Properties=&quot;PluginPath=$(OutDir)&quot; Targets=&quot;NopClear&quot; /&gt;
+    &lt;/Target&gt;
+&lt;/Project&gt;
+</code></pre>
+<p>Here replace <code>{Plugin_Output_Directory}</code> with your project name, in my case <em>Widget.HelloWorld</em>.</p>
+<p>What this will do is it copies all DLL files related to this project into the <code>Nop.Web/Plugin/{Plugin_Output_Directory}</code>, because <em>Plugin</em> directory inside <code>Nop.Web</code> is the location where nopCommerce searches from plugins and widgets to display in <em>Plugin</em> or <em>Widget</em> list in the admin panel.</p>
+<h3 id="step-3-create-a-pluginjson-file">Step 3: Create a plugin.json file</h3>
+<p>This file is required for every <em>Plugin</em> or <em>Widget</em> we create for nopCommerce. This file contains meta information about our plugin that describes our plugin. It contains information like the name of our plugin, which version of nopCommerce it is target/built for, some description about our plugin, version of our plugin, and so on. For more information please see the article <a class="xref" href="../plugins/plugin.json.html">plugin.json file</a>.</p>
+<h3 id="step-4-create-a-class-that-inherits-from-baseplugin-class">Step 4: Create a class that inherits from BasePlugin Class</h3>
+<p>We need to have a class that inherits from the <code>IPlugin</code> interface so that nopCommerce treats our project as a plugin. But nopCommerce already has a class <code>BasePlugin</code> that inherits from the <code>IPlugin</code> interface and implements all methods from that interface. So, instead of inheriting from the <code>IPlugin</code> interface, we can extend the <code>BasePlugin</code> class. If we have some logic that needs to be executed during our plugin/widget installation and uninstallation process then we can override the <code>InstallAsync</code> and <code>UninstallAsync</code> methods from the <code>BasePlugin</code> class to our class. Finally, the class should look like this</p>
+<pre><code class="lang-cs">public class HelloWorldPlugin: BasePlugin
+{
+    public override async Task InstallAsync()
+    {
+        //Logic during installation goes here...
+
+        await base.InstallAsync();
+    }
+
+    public override async Task UninstallAsync()
+    {
+        //Logic during uninstallation goes here...
+
+         await base.UninstallAsync();
+    }
+}
+</code></pre>
+<p>Now build your project and run. Navigate to the admin panel and under <strong>Configuration</strong> there is a <strong>Local plugins</strong> menu click that menu. Here you will see all plugins listed that are present in our <code>Nop.Web/Plugins</code> directory. There you will see your newly created plugin. If you do not see it, then click on the <strong>Reload list of plugins</strong> button, after that, it will restart your application and list all plugins available. Now you should see your plugin. Click the green <strong>Install</strong> button in your plugin's row.</p>
+<p><img src="_static/guide-to-expanding-the-functionality-of-the-basic-functions-of-nop-commerce-through-a-plugin/image5.png" alt="image5"></p>
+<p>Now after you click the install button, click the <strong>Restart your application to apply changes</strong> button. It will restart your application and install your plugin. After installation completes you will see a <em>Configure</em> and <em>Edit</em> button and an <em>Uninstall</em> button like this.</p>
+<p><img src="_static/guide-to-expanding-the-functionality-of-the-basic-functions-of-nop-commerce-through-a-plugin/image6.png" alt="image6"> Now your plugin is installed. But the <em>Configure</em> button will not work, since we don't have any configure page in our plugin.</p>
+<h2 id="create-a-widget-to-show-some-ui-on-our-public-site">Create a widget to show some UI on our public Site</h2>
+<p>As previously mentioned, a <em>Widget</em> is the same as a plugin but with extra features. So we can use this same plugin project to convert it to a widget and render some UI to our public site. So let's see how we can extend this plugin and make it into a widget.</p>
+<p>First, we need to create a <code>ViewComponent</code>. Create a directory <em>Components</em> in the root of the project and create a <strong><code>ViewComponent</code></strong> class. We need to inherit this class from the <code>NopViewComponent</code> base class.</p>
+<pre><code class="lang-cs">public class ExampleWidgetViewComponent: NopViewComponent
+{
+    public IViewComponentResult Invoke(string widgetZone, object additionalData)
+    {
+        return Content(&quot;Hello World&quot;);
+    }
+}
+</code></pre>
+<p>Now go to the previous class that extends <code>BasePlugin</code> we have previously created and is inherited from the <code>IWidgetPlugin</code> interface. This interface has two function declarations <code>GetWidgetZones</code> and <code>GetWidgetViewComponent</code> which we need to implement in our class.</p>
+<pre><code class="lang-cs">public class HelloWorldPlugin: BasePlugin, IWidgetPlugin
+{
+    /// &lt;summary&gt;
+    /// Gets a value indicating whether to hide this plugin on the widget list page in the admin area
+    /// &lt;/summary&gt;
+    public bool HideInWidgetList =&gt; false;
+
+    /// &lt;summary&gt;
+    /// Gets a type of a view component for displaying widget
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;widgetZone&quot;&gt;Name of the widget zone&lt;/param&gt;
+    /// &lt;returns&gt;View component type&lt;/returns&gt;
+    public Type GetWidgetViewComponent(string widgetZone)
+    {
+        return typeof(ExampleWidgetViewComponent);
+    }
+    
+    /// &lt;summary&gt;
+    /// Gets widget zones where this widget should be rendered
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;
+    /// A task that represents the asynchronous operation
+    /// The task result contains the widget zones
+    /// &lt;/returns&gt;
+    public Task&lt;IList&lt;string&gt;&gt; GetWidgetZonesAsync()
+    {
+        return Task.FromResult&lt;IList&lt;string&gt;&gt;(new List&lt;string&gt; { &quot;home_page_before_categories&quot; });        
+    }
+
+    public override async Task InstallAsync()
+    {
+        //Logic during installation goes here...
+
+        await base.InstallAsync();
+    }
+
+    public override async Task UninstallAsync()
+    {
+        //Logic during uninstallation goes here...
+
+         await base.UninstallAsync();
+    }
+}
+</code></pre>
+<p>Now if you build your project, navigate to the admin panel, and go to <strong>Configuration -&gt; Widgets</strong>, you will be able to view your widget in the list.</p>
+<p><img src="_static/guide-to-expanding-the-functionality-of-the-basic-functions-of-nop-commerce-through-a-plugin/image7.png" alt="image7"></p>
+<p>Here you may notice that this widget does not have the <em>Configure</em> button. That is because we did not create a configuration view file for this widget and did not override the <code>GetConfigurationPageUrl</code> method from the <code>BasePlugin</code> class. Since we have already installed our plugin we do not have to install it again, but here you can see that widget is not active right now. We can activate this by clicking the <em>Edit</em> button.</p>
+<p><img src="_static/guide-to-expanding-the-functionality-of-the-basic-functions-of-nop-commerce-through-a-plugin/image8.png" alt="image8"></p>
+<p>Now after we set the widget to active our widget should work as expected. If we go to our home page before the category we must see the &quot;Hello World&quot; message as shown in the picture (highlighted in yellow).</p>
+<p><img src="_static/guide-to-expanding-the-functionality-of-the-basic-functions-of-nop-commerce-through-a-plugin/image9.png" alt="image9"></p>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/developer/tutorials/guide-to-expanding-the-functionality-of-the-basic-functions-of-nop-commerce-through-a-plugin.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

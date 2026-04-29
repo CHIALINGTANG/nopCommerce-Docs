@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Load balancing and web farms in nopCommerce </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Load balancing and web farms in nopCommerce ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/installation-and-upgrading/installing-nopcommerce/web-farms">
+<h1 id="load-balancing-and-web-farms-in-nopcommerce">Load balancing and web farms in nopCommerce</h1>
+
+<p>Load balancing is the distribution of a workload across many nodes. It is typically used for balancing HTTP traffic over multiple servers acting together as a web front end.</p>
+<p>There are several ways to configure load balancing in nopCommerce:</p>
+<ol>
+<li>Use cloud-based autoscaling appliances like Microsoft's Azure Web Apps. Please find more about it <a class="xref" href="installing-on-microsoft-azure.html">here</a>.</li>
+<li>Configure load balancing with IIS web farms. This approach is described below.</li>
+</ol>
+<p>We highly recommend you to read <a href="https://docs.microsoft.com/en-us/iis/web-hosting/scenario-build-a-web-farm-with-iis-servers/overview-build-a-web-farm-with-iis-servers">this tutorial</a> by Microsoft before you start configuring a web farm for nopCommerce. So Microsoft suggests two ways to build a web farm with IIS servers:</p>
+<ol>
+<li>Local Content Infrastructure</li>
+<li>Shared Network Content Infrastructure</li>
+</ol>
+<p>nopCommerce supports both ways and handles content replication by using Distributed File System Replication (DFSR) if you use <strong>Local Content Infrastructure</strong> or uses a central location to manage the content with <strong>Shared Network Content Infrastructure</strong>.</p>
+<h2 id="nopcommerce-configuration">nopCommerce configuration</h2>
+<p>First of all, you have to configure the initial settings of your web farm in IIS and add the first instance of your nopCommerce store there. Then, you have to configure a few settings in the nopCommerce admin area to allow nopCommerce to work with web farms:</p>
+<ol>
+<li><p>Go to <strong>Configuration → Settings → All settings (advanced)</strong>. Find the <strong>mediasettings.useabsoluteimagepath</strong> setting and change its value to <em>false</em></p>
+</li>
+<li><p>Go to <strong>Configuration → Settings → App settings</strong> and find the <em>Distributed cache configuration</em> tab. Select the <strong>Use distributed cache</strong> checkbox and choose the option you prefer:</p>
+<ul>
+<li><em>Redis</em>. In this case, you just need to enter the <strong>Connection string</strong> to your Redis server below</li>
+<li><em>SQL Server</em>. In this case, you need to prepare a new table in your database using the &quot;sql-cache create&quot; command first. Read more about it in Microsoft docs <a href="https://docs.microsoft.com/en-us/aspnet/core/performance/caching/distributed?view=aspnetcore-5.0#distributed-sql-server-cache">here</a>. Then fill in the <strong>Connection string</strong>, <strong>Schema name</strong>, and <strong>Table name</strong> fields</li>
+</ul>
+</li>
+<li><p>Since our web farm utilizes Application Request Routing (ARR) to control traffic using a proxy server, select the <strong>Use proxy servers</strong> checkbox</p>
+</li>
+<li><p>Click the <strong>Save</strong> button. The nopCommerce application will be restarted.</p>
+</li>
+</ol>
+<h2 id="web-farm-configuration">Web farm configuration</h2>
+<h3 id="admin-area-redirection-rule">Admin area redirection rule</h3>
+<p>Since a web farm hosts multiple instances of an application, you need to choose one of the nopCommerce instances as a primary one to avoid file locking. This primary node will process requests from the admin panel.</p>
+<p>The rule should look as follows:</p>
+<pre><code class="lang-xml">&lt;rule name=&quot;Admin Area&quot; enabled=&quot;true&quot; patternSyntax=&quot;ECMAScript&quot; stopProcessing=&quot;true&quot;&gt;
+    &lt;match url=&quot;^(admin(/.*)?)$|^(lib_npm/.+)$&quot; /&gt;
+    &lt;conditions logicalGrouping=&quot;MatchAll&quot; trackAllCaptures=&quot;false&quot;&gt;
+        &lt;add input=&quot;{HTTP_HOST}&quot; pattern=&quot;^admin\.wf\.local$&quot; negate=&quot;true&quot; /&gt;
+    &lt;/conditions&gt;
+    &lt;action type=&quot;Rewrite&quot; url=&quot;http://admin.wf.local/{R:0}&quot; /&gt;
+&lt;/rule&gt;
+</code></pre>
+<p>Where <code>admin.wf.local</code> is the address of your primary instance.</p>
+<h3 id="load-balancing-rules">Load balancing rules</h3>
+<p>After you set up the web farm, you need to configure a load balancing rule in the <strong>Application Request Routing</strong> section. Add the condition that prevents handling requests intended for the primary node (admin area requests in our case):</p>
+<pre><code class="lang-xml">&lt;rule name=&quot;ARR_wf-local_loadbalance&quot; enabled=&quot;true&quot; patternSyntax=&quot;ECMAScript&quot; stopProcessing=&quot;true&quot;&gt;
+    &lt;match url=&quot;.*&quot; ignoreCase=&quot;false&quot; /&gt;
+    &lt;conditions logicalGrouping=&quot;MatchAll&quot; trackAllCaptures=&quot;false&quot;&gt;
+        &lt;add input=&quot;{PATH_INFO}&quot; pattern=&quot;^(/admin(/.*)?)$|^(/lib_npm/.+)$&quot; negate=&quot;true&quot; /&gt;
+    &lt;/conditions&gt;
+    &lt;action type=&quot;Rewrite&quot; url=&quot;http://wf-local/{R:0}&quot; /&gt;
+&lt;/rule&gt;
+</code></pre>
+<p>Where <code>wf-local</code> is the web farm name.</p>
+<p>You can add the rules we described above in two ways:</p>
+<ol>
+<li>Include them in the <code>applicationHost.config</code> file (<strong>system.webServer/rewrite/globalRules</strong> section)</li>
+<li>Use the <strong>URL Rewrite script</strong> section in IIS Manager</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>In some cases, ARR has issues handling URLs of javascript files containing more than one “.” symbol. For example, it can affect minified js-files ending with <code>.min.js</code>. To avoid errors when processing such files, we recommend directly routing these requests to one of the nopCommerce instances. As you can see in the examples above, we do this for the whole <code>lib_npm</code> directory by routing to the primary instance.</p>
+</div>
+<p>When the configuration is finished, add new instances to your web farm.</p>
+<h3 id="file-replication">File replication</h3>
+<p>When you start the configuration of file replication, please make sure that the following folders of the primary instance are set up to support replication to all other nodes (instances):</p>
+<ul>
+<li>/App_Data</li>
+<li>/Plugins</li>
+<li>/Themes</li>
+<li>/wwwroot</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>All actions that assume restarting the nopCommerce application (for example, plugin installation, updating of the app settings), require manual restarting of all application pools related to the web farm.</p>
+</div>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/installation-and-upgrading/installing-nopcommerce/web-farms.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

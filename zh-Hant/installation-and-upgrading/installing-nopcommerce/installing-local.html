@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>本地安裝 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="本地安裝 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/installation-and-upgrading/installing-nopcommerce/installing-local">
+<h1 id="本地安裝">本地安裝</h1>
+
+<p>本章節介紹如何下載 nopCommerce 軟體、將其上傳至您的伺服器、定義檔案權限，以及如何在您的系統上進行安裝。您也可以在我們的 <a href="https://www.youtube.com/watch?v=L7NGodeB9sQ">YouTube 頻道</a> 觀看關於 nopCommerce 安裝的教學影片。</p>
+<p>在開始安裝之前，請確保您的網站主機符合 <a class="xref" href="../technology-and-system-requirements.html">執行 nopCommerce 的最低需求</a>。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>如需更多關於主機選擇準則的資訊，請造訪 <a class="xref" href="choose-a-hosting-company.html">此頁面</a>。</p>
+</div>
+<p>下載 nopCommerce 時有幾種選項可供選擇。為了決定要下載哪個選項，您需要確認您將如何使用它。以下提供幾種可用選項：</p>
+<ol>
+<li><strong>Web (無原始碼)</strong>。此選項適用於不希望或不需要開發任何自訂程式碼的使用者。這是 nopCommerce 的預先編譯版本，只需上傳至您的託管服務提供者即可立即使用。使用此選項，使用者仍然可以根據需要修改網站的外觀或使用者介面 (UI)，而不必擔心開發相關事宜。</li>
+<li><strong>原始碼 (Source code)</strong>。此選項包含完整的 Visual Studio 解決方案。它適用於希望自訂 nopCommerce 內部程式碼的使用者。它包含開發 nopCommerce 所使用的所有原始碼，且必須使用 Visual Studio 開啟。它還包含用於建置與編譯解決方案並上傳至託管服務提供者的腳本。</li>
+<li><strong>升級腳本 (Upgrade script)</strong>。升級腳本選項適用於已經安裝過 nopCommerce 的使用者。此腳本會將您目前的安裝版本升級至最新版本。</li>
+</ol>
+<p>除了升級腳本外，上述每一種選項都可以讓您將 nopCommerce 部署到您的開發環境以及託管服務提供者。選擇您想要 <a href="https://www.nopcommerce.com/en/download-nopcommerce">下載</a> 的選項，並點擊對應的下載連結即可開始下載。建議您在桌面上建立一個新資料夾來存放下載的檔案，以便日後存取。</p>
+<h2 id="使用-iis-執行網站不含原始程式碼的套件">使用 IIS 執行網站（不含原始程式碼的套件）</h2>
+<p>若要使用 IIS，請將解壓縮後的 nopCommerce 資料夾內容複製到 IIS 的虛擬目錄（或網站根目錄），然後使用瀏覽器瀏覽該網站。</p>
+<p>如果您使用的是 nopCommerce 3.90 或更低版本，請將其設定為在整合模式（integrated mode）下執行，並將應用程式集區設定為執行 .NET Framework 4 版本。請注意，此步驟對於 nopCommerce 4.00 及以上版本並非必要。</p>
+<h2 id="使用-visual-studio-執行網站原始程式碼套件">使用 Visual Studio 執行網站（原始程式碼套件）</h2>
+<p>此步驟說明如何在 Visual Studio 中啟動網站。若要在 Visual Studio 中執行網站，請將完整的原始程式碼壓縮檔解壓縮至本機資料夾。啟動 Visual Studio 並選擇 <strong>檔案 → 開啟 → 專案/方案</strong>。導覽至您解壓縮檔案的資料夾，並開啟 <code>NopCommerce.sln</code> 方案檔。執行 <code>Nop.Web</code> 專案。</p>
+<h2 id="從包含原始程式碼的套件中取得準備部署的套件不含原始程式碼">從包含原始程式碼的套件中取得「準備部署」的套件（不含原始程式碼）</h2>
+<p>如果您使用的是 nopCommerce <strong>3.20（或以上版本）</strong>，請依照下列步驟操作：</p>
+<ul>
+<li>在 Visual Studio 中開啟方案。</li>
+<li>重建整個方案。</li>
+<li>從 Visual Studio 部署 <strong>Nop.Web</strong> 專案。部署時，請確保設定為 <em>Release</em> 模式。</li>
+</ul>
+<h2 id="安裝流程">安裝流程</h2>
+<p>nopCommerce 需要對以下所述的目錄與檔案具備寫入權限：</p>
+<ul>
+<li><p><strong>針對 nopCommerce 4.00 及以上版本：</strong></p>
+<ul>
+<li><code>\App_Data\</code></li>
+<li><code>\bin\</code></li>
+<li><code>\Logs\</code></li>
+<li><code>\Plugins\</code></li>
+<li><code>\Plugins\Uploaded\</code></li>
+<li><code>\wwwroot\.well-known\</code></li>
+<li><code>\wwwroot\bundles\</code></li>
+<li><code>\wwwroot\db_backups\</code></li>
+<li><code>\wwwroot\files\</code></li>
+<li><code>\wwwroot\files\exportimport\</code></li>
+<li><code>\wwwroot\icons\</code></li>
+<li><code>\wwwroot\images\</code></li>
+<li><code>\wwwroot\images\thumbs\</code></li>
+<li><code>\wwwroot\images\uploaded\</code></li>
+<li><code>\wwwroot\sitemaps\</code></li>
+<li><code>\App_Data\DataProtectionKeys\</code></li>
+<li><code>\App_Data\plugins.json</code> (安裝後)</li>
+<li><code>\App_Data\appsettings.json</code> (或早期版本的 dataSettings.json；安裝後)</li>
+</ul>
+</li>
+<li><p><strong>針對 nopCommerce 2.00-3.90 版本：</strong></p>
+<ul>
+<li><code>\App_Data\</code></li>
+<li><code>\bin\</code></li>
+<li><code>\Content\</code></li>
+<li><code>\Content\Images\</code></li>
+<li><code>\Content\Images\Thumbs\</code></li>
+<li><code>\Content\Images\Uploaded\</code></li>
+<li><code>\Content\files\ExportImport\</code></li>
+<li><code>\Plugins\</code></li>
+<li><code>\Plugins\bin\</code></li>
+<li><code>\Global.asax</code></li>
+<li><code>\web.config</code></li>
+</ul>
+</li>
+</ul>
+<p>這些權限會在安裝過程中進行驗證。如果您沒有寫入權限，系統將會顯示警告訊息，要求您設定權限。
+在安裝 nopCommerce 之前，請確保您的系統中已安裝資料庫伺服器。</p>
+<p>您可以使用以下任一種驗證方式來連線到伺服器：</p>
+<ul>
+<li><strong>SQL server 帳戶</strong>：使用此方式連線時，會在 SQL server 中建立帳號，該帳號並非基於 Windows 使用者帳戶。使用者名稱與密碼皆由 SQL server 建立並儲存於 SQL server 內。使用此方法時，您必須輸入您的登入帳號與密碼。</li>
+<li><strong>整合式 Windows 驗證</strong>：使用此方式連線時，SQL Server 會使用作業系統中的 Windows 主體權杖（principal token）來驗證帳戶名稱與密碼。這意味著使用者身分是由 Windows 所確認。SQL Server 不會要求密碼，也不會執行身分驗證。Windows 驗證是預設的驗證模式，且比 SQL server 驗證安全許多。Windows 驗證使用 Kerberos 安全通訊協定，提供針對強密碼複雜度驗證的密碼原則強制執行、支援帳戶鎖定，以及支援密碼過期。使用 Windows 驗證建立的連線有時被稱為信任連線（trusted connection），因為 SQL server 會信任 Windows 所提供的憑證。</li>
+</ul>
+<p>當您第一次開啟網站時，將會被重新導向至安裝頁面，如下所示：
+<img src="_static/installing-local/installation.jpg" alt="nopCommerce installation"></p>
+<p>在 <em>商店資訊 (Store information)</em> 面板中，填寫以下詳細資訊：</p>
+<ul>
+<li><strong>管理員電子郵件 (Admin user email)</strong>：這是網站第一位管理員的電子郵件地址。</li>
+<li><strong>管理員密碼 (Admin user password)</strong>：您需要為管理員帳戶設定一組密碼。</li>
+<li><strong>確認密碼 (Confirm the password)</strong>：確認管理員密碼。</li>
+<li><strong>國家/地區 (Country)</strong>：從下拉式選單中選擇國家。這能讓系統根據您選擇的國家預先設定您的商店。例如：
+<ul>
+<li>從官方網站下載並預先安裝語言包</li>
+<li>預先設定某些參數（例如：德國的 PangV 或「顯示稅額/運費資訊」設定）</li>
+<li>預先設定某些運送細節、增值稅 (VAT) 設定、貨幣、度量單位等。</li>
+</ul>
+</li>
+<li><strong>建立範例資料 (Create sample data)</strong>：如果您希望建立範例商品，請勾選此核取方塊。建議勾選此項，以便您在加入自己的商品之前，能先著手處理您的網站。您可以隨時刪除這些項目，或是將其取消發佈，使它們不再顯示於您的網站上。</li>
+<li><strong>訂閱 nopCommerce 電子報 (Subscribe to nopCommerce newsletter)</strong>：如果您希望在安裝期間訂閱 nopCommerce 電子報，請勾選此核取方塊。</li>
+</ul>
+<p>在 <em>資料庫資訊 (Database information)</em> 面板中，您需要輸入以下資訊：</p>
+<ul>
+<li><strong>資料庫 (Database)</strong>：在此處您可以選擇 Microsoft SQL Server、MySQL 或 PostgreSQL。</li>
+<li><strong>如果資料庫不存在則建立 (Create database if it doesn't exist)</strong>：建議您事先建立好資料庫與資料庫使用者，以確保安裝順利。只需建立一個資料庫實例並將資料庫使用者加入其中即可。安裝程序將會自動建立所有資料表、預存程序等內容。</li>
+<li><strong>輸入原始連接字串 (進階) (Enter raw connection string (advanced))</strong>：如果您想要輸入 <strong>連接字串 (Connection string)</strong> 而非填寫個別連線欄位，請勾選此核取方塊。</li>
+<li><strong>伺服器名稱 (Server name)</strong>：這是您資料庫的 IP、URL 或伺服器名稱。您可以從資料庫管理系統或主機控制台取得伺服器名稱。</li>
+<li><strong>資料庫名稱 (Database name)</strong>：這是 nopCommerce 所使用的資料庫名稱。如果您選擇提前建立資料庫，請在此處輸入您為該資料庫取的名稱。</li>
+<li><strong>使用整合式 Windows 驗證 (Use integrated Windows authentication)</strong>：如果您是在託管服務提供者（hosting provider）處安裝，您可以使用您的 SQL Server 帳戶並提供您隨資料庫建立的憑證。在此情況下，請勿勾選此選項。如果您使用的是開發環境，則可以選擇 Windows 驗證。在此情況下，請勾選此核取方塊。若使用 Windows 驗證，IIS 中代管應用程式集區 (application pool) 的帳戶必須是資料庫中的使用者。</li>
+<li><strong>SQL 使用者名稱 (SQL Username)</strong>：輸入您的資料庫使用者登入帳號。</li>
+<li><strong>SQL 密碼 (SQL Password)</strong>：輸入您的資料庫使用者密碼。</li>
+<li><strong>指定自訂定序 (Specify custom collation)</strong>：這是一項進階設定，通常保持空白即可。</li>
+</ul>
+<p>點擊 <strong>安裝 (Install)</strong> 以開始安裝程序。當設定程序完成後，您新網站的首頁將會顯示。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>安裝頁面底部的 <strong>重新安裝 (Restart installation)</strong> 按鈕，可讓您在發生問題時重新執行安裝程序。</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>若您使用的是 nopCommerce 3.90 或更舊的版本，請確保您的應用程式集區 (Application Pool) 設定為 <em>Integrated</em> 模式。</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>若您想要將 nopCommerce 網站完全重設為預設設定，您可以從位於 <code>App_Data</code> 目錄下的 <code>appsettings.json</code>（或舊版本的 <code>dataSettings.json</code>）檔案中刪除 <strong>ConnectionStrings</strong> 區段。您甚至可以直接刪除整個檔案，但請注意，在這種情況下，該檔案會在下次執行時以預設值恢復，因此您可能會遺失您的設定。</p>
+</div>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/installation-and-upgrading/installing-nopcommerce/installing-local.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

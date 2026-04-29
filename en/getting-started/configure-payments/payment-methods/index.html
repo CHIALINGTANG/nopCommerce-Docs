@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Payment methods </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Payment methods ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="preload" href="../../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/getting-started/configure-payments/payment-methods/index">
+<h1 id="payment-methods">Payment methods</h1>
+
+<p>A payment method is how a customer pays for the order. nopCommerce supports both <em>online</em> and <em>offline transactions</em>. For the online methods, nopCommerce integrates with third-party payment gateways so that customer's credit card information is automatically sent through the gateway (as either an authorization or authorization and charge) upon completion of an order. You can have multiple payment methods active at the same time. A customer can select how they want to pay at the checkout.</p>
+<p>To define payment methods, go to <strong>Configuration →  Payment methods</strong>.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>By default, there are several payment methods available in nopCommerce, but you can find more payment plugins in the nopCommerce <a href="https://www.nopcommerce.com/marketplace">marketplace</a>.</p>
+</div>
+<p>For the payment method development details, refer to the <a class="xref" href="../../../developer/plugins/payment-method.html">document</a>.</p>
+<p><img src="_static/index/payment-methods.jpg" alt="methods"></p>
+<p>To activate a payment method, click <strong>Edit</strong> beside the required method, select the <strong>Is active</strong> checkbox and click <strong>Update</strong>. The <strong>Is active</strong> option changes from <em>false</em> to <em>true</em>.</p>
+<p>Different payment methods support different options. There are <strong>4 payment options</strong> that a payment method might or might not support:</p>
+<ul>
+<li><strong>Supports capture</strong> indicates whether this method allows processing money transfer after the amount was charged.</li>
+<li><strong>Refund</strong> indicates this method allows making a money refund after the amount was charged and captured.</li>
+<li><strong>Partial refund</strong> indicates whether this method allows making a partial money refund after the amount was charged and captured.</li>
+<li><strong>Void</strong> indicates whether this method allows making a money refund before the amount was charged (when the payment status is pending).</li>
+<li><strong>Recurring support</strong> indicates whether this method allows recurring payments.</li>
+</ul>
+<p>Click <strong>Configure</strong> beside a payment method to set it up.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="paypal-commerce.html">PayPal Commerce</a></li>
+<li><a class="xref" href="paypal-zettle.html">PayPal Zettle</a></li>
+<li><a class="xref" href="paypal-standard.html">PayPal Standard</a></li>
+<li><a class="xref" href="paypal-smart-payment-buttons.html">PayPal Smart Payment Buttons</a></li>
+<li><a class="xref" href="check-money-order.html">Check/money order</a></li>
+<li><a class="xref" href="credit-card-manual-processing.html">Credit card (manual processing)</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/getting-started/configure-payments/payment-methods/index.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Facebook Pixel </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Facebook Pixel ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/running-your-store/promotional-tools/facebook-pixel">
+<h1 id="facebook-pixel-plugin">Facebook Pixel plugin</h1>
+
+<p>This section describes how to integrate the Facebook pixel into your store.</p>
+<h2 id="what-the-facebook-pixel-is">What the Facebook pixel is</h2>
+<p>The Facebook pixel allows you to receive information about the actions taken in your store to make your Facebook ads more relevant to your audience. The Facebook pixel can help you understand the behavior of visitors to your store and which advertising strategy works best to reach your business goals.</p>
+<p>Tracked conversions appear in the <a href="https://www.facebook.com/adsmanager">Facebook Ads Manager</a> and <a href="https://business.facebook.com/analytics">Facebook Analytics</a> dashboard, where they can be used to measure the effectiveness of your ads, define custom audiences for ad targeting or dynamic ads campaigns, and to analyze the effectiveness of your website's conversion funnels.</p>
+<h2 id="what-the-facebook-pixel-plugin-does">What the Facebook Pixel plugin does</h2>
+<p>The Facebook Pixel plugin for nopCommerce pasts a snippet of JavaScript code that allows you to track visitor activity on your website. It works by loading a small library of functions used whenever a customer takes action.</p>
+<h2 id="install-and-enable-the-plugin">Install and enable the plugin</h2>
+<p>The Facebook Pixel plugin is an out-of-the-box nopCommerce plugin. You can find it here: <strong>Configuration → Local plugins</strong>. To find the plugin faster, use the <strong>Group</strong> field in the search panel to filter the plugins by <em>Widgets</em> type:
+<img src="_static/facebook-pixel/plugin-list.jpg" alt="Find the plugin"></p>
+<p>Install the plugin using the <strong>Install</strong> button if it is uninstalled. Then enable it by clicking the <strong>Edit</strong> button. You will see the <em>Edit plugin details</em> window in this case. Mark the plugin as enabled using the <strong>Is enabled</strong> checkbox and click the <strong>Save</strong> button.</p>
+<h2 id="how-to-configure-the-plugin">How to configure the plugin</h2>
+<ol>
+<li><p>Click the <strong>Configure</strong> button. You will see the <em>Configure - Facebook Pixel</em> page window:
+<img src="_static/facebook-pixel/configure-window.jpg" alt="Configure - Facebook Pixel"></p>
+</li>
+<li><p>Click the <strong>Add new configuration</strong> button.</p>
+</li>
+<li><p>Fill in the following form to set up the plugin:
+<img src="_static/facebook-pixel/form.jpg" alt="Form"></p>
+</li>
+</ol>
+<ul>
+<li>Select the <strong>Enabled</strong> checkbox to enable this Facebook pixel configuration.</li>
+<li>Enter your <strong>Pixel ID</strong>, which you can find in the <a href="https://business.facebook.com/events_manager">Ads Manager → Events Manager</a>. If you have not created a pixel, <a href="https://www.facebook.com/business/help/952192354843755">follow these instructions</a> to create one — all you need is the pixel's ID.</li>
+<li><strong>Advanced Matching</strong>: if selected, some of the visitors' data (in the hashed format) will be collected by the Facebook pixel. If you implement advanced matching automatically using the Events Manager, clear this setting.</li>
+<li><strong>Include User properties</strong>: select to include <em>User properties</em>, data about the User, in a pixel. Then, you can view User properties in the Facebook Analytics dashboard under People → User Properties.</li>
+</ul>
+<p>Next, you will see the list of events. Standard events are predefined visitor actions that correspond to common, conversion-related activities, such as searching for a product, viewing a product, or purchasing a product.</p>
+<ul>
+<li><strong>Track &quot;PageView&quot; event</strong>: select to enable tracking of the standard event when a person lands on the website pages.</li>
+<li><strong>Track &quot;AddToCart&quot; event</strong>: select to enable tracking of the standard event when a product is added to the shopping cart.</li>
+<li><strong>Track &quot;Purchase&quot; event</strong>: select to enable tracking of the standard event when an order is placed.</li>
+<li><strong>Track &quot;ViewContent&quot; event</strong>: select to enable tracking of the standard event when a person lands on a product details page.</li>
+<li><strong>Track &quot;AddToWishlist&quot; event</strong>: select to enable tracking of the standard event when a product is added to the wishlist.</li>
+<li><strong>Track &quot;InitiateCheckout&quot; event</strong>: select to enable tracking of the standard event when a person enters the checkout flow prior to completing the checkout flow.</li>
+<li><strong>Track &quot;Search&quot; event</strong>: select to enable tracking of the standard event when a search is made.</li>
+<li><strong>Track &quot;Contact&quot; event</strong>: select to enable tracking of the standard event when a person person submits a question via contact us form.</li>
+<li><strong>Track &quot;CompleteRegistration&quot; event</strong>: select to enable tracking of the standard event when a registration form is completed.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>As an additional parameter, some events include product SKU or product combination SKU; make sure that they are filled in correctly in your catalog.</p>
+</div>
+<ul>
+<li><strong>Disable for users not accepting Cookie Consent</strong>: select to disable the Facebook pixel for users not accepting Cookie Consent. You may want this if you conduct business in countries subject to General Data Protection Regulation (GDPR). You also need to activate the <strong>DisplayEuCookieLawWarning</strong> setting on the <strong>Configuration → Settings → General settings</strong> page in order to display Cookie Consent for users.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The General Data Protection Regulation (GDPR) took effect on May 25, 2018, and creates consistent data protection rules across Europe. Businesses that advertise with Facebook companies can continue to use Facebook platforms and solutions in the same way they do today.</p>
+</div>
+<h2 id="configure-custom-events">Configure custom events</h2>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You can only see this panel after you have already created and saved the current configuration!</p>
+</div>
+<p>If the predefined standard events aren't suitable for your needs, you can track your own custom events, which can also be used to define custom audiences for ad optimization.
+You can configure them below. Specify the name and choose widget zones in which the custom event will be tracked. If you don't know which zone to use for your custom event, you can ask in our <a href="https://www.nopcommerce.com/boards">forums</a>.</p>
+<p><img src="_static/facebook-pixel/custom-events.jpg" alt="Configure custom events"></p>
+<h2 id="see-also">See also</h2>
+<p><a href="https://developers.facebook.com/docs/facebook-pixel/support#pixelcollect">What data does the Facebook Pixel collect?</a></p>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/running-your-store/promotional-tools/facebook-pixel.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

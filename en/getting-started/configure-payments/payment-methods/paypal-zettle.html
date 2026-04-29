@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>PayPal Zettle </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="PayPal Zettle ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="preload" href="../../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/getting-started/configure-payments/payment-methods/paypal-zettle">
+<h1 id="paypal-zettle">PayPal Zettle</h1>
+
+<p><em>PayPal Zettle</em> is the complete point of sale solution (POS) that gives you the power to accept card, contactless, and mobile payments. And it easily syncs with your nopCommerce store, helping you do business where you sell today and plan to sell tomorrow, whether online, in-store, or on-the-go. Use your PayPal details to sign up and link your accounts in minutes, so your earnings can be added directly into your PayPal account.</p>
+<h2 id="configure-the-pos-method">Configure the POS method</h2>
+<p>To configure the <code>PayPal Zettle</code> plugin, go to <strong>Configuration → POS</strong>. Then find the <strong>PayPal Zettle</strong> POS solution:</p>
+<p><img src="_static/paypal-zettle/find.jpg" alt="List"></p>
+<p>Follow these steps to configure <code>PayPal Zettle</code>.</p>
+<ol>
+<li><p>Create a PayPal Business account</p>
+<p>If you already have a PayPal account, just proceed to the next section.</p>
+<p>If you don't then register a Business account following these instructions. Then download the PayPal Zettle POS app, and order your card reader.</p>
+<p><img src="_static/paypal-zettle/signUp1step.png" alt="step1"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If you already have an account, you will be redirected to the authorization.</p>
+</div>
+<p><img src="_static/paypal-zettle/signUp2step.png" alt="step2"></p>
+<p><img src="_static/paypal-zettle/signUp3step.png" alt="step3"></p>
+<p><img src="_static/paypal-zettle/signUp4step.png" alt="step4"></p>
+<p><img src="_static/paypal-zettle/signUp5step.png" alt="step5"></p>
+</li>
+<li><p>Configure the PayPal Zettle plugin</p>
+<p>Open the PayPal Zettle configuration page in the admin area. You will see the following form:</p>
+<p><img src="_static/paypal-zettle/configure_plugin.jpg" alt="Configure plugin"></p>
+</li>
+<li><p>Go to your <strong>merchant account</strong>.<br>
+<img src="_static/paypal-zettle/merchant_account.jpg" alt="Configure plugin"></p>
+<p>Review the information and click <strong>Create key</strong>. A client ID will be created together with the API key.</p>
+<p><img src="_static/paypal-zettle/create_api_key_1.jpg" alt="Create API key"></p>
+<p>On the <strong>Create API key page</strong>, click <strong>Copy key</strong> and paste it into the field on this plugin configuration page, do the same for <strong>Client ID</strong>.</p>
+<p><img src="_static/paypal-zettle/create_api_key_2.jpg" alt="Create API key"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The API key will be displayed only once, so make sure to make a copy of it.</p>
+</div>
+<p>Click <strong>Save</strong> to save the plugin settings.</p>
+<p>After entering, information about the current connection status will be displayed, a disconnect button, some profile details. If any errors occur during connection or inconsistencies between store settings and <em>Zettle</em> profile, warnings will be shown. For the correct operation of the plugin we should correct them.</p>
+<p><img src="_static/paypal-zettle/configure_connected.jpg" alt="Create API key"></p>
+</li>
+<li><p>Product Library Synchronization</p>
+<p>Product Library Synchronization is the main feature of the plugin. Synchronization is configured on the same page in a separate panel. We don’t have separation between Initial Synchronization and Updates. Everything is configured and launched in one place, it doesn't matter if this is initial synchronization or next regular updates.</p>
+<p><img src="_static/paypal-zettle/sync.jpg" alt="Synchronization"></p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>We have full instructions here how to make the synchronization and each point has a prompt.</p>
+</div>
+<p>The source of truth is the nopCommerce store so sinchronization of the products is one-sided - from the nopCommerce store to the Zettle catalog. Herewith we can choose whether to delete the products in the catalog or leave them.</p>
+<p>Synchronization can be automatic (scheduled task) or manually started by the merchant from this page. For automatic, we have to <strong>Enable auto synchronization</strong> and set the <strong>Auto synchronization period</strong>.</p>
+<p>Before synchronization, we need to choose which products we want to import into the <em>Zettle</em> catalog. For this, there is a spreadsheet below the settings.</p>
+<p><img src="_static/paypal-zettle/sync2.jpg" alt="Synchronization"></p>
+<p>Only those products will be synchronized that are included in this spreadsheet. In the future, with any changes to the product (updating details, deletion, image change, etc.) these changes will be synchronized with the catalog. Synchronization of a specific product can be paused (property <strong>Active</strong>).</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Settings <strong>Sync enabled</strong> (same as <strong>Active</strong>), <strong>Price sync enabled</strong>, <strong>Image sync enabled</strong>, <strong>Inventory tracking enabled</strong> are applied when adding a product to the table, so these are settings by default. They can also be set for each specific product.</p>
+</div>
+<p>During synchronization, either the product itself will be imported or its product attribute combinations if they are indicated.</p>
+<p>Also we could add existing discounts when synchronizing.</p>
+</li>
+<li><p>Inventory Synchronization</p>
+<p>The second feature of the plugin is <strong>Inventory Synchronization</strong>. This synchronization works in both side, and for changes in the store (nopCommerce) and changes in the catalog (Zettle).</p>
+<p>In order to track inventory for a product, we need to enable <strong>Inventory tracking enabled</strong>. On the next sync, tracking will be enabled and the changes will start syncing. If we no longer need tracking for a product, we must disable this option accordingly.</p>
+</li>
+</ol>
+<p>Now we should save the synchronization settings and <strong>start</strong> it.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>You can find out the details of the synchronization process in the log.
+<img src="_static/paypal-zettle/log.jpg" alt="Log"></p>
+</div>
+<h2 id="limit-to-stores-and-customer-roles">Limit to stores and customer roles</h2>
+<p>You can limit any payment method to store and customer role. This means that the method will be available to certain stores or customer roles only. You can do this from the <em>plugin list</em> page.</p>
+<ol>
+<li><p>Go to <strong>Configuration → Local plugins</strong>. Find the plugin you want to limit. In our case, it's <strong>PayPal Zettle</strong>. To find it faster, use the <em>Search</em> panel in the top of the page and search by <strong>Plugin name</strong> or <strong>Group</strong> using the <em>Payment methods</em> option.</p>
+<p><img src="_static/paypal-zettle/plugins.jpg" alt="Plugins"></p>
+</li>
+<li><p>Click the <strong>Edit</strong> button, and the <em>Edit plugin details</em> window will be displayed as follows:</p>
+<p><img src="_static/paypal-zettle/edit.jpg" alt="Edit"></p>
+</li>
+<li><p>You can set up the following limits:</p>
+<ul>
+<li><p>In the <strong>Limited to customer roles</strong> field, choose one or several customer roles, that is, administrators, vendors, guests, who will be able to use this plugin. If you don't need this option just leave this field empty.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>In order to use this functionality, you have to disable the following setting: <strong>Catalog settings → Ignore ACL rules (sitewide)</strong>. Read more about the access control list <a class="xref" href="../../../running-your-store/customer-management/access-control-list.html">here</a>.</p>
+</div>
+</li>
+<li><p>Use the <strong>Limited to stores</strong> option to limit this plugin to a certain store. If you have multiple stores, choose one or several from the list. If you don't use this option, just leave this field empty.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>In order to use this functionality, you have to disable the following setting: <strong>Catalog settings → Ignore &quot;limit per store&quot; rules (sitewide)</strong>. Read more about multi-store functionality <a class="xref" href="../../advanced-configuration/multi-store.html">here</a>.</p>
+</div>
+</li>
+</ul>
+<p>Click <strong>Save</strong>.</p>
+</li>
+</ol>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/getting-started/configure-payments/payment-methods/paypal-zettle.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

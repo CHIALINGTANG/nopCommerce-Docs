@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Source Code Organization </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Source Code Organization ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/developer/tutorials/source-code-organization">
+<h1 id="source-code-organization">Source code organization</h1>
+
+<p>This document is a developer's guide to the structure of the nopCommerce solution and is intended to help new developers learn the source code. First of all, nopCommerce is an open-source application, so you can download it for free from <a href="https://github.com/nopSolutions/nopCommerce">GitHub</a>. Projects and folders are listed in the order in which they are sorted in <em>Visual Studio</em>. We recommend that you open your nopCommerce solution in <em>Visual Studio</em> and view projects and files as you read this document.</p>
+<p><img src="_static/source-code-organization/structure_of_projects.jpg" alt="Source code organization"></p>
+<p>Most of the projects, directories, and files are named so that you can get a rough idea of their purpose. For example, you don't even have to look inside the project called <code>Nop.Plugin.Payments.PayPalStandard</code> to guess what it does.</p>
+<h2 id="librariesnopcore"><code>\Libraries\Nop.Core</code></h2>
+<p>The <code>Nop.Core</code> project contains a set of core classes for nopCommerce, such as caching, events, helpers, and business objects (for example, <code>Order</code> and <code>Customer</code> entities).</p>
+<h2 id="librariesnopdata"><code>\Libraries\Nop.Data</code></h2>
+<p>The <code>Nop.Data</code> project contains a set of classes and functions for reading from and writing to a database or other data store. The <code>Nop.Data</code> library helps separate data-access logic from your business objects. nopCommerce uses the <em>Linq2DB</em> Code-First approach. Code-First allows a developer to define entities in the source code (all core entities are defined in the <code>Nop.Core</code> project), and then use <em>Linq2DB</em> and <em>FluentMigrator</em> to generate the database from the C# classes. That's why it's called Code-First. You can then query your objects using LINQ, which translates to SQL behind the scenes and is executed against the database. nopCommerce uses <a href="https://fluentmigrator.github.io/articles/technical/fluent-api-create.html">Fluent API</a> to fully customize the persistence mapping.</p>
+<h2 id="librariesnopservices"><code>\Libraries\Nop.Services</code></h2>
+<p>This project contains a set of core services, business logic, validations, or calculations related to the data if needed. Some people call it <em>Business Access Layer</em> (BAL).</p>
+<h2 id="projects-in-the-plugins-solution-folder">Projects in the <code>\Plugins\</code> solution folder</h2>
+<p><code>Plugins</code> is a <em>Visual Studio</em> solution folder that contains plugin projects. Physically it's located at the root of your solution. But plugins DLLs are automatically copied in the <code>\Presentation\Nop.Web\Plugins</code> directory which is used for already deployed plugins because the build output paths of all plugins are set to <code>..\..\Presentation\Nop.Web\Plugins\{Group}.{Name}</code>. This allows plugins to contain some external files, such as static content (CSS or JS files) without having to copy files between projects to be able to run the project.</p>
+<h2 id="presentationnopweb"><code>\Presentation\Nop.Web</code></h2>
+<p><code>Nop.Web</code> is an MVC web application project, a presentation layer for the public store which also contains an administration panel included as an area. If you haven't used <code>ASP.NET</code>  before, please find more info <a href="http://www.asp.net/">here</a>. This is the application that you run. It is the startup project of the application.</p>
+<h2 id="presentationnopwebframework"><code>\Presentation\Nop.Web.Framework</code></h2>
+<p><code>Nop.Web.Framework</code> is a class library project containing some common presentation things for the <code>Nop.Web</code> project.</p>
+<h2 id="testnoptests"><code>\Test\Nop.Tests</code></h2>
+<p><code>Nop.Tests</code> is a class library project containing some common test classes and helpers for other test projects. It does not have any tests itself. Read more about UNIT testing in nopCommerce in the following article: <a class="xref" href="unit-tests.html">UNIT testing</a>.</p>
+<h3 id="nopcoretests"><code>\Nop.Core.Tests</code></h3>
+<p>Nop.Core.Tests is the test project for the Nop.Core project.</p>
+<h3 id="nopservicestests"><code>\Nop.Services.Tests</code></h3>
+<p>Nop.Services.Tests is the test project for the Nop.Services project.</p>
+<h3 id="nopwebtests"><code>\Nop.Web.Tests</code></h3>
+<p><code>Nop.Web.Tests</code> is the test project for the presentation layer projects.</p>
+<h2 id="tutorials">Tutorials</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=6gLbizzSA9o&amp;list=PLnL_aDfmRHwtJmzeA7SxrpH3-XDY2ue0a">The Architecture behind the nopCommerce eCommerce Platform</a></li>
+</ul>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/developer/tutorials/source-code-organization.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

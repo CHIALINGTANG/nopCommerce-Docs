@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>將 nopCommerce 部署至 Azure VM </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="將 nopCommerce 部署至 Azure VM ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/developer/tutorials/azure-publish">
+<h1 id="將-nopcommerce-部署至-azure-vm">將 nopCommerce 部署至 Azure VM</h1>
+
+<h2 id="在-azure-上建立虛擬機器">在 Azure 上建立虛擬機器</h2>
+<p>本說明旨在引導您完成設定 Azure 虛擬機器的必要步驟，以便託管 nopCommerce 網頁應用程式，並允許使用 <strong>WebDeploy</strong> 進行部署。</p>
+<h3 id="建立新的-vm">建立新的 VM</h3>
+<ol>
+<li><p>登入 <a href="https://portal.azure.com/">Azure portal</a></p>
+</li>
+<li><p>點擊 <strong>Add</strong> 按鈕</p>
+<p><img src="_static/azure-publish/azure-publish_1.png" alt="azure-publish_1"></p>
+</li>
+<li><p>在 <em>Get Started</em> 類別中選擇 <em>Windows Server 2016 VM</em>，或是在 Compute 類別中選擇任何 Windows Server 2016 版本，例如 <strong>Windows Server 2016 Datacenter</strong></p>
+</li>
+<li><p>填寫必要的欄位以設定新的 VM。</p>
+<ul>
+<li>使用者名稱/密碼。您將需要此資訊來存取 VM。這是用於透過 RDP 連接到 VM 的管理員帳號。</li>
+<li>資源群組。這是包含為此 VM 建立的所有資源的「虛擬資料夾」名稱。您可以透過刪除該資源群組，來刪除在此過程中建立的所有資源。</li>
+</ul>
+</li>
+</ol>
+<h3 id="在虛擬機器-vm-上設定元件與功能">在虛擬機器 (VM) 上設定元件與功能</h3>
+<ol>
+<li>DNS 名稱：
+<ul>
+<li>從 <a href="https://portal.azure.com/">Azure portal</a>，導覽至您的虛擬機器總覽頁面。</li>
+<li>在 DNS 名稱下方，點擊 <strong>Configure</strong>。</li>
+<li>提供一個全球唯一的 DNS 名稱。（當名稱驗證通過時，會出現一個綠色勾號。）</li>
+<li>點擊 <strong>Save</strong> 以儲存設定。</li>
+</ul>
+</li>
+</ol>
+<h3 id="設定-azure-防火牆規則">設定 Azure 防火牆規則</h3>
+<ol>
+<li><p>在 Azure 入口網站中設定輸入防火牆規則。在「網路 (Networking)」區段中，新增一項輸入連接埠規則以建立新的防火牆項目：</p>
+<ul>
+<li>http - 連接埠 80 (優先級 100)</li>
+<li>WebDeploy - 連接埠 8172 (優先級 1010)</li>
+<li>RDP - 連接埠 3389 (優先級 320)</li>
+</ul>
+<p><img src="_static/azure-publish/azure-publish_2.png" alt="azure-publish_2"></p>
+</li>
+<li><p>在 Azure 入口網站中設定輸出防火牆規則。在「網路 (Networking)」區段中，新增一項輸出連接埠規則以建立新的防火牆項目：</p>
+<ul>
+<li>RDP - 連接埠 3389 (優先級 100)</li>
+</ul>
+</li>
+</ol>
+<h3 id="使用帳號密碼連線至虛擬機器-rdp">使用帳號密碼連線至虛擬機器 (RDP)</h3>
+<p><img src="_static/azure-publish/azure-publish_3.png" alt="azure-publish_3"></p>
+<h3 id="安裝-iis-網頁伺服器-與-aspnet-46">安裝 IIS (網頁伺服器) 與 ASP.NET 4.6</h3>
+<ol>
+<li><p>開啟 <strong>伺服器管理員儀表板</strong> (伺服器管理員 - 儀表板會在第一次啟動時開啟)</p>
+</li>
+<li><p>選擇 <strong>2 新增角色及功能</strong></p>
+<p><img src="_static/azure-publish/azure-publish_4.png" alt="azure-publish_4"></p>
+</li>
+<li><p>接受預設值並按 <strong>下一步</strong> 三次，以前往「伺服器角色」區段。</p>
+</li>
+<li><p>選擇 <strong>網頁伺服器 (IIS)</strong></p>
+<p><img src="_static/azure-publish/azure-publish_5.png" alt="azure-publish_5"></p>
+</li>
+<li><p>當系統提示時，確認安裝額外的 <em>IIS 管理主控台</em>。</p>
+</li>
+<li><p>按 <strong>下一步</strong> 三次，以前往 <em>網頁伺服器角色 (IIS) --&gt; 角色服務</em> 區段。</p>
+</li>
+<li><p>選擇 <strong>管理服務</strong>，這是啟用 Web Deploy (透過連接埠 8172) 所必需的。當系統提示時，確認安裝額外的 ASP.NET 4.6。</p>
+<p><img src="_static/azure-publish/azure-publish_6.png" alt="azure-publish_6"></p>
+</li>
+<li><p>選擇 <strong>下一步</strong> 以確認設定，然後按 <strong>安裝</strong> 以完成 IIS 設定。</p>
+<p><img src="_static/azure-publish/azure-publish_7.png" alt="azure-publish_7"></p>
+<p>安裝完成後：</p>
+<ul>
+<li>IIS 已安裝並執行，且已為連接埠 80 建立內部防火牆規則。</li>
+<li>網頁管理服務已安裝，且已為連接埠 8172 建立內部防火牆規則。</li>
+</ul>
+</li>
+</ol>
+<h3 id="設定-ie-增強安全性-off">設定 IE 增強安全性 (Off)</h3>
+<p>在新的 Azure VM 上，預設的安全規則會防止透過 Internet Explorer 下載執行檔。若要下載 WebDeploy 執行檔，您必須先停用 IE 增強安全性。</p>
+<ol>
+<li><p>在 <strong>Server Manager</strong> 中，開啟左側的 <strong>Local Server</strong> 區段。</p>
+</li>
+<li><p>在主面板中，找到「<strong>IE Enhanced Security Configuration:</strong>」，點選旁邊的 On。</p>
+</li>
+<li><p>在出現的對話視窗中，選擇 <strong>Off for Administrators</strong>，並將使用者選項選擇 <strong>On for Users</strong>，然後點選 <strong>OK</strong>。</p>
+<p><img src="_static/azure-publish/azure-publish_8.png" alt="azure-publish_8"></p>
+</li>
+</ol>
+<h3 id="安裝-web-deploy">安裝 Web Deploy</h3>
+<ol>
+<li>啟動 Internet Explorer。</li>
+<li>接受預設的安全性設定。</li>
+<li><a href="https://www.microsoft.com/download/details.aspx?id=43717">下載</a> <em>WebDeploy_amd64_en-US.msi</em></li>
+<li>依照安裝步驟安裝 Web Deploy。</li>
+<li>選擇「Complete」（完整）選項以安裝所有元件。</li>
+</ol>
+<h3 id="安裝最新版本的-net-core-sdk">安裝最新版本的 <a href="https://www.microsoft.com/net/download/all">NET Core SDK</a></h3>
+<h3 id="安裝-net-core-windows-server-hosting-套件">安裝 <a href="https://www.microsoft.com/net/download/all">.NET Core Windows Server Hosting</a> 套件</h3>
+<p><img src="_static/azure-publish/azure-publish_9.png" alt="azure-publish_9"></p>
+<p>IIS 用於託管 ASP.NET Core 網頁應用程式，其角色將轉變為代理伺服器。ASP.NET Core 應用程式在 IIS 上的託管是透過原生的 <em>AspNetCoreModuleV2</em> 來進行，該模組會將請求重新導向至 <em>Kestrel</em> 網頁伺服器。此模組會控制外部處理程序 <code>dotnet.exe</code> 的啟動（應用程式即託管於該處理程序中），並將所有來自 IIS 的請求轉發給此主機處理程序。</p>
+<p>安裝此套件後，請在命令列執行 <strong>iisreset</strong> 指令，或手動重新啟動 IIS，以便伺服器套用變更。</p>
+<h3 id="設定-iis">設定 IIS</h3>
+<ol>
+<li><p>您必須賦予 <code>wwwroot</code> 資料夾相關權限。在 <strong>IIS Manager</strong> 中選取該網站，選擇 <strong>Edit Permissions</strong>，並確保 <em>IUSR</em>、<em>IIS_IUSRS</em> 或為應用程式集區 (Application Pool) 設定的使用者，是具有「讀取與執行 (Read &amp; Execute)」權限的授權使用者。如果這些使用者都不存在，請新增 <em>IUSR</em> 並賦予其「讀取與執行」權限。</p>
+<p><img src="_static/azure-publish/azure-publish_10.png" alt="azure-publish_10"></p>
+</li>
+<li><p>點擊右側面板上的 <strong>Restart</strong> 以重新啟動 IIS。</p>
+</li>
+</ol>
+<p>現在一切準備就緒，可以將專案部署 (publish) 了。</p>
+<h2 id="將-nopcommerce-發佈至-azure-vm-使用-microsoft-visual-studio">將 nopCommerce 發佈至 Azure VM (使用 Microsoft Visual Studio)</h2>
+<p>發佈 nopCommerce 應用程式與發佈任何其他 ASP.NET Core 應用程式並無不同。因此，以下將說明執行發佈的最低需求。更多詳細資訊請參閱 <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs?view=aspnetcore-2.1#deploy-the-app-to-azure">here</a>。</p>
+<h2 id="部署-nopweb-專案">部署 <code>Nop.Web</code> 專案</h2>
+<ol>
+<li><p>在 Microsoft Visual Studio 中開啟您的網頁應用程式解決方案。在「方案總管」(Solution Explorer) 中對專案按一下右鍵，並選擇 <strong>發布 (Publish)</strong>。</p>
+<p><img src="_static/azure-publish/azure-publish_11.png" alt="azure-publish_11"></p>
+</li>
+<li><p>使用頁面右側的箭頭捲動發布選項，直到找到 <strong>Microsoft Azure Virtual Machines</strong>。從現有的虛擬機器清單中選擇適當的 VM。</p>
+</li>
+<li><p>點擊 <strong>建立設定檔 (Create Profile)</strong>。</p>
+<p><img src="_static/azure-publish/azure-publish_12.png" alt="azure-publish_12"></p>
+</li>
+<li><p>若要檢視與修改發布設定檔的設定，請選擇 <strong>設定 (Configure)</strong>。使用 <strong>驗證連線 (Validate Connection)</strong> 按鈕來確認您已輸入正確的資訊。</p>
+<p><img src="_static/azure-publish/azure-publish_13.png" alt="azure-publish_13"></p>
+</li>
+<li><p>如果您希望確保每次上傳後，網頁伺服器都能擁有乾淨的網頁應用程式複本（且不會留下先前部署所遺留的檔案），您可以在 <strong>設定 (Settings)</strong> 索引標籤中勾選 <strong>移除目的地處的其他檔案 (Remove additional files at destination)</strong> 核取方塊。警告：啟用此設定進行發布將會刪除網頁伺服器（<em>wwwroot</em> 目錄）上現有的所有檔案。請確保在啟用此選項進行發布前，您已了解該機器的狀態。</p>
+<p><img src="_static/azure-publish/azure-publish_14.png" alt="azure-publish_14"></p>
+</li>
+<li><p>點擊 <strong>儲存 (Save)</strong>。</p>
+</li>
+<li><p>點擊 <strong>發布 (Publish)</strong> 以開始部署程序。</p>
+</li>
+</ol>
+<p>現在，您已將網頁應用程式成功部署至 Azure 虛擬機器。</p>
+<h2 id="常見問題與解決方案">常見問題與解決方案</h2>
+<p>若要準確地調查任何問題，您需要啟用記錄功能 - 在 <code>web.config</code> 中啟用 stdoutLog：</p>
+<pre><code class="lang-sh">stdoutLogEnabled=&quot;true&quot; stdoutLogFile=&quot;.\logs\stdout&quot;
+</code></pre>
+<h3 id="iis-無法找到-webconfig">IIS 無法找到 web.config</h3>
+<p>您可以參考以下網址找到可能的解決方案： <a href="http://support.microsoft.com/kb/942055">support.microsoft.com</a></p>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/developer/tutorials/azure-publish.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

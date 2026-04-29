@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Deploy nopCommerce to an Azure VM </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Deploy nopCommerce to an Azure VM ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/developer/tutorials/azure-publish">
+<h1 id="deploy-nopcommerce-to-an-azure-vm">Deploy nopCommerce to an Azure VM</h1>
+
+<h2 id="create-a-vm-on-azure">Create a VM on Azure</h2>
+<p>This instruction of the steps required to set up an Azure virtual machine to host nopCommerce web applications, and to allow them to be published using <strong>WebDeploy</strong>.</p>
+<h3 id="create-a-new-vm">Create a new VM</h3>
+<ol>
+<li><p>Log in to the <a href="https://portal.azure.com/">Azure portal</a></p>
+</li>
+<li><p>Click the <strong>Add</strong> button</p>
+<p><img src="_static/azure-publish/azure-publish_1.png" alt="azure-publish_1"></p>
+</li>
+<li><p>Select <em>Windows Server 2016 VM</em> in the <em>Get Started</em> category or any Windows Server 2016 in the Compute category, such as <strong>Windows Server 2016 Datacenter</strong></p>
+</li>
+<li><p>Complete the required fields to configure the new VM.</p>
+<ul>
+<li>Username/password. You will need it to access the VM. This is the admin account for connecting to the VM by RDP.</li>
+<li>Resource group. This is the name of the &quot;virtual folder&quot; that contains all resources created for this VM. You can delete all the resources created during this process by deleting the resource group.</li>
+</ul>
+</li>
+</ol>
+<h3 id="configure-components-and-features-on-the-vm">Configure components and features on the VM</h3>
+<ol>
+<li>DNS-name:
+<ul>
+<li>From the <a href="https://portal.azure.com/">Azure portal</a>, navigate to the Overview page of your virtual machine.</li>
+<li>Under the DNS name, click <strong>Configure</strong></li>
+<li>Provide a globally unique DNS name. (A green tick appears when the name is validated.)</li>
+<li>Click <strong>Save</strong> to save the configuration.</li>
+</ul>
+</li>
+</ol>
+<h3 id="configure-azure-firewall-rules">Configure Azure Firewall rules</h3>
+<ol>
+<li><p>Configure inbound firewall rules in the Azure portal. On the Networking section add an inbound port rule to create new firewall entries:</p>
+<ul>
+<li>http - Port 80 (Priority 100)</li>
+<li>WebDeploy - Port 8172 (Priority 1010)</li>
+<li>RDP - Port 3389 (Priority 320)</li>
+</ul>
+<p><img src="_static/azure-publish/azure-publish_2.png" alt="azure-publish_2"></p>
+</li>
+<li><p>Configure outbound firewall rules in the Azure portal. On the <em>Networking</em> section add an outbound port rule to create new firewall entries:</p>
+<ul>
+<li>RDP - Port 3389 (Priority 100)</li>
+</ul>
+</li>
+</ol>
+<h3 id="connect-to-the-vm-rdp-using-login-and-password">Connect to the VM (RDP) using login and password</h3>
+<p><img src="_static/azure-publish/azure-publish_3.png" alt="azure-publish_3"></p>
+<h3 id="install-iis-web-server-and-aspnet-46">Install IIS (Web Server) and ASP.NET 4.6</h3>
+<ol>
+<li><p>Open the <strong>Server Manager Dashboard</strong> (Server Manager - Dashboard opens on the first startup)</p>
+</li>
+<li><p>Choose <strong>2 Add roles and features</strong></p>
+<p><img src="_static/azure-publish/azure-publish_4.png" alt="azure-publish_4"></p>
+</li>
+<li><p>Accept the defaults and press <strong>Next</strong> three times to progress to the Server Roles section.</p>
+</li>
+<li><p>Select <strong>Web Server (IIS)</strong></p>
+<p><img src="_static/azure-publish/azure-publish_5.png" alt="azure-publish_5"></p>
+</li>
+<li><p>When prompted, confirm the additional installation of the <em>IIS Management Console</em>.</p>
+</li>
+<li><p>Press <strong>Next</strong> three times to progress to the <em>Web Server Role (IIS) --&gt; Roles Services section</em></p>
+</li>
+<li><p>Select <strong>Management</strong> Service, which is required to enable Web Deploy (through port 8172). When prompted, confirm the additional installation of ASP.NET 4.6.</p>
+<p><img src="_static/azure-publish/azure-publish_6.png" alt="azure-publish_6"></p>
+</li>
+<li><p>Select <strong>Next</strong> to confirm the configuration, then <strong>Install</strong> to complete the IIS setup.</p>
+<p><img src="_static/azure-publish/azure-publish_7.png" alt="azure-publish_7"></p>
+<p>Once installation is completed:</p>
+<ul>
+<li>IIS is installed and running with an internal firewall rule created for port 80.</li>
+<li>Web Management Service is installed with an internal firewall rule created for port 8172.</li>
+</ul>
+</li>
+</ol>
+<h3 id="configure-ie-enhanced-security-off">Configure IE Enhanced Security (Off)</h3>
+<p>On a new Azure VM, default security rules prevent executables from being downloaded via Internet Explorer. To download the WebDeploy executable, you must first disable IE enhanced security.</p>
+<ol>
+<li><p>In the <strong>Server Manager</strong>, open the <strong>Local Server</strong> section on the left.</p>
+</li>
+<li><p>In the main panel, next to &quot;<strong>IE Enhanced Security Configuration:</strong>&quot;, select On.</p>
+</li>
+<li><p>In the dialog that appears, select <strong>Off for Administrators</strong>, select <strong>On for Users</strong>, then select <strong>OK</strong>.</p>
+<p><img src="_static/azure-publish/azure-publish_8.png" alt="azure-publish_8"></p>
+</li>
+</ol>
+<h3 id="install-web-deploy">Install Web Deploy</h3>
+<ol>
+<li>Launch Internet Explorer.</li>
+<li>Accept default security settings.</li>
+<li><a href="https://www.microsoft.com/download/details.aspx?id=43717">Download</a> <em>WebDeploy_amd64_en-US.msi</em></li>
+<li>Follow the installation steps for Web Deploy</li>
+<li>Choose the Complete option to install all components</li>
+</ol>
+<h3 id="install-the-latest-version-net-core-sdk">Install the latest version <a href="https://www.microsoft.com/net/download/all">NET Core SDK</a></h3>
+<h3 id="install-package-net-core-windows-server-hosting">Install package <a href="https://www.microsoft.com/net/download/all">.NET Core Windows Server Hosting</a></h3>
+<p><img src="_static/azure-publish/azure-publish_9.png" alt="azure-publish_9"></p>
+<p>IIS is used to host ASP.NET Core web applications, its role will be reduced to a proxy server. Hosting of ASP.NET Core applications on IIS occurs using the native <em>AspNetCoreModuleV2</em>, which is configured to redirect requests to the <em>Kestrel</em> web server. This module controls the start of the external process <code>dotnet.exe</code>, within which the application is hosted, and forwards all requests from IIS to this host process.</p>
+<p>After installing this package, run the <strong>iisreset</strong> command on the command line or manually restart IIS so that the server applies the changes.</p>
+<h3 id="configure-iis">Configure IIS</h3>
+<ol>
+<li><p>You must grant permission to the folder <code>wwwroot</code>. With the site selected in the <strong>IIS Manager</strong>, choose <strong>Edit Permissions</strong>, and make sure that <em>IUSR</em>, <em>IIS_IUSRS</em>, or the user configured for the Application Pool is an authorized user with Read &amp; Execute rights. If none of these users are present, add <em>IUSR</em> as a user with <em>Read &amp; Execute</em> rights.</p>
+<p><img src="_static/azure-publish/azure-publish_10.png" alt="azure-publish_10"></p>
+</li>
+<li><p>Click <strong>Restart</strong> on the right panel to restart the IIS</p>
+</li>
+</ol>
+<p>Now everything is ready to publish the project.</p>
+<h2 id="publish-nopcommerce-to-an-azure-vm-from-microsoft-visual-studio">Publish nopCommerce to an Azure VM from Microsoft Visual Studio</h2>
+<p>Publishing the nopCommerce application is no different from publishing any other ASP.NET Core application. Therefore, the minimum requirements to run the publication will be described. More details can be found <a href="https://docs.microsoft.com/aspnet/core/tutorials/publish-to-azure-webapp-using-vs?view=aspnetcore-2.1#deploy-the-app-to-azure">here</a>.</p>
+<h2 id="publish-project-nopweb">Publish project <code>Nop.Web</code></h2>
+<ol>
+<li><p>Open your web app solution in Microsoft Visual Studio. Right-click the project in <em>Solution Explorer</em> and choose <strong>Publish</strong>.</p>
+<p><img src="_static/azure-publish/azure-publish_11.png" alt="azure-publish_11"></p>
+</li>
+<li><p>Use the arrow on the right of the page to scroll through the publishing options until you find <strong>Microsoft Azure Virtual Machines</strong>. Select the appropriate VM from the list of Existing Virtual Machines.</p>
+</li>
+<li><p>Click <strong>Create Profile</strong>.</p>
+<p><img src="_static/azure-publish/azure-publish_12.png" alt="azure-publish_12"></p>
+</li>
+<li><p>To view and modify the publish profile settings, select <strong>Configure</strong>. Use the <strong>Validate Connection</strong> button to confirm that you have entered the right information.</p>
+<p><img src="_static/azure-publish/azure-publish_13.png" alt="azure-publish_13"></p>
+</li>
+<li><p>If you want to ensure that the webserver has a clean copy of the web application after each upload (and that no other files are left hanging around from a previous deployment), you can check the <strong>Remove additional files at destination</strong> checkbox in the <strong>Settings</strong> tab. Warning: Publishing with this setting deletes all files that exist on the webserver (<em>wwwroot</em> directory). Be sure you know the state of the machine before publishing with this option enabled.</p>
+<p><img src="_static/azure-publish/azure-publish_14.png" alt="azure-publish_14"></p>
+</li>
+<li><p>Click <strong>Save</strong>.</p>
+</li>
+<li><p>Click <strong>Publish</strong> to begin publishing.</p>
+</li>
+</ol>
+<p>You have now published your web app to an Azure virtual machine.</p>
+<h2 id="potential-problems-and-solutions">Potential problems and solutions</h2>
+<p>To <a href="https://docs.microsoft.com/aspnet/core/host-and-deploy/aspnet-core-module">more</a> accurately investigate any problem, you need to enable logging - enabled stdoutLog in <code>web.config</code>:</p>
+<pre><code class="lang-sh">stdoutLogEnabled=&quot;true&quot; stdoutLogFile=&quot;.\logs\stdout&quot;
+</code></pre>
+<h3 id="iis-not-being-able-to-locate-the-webconfig">IIS not being able to locate the web.config</h3>
+<p>A possible solution can be found at:  <a href="http://support.microsoft.com/kb/942055">support.microsoft.com</a></p>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/developer/tutorials/azure-publish.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>本地化 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="本地化 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/getting-started/advanced-configuration/localization">
+<h1 id="本地化">本地化</h1>
+
+<p>在 nopCommerce 中，您的商店可以安裝多種語言。然而，顧客只會看到以他們所選擇的語言所定義的資料。</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>系統預設已安裝英文。</p>
+</div>
+<p>若要檢視或編輯已安裝的語言，請前往 <strong>設定 → 語言</strong>：
+<img src="_static/localization/Language.png" alt="language"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>您可以從官方的 <a href="https://www.nopcommerce.com/translations">翻譯 (Translations)</a> 頁面下載新的語言包。</p>
+</div>
+<h2 id="新增語言">新增語言</h2>
+<p>若要新增語言，請點擊 <strong>新增</strong>。在 <em>新增語言</em> 視窗中，定義下列設定：</p>
+<p><img src="_static/localization/addlanguage.png" alt="addlanguage"></p>
+<ul>
+<li><p><strong>名稱 (Name)</strong>：新語言的名稱。</p>
+</li>
+<li><p><strong>語言文化 (Language culture)</strong>：特定的語言代碼（例如，de-AT 代表奧地利德語）。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>更新 <strong>語言文化</strong> 欄位時，請確保已針對該文化安裝適當的 CLDR 套件。您可以在 <strong>設定 → 一般設定</strong> 頁面的 <em>在地化</em> 面板中，為指定的文化設定 CLDR。</p>
+</div>
+</li>
+<li><p><strong>唯一 SEO 代碼 (Unique SEO code)</strong>：當您擁有一個以上的已發布語言時，用於產生如 <code>http://www.yourstore.com/en/</code> 等網址的兩個字母語言 SEO 代碼。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>您應在 <strong>設定 → 一般設定 → 在地化設定</strong> 面板中啟用 <strong>多語言 SEO 友善網址 (SEO friendly URLs with multiple languages)</strong> 選項。</p>
+</div>
+</li>
+<li><p><strong>旗幟圖片檔名 (Flag image file name)</strong>：輸入旗幟圖片的檔案名稱。該圖片應儲存在 <code>…/images/flags</code> 目錄下。您也可以從預定義清單中選擇圖片。</p>
+</li>
+<li><p>若有需要，請勾選 <strong>由右至左 (Right-to-Left)</strong>（例如阿拉伯語或希伯來語）。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>啟用的佈景主題必須支援 RTL（擁有適當的 CSS 樣式檔）。此選項僅影響前台網站。</p>
+</div>
+</li>
+<li><p><strong>預設貨幣 (Default currency)</strong>：特定語言的貨幣。若未指定，則會使用第一個找到的貨幣（顯示順序最前者）。</p>
+</li>
+<li><p><strong>限制於商店 (Limited to stores)</strong>：允許將此語言設定為特定商店使用。您可以從預先建立的清單中選擇商店。若未使用此選項，請將此欄位留空。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>若要使用商店限制功能，必須在 <strong>設定 → 目錄設定 → 效能</strong> 面板中停用 <strong>忽略「每間商店的限制」規則 (全站)</strong> 選項。</p>
+</div>
+</li>
+<li><p><strong>發布 (Publish)</strong>：發布該語言以使其生效，並讓商店訪客能夠選取。</p>
+</li>
+<li><p><strong>顯示順序 (Display order)</strong>：語言的顯示順序。1 代表清單的最上方。</p>
+</li>
+</ul>
+<p>點擊 <strong>儲存</strong> 以儲存變更。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>由於語言文化僅在應用程式啟動時載入，因此在新增或刪除語言後，您必須重新啟動應用程式。</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>新增語言後，您可以使用頁面頂端的 <strong>匯入資源</strong> 與 <strong>匯出資源</strong> 按鈕來匯入和匯出字串資源。語言編輯頁面上的 <em>字串資源</em> 面板，可讓您檢視現有的語言資源並手動新增資源。</p>
+</div>
+<h2 id="匯入語言套件">匯入語言套件</h2>
+<p>若您希望在商店中新增語言，請執行以下步驟：</p>
+<ol>
+<li><p>前往 nopCommerce <a href="https://www.nopcommerce.com/translations">翻譯</a> 頁面。</p>
+</li>
+<li><p>選擇對應的 nopCommerce 版本並下載所需的語言套件。</p>
+</li>
+<li><p>前往 <strong>設定 → 語言</strong> 並點擊 <strong>新增</strong> 按鈕。
+<img src="_static/localization/language-add-new.png" alt="LanguageAddNew"></p>
+</li>
+<li><p>填寫必要的欄位，並點擊 <strong>儲存並繼續編輯</strong>。
+<img src="_static/localization/language-save.png" alt="LanguageSave"></p>
+</li>
+<li><p>點擊 <strong>匯入資源</strong>。接著指定您下載的語言套件檔案 (*.xml) 路徑。
+<img src="_static/localization/language-import.png" alt="LanguageImport"></p>
+</li>
+</ol>
+<p>如果您發現翻譯有誤，或是想要自訂名稱，您可以在 <em>字串資源</em> 面板中編輯這些字串資源。</p>
+<h2 id="管理字串資源">管理字串資源</h2>
+<p>前往 <strong>設定 → 語言</strong>。此時會顯示 <em>語言</em> 視窗：</p>
+<p><img src="_static/localization/languages.png" alt="Languages"></p>
+<p>點擊該語言旁邊的 <strong>編輯</strong> 按鈕。在 <strong>編輯語言詳細資料</strong> 視窗中，找到 <strong>字串資源</strong> 面板。</p>
+<p>例如，您想要將頁面頂端面板的名稱從「Administration」（如下圖所示）更改為「Control panel」。</p>
+<p><img src="_static/localization/lang-example-before-change.jpeg" alt="Example 1"></p>
+<ol>
+<li><p>若要尋找您需要編輯的地區設定資源，請在 <strong>資源名稱</strong> 欄位中輸入「administration」。如果該資源存在，它將會被搜尋出來。點擊其旁邊的 <strong>編輯</strong>。</p>
+</li>
+<li><p>在 <strong>值</strong> 欄位中輸入新的數值，並點擊 <strong>更新</strong>。
+<img src="_static/localization/lang-resource-edit.png" alt="Example 2"></p>
+</li>
+<li><p>變更將會套用：
+<img src="_static/localization/lang-example-after-change.jpeg" alt="Example 3"></p>
+</li>
+</ol>
+<p>若要新增字串資源，請使用 <strong>新增記錄</strong> 面板。此視窗可讓您將新的資源記錄新增至網格中，說明如下：
+<img src="_static/localization/lang-add-resource.png" alt="Add new record"></p>
+<ul>
+<li>在 <strong>資源名稱</strong> 欄位中，輸入資源字串的識別碼。</li>
+<li>在 <strong>值</strong> 欄位中，輸入此資源字串識別碼的對應值。</li>
+</ul>
+<p>點擊 <strong>儲存</strong>。</p>
+<h2 id="在地化設定">在地化設定</h2>
+<p>若要設定在地化（Localization）相關設定，請前往 <strong>後台 → 設定 → 一般設定</strong>：</p>
+<p><img src="_static/localization/lang-localization-settings.jpg" alt="Localization settings"></p>
+<ul>
+<li>若要針對目前的文化特性（Culture）設定 <a href="http://cldr.unicode.org/">CLDR</a> 模式以進行用戶端驗證在地化，請點擊 <strong>設定目前文化特性的 CLDR</strong> 按鈕。</li>
+<li>勾選 <strong>啟動時載入所有語系資源</strong> 核取方塊，以便在應用程式啟動時載入所有語系資源。啟用後，所有語系資源將會在應用程式啟動時載入。雖然這會導致應用程式啟動速度變慢，但後續頁面的開啟速度會更快。</li>
+<li>勾選 <strong>啟動時載入所有在地化屬性</strong> 核取方塊，以便在應用程式啟動時載入所有在地化屬性。啟用後，所有在地化屬性（如在地化的商品屬性）將會在應用程式啟動時載入。雖然這會導致應用程式啟動速度變慢，但後續頁面的開啟速度會更快。此選項僅在啟用兩種或更多語言時使用。若您的型錄龐大（數千個在地化實體），則不建議啟用此功能。</li>
+<li>勾選 <strong>啟動時載入所有 SEO 友善名稱</strong> 核取方塊，以便在應用程式啟動時載入所有 SEO 友善名稱（slug）。啟用後，所有網址別名將會在應用程式啟動時載入。雖然這會導致應用程式啟動速度變慢，但後續頁面的開啟速度會更快。若您的型錄龐大（數千個實體），則不建議啟用此功能。</li>
+<li>勾選 <strong>使用圖片進行語言選擇</strong> 核取方塊，以便使用圖片代替語言名稱。</li>
+<li>勾選 <strong>在啟用多語言時使用 SEO 友善 URL</strong> 核取方塊，以允許所有語言使用 SEO 友善的 URL。啟用後，您的 URL 將會呈現為 <code>http://www.yourStore.com/en/</code> 或 <code>http://www.yourStore.com/fr/</code>（SEO 友善格式）。
+<div class="NOTE">
+<h5>Note</h5>
+<p>在更新 <strong>在啟用多語言時使用 SEO 友善 URL</strong> 設定後，您必須重新啟動應用程式，否則可能會導致錯誤。</p>
+</div>
+</li>
+<li>勾選 <strong>自動偵測語言</strong> 核取方塊，以便根據顧客的瀏覽器設定偵測語言。</li>
+</ul>
+<h2 id="本地化實體">本地化實體</h2>
+<p>如果您在商店中安裝了超過一種語言，您將能夠輸入顯示給不同語言顧客的某些欄位。例如：</p>
+<p><img src="_static/localization/fields.jpg" alt="Fields"></p>
+<ul>
+<li>在 <em>標準 (Standard)</em> 頁籤中，輸入若未指定本地化欄位時，將顯示給顧客的文字。</li>
+<li>在 <em>以語言名稱命名的頁籤</em> 中，輸入本地化的文字。</li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/getting-started/advanced-configuration/localization.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

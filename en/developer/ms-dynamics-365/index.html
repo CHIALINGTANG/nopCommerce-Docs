@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Microsoft Dynamics 365 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Microsoft Dynamics 365 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/developer/ms-dynamics-365/index">
+<h1 id="microsoft-dynamics-365">Microsoft Dynamics 365</h1>
+
+<p><a href="https://www.microsoft.com/en-us/dynamics-365">Dynamics 365</a> is a portfolio of intelligent business applications that delivers superior operational efficiency and breakthrough customer experiences enabling businesses to become more agile and reduce complexity without increasing costs.</p>
+<p>This section describes how to integrate the Dynamics 365 plugin into your store.</p>
+<p>Please get the official integration with Dynamics 365 <a href="https://www.nopcommerce.com/microsoft-dynamics-365">here</a>.</p>
+<h2 id="what-the-dynamics-365-plugin-does">What the Dynamics 365 plugin does</h2>
+<p>The Dynamics 365 plugin for nopCommerce allows the store owner to unidirectionally synchronise the following data between your nopCommerce store and Dynamics 365:</p>
+<ul>
+<li>Customers.</li>
+<li>Products.</li>
+<li>Orders.</li>
+</ul>
+<h2 id="connecting-to-microsoft-dataverse">Connecting to Microsoft Dataverse</h2>
+<p>To synchronize your store’s data to Dynamics 365, you need to connect to a Dataverse environment which requires the URL to the environment and credential information for a user account with access to that environment. To connect to Microsoft Dataverse, you can either use credentials for an ordinary user or create an app user through Microsoft Entra ID.</p>
+<p>Using credentials for an ordinary user, isn’t the recommended approach as it would need a paid license.</p>
+<p>To overcome this limitation, you can create a special application user that is bound to a Microsoft Entra ID registered application and use a key secret configured for the app. Another benefit of this approach is that it doesn't require a paid license.</p>
+<p>When you create client applications that use Dataverse web services you need to authenticate to gain access to data. OAuth is the preferred means to authenticate because it provides access to all web services.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Client applications must support using of OAuth to access data using the Web API.
+OAuth requires an identity provider for authentication. For Dataverse, the identity provider is Microsoft Entra ID.</p>
+</div>
+<h3 id="requirements-to-connect-as-an-app">Requirements to connect as an app</h3>
+<p>To connect as an app you will need:</p>
+<ul>
+<li>A registered app</li>
+<li>A Dataverse user bound to the registered app</li>
+<li>Connect using either the application secret</li>
+</ul>
+<h2 id="app-registration">App Registration</h2>
+<p>When you connect using OAuth, you must first register an application in your Microsoft Entra ID tenant.</p>
+<p>For an app to authenticate with Dataverse and gain access to business data, you must first register the app in Microsoft Entra ID. That app registration is then used during the authentication process.</p>
+<p>Creating a client application facilitates authentication and authorization and you can grant access permissions accordingly.</p>
+<h3 id="steps-to-create-an-app">Steps to Create an app</h3>
+<p>Registering your application establishes a trust relationship between your app and the Microsoft identity platform. The trust is unidirectional: your app trusts the Microsoft identity platform, and not the other way around. Once created, the application object cannot be moved between different tenants.</p>
+<ol>
+<li><p>Sign in to the <a href="https://entra.microsoft.com/">Microsoft Entra admin center</a></p>
+</li>
+<li><p>Browse to <strong>Identity &gt; Applications &gt; App registrations and select New registration</strong>.</p>
+</li>
+<li><p>Enter a display <strong>Name</strong> for your application.</p>
+</li>
+<li><p>Specify who can use the application - Accounts in any organizational directory</p>
+</li>
+<li><p>Don't enter anything for <strong>Redirect URI (optional)</strong>. You'll configure a redirect URI in the next section.</p>
+</li>
+<li><p>Select <strong>Register</strong> to complete the initial app registration.</p>
+<p><img src="_static/register_app.png" alt="image"></p>
+<p>When registration finishes, the Microsoft Entra admin center displays the app registration's <strong>Overview</strong> pane. You see the <strong>Application (client) ID</strong>. Also called the <em>client ID</em>, this value uniquely identifies your application in the Microsoft identity platform.</p>
+<p><img src="_static/app_overview.png" alt="image"></p>
+</li>
+</ol>
+<h3 id="configure-application">Configure application</h3>
+<ol>
+<li><p>On the <strong>Overview</strong> page under <strong>Essentials</strong>, select the <strong>Add a Redirect URI link</strong>. Set the redirect URI by first selecting <strong>Add a platform</strong>, entering a URI value, and then selecting <strong>Configure</strong>. Use a URI value of <code>http://localhost</code>.</p>
+</li>
+<li><p>On the <strong>Overview</strong> page of your newly created app, hover the cursor over the <strong>Application (client) ID</strong> value, and select the copy to clipboard icon to copy the ID value. Record the value somewhere. You need to specify this value later.</p>
+</li>
+<li><p>Add credentials. Credentials allow your application to authenticate as itself, requiring no interaction from a user at runtime.</p>
+<p><img src="_static/app_client_secrets.png" alt="image"></p>
+<ul>
+<li>In the Microsoft Entra admin center, in <strong>App registrations</strong>, select your application.</li>
+<li>Select <strong>Certificates &amp; secrets &gt; Client secrets &gt; New client secret</strong>.</li>
+<li>Add a description for your client secret.</li>
+<li>Select an expiration for the secret or specify a custom lifetime.
+<ul>
+<li>Client secret lifetime is limited to two years (24 months) or less. You can't specify a custom lifetime longer than 24 months.</li>
+<li>Microsoft recommends that you set an expiration value of less than 12 months.</li>
+</ul>
+</li>
+<li>Select <strong>Add</strong>.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Record the secret's value for use in your client application code.
+This secret value is never displayed again after you leave this page.</p>
+</div>
+</li>
+<li><p>Then switch to <strong>Manage &gt; Manifest</strong> where we can see many properties. Our concern here is <strong>allowPublicClient</strong>. Set <em>allowPublicClient</em> to <em>true</em> and <strong>save</strong>.</p>
+<p><img src="_static/manifest.png" alt="image"></p>
+</li>
+<li><p>Lastly in <strong>Manage &gt; API permissions &gt; Add permission</strong> then search for <strong>Dynamics CRM</strong> and select <strong>user_impersonation</strong> and add it.</p>
+<p><img src="_static/api_permission.png" alt="image"></p>
+</li>
+<li><p>Also, grant admin consent for your organization since without admin consent the connection might raise errors.</p>
+<p><img src="_static/request_api_permission.png" alt="image"></p>
+</li>
+</ol>
+<h3 id="create-a-new-app-user">Create a new app user</h3>
+<p>Follow these steps to create an app user and bind it to your app registration.</p>
+<ol>
+<li><p>Log into the <a href="https://admin.powerplatform.microsoft.com/">Power Platform admin center</a> using an account in the same tenant as your app registration.</p>
+</li>
+<li><p>Select <strong>Environments</strong> in the left navigation pane, and then select the target environment in the list to display the environment information.</p>
+</li>
+<li><p>Select the <strong>S2S</strong> link on the right side of the page.</p>
+<p><img src="_static/power_platform_admin_center_environments.png" alt="image"></p>
+</li>
+<li><p>Select <strong>New app user</strong>.</p>
+</li>
+<li><p>On the Create a new app user slide-out, select <strong>+ Add app</strong>.</p>
+</li>
+<li><p>Start typing the name of your app registration in the search field, and then select (check) it within the results list. Next, select <strong>Add</strong>.</p>
+<p><img src="_static/environment_app_user.png" alt="image"></p>
+</li>
+<li><p>Back on the <strong>Create a new app user</strong> slide-out, select the target <strong>Business unit</strong> from the drop-down and add a security role for the app user (also known as a service principle).</p>
+</li>
+<li><p>Select <strong>Save</strong> and then <strong>Create</strong>. You should see your new application user in the displayed list of application users.</p>
+<p><img src="_static/environment_business_unit.png" alt="image"></p>
+</li>
+<li><p>In the end, a notification pops up confirming that Power Apps is linked with our client application successfully.</p>
+</li>
+</ol>
+<p><img src="_static/environment_app_user_successfull.png" alt="image"></p>
+<h2 id="dynamics-365-sales-and-business-central-integration-setup">Dynamics 365 Sales and Business Central integration setup</h2>
+<p>The Microsoft Dynamics 365 plugin by nopCommerce supports synchronization with two main Dynamics 365 applications - Business Central and Sales.
+Dynamics 365 Business Central is a complete ERP solution for managing finances, operations, and inventory. Dynamics 365 Sales is a CRM solution that offers sales process automation, customer behavior insights, and sales performance tracking.</p>
+<p><img src="_static/sales_hub.png" alt="image"></p>
+<h3 id="connect-microsoft-dataverse-with-dynamics365-business-central">Connect Microsoft Dataverse with Dynamics365 Business Central</h3>
+<p>Integration with Business Central is through Dataverse, and there are many default settings and tables provided by the integration.</p>
+<p>Choose <strong>Settings -&gt; Advanced settings</strong> in Business Central.</p>
+<p><img src="_static/advanced_settings.png" alt="image"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Choose <strong>Settings -&gt; Assisted setup</strong> in Business Central.
+You can also find the &quot;Connect with other systems&quot; settings group to learn more about integration options.
+<img src="_static/assisted_setup.png" alt="image"></p>
+</div>
+<p>The integration with Business Central is through Dataverse, and there are many default settings and tables provided by the integration.
+Therefore, you must first configure the connection to Dataverse.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Do not try to connect to <em>Dynamics 365 Sales</em> first.</p>
+</div>
+<p><img src="_static/dataverse_connection_setup.png" alt="image"></p>
+<p>Choose <strong>Next</strong>.</p>
+<p><img src="_static/dataverse_connection_setup_1.png" alt="image"></p>
+<p>Click &quot;Install Bussiness Central Virtual Table&quot;.</p>
+<p><img src="_static/dataverse_connection_setup_2.png" alt="image"></p>
+<p>Select your Dynamics 365 environment URL, then choose <strong>OK</strong>.</p>
+<p>Log in with an administrator user account and give permission to the application that will be used to connect to Dataverse.</p>
+<p>Choose <strong>Sign in with administrator user</strong>.</p>
+<p><img src="_static/dataverse_connection_setup_3.png" alt="image"></p>
+<p>You can check this link in the <a href="https://admin.powerplatform.microsoft.com/environments">Power Platform Admin Center</a>.</p>
+<p>After <em>Sign in with administrator user</em> turns green and bold, choose <strong>Next</strong>.</p>
+<p><img src="_static/dataverse_connection_setup_3_1.png" alt="image"></p>
+<p>Choose an ownership model. <strong>Team</strong> is recommended.</p>
+<p><img src="_static/dataverse_connection_setup_4.png" alt="image"></p>
+<p>Choose <strong>Finish</strong> to complete the Setup.</p>
+<p><img src="_static/dataverse_connection_setup_5.png" alt="image"></p>
+<p>You can try to test the connection to Dataverse. Go to the <strong>Dataverse Connection Setup</strong> page to check your setup.</p>
+<p><img src="_static/dataverse_connection_setup_6.png" alt="image"></p>
+<p>Now you can open Dataverse pages in Business Central.</p>
+<p><img src="_static/dataverse_connection_setup_7.png" alt="image"></p>
+<h3 id="connection-to-dynamics-365-sales">Connection to Dynamics 365 Sales</h3>
+<p>Once the Dataverse integration setup is complete, you can begin the integration with Dynamics 365 Sales.</p>
+<p>Choose <strong>Set up a connection to Dynamics 365 Sales</strong> on the <strong>Assisted Setup</strong> page.</p>
+<p><img src="_static/sales_connection_setup_1.png" alt="image"></p>
+<p>All integration setup steps are similar to the integration with Dataverse. You need to specify the same environment as last time.</p>
+<p>As a result, if everything went without errors you will see that both your connections are configured and working correctly.</p>
+<p><img src="_static/sales_connection_setup_2.png" alt="image"></p>
+<p><img src="_static/sales_connection_setup_3.png" alt="image"></p>
+<p>Now you can open Dynamics 365 Sales pages in Business Central.</p>
+<p><img src="_static/sales_connection_setup_4.png" alt="image"></p>
+<p>For example, <strong>Products – Microsoft Dynamics 365 Sales</strong>:</p>
+<p><img src="_static/sales_connection_setup_5.png" alt="image"></p>
+<p>For example, <strong>Sales Order – Microsoft Dynamics 365 Sales</strong>:</p>
+<p><img src="_static/sales_connection_setup_6.png" alt="image"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>To ensure that the integration process works correctly, make sure that the following lines are present in the settings on the &quot;All Solutions&quot; page:
+<img src="_static/sales_connection_setup_7.png" alt="image"></p>
+<p>The Job Queue Entries will be created automatically:
+<img src="_static/sales_connection_setup_8.png" alt="image"></p>
+</div>
+<h3 id="currency">Currency</h3>
+<p>Ensure that Business Central and Dataverse currencies match to avoid synchronization errors. Make sure of this by going to the following settings.</p>
+<p><img src="_static/currencies.png" alt="image"></p>
+<p>The organization’s base currency in Dynamics 365 Sales can only be set when the organization is created.</p>
+<p><img src="_static/currencies_1.png" alt="image"></p>
+<h2 id="plugin-installation">Plugin installation</h2>
+<p>This section describes how to integrate the Dynamics 365 service into your store.</p>
+<ol>
+<li>Purchase the integration <a href="https://www.nopcommerce.com/microsoft-dynamics-365">here</a>.</li>
+<li>Download the plugin archive.</li>
+<li>Go to <strong>Admin area &gt; Configuration &gt; Local plugins</strong>.</li>
+<li>Upload the plugin archive using the &quot;Upload plugin or theme&quot; button.</li>
+<li>Scroll down the list of plugins to find the newly uploaded plugin.</li>
+<li>Click on the <strong>Install</strong> button to install the plugin.</li>
+</ol>
+<p><img src="_static/plugin_list.png" alt="Find the plugin"></p>
+<h2 id="how-to-configure-the-plugin">How to configure the plugin</h2>
+<p>Click the <strong>Configure</strong> button. You will see the <em>Configure - Dynamics 365</em> window:</p>
+<p><img src="_static/plugin_disconnected.png" alt="Find the plugin"></p>
+<p>To use Dynamics 365 with nopCommerce, you will first need to register and set up your account in MS Dynamics 365 as described earlier and enter all the necessary settings in the fields on the plugin configuration form:</p>
+<ul>
+<li><strong>Application (client) ID</strong>. The registered client ID on Azure portal.</li>
+<li><strong>Directory (tenant) ID</strong>. The registered tenat ID on Azure portal.</li>
+<li><strong>Client secret</strong>. Client secret for Application ID. A secret string that the application uses to prove its identity when requesting a token.</li>
+<li><strong>Environment URL</strong>. Direct URL of Dataverse instance to connect too.</li>
+<li><strong>Currency code</strong>. Displays the primary currency code of the your store.
+<div class="NOTE">
+<h5>Note</h5>
+<p>If you change the primary currency of the store, the plugin settings will be updated only after you save them.</p>
+</div>
+</li>
+<li><strong>Image sync enabled</strong>. Determine whether to synchronize images of the selected products by default.</li>
+<li><strong>Check Dynamics product exists enabled</strong>. When this setting is enabled, when synchronizing orders, the presence of records in Dataverse about the products included in the order will be checked. ATTENTION: this will significantly increase traffic and negatively affect performance.</li>
+<li><strong>Enable auto synchronization</strong>. Determine whether to enable auto synchronization. If disabled, synchronization must be started manually on this page.</li>
+<li><strong>Auto synchronization period</strong>. Set the period (in minutes) for auto synchronization.</li>
+</ul>
+<p>Click the <strong>Save</strong> button.</p>
+<p><img src="_static/plugin_connected.png" alt="Find the plugin"></p>
+<p>Go to the <strong>Synchronization</strong> panel to synchronize your nopCommerce customers, products, and orders with your Dynamics 365 environment.</p>
+<p><img src="_static/plugin_connected_sync.png" alt="Find the plugin"></p>
+<h2 id="contacts-sync">Contacts sync</h2>
+<p>The plugin implements the initial import of all existing contacts (customers). It is performed when the user has just installed the plugin and wants to import all existing store contacts into Dynamics 365. Then, adding and editing customers is performed automatically according to the corresponding event.</p>
+<p><img src="_static/sales_hub_contacts.png" alt="image"></p>
+<h2 id="products-sync">Products sync</h2>
+<p>The plugin implements the import of products. Synchronization of two types of products is supported:</p>
+<ul>
+<li>Simple products</li>
+<li>Group product</li>
+</ul>
+<p><img src="_static/sales_hub_products.png" alt="image"></p>
+<p>In the plugin track a number of events to notify the Dynamics 365 service:</p>
+<ul>
+<li>Create product.</li>
+<li>Changing a product (increasing the quantity, adding images, etc.).</li>
+</ul>
+<h2 id="orders-sync">Orders sync</h2>
+<p>In the plugin track a number of events to notify the Dynamics 365 service:</p>
+<ul>
+<li>Placing an order.</li>
+<li>Payment of an order.</li>
+<li>Canceling an order.</li>
+<li>Finalizing the order processing.</li>
+<li>Changing the order status.</li>
+</ul>
+<p><img src="_static/sales_hub_orders.png" alt="image"></p>
+<h3 id="scenarios-for-changing-order-statuses-to-transfer-them-to-dynamics-365">Scenarios for changing order statuses to transfer them to Dynamics 365</h3>
+<p>The diagram below shows the relationship between order status changes in the nopCoomerce system and Dynamcs 365.</p>
+<p><img src="_static/Dynamics_365_Order_status.png" alt="Find the plugin"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>There is a limitation on deleting orders with a Paid status; such paid orders cannot be deleted from the Dynamics 365 system.</p>
+</div>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/developer/ms-dynamics-365/index.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

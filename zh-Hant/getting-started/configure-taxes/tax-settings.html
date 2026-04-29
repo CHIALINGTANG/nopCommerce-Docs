@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>稅務設定 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="稅務設定 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/getting-started/configure-taxes/tax-settings">
+<h1 id="稅務設定">稅務設定</h1>
+
+<p>本節說明您商店的稅務設定，例如定義價格是否包含稅額、定義稅額顯示類型等。</p>
+<p>若要管理您的稅務設定，請前往 <strong>設定 → 設定 → 稅務設定</strong>。</p>
+<p><img src="_static/tax-settings/tax-settings.jpg" alt="Tax settings"></p>
+<p>首先，請定義<strong>一般</strong>稅務設定：</p>
+<ul>
+<li>在 <strong>稅額計算依據 (Tax based on)</strong> 下拉式選單中，選擇計算稅額的依據，如下所示：
+<ul>
+<li><strong>帳單地址 (Billing address)</strong>：選擇此選項時，稅額將根據顧客的帳單地址計算。如果帳單地址未知，則使用預設地址（於下方輸入）。</li>
+<li><strong>配送地址 (Shipping address)</strong>：選擇此選項時，稅額將根據顧客的配送地址計算。如果配送地址未知，則使用預設地址（於下方輸入）。</li>
+<li><strong>預設地址 (Default address)</strong>：選擇此選項時，稅額將根據下方輸入的預設地址計算。</li>
+</ul>
+</li>
+<li><strong>依據 IP 位址自動偵測國家/地區 (Automatically detect country by IP address)</strong>：啟用此設定後，若顧客尚未設定帳單/配送地址，系統將會透過地理位置服務（依據 IP 位址）自動判斷稅額計算所使用的國家/地區。</li>
+<li>選擇商品的 <strong>預設稅務類別 (Default tax category)</strong>。此類別將會預先選定於 <em>新增商品</em> 頁面中。</li>
+<li><strong>依據取貨點地址計算稅額 (Tax based on pickup point address)</strong> 核取方塊用於定義當選擇取貨點時，是否應使用取貨點地址來計算稅額。</li>
+<li>勾選 <strong>價格包含稅額 (Prices include tax)</strong> 核取方塊，以標示輸入的價格是否已包含稅額。</li>
+</ul>
+<p>接著，請定義 <strong>預設稅務地址（用於稅額計算）</strong>，如下所示：</p>
+<ul>
+<li>選擇 <strong>國家/地區 (Country)</strong>。</li>
+<li>選擇 <strong>州/省 (State/province)</strong>。</li>
+<li>定義 <strong>縣市/地區 (County/region)</strong>。</li>
+<li>定義 <strong>城市 (City)</strong>。</li>
+<li>定義 <strong>地址 1 (Address 1)</strong>。</li>
+<li>輸入 <strong>郵遞區號 (Zip/postal code)</strong>。</li>
+</ul>
+<p>在 <strong>稅額顯示 (Tax displaying)</strong> 面板中，您可以設定顧客看到的稅額顯示方式：</p>
+<ul>
+<li>勾選 <strong>允許顧客選擇稅額顯示類型 (Allow customers to select tax display type)</strong> 核取方塊，以允許顧客選擇稅額顯示類型。若未勾選，則會顯示 <strong>稅額顯示類型 (Tax display type)</strong> 下拉式選單：
+<ul>
+<li><strong>未稅 (Excluding tax)</strong>：選擇此項以強制執行未稅顯示。</li>
+<li><strong>含稅 (Including tax)</strong>：選擇此項以強制執行含稅顯示。</li>
+</ul>
+</li>
+<li>勾選 <strong>顯示稅額後綴 (Display tax suffix)</strong> 核取方塊，以顯示稅額後綴（含稅/未稅）。</li>
+<li>勾選 <strong>顯示所有已套用的稅率 (Display all applied tax rates)</strong> 核取方塊，以在購物車頁面中的單獨行顯示所有已套用的稅率。</li>
+<li>勾選 <strong>隱藏零稅額 (Hide zero tax)</strong> 核取方塊，以在訂單摘要中隱藏零稅額數值。</li>
+<li>勾選 <strong>在訂單摘要中隱藏稅額 (Hide tax in order summary)</strong> 核取方塊，以便在價格顯示為含稅時，隱藏訂單摘要中的稅額數值。</li>
+<li>勾選 <strong>強制從訂單小計中排除稅額 (Force tax exclusion from order subtotal)</strong> 核取方塊，以始終從訂單小計中排除稅額（與所選的稅額顯示類型無關）。此核取方塊僅影響顯示訂單總計的頁面。</li>
+</ul>
+<p>在 <em>配送 (Shipping)</em> 面板中，勾選 <strong>配送應課稅 (Shipping is taxable)</strong> 核取方塊，以標示配送費用應課稅。接著會顯示下列欄位：</p>
+<ul>
+<li><strong>配送價格包含稅額 (Shipping price includes tax)</strong>：勾選以標示配送價格已包含稅額。</li>
+<li><strong>配送稅務類別 (Shipping tax category)</strong>：選擇用於計算配送稅額所需的稅務類別。</li>
+</ul>
+<p>在 <em>付款 (Payment)</em> 面板中，勾選 <strong>付款方式附加費應課稅 (Payment method additional fee is taxable)</strong> 核取方塊，以標示付款方式的附加費用應課稅。將會顯示下列選項：</p>
+<ul>
+<li><strong>付款方式附加費包含稅額 (Payment method additional fee includes tax)</strong>：勾選以標示付款方式的附加費用已包含稅額。</li>
+<li><strong>付款方式附加費稅務類別 (Payment method additional fee tax category)</strong>：從下拉式選單中，選擇用於計算付款方式附加費稅額所需的稅務類別。</li>
+</ul>
+<p>接著，在 <em>VAT</em> 面板中設定增值稅 (VAT)：</p>
+<ul>
+<li>勾選 <strong>啟用歐盟增值稅 (EU VAT enabled)</strong> 核取方塊，以標示已啟用歐盟增值稅。選擇此選項後，顧客在註冊時或於顧客帳戶詳細資料頁面中，將會被要求填寫 <em>公司增值稅號 (Company VAT number)</em>。如果勾選了 <strong>使用網路服務 (Use web service)</strong> 核取方塊，此增值稅號可透過網路服務自動驗證，或由商店管理員在後台的顧客詳細資料頁面手動驗證。</li>
+<li><strong>對訪客啟用歐盟增值稅 (EU VAT enabled for guests)</strong> - 勾選此項可對訪客顧客啟用歐盟增值稅。他們將需要在結帳流程的帳單地址步驟中輸入增值稅號。</li>
+<li><strong>需要增值稅號 (VAT number required)</strong> - 若需要「歐盟增值稅號」則勾選。</li>
+<li><strong>您的商店所在國家 (Your shop country)</strong>：從下拉式選單中，選擇您的商店所在國家。</li>
+<li><strong>允許免除增值稅 (Allow VAT exemption)</strong>：勾選此核取方塊，可對符合資格且已註冊增值稅的顧客免除增值稅。</li>
+<li><strong>假設增值稅始終有效 (Assume VAT always valid)</strong>：勾選此核取方塊可跳過增值稅驗證。輸入的增值稅號將始終視為有效。顧客有責任提供最新的增值稅號。</li>
+<li><strong>使用網路服務 (Use web service)</strong>：勾選此核取方塊以使用網路服務驗證增值稅號。</li>
+<li><strong>當提交新的增值稅號時通知管理員 (Notify admin when a new VAT number is submitted)</strong>：勾選此核取方塊，以便在提交新的增值稅號時透過電子郵件接收通知。</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>若啟用 VAT，則針對歐盟以外地區的運送收取 0% 稅率；對於已提供經過驗證並核准的 VAT 號碼，且運送目的地為歐盟境內但商店所屬國家以外的顧客，亦收取 0% 稅率。關於歐盟 VAT 的進一步資訊，請參考相關文章。</p>
+</div>
+<div class="TIP">
+<h5>Tip</h5>
+<p>閱讀如何設定歐盟 VAT：<a class="xref" href="index.html#eu-vat-configuration-guide">歐盟 VAT 設定指南</a>。</p>
+</div>
+<p>點擊 <strong>儲存 (Save)</strong>。</p>
+<h2 id="教學課程">教學課程</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=8iF5nQvIoLs&amp;feature=youtu.be">管理稅務設定</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/getting-started/configure-taxes/tax-settings.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

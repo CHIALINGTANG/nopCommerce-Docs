@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>設定稅務 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="設定稅務 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/getting-started/configure-taxes/index">
+<h1 id="設定稅務">設定稅務</h1>
+
+<p>本章節涵蓋 nopCommerce 稅務工具的相關設定。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>本章節包含 nopCommerce 內建的稅務工具，不包含第三方稅務服務。</p>
+</div>
+<p>nopCommerce 同時支援外部服務，但這些服務需要從 <a href="http://www.nopcommerce.com/marketplace">市集 (Marketplace)</a> 安裝對應的外掛。此類模組的安裝流程詳見 <a class="xref" href="../../developer/plugins/index.html">外掛 (Plugins)</a> 章節。</p>
+<h2 id="歐盟-vat-設定指南">歐盟 VAT 設定指南</h2>
+<p>若要為位於歐盟的商店設定 nopCommerce 的 VAT（增值稅）支援，請前往 <strong>設定 → 設定 → 稅務設定</strong>。</p>
+<p>在「通用 (Common)」面板中：</p>
+<ul>
+<li>將 <strong>稅務基準 (Tax based on)</strong> 設定為 <strong>收件地址 (Shipping address)</strong>。</li>
+</ul>
+<p>在「VAT」面板中：</p>
+<ul>
+<li>勾選 <strong>啟用歐盟 VAT (EU VAT enabled)</strong>。這將確保僅針對歐盟境內的貨運收取稅金。</li>
+<li>選擇您商店所在的 <strong>國家/地區 (Country)</strong>。</li>
+<li>若適用，請勾選 <em>允許 VAT 免稅 (Allow VAT exemption)</em>。這將確保您那些位於歐盟境內但不在商店所在國的 VAT 註冊顧客，不會被收取 VAT。</li>
+<li>勾選 <strong>假設 VAT 永遠有效 (Assume VAT always valid)</strong> 核取方塊以跳過 VAT 驗證。輸入的 VAT 號碼將被視為永遠有效。提供正確的 VAT 號碼將由顧客自行負責。</li>
+<li>如果您勾選了 <strong>允許 VAT 免稅 (Allow VAT exemption)</strong>，那麼您可能也會想要勾選「<strong>使用 Web 服務 (Use web service)</strong>」和「<strong>當提交新的 VAT 號碼時通知管理員 (Notify admin when a new VAT number is submitted)</strong>」核取方塊。</li>
+</ul>
+<p>點擊 <strong>儲存 (Save)</strong> 按鈕。</p>
+<p>前往 <strong>設定 → 國家/地區 (Countries)</strong>。請確保所有在 VAT 範圍內的國家/地區，其 <strong>須課徵 VAT (Subject to VAT)</strong> 屬性都設為 <em>true</em>。</p>
+<p><img src="_static/index/countries.jpg" alt="Countries"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>澤西島 (Jersey)、根西島 (Guernsey) 以及其他海峽群島既不屬於英國，也不在 VAT 的適用範圍內。如果您有銷售商品到這些地方，您可能需要進行相關變更。</p>
+</div>
+<p>前往 <strong>設定 → 稅務類別 (Tax categories)</strong>。</p>
+<p><img src="_static/index/tax-categories.jpg" alt="Tax categories"></p>
+<p>為您所在國家/地區的每一種 VAT 稅率設定一個稅務類別。例如：「標準稅率 (Standard Rate)」、「零稅率 (Zero rate)」、「折扣稅率 (Discounted rate)」。刪除預設存在但不再適用的類別。</p>
+<p>前往 <strong>設定 → 稅務提供者 (Tax providers)</strong>。使用 <strong>標記為主要提供者 (Mark as primary provider)</strong> 按鈕，將 <strong>人工 (固定或按國家/地區/州/郵遞區號) (Manual (fixed or by country/state/zip))</strong> 設定為預設提供者。</p>
+<p><img src="_static/index/tax-providers.jpg" alt="Tax providers"></p>
+<p>點擊 <strong>人工 (固定或按國家/地區/州/郵遞區號) (Manual (fixed or by country/state/zip))</strong> 提供者列中的 <strong>設定 (Configure)</strong> 以編輯稅率。在頁面頂部，您會看到一個按鈕。點擊該按鈕以切換至 <strong>固定稅率 (Fixed rate)</strong> 模式。</p>
+<p><img src="_static/index/configure.jpg" alt="Configure"></p>
+<p>在此頁面上，您可以看到您的 VAT 稅率類別。點擊每個類別旁邊的 <strong>編輯 (Edit)</strong>，然後輸入百分比稅率。接著點擊 <strong>更新 (Update)</strong> 按鈕。</p>
+<p>請確保所有商品都在其 <a class="xref" href="../../running-your-store/catalog/products/add-products.html">商品頁面 (product pages)</a> 上指派了稅務類別。</p>
+<p><img src="_static/index/product.jpg" alt="Product"></p>
+<h2 id="參閱">參閱</h2>
+<ul>
+<li><a class="xref" href="tax-settings.html">稅務設定 (Tax settings)</a></li>
+<li><a class="xref" href="tax-providers/index.html">稅務提供者 (Tax providers)</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/getting-started/configure-taxes/index.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

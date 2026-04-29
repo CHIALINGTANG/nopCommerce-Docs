@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Settings in web.config </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Settings in web.config ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/developer/tutorials/description-of-the-web-config-file-in-project">
+<h1 id="settings-in-webconfig">Settings in web.config</h1>
+
+<h2 id="what-is-the-webconfig-file">What is the web.config file</h2>
+<p><code>web.config</code> file is an XML-based configuration file used in ASP.NET-based applications to manage various settings that are concerned with the configuration of our website. In this way, we can separate our application logic from configuration logic. And the main benefit of this is, if we want to change some configuration settings then we do not need to restart our application to apply new changes, ASP.NET automatically detects the changes and applies them to the running ASP.NET application.</p>
+<p>The ASP.NET framework uses a hierarchical configuration system. You can place a <code>web.config</code> file in any subdirectory of an application. The file then applies to any pages located in the same directory or any subdirectories.</p>
+<h2 id="webconfig-for-nopcommerce">web.config for nopCommerce</h2>
+<p>nopCommerce uses the <code>web.config</code> in the <code>Nop.Web</code> project which can be found inside the Presentation directory. In the root of the project directory, you can see a web.config file. If your solution is fresh installation of nopCommerce then the content of that file looks something like this:</p>
+<pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;configuration&gt;
+    &lt;system.webServer&gt;
+    &lt;modules&gt;
+        &lt;!-- Remove WebDAV module so that we can make DELETE requests --&gt;
+        &lt;remove name=&quot;WebDAVModule&quot; /&gt;
+    &lt;/modules&gt;
+    &lt;handlers&gt;
+        &lt;!-- Remove WebDAV module so that we can make DELETE requests --&gt;
+        &lt;remove name=&quot;WebDAV&quot; /&gt;
+        &lt;add name=&quot;aspNetCore&quot; path=&quot;*&quot; verb=&quot;*&quot; modules=&quot;AspNetCoreModuleV2&quot; resourceType=&quot;Unspecified&quot; /&gt;
+    &lt;/handlers&gt;
+    &lt;!-- When deploying on Azure, make sure that &quot;dotnet&quot; is installed and the path to it is registered in the PATH environment variable or specify the full path to it --&gt;
+    &lt;aspNetCore requestTimeout=&quot;23:00:00&quot; processPath=&quot;%LAUNCHER_PATH%&quot; arguments=&quot;%LAUNCHER_ARGS%&quot; forwardWindowsAuthToken=&quot;false&quot; stdoutLogEnabled=&quot;false&quot; stdoutLogFile=&quot;.\logs\stdout&quot; startupTimeLimit=&quot;3600&quot; hostingModel=&quot;InProcess&quot;&gt;
+    &lt;/aspNetCore&gt;
+    &lt;httpProtocol&gt;
+        &lt;customHeaders&gt;
+        &lt;remove name=&quot;X-Powered-By&quot; /&gt;
+        &lt;!-- Protects against XSS injections. ref.: https://www.veracode.com/blog/2014/03/guidelines-for-setting-security-headers/ --&gt;
+        &lt;add name=&quot;X-XSS-Protection&quot; value=&quot;1; mode=block&quot; /&gt;
+        &lt;!-- Protects against Clickjacking attacks. ref.: http://stackoverflow.com/a/22105445/1233379 --&gt;
+        &lt;add name=&quot;X-Frame-Options&quot; value=&quot;SAMEORIGIN&quot; /&gt;
+        &lt;!-- Protects against MIME-type confusion attack. ref.: https://www.veracode.com/blog/2014/03/guidelines-for-setting-security-headers/ --&gt;
+        &lt;add name=&quot;X-Content-Type-Options&quot; value=&quot;nosniff&quot; /&gt;
+        &lt;!-- Protects against Clickjacking attacks. ref.: https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet --&gt;
+        &lt;add name=&quot;Strict-Transport-Security&quot; value=&quot;max-age=31536000; includeSubDomains&quot; /&gt;
+        &lt;!-- CSP modern XSS directive-based defence, used since 2014. ref.: http://content-security-policy.com/ --&gt;
+        &lt;add name=&quot;Content-Security-Policy&quot; value=&quot;default-src 'self'; connect-src *; font-src * data:; frame-src *; img-src * data:; media-src *; object-src *; script-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline';&quot; /&gt;
+        &lt;!-- Prevents from leaking referrer data over insecure connections. ref.: https://scotthelme.co.uk/a-new-security-header-referrer-policy/ --&gt;
+        &lt;add name=&quot;Referrer-Policy&quot; value=&quot;same-origin&quot; /&gt;
+        &lt;!-- Permissions-Policy is a new header that allows a site to control which features and APIs can be used in the browser. ref.: https://w3c.github.io/webappsec-permissions-policy/ --&gt;
+        &lt;add name=&quot;Permissions-Policy&quot; value=&quot;accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=*, usb=()&quot; /&gt;
+      &lt;/customHeaders&gt;
+    &lt;/httpProtocol&gt;
+    &lt;/system.webServer&gt;
+&lt;/configuration&gt;
+</code></pre>
+<pre><code class="lang-xml">&lt;configuration&gt;
+    ...
+&lt;/configuration&gt;
+</code></pre>
+<p>Every configuration rule goes inside the &quot;<code>&lt;configuration&gt;</code>&quot; element.</p>
+<pre><code class="lang-xml">&lt;system.webServer&gt;
+    ...
+&lt;/system.webServer&gt;
+</code></pre>
+<p>The <code>&lt;system.webServer&gt;</code> element specifies the root element for many of the site-level and application-level configuration settings for IIS, and contains configuration elements that define the settings used by the Web server engine and modules.</p>
+<pre><code class="lang-xml">&lt;modules&gt;
+    &lt;!-- Remove WebDAV module so that we can make DELETE requests --&gt;
+    &lt;remove name=&quot;WebDAVModule&quot; /&gt;
+&lt;/modules&gt;
+</code></pre>
+<p>The <code>&lt;modules&gt;</code> element defines the native-code modules and managed-code modules that are registered for an application. We commonly use modules to implement customized functionality.</p>
+<p>The <code>&lt;modules&gt;</code> element contains a collection of <code>&lt;add&gt;</code>, <code>&lt;remove&gt;</code> and <code>&lt;clear&gt;</code> elements.</p>
+<p>Here nopCommerce is using the <code>&lt;remove&gt;</code> element to remove the WebDAVModule module from the application.</p>
+<pre><code class="lang-xml">&lt;handlers&gt;
+    &lt;!-- Remove WebDAV module so that we can make DELETE requests --&gt;
+    &lt;remove name=&quot;WebDAV&quot; /&gt;
+    &lt;add name=&quot;aspNetCore&quot; path=&quot;*&quot; verb=&quot;*&quot; modules=&quot;AspNetCoreModuleV2&quot; resourceType=&quot;Unspecified&quot; /&gt;
+&lt;/handlers&gt;
+</code></pre>
+<p>Handlers are IIS components that are configured to process requests to specific content, typically to generate a response for the requested resource. For example, an ASP.NET Web page is one type of handler. You can use handlers to process requests to any resource that needs to return information to users that is not a static file.</p>
+<p>The <code>&lt;handlers&gt;</code> element contains a collection of <code>&lt;add&gt;</code>, <code>&lt;remove&gt;</code>, and <code>&lt;clear&gt;</code> elements, each of which defines a handler mapping for the application. The <code>&lt;add&gt;</code> element adds a handler to the collection of handlers, the <code>&lt;remove&gt;</code> element removes references of the handler from the handler's collection, and the <code>&lt;clear&gt;</code> element removes all references of handlers from the handlers collection. Here in the above code  &quot;WebDAV&quot; handler is removed and the handler for module <code>AspNetCoreModuleV2</code> is added.</p>
+<pre><code class="lang-xml">&lt;aspNetCore requestTimeout=&quot;23:00:00&quot; processPath=&quot;%LAUNCHER_PATH%&quot; arguments=&quot;%LAUNCHER_ARGS%&quot; forwardWindowsAuthToken=&quot;false&quot; stdoutLogEnabled=&quot;false&quot; stdoutLogFile=&quot;.\logs\stdout&quot; startupTimeLimit=&quot;3600&quot; hostingModel=&quot;InProcess&quot;/&gt;
+</code></pre>
+<pre><code class="lang-xml">&lt;httpProtocol&gt;
+        &lt;customHeaders&gt;
+        &lt;remove name=&quot;X-Powered-By&quot; /&gt;
+        &lt;!-- Protects against XSS injections. ref.: https://www.veracode.com/blog/2014/03/guidelines-for-setting-security-headers/ --&gt;
+        &lt;add name=&quot;X-XSS-Protection&quot; value=&quot;1; mode=block&quot; /&gt;
+        &lt;!-- Protects against Clickjacking attacks. ref.: http://stackoverflow.com/a/22105445/1233379 --&gt;
+        &lt;add name=&quot;X-Frame-Options&quot; value=&quot;SAMEORIGIN&quot; /&gt;
+        &lt;!-- Protects against MIME-type confusion attack. ref.: https://www.veracode.com/blog/2014/03/guidelines-for-setting-security-headers/ --&gt;
+        &lt;add name=&quot;X-Content-Type-Options&quot; value=&quot;nosniff&quot; /&gt;
+        &lt;!-- Protects against Clickjacking attacks. ref.: https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet --&gt;
+        &lt;add name=&quot;Strict-Transport-Security&quot; value=&quot;max-age=31536000; includeSubDomains&quot; /&gt;
+        &lt;!-- CSP modern XSS directive-based defence, used since 2014. ref.: http://content-security-policy.com/ --&gt;
+        &lt;add name=&quot;Content-Security-Policy&quot; value=&quot;default-src 'self'; connect-src *; font-src * data:; frame-src *; img-src * data:; media-src *; object-src *; script-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline';&quot; /&gt;
+        &lt;!-- Prevents from leaking referrer data over insecure connections. ref.: https://scotthelme.co.uk/a-new-security-header-referrer-policy/ --&gt;
+        &lt;add name=&quot;Referrer-Policy&quot; value=&quot;same-origin&quot; /&gt;
+        &lt;!-- Permissions-Policy is a new header that allows a site to control which features and APIs can be used in the browser. ref.: https://w3c.github.io/webappsec-permissions-policy/ --&gt;
+        &lt;add name=&quot;Permissions-Policy&quot; value=&quot;accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=*, usb=()&quot; /&gt;
+      &lt;/customHeaders&gt;
+    &lt;/httpProtocol&gt;
+</code></pre>
+<p>The <code>&lt;customHeaders&gt;</code> element of the <code>&lt;httpProtocol&gt;</code> element specifies custom HTTP headers that IIS will return in HTTP responses from the Web server.</p>
+<p>HTTP headers are name and value pairs that are returned in responses from a Web server. Custom response headers are sent to the client together with the default HTTP header. Unlike redirect response headers, which are returned in responses only when redirection occurs, custom response headers are returned in every response.</p>
+<h2 id="configure-the-redirect-rules-in-iis">Configure the redirect rules in IIS</h2>
+<p>We can add other configurations additional to the above configurations. Here we will see how to configure redirect rules in IIS.</p>
+<p>A redirect rule enables more than one URL to point to a single Web page. There may be several reasons why you want to redirect a request from one server to another. For example, maybe your company name is changed and you may want to register a new domain for your company and move your website to a new domain, so in that case, you may want to redirect all requests from your old domain to a new domain.</p>
+<p>For our website to be able to use redirect rules, we need to install the &quot;URL rewrite&quot; module which is an extension to IIS.</p>
+<p>For demonstration purposes, let's say we have to redirect a request from our old site to our new site, for that we need to write the following rules in our <code>web.config</code> file.</p>
+<pre><code class="lang-xml">&lt;rewrite&gt;
+  &lt;rules&gt;
+     &lt;rule name=&quot;[RULE NAME]&quot; stopProcessing=&quot;true&quot;&gt;
+     &lt;match url=&quot;(.*)&quot; /&gt;
+     &lt;conditions logicalGrouping=&quot;MatchAny&quot; trackAllCaptures=&quot;false&quot;&gt;
+        &lt;add input=&quot;{HTTP_HOST}{REQUEST_URI}&quot; pattern=&quot;[OLD URL]&quot; /&gt;
+     &lt;/conditions&gt;
+     &lt;action type=&quot;Redirect&quot; url=&quot;http://[NEW URL]/{R:1}&quot; redirectType=&quot;Permanent&quot;/&gt;
+     &lt;/rule&gt;
+  &lt;/rules&gt;
+&lt;/rewrite&gt;
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>By using this rule we can redirect all pages of an old domain name to the same page on a new domain name.</p>
+</div>
+<p>Here we need to replace [RULE NAME], [OLD URL], and [NEW URL] with the appropriate information.</p>
+<ul>
+<li>[RULE NAME] can be anything that describes what this rule is doing</li>
+<li>[OLD URL] is the old URL you want to redirect from.</li>
+<li>[NEW URL] is the new URL you want to redirect to.</li>
+</ul>
+<pre><code class="lang-xml">&lt;match url=&quot;(.*)&quot; /&gt;
+</code></pre>
+<p>The above element states that this rule will match all URL strings.</p>
+<pre><code class="lang-xml">&lt;add input=&quot;{HTTP_HOST}{REQUEST_URI}&quot; pattern=&quot;[OLD URL]&quot; /&gt;
+</code></pre>
+<p>The element above adds a condition to the rule that retrieves the host and requests Uri header value by reading the server variable HTTP_HOST and REQUEST_URI and matches it against the pattern with the value supplied for [OLD URL].</p>
+<pre><code class="lang-xml">&lt;action type=&quot;Redirect&quot; url=&quot;http://[NEW URL]/{R:1}&quot; redirectType=&quot;Permanent&quot;/&gt;
+</code></pre>
+<p>This element redirects the matching old URL to the new URL.</p>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/developer/tutorials/description-of-the-web-config-file-in-project.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>多因素驗證 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="多因素驗證 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/getting-started/advanced-configuration/multi-factor-authentication">
+<h1 id="多因素驗證">多因素驗證</h1>
+
+<p>多因素驗證 (Multifactor Authentication, MFA)（在我們的情況下，指雙因素驗證 – 2FA）是一種要求使用者提供兩個或更多驗證因素，以獲取資源存取權限的驗證方法。MFA 是強大身分與存取管理 (IAM) 政策的核心組成部分。MFA 不僅要求使用者名稱和密碼，還需要額外的一個或多個驗證因素，這降低了網路攻擊成功的可能性。</p>
+<p>nopCommerce 透過 Google Authenticator 實作了內建的多因素驗證。您可以使用來自 <a href="https://www.nopcommerce.com/marketplace">市集</a> 的外掛來設定其他方法。</p>
+<h2 id="管理多因素驗證方法">管理多因素驗證方法</h2>
+<p>預設情況下，Google Authenticator 外掛未安裝。若要安裝此外掛，請前往 <strong>設定 → 本機外掛</strong>。</p>
+<ol>
+<li><p>在 <strong>外掛名稱</strong> 欄位搜尋 <em>Google Authenticator</em>。</p>
+</li>
+<li><p>點擊 <strong>安裝</strong> 按鈕。</p>
+</li>
+<li><p>然後點擊 <strong>重新啟動應用程式以套用變更</strong> 按鈕來套用變更。</p>
+</li>
+<li><p>前往 <strong>設定 → 驗證 → 多因素驗證</strong>。系統將會顯示 <em>多因素驗證</em> 視窗：</p>
+<p><img src="_static/multi-factor-authentication/list.jpg" alt="Multi-factor auth"></p>
+</li>
+<li><p>點擊驗證方法旁邊的 <strong>編輯</strong>，並勾選 <strong>已啟用</strong> 以啟用該方法。您也可以定義該方法的 <strong>顯示順序</strong>。完成後點擊 <strong>更新</strong> 按鈕以儲存變更。</p>
+</li>
+</ol>
+<h2 id="設定-google-authenticator-外掛">設定 Google Authenticator 外掛</h2>
+<p>點擊該方法的 <strong>設定</strong> 進行配置。系統將會顯示 <em>設定 - Google Authenticator</em> 頁面如下：</p>
+<p><img src="_static/multi-factor-authentication/google-authenticator.jpg" alt="Multi-factor auth"></p>
+<p>在此頁面上，您必須輸入：</p>
+<ul>
+<li>您的 <strong>企業前綴</strong>，讓使用者能夠在 Google Authenticator 應用程式中區分您商店的帳號資訊。</li>
+<li><strong>QRPixelsPerModule</strong> 以設定每個單元的像素數量。該單元是 QR 碼中的一個正方形。預設值為 3，對應 171 × 171 像素的影像。</li>
+</ul>
+<p>然後點擊 <strong>儲存</strong>。</p>
+<p>在此頁面上，您也可以使用 <em>搜尋</em> 面板透過電子郵件搜尋顧客。</p>
+<h2 id="運作原理">運作原理</h2>
+<p>若要了解多因素驗證在 nopCommerce 中如何運作，請參考上方的圖表。</p>
+<ul>
+<li><strong>2FA 已設定</strong> 架構表示顧客已完成 2FA 設定的程序。
+<img src="_static/multi-factor-authentication/2FA_configured.jpg" alt="How it works"></li>
+<li><strong>2FA 設定</strong> 架構表示顧客需要完成 2FA 設定的程序。
+<img src="_static/multi-factor-authentication/2FA_setup.jpg" alt="How it works"></li>
+</ul>
+<h2 id="前台網站的多因素驗證頁面">前台網站的多因素驗證頁面</h2>
+<p>若要配置多因素驗證，顧客應前往 <strong>我的帳戶 - 多因素驗證</strong> 頁面，顯示如下：</p>
+<p><img src="_static/multi-factor-authentication/my-account.jpg" alt="How it works"></p>
+<p>啟用 MFA 的步驟：</p>
+<ol>
+<li>啟用 <strong>已啟用</strong> 設定。</li>
+<li>選擇其中一個多因素驗證提供者（預設只有一個）。</li>
+<li>儲存。</li>
+<li>依照所選提供者之個別設定頁面上的說明，配置該多因素驗證提供者。</li>
+</ol>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>儲存所選的提供者後，請務必完成其設定；否則，下次您嘗試登入帳戶時將會被拒絕存取。</p>
+</div>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/getting-started/advanced-configuration/multi-factor-authentication.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

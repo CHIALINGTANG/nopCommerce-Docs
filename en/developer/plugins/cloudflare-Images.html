@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Cloudflare Images </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Cloudflare Images ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/developer/plugins/cloudflare-images">
+<h1 id="cloudflare-images-integration">Cloudflare Images Integration</h1>
+
+<h2 id="overview">Overview</h2>
+<p>Starting with version 4.90, thumbnail management has been refactored for greater flexibility. A new interface, <code>IThumbService</code>, has been introduced to handle all thumbnail-related operations previously managed by 'IPictureService`.</p>
+<p>The following methods have been moved to <code>IThumbService</code>:</p>
+<ul>
+<li><code>GetThumbLocalPathAsync</code></li>
+<li><code>GeneratedThumbExistsAsync</code></li>
+<li><code>SaveThumbAsync</code></li>
+<li><code>GetThumbLocalPathByFileNameAsync</code></li>
+<li><code>GetThumbUrlAsync</code></li>
+<li><code>DeletePictureThumbsAsync</code></li>
+</ul>
+<p>As part of this change, thumbnail storage logic has been decoupled from the core application into standalone plugins. The existing <strong>Azure Blob Storage</strong> functionality is now a separate plugin. A new plugin has been developed to integrate <strong>Cloudflare Images</strong> as a thumbnail storage solution.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>By default, both the Azure Blob and Cloudflare Images plugins (<code>Misc.AzureBlob</code> and <code>Misc.CloudflareImages</code>) are listed in the <code>InstallationConfig.DisabledPlugins</code> property. This ensures that neither plugin is installed during a fresh setup, allowing store owners to choose and install the storage solution that best fits their needs.</p>
+</div>
+<h2 id="configuration-azure-blob-storage">Configuration Azure Blob Storage</h2>
+<p>We can use <em>Azure Blob Storage</em> to store blob data. nopCommerce already has a feature integrated for that, we just need to set the following information correctly to use this feature. Values for these settings can be obtained for <em>Azure</em> while you create the storage account.</p>
+<p><img src="_static/cloudflare-images/azure-blob.png" alt="Image"></p>
+<ul>
+<li><strong>ConnectionString</strong> This setting expects a string value. Here you need to add your <code>AzureBlobStorage</code> connection string.</li>
+<li><strong>ContainerName</strong> Value for this setting is also of type string. In this setting, we set the container name for <em>Azure BLOB storage</em>.</li>
+<li><strong>EndPoint</strong> This setting also expects a string value. Here we need to set the endpoint for <em>Azure BLOB storage</em>.</li>
+<li><strong>AppendContainerName</strong> This setting expects a boolean value. Set the value to <strong><code>true</code></strong> or <strong><code>false</code></strong> based on whether the Container Name is appended to the <code>EndPoint</code> when constructing the URL.</li>
+</ul>
+<h2 id="configuration-cloudflare-images">Configuration Cloudflare Images</h2>
+<p>The plugin settings are straightforward, consisting of four fields in addition to the master enable/disable switch.</p>
+<p><img src="_static/cloudflare-images/cloudflare-images.png" alt="Image"></p>
+<p>A critical field is the <strong>Delivery URL</strong>. It must be configured in the following specific format:</p>
+<pre><code class="lang-bash">https://imagedelivery.net/[account_hash]/&lt;image_id&gt;/&lt;variant_name&gt;
+</code></pre>
+<p>This URL acts as a template. The plugin will dynamically insert the required <code>image_id</code> and <code>variant_name</code> to generate the final URLs for the thumbnails displayed on the website.</p>
+<h2 id="usage">Usage</h2>
+<p>Once configured and enabled, the plugin operates automatically in the background, similar to the Azure Blob storage integration. It seamlessly handles:</p>
+<ul>
+<li>Uploading new thumbnails to the Cloudflare Images service.</li>
+<li>Replacing local thumbnail URLs with the corresponding Cloudflare Images URLs on all public-facing pages.</li>
+</ul>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/developer/plugins/cloudflare-Images.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

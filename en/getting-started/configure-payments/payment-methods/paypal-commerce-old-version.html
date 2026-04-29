@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>PayPal Commerce </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="PayPal Commerce ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="preload" href="../../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/getting-started/configure-payments/payment-methods/paypal-commerce-old-version">
+
+
+<div class="NOTE">
+<h5>Note</h5>
+<p>This documentation page describes old versions of the plugin (before 4.70.10). You can find the current documentation on <a class="xref" href="paypal-commerce.html">this page</a>.</p>
+</div>
+<h1 id="paypal-commerce">PayPal Commerce</h1>
+<p><code>PayPal Commerce</code> gives your buyers a simplified and secure checkout experience. PayPal intelligently presents the most relevant payment types to your shoppers automatically, making it easier for them to complete their purchases using such methods as Pay with Venmo, PayPal Credit, credit card payments, iDEAL, Bancontact, Sofort, and other payment types.</p>
+<h2 id="configure-the-payment-method">Configure the payment method</h2>
+<p>To configure the <code>PayPal Commerce</code> plugin, go to <strong>Configuration → Payment methods</strong>. Then find the <strong>PayPal Commerce</strong> payment method in the payment method list:</p>
+<p><img src="_static/paypal-commerce-old-version/list.jpg" alt="List"></p>
+<p>Follow these steps to configure <code>PayPal Commerce</code>:</p>
+<h3 id="1-activate-the-payment-method">1. Activate the payment method</h3>
+<p>To do this, click the <strong>Edit</strong> button in the plugin row on the payment method list page. Activate the plugin by selecting the <strong>Is active</strong> checkbox. Click the <strong>Update</strong> button. Your changes will be saved.</p>
+<h3 id="2-create-a-paypal-account">2. Create a PayPal account</h3>
+<p>If you already have a PayPal account, just proceed to the <a href="#3-set-up-the-paypal-developer-dashboard">next section</a>. If you don't then register a Business account. You have two options to do this: you can register an account on the PayPal website or you can do this from the plugin configuration page. Let's briefly consider both options:</p>
+<h4 id="register-an-account-on-the-paypal-website">Register an account on the PayPal website</h4>
+<ol>
+<li><p>Register a Business account on <a href="https://www.paypal.com/us/webapps/mpp/referral/paypal-business-account2?partner_id=9JJPJNNPQ7PZ8">PayPal</a>. Just click the <strong>Sign up</strong> button there:</p>
+<p><img src="_static/paypal-commerce-old-version/sign-up-page.png" alt="Sign up page"></p>
+</li>
+<li><p>Then fill in the information about yourself and your business:</p>
+<p><img src="_static/paypal-commerce-old-version/sign-up-form.png" alt="Sign up form"></p>
+</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If you already have an account, you will be redirected to the authorization.</p>
+</div>
+<h4 id="register-an-account-from-the-plugin-configuration-page">Register an account from the plugin configuration page</h4>
+<ol>
+<li><p>Open the PayPal Commerce configuration page in the admin area. You will see the following form:</p>
+<p><img src="_static/paypal-commerce-old-version/auto-configure.jpg" alt="PayPal Commerce configuration page"></p>
+</li>
+<li><p>Enter your email address and let PayPal check everything out by clicking the <strong>Save</strong> button.</p>
+</li>
+<li><p>If everything is OK, you will see the following green notification and a newly added <strong>Sign up for PayPal</strong> button:</p>
+<p><img src="_static/paypal-commerce-old-version/configure-entered-email.png" alt="When email is already entered"></p>
+</li>
+<li><p>Click this button and you will see the following pop-up window allowing you to fill in some data and register an account:</p>
+<p><img src="_static/paypal-commerce-old-version/popup-form-first-page.png" alt="PayPal Commerce configuration page"></p>
+<p>You should pass through a few steps to fill in all the required data. The last one will ask you to confirm your email to activate your account.</p>
+</li>
+</ol>
+<h3 id="3-set-up-the-paypal-developer-dashboard">3. Set up the Paypal Developer Dashboard</h3>
+<ol>
+<li><p>Log into the <a href="https://developer.paypal.com/developer/applications?partner_id=9JJPJNNPQ7PZ8">Developer Dashboard</a> with your PayPal account credentials.</p>
+</li>
+<li><p>In <strong>My Apps &amp; Credentials</strong>, use the toggle to switch between live and sandbox testing apps.
+<img src="_static/paypal-commerce-old-version/my-apps.jpg" alt="My Apps &amp; Credentials"></p>
+</li>
+<li><p>Navigate to the <em>REST API apps</em> section and click <strong>Create App</strong>.
+<img src="_static/paypal-commerce-old-version/rest.jpg" alt="Create App"></p>
+</li>
+<li><p>Type a name for your app and click <strong>Create App</strong>. The app details page will open and display your credentials.</p>
+</li>
+<li><p>Copy and save the <strong>Client ID</strong> and <strong>Secret</strong> for your app.</p>
+</li>
+<li><p>Review your app details and save your app if you made any changes.</p>
+</li>
+</ol>
+<h3 id="4-configure-the-payment-method-in-nopcommerce">4. Configure the payment method in nopCommerce</h3>
+<ol>
+<li><p>Find the <strong>PayPal Commerce</strong> payment method on the <strong>Configuration → Payment methods</strong> page and click <strong>Configure</strong>. The <em>Configure - PayPal Commerce</em> page will be displayed as follows:
+<img src="_static/paypal-commerce-old-version/configure.jpg" alt="Configure"></p>
+</li>
+<li><p>Define the following settings on the <em>Configure - PayPal Commerce</em> page:</p>
+<ul>
+<li><p><strong>Specify API credentials manually</strong> - determine if you need to manually set credentials. Select this option if you already have an application created or if you want to use sandbox mode. Otherwise, the plugin will be set up automatically and you will be able to start accepting PayPal payments in your store after completing your PayPal registration.</p>
+<p><img src="_static/paypal-commerce-old-version/auto-configure.jpg" alt="Auto configure"></p>
+</li>
+<li><p><strong>Use sandbox</strong> if you want to test the payment method first.</p>
+</li>
+<li><p>Enter the <strong>Client ID</strong> you saved in the previous steps.</p>
+</li>
+<li><p>Enter the <strong>Secret</strong> you saved in the previous steps.</p>
+</li>
+<li><p>Choose the <strong>Payment type</strong> to either capture payment immediately or authorize payment for an order after order creation.</p>
+</li>
+</ul>
+</li>
+<li><p>Then proceed to the <em>PayPal Prominently</em> panel:
+<img src="_static/paypal-commerce-old-version/display.jpg" alt="Create App"></p>
+<p>On this panel, define the display settings:</p>
+<ul>
+<li><p>Select the <strong>Display buttons on shopping cart</strong> checkbox to display PayPal buttons on the shopping cart page instead of the default checkout button.</p>
+</li>
+<li><p>Select the <strong>Display buttons on product details</strong> to display PayPal buttons on product details pages; clicking them matches the behavior of the default 'Add to cart' button.</p>
+</li>
+<li><p>Select the <strong>Display Pay Later messages</strong> box to take advantage of the pay later messaging feature on your website. The message is displayed on the product and checkout pages, showing how much the customer is paying in four installments.</p>
+<p><img src="_static/paypal-commerce-old-version/pay_later.jpg" alt="Pay Later messages"></p>
+</li>
+<li><p>Tick the <strong>Display logo in header links</strong> checkbox to display a PayPal logo in the header links. These logos and banners are a great way to let your buyers know that you choose PayPal to securely process their payments.</p>
+<ul>
+<li>If the previous checkbox is selected, the <strong>Logo source code</strong> field is displayed. In this field, enter the source code of the logo. Find more logos and banners on PayPal Logo Center. You can also modify the code to fit correctly into your theme and site style.</li>
+</ul>
+</li>
+<li><p>Tick the <strong>Display logo in footer</strong> checkbox to display a PayPal logo in the footer. These logos and banners are a great way to let your buyers know that you choose PayPal to securely process their payments.</p>
+<ul>
+<li>If the previous checkbox is selected, the <strong>Logo source code</strong> field is displayed. In this field, enter the source code of the logo. Find more logos and banners on PayPal Logo Center. You can also modify the code to fit correctly into your theme and site style.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>Click <strong>Save</strong> to save the plugin settings.</p>
+<h2 id="limit-to-stores-and-customer-roles">Limit to stores and customer roles</h2>
+<p>You can limit any payment method to store and customer role. This means that the method will be available to certain stores or customer roles only. You can do this from the <em>plugin list</em> page.</p>
+<ol>
+<li><p>Go to <strong>Configuration → Local plugins</strong>. Find the plugin you want to limit. In our case, it's <strong>PayPal Commerce</strong>. To find it faster, use the <em>Search</em> panel in the top of the page and search by <strong>Plugin name</strong> or <strong>Group</strong> using the <em>Payment methods</em> option.</p>
+<p><img src="_static/paypal-commerce-old-version/plugins.jpg" alt="Plugins"></p>
+</li>
+<li><p>Click the <strong>Edit</strong> button, and the <em>Edit plugin details</em> window will be displayed as follows:</p>
+<p><img src="_static/paypal-commerce-old-version/edit.jpg" alt="Edit"></p>
+</li>
+<li><p>You can set up the following limits:</p>
+<ul>
+<li><p>In the <strong>Limited to customer roles</strong> field, choose one or several customer roles, that is, administrators, vendors, guests, who will be able to use this plugin. If you don't need this option just leave this field empty.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>In order to use this functionality, you have to disable the following setting: <strong>Catalog settings → Ignore ACL rules (sitewide)</strong>. Read more about the access control list <a class="xref" href="../../../running-your-store/customer-management/access-control-list.html">here</a>.</p>
+</div>
+</li>
+<li><p>Use the <strong>Limited to stores</strong> option to limit this plugin to a certain store. If you have multiple stores, choose one or several from the list. If you don't use this option, just leave this field empty.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>In order to use this functionality, you have to disable the following setting: <strong>Catalog settings → Ignore &quot;limit per store&quot; rules (sitewide)</strong>. Read more about multi-store functionality <a class="xref" href="../../advanced-configuration/multi-store.html">here</a>.</p>
+</div>
+</li>
+</ul>
+<p>Click <strong>Save</strong>.</p>
+</li>
+</ol>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/getting-started/configure-payments/payment-methods/paypal-commerce-old-version.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

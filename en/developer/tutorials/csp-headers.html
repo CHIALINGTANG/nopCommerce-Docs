@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Content Security Policy (CSP) Headers </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Content Security Policy (CSP) Headers ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/developer/tutorials/csp-headers">
+<h1 id="content-security-policy-csp-headers">Content Security Policy (CSP) Headers</h1>
+
+<p>Content-Security-Policy is the name of an HTTP response header that modern browsers use to enhance the security of a document (or web page). The HTTP Content Security Policy response header gives website admins a sense of control by giving them the authority to restrict the resources such as JavaScript and CSS a user is allowed to load within the site. In other words, you can whitelist your site's content sources. Although it is primarily used as an HTTP response header, you can also apply it via a meta tag.</p>
+<pre><code class="lang-html">&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src 'self'; img-src 'self' https://img.nopcommerce.com; object-src 'none'; script-src 'self'; style-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self';&quot;&gt;
+</code></pre>
+<p>To add this custom meta tag, you can go to <code>www.yourStore.com/Admin/Setting/GeneralCommon</code> and find <strong><code>Custom &lt;head&gt; tag</code></strong> and add this as shown in the image below.</p>
+<p><img src="_static/csp-headers/custom-csp-head-tag.png" alt="custom CSP head tag image"></p>
+<p>Content Security Policy protects against <strong>Cross Site Scripting (XSS)</strong> and other forms of attacks such as <strong>ClickJacking</strong>. Although it doesn't eliminate their possibility, it can surely minimize the damage. Compatibility isn't a problem as most of the major browsers support CSP. It is not supported in Internet Explorer.</p>
+<p>To test your browser if it supports CSP or not, you can follow this <a href="https://content-security-policy.com/browser-test/">link</a>.</p>
+<h2 id="csp-directive-reference">CSP Directive Reference</h2>
+<p>The <strong>Content-Security-Policy</strong> header value is made up of one or more directives (defined below), and multiple directives are separated with a <em>semicolon (;)</em></p>
+<h3 id="default-src">default-src</h3>
+<p>The <em>default-src</em> directive defines the default policy for fetching resources such as JavaScript, Images, CSS, Fonts, AJAX requests, Frames, and HTML5 Media. Not all directives fall back to <em>default-src</em>.</p>
+<pre><code class="lang-html">default-src 'self' cdn.nopcommerce.com;
+</code></pre>
+<h3 id="script-src">script-src</h3>
+<p>Defines valid sources of JavaScript.</p>
+<pre><code class="lang-html">script-src 'self' js.nopcommerce.com;
+</code></pre>
+<h3 id="style-src">style-src</h3>
+<p>Defines valid sources of stylesheets or CSS.</p>
+<pre><code class="lang-html">style-src 'self' css.nopcommerce.com;
+</code></pre>
+<h3 id="img-src">img-src</h3>
+<p>Defines valid sources of images.</p>
+<pre><code class="lang-html">img-src 'self' img.nopcommerce.com;
+</code></pre>
+<h3 id="connect-src">connect-src</h3>
+<p>Applies to <em>XMLHttpRequest (AJAX), WebSocket, or EventSource</em>. If not allowed the browser emulates a <strong>400</strong> HTTP status code.</p>
+<pre><code class="lang-html">connect-src 'self';
+</code></pre>
+<h3 id="font-src">font-src</h3>
+<p>Defines valid sources of font resources (loaded via *@font-face*).</p>
+<pre><code class="lang-html">font-src font.nopcommerce.com;
+</code></pre>
+<h3 id="object-src">object-src</h3>
+<p>Defines valid sources of plugins, eg <code>&lt;object&gt;</code>, <code>&lt;embed&gt;</code>, or <code>&lt;applet&gt;</code>.</p>
+<pre><code class="lang-html">object-src 'self';
+</code></pre>
+<h3 id="media-src">media-src</h3>
+<p>Defines valid sources of audio and video, eg HTML5 <code>&lt;audio&gt;</code>, <code>&lt;video&gt;</code> elements.</p>
+<pre><code class="lang-html">media-src media.nopcommerce.com;
+</code></pre>
+<h3 id="frame-src">frame-src</h3>
+<p>Defines valid sources for loading frames.</p>
+<pre><code class="lang-html">frame-src 'self';
+</code></pre>
+<h3 id="sandbox">sandbox</h3>
+<p>Enables a sandbox for the requested resource similar to the <em>iframe sandbox</em> attribute. The sandbox applies the same-origin policy and prevents popups, plugins, and script execution. You can keep the sandbox value empty to keep all restrictions in place, or add values: <em>allow-forms allow-same-origin allow-scripts allow-popups, allow-modals, allow-orientation-lock, allow-pointer-lock, allow-presentation, allow-popups-to-escape-sandbox</em>, and <em>allow-top-navigation</em></p>
+<pre><code class="lang-html">sandbox allow-forms allow-scripts;
+</code></pre>
+<h3 id="child-src">child-src</h3>
+<p>Defines valid sources for web workers and nested browsing contexts loaded using elements such as <code>&lt;frame&gt;</code> and <code>&lt;iframe&gt;</code></p>
+<pre><code class="lang-html">child-src 'self'
+</code></pre>
+<h3 id="form-action">form-action</h3>
+<p>Defines valid sources that can be used as an HTML <code>&lt;form&gt;</code> action.</p>
+<pre><code class="lang-html">form-action 'self';
+</code></pre>
+<h3 id="frame-ancestors">frame-ancestors</h3>
+<p>Defines valid sources for embedding the resource using <code>&lt;frame&gt; &lt;iframe&gt; &lt;object&gt; &lt;embed&gt; &lt;applet&gt;</code>. Setting this directive to <strong>'none'</strong> should be roughly equivalent to <strong>X-Frame-Options: DENY</strong></p>
+<pre><code class="lang-html">frame-ancestors 'none';
+</code></pre>
+<h3 id="plugin-types">plugin-types</h3>
+<p>Defines valid MIME types for plugins invoked via <code>&lt;object&gt;</code> and <code>&lt;embed&gt;</code>. To load an <code>&lt;applet&gt;</code> you must specify <em>application/x-java-applet</em>.</p>
+<pre><code class="lang-html">plugin-types application/pdf;
+</code></pre>
+<h3 id="report-to">report-to</h3>
+<p>Defines a reporting group name defined by a <em>Report-To</em> HTTP response header. See the <a href="https://w3c.github.io/reporting/">Reporting API</a> for more info.</p>
+<pre><code class="lang-html">report-to groupName;
+</code></pre>
+<h3 id="worker-src">worker-src</h3>
+<p>Restricts the URLs which may be loaded as a Worker, SharedWorker, or ServiceWorker.</p>
+<pre><code class="lang-html">worker-src 'none';
+</code></pre>
+<h3 id="manifest-src">manifest-src</h3>
+<p>Restricts the URLs that application manifests can be loaded.</p>
+<pre><code class="lang-html">manifest-src 'none';
+</code></pre>
+<h3 id="navigate-to">navigate-to</h3>
+<p>Restricts the URLs that the document may navigate to by any means. For example, when a link is clicked, a form is submitted, or <em>window.location</em> is invoked. If <em>form-action</em> is present then this directive is ignored for form submissions. <a href="https://www.chromestatus.com/features/6457580339593216">Implementation Status</a></p>
+<pre><code class="lang-html">navigate-to nopcommerce.com
+</code></pre>
+<h2 id="content-security-policy-examples">Content-Security-Policy Examples</h2>
+<h3 id="allow-everything-but-only-from-the-same-origin">Allow everything but only from the same origin</h3>
+<pre><code class="lang-html">default-src 'self';
+</code></pre>
+<h3 id="only-allow-scripts-from-the-same-origin">Only Allow Scripts from the same origin</h3>
+<pre><code class="lang-html">script-src 'self';
+</code></pre>
+<h3 id="allow-google-analytics-google-ajax-cdn-and-same-origin">Allow Google Analytics, Google AJAX CDN, and Same Origin</h3>
+<pre><code class="lang-html">script-src 'self' www.google-analytics.com ajax.googleapis.com;
+</code></pre>
+<h3 id="starter-policy">Starter Policy</h3>
+<pre><code class="lang-html">default-src 'none'; script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self';
+</code></pre>
+<p>This policy allows images, scripts, AJAX, and CSS from the same origin, and does not allow any other resources to load (eg object, frame, media, etc). It is a good starting point for many sites.</p>
+<h2 id="content-security-policy-error-messages">Content-Security-Policy Error Messages</h2>
+<p>Based on the browser, the CSP error messages may differ.</p>
+<p>In Chrome developer tools, we can see the following message.</p>
+<pre><code class="lang-js">Refused to load the script 'script-uri' because it violates the following Content Security Policy directive: &quot;your CSP directive&quot;.
+</code></pre>
+<p>In Firefox developer tools are as follows.</p>
+<pre><code class="lang-js">Content Security Policy: A violation occurred for a report-only CSP policy (&quot;An attempt to execute inline scripts has been blocked&quot;). The behavior was allowed, and a CSP report was sent.
+</code></pre>
+<p>In addition to a console message, a <strong>securitypolicyviolation</strong> event is fired on the window. For more info, follow this <a href="https://www.w3.org/TR/CSP2/#firing-securitypolicyviolationevent-events.">link</a>.</p>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/developer/tutorials/csp-headers.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

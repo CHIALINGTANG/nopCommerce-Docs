@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>資料庫遷移 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="資料庫遷移 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/developer/tutorials/migrations">
+<h1 id="資料庫遷移">資料庫遷移</h1>
+
+<h2 id="資料庫處理方式變更的簡述">資料庫處理方式變更的簡述</h2>
+<p>在 nopCommerce 4.30 版本中，資料庫的處理方式進行了大幅度的重構。第一個可以注意到的變化是完全放棄了導覽屬性 (Navigation properties)。我們可能會針對此方式的實用性進行討論與爭辯，但它確實有幾個正面優點：</p>
+<ol>
+<li>簡化了程式碼的理解與維護。
+<div class="NOTE">
+<h5>Note</h5>
+<p>在程式碼重構過程中，我們發現並修正了幾個影響效能與功能性的不精確之處。</p>
+</div>
+</li>
+<li>對查詢及其執行時機擁有完全的控制權（這對整體解決方案的效能有正面的影響）。</li>
+<li>簡化了遷移至任何資料庫框架的可能性（這點最為重要）。</li>
+</ol>
+<p>由於 nopCommerce 完全轉換至 .Net Core (4.10 版本) 並成為跨平台解決方案，支援多種資料庫已變得越來越重要。nopCommerce 團隊進行了大量的研究與分析，決定放棄使用標準的 Entity Framework Core。同時，我們決定不再透過 OOP 方式（這是 C# 開發人員最常用的方式）使用 LINQ 查詢來操作資料庫。最終選擇了 Linq2DB 與 FluentMigrator 的組合。以下我將詳細說明這兩個框架各自的角色。</p>
+<h2 id="linq2db">Linq2DB</h2>
+<div class="NOTE">
+<h5>Note</h5>
+<p>從 4.30 版本開始，nopCommerce 使用 Linq2DB 作為 ORM 框架。Linq2DB 是一個物件關聯對映 (ORM) 框架，它讓 .NET 開發人員能夠使用 .NET 物件來操作資料庫。它可以將 .Net 物件對應到多種不同的資料庫提供者。</p>
+</div>
+<p>在 nopCommerce 中，Linq2DB 被用作資料庫存取層。目前，nopCommerce 支援三種最受歡迎的資料庫：MS SQL Server、MySQL 與 PostgreSQL。如果我們分析程式碼，可以輕易看出每個資料庫都有各自實作 <code>INopDataProvider</code> 介面的類別。但如果您不打算建立自己的資料庫存取提供者，則可以完全忽略這些實作細節。對於大多數的開發任務，只需理解以下幾點就足夠了：</p>
+<ol>
+<li>您需要一個對應到資料庫資料表的物件（POCO 類別）。</li>
+<li>所有與資料表資料相關的操作皆透過 <code>IRepository&lt;TEntity&gt;</code> 介面執行。您甚至不需要擔心將其放入 IoC，因為它已透過呼叫對應的工廠方法進行註冊。</li>
+<li>您需要控制資料庫中資料表的建立。</li>
+</ol>
+<p>為了解決最後一個問題，我們需要處理該組合中的第二個框架，即 FluentMigrator。</p>
+<h2 id="fluentmigrator">FluentMigrator</h2>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Fluent Migrator 是一個 .NET 的遷移框架，與 Ruby on Rails Migrations 非常相似。<em>遷移</em> 是變更資料庫綱要 (Schema) 的一種結構化方式，它取代了大量需要由每位參與開發人員手動執行的 SQL 指令稿。遷移解決了為多種資料庫（例如開發人員的本機資料庫、測試資料庫與正式環境資料庫）演進資料庫綱要的問題。資料庫綱要的變更是在以 C# 編寫的類別中描述的。這些類別可以被納入版本控制系統中。</p>
+</div>
+<p>有關新增實體的詳細規劃請參見以下文章：<a class="xref" href="../plugins/how-to-write-plugin-4.70.html">具備資料存取功能的外掛</a>。因此，我們在此僅討論一般的理論觀點：</p>
+<ol>
+<li>遷移在 nopCommerce 程式碼層級本身即受到支援。</li>
+<li>您可以建立任何繼承自抽象類別 <strong>MigrationBase</strong> 的遷移。</li>
+<li>為了簡化遷移的版本控制，我們在程式碼中新增了繼承自 <strong>MigrationAttribute</strong> 的 <strong>NopMigrationAttribute</strong> 屬性。現在，您只需指定建立遷移的日期與時間，而不需要使用傳統的長數字。</li>
+<li>我們也新增了 <strong>SkipMigrationOnUpdateAttribute</strong> 屬性，用來指示在更新過程中是否應跳過此遷移。</li>
+<li>您可以透過兩種方式在資料庫中建立資料表：
+<ul>
+<li>在遷移類別的 <strong>Up</strong> 方法中使用 <strong>Create.Table</strong> 方法，並使用擴充方法指定所有細節。</li>
+<li>在遷移類別的 <strong>Up</strong> 方法中使用 <strong>IMigrationManager.BuildTable&lt;T&gt;</strong> 方法，並在需要時透過實作 <strong>IEntityBuilder</strong> 與 <strong>INameCompatibility</strong> 介面來指定所有細節（在 nopCommerce 中我們使用此種方式）。</li>
+</ul>
+</li>
+</ol>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>為了執行新的遷移，您必須提高 plugin.json 檔案中的版本號。</p>
+</div>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/developer/tutorials/migrations.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

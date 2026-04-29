@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Catalog settings </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Catalog settings ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/running-your-store/catalog/catalog-settings">
+<h1 id="catalog-settings">Catalog settings</h1>
+
+<p>Catalog settings include enabling options for product sorting, changing view modes, comparing products, and more.</p>
+<p>To define catalog settings, go to <strong>Configuration → Settings → Catalog settings</strong>. The catalog settings page is available in <em>advanced</em> and <em>basic</em> modes (advanced mode by default).</p>
+<p>This page enables multi-store configuration; it means that the same settings can be defined for all stores or differ from store to store. If you want to manage settings for a certain store, choose its name from the multi-store configuration dropdown list and select all the checkboxes needed on the left to set custom values for them. For further details, refer to <a class="xref" href="../../getting-started/advanced-configuration/multi-store.html">Multi-store</a>.</p>
+<h2 id="artificial-intelligence">Artificial Intelligence</h2>
+<p>This functionality integrates <em>Artificial Intelligence (AI)</em> services directly into the platform to automate the creation of product descriptions and Search Engine Optimization (SEO) meta tags, including Meta Title, Meta Description, and Meta Keywords.</p>
+<p>The feature is built into the core application and supports three popular AI service providers:</p>
+<ul>
+<li>DeepSeek</li>
+<li>Gemini</li>
+<li>ChatGPT</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Only one provider can be active at a time.</p>
+</div>
+<p>All related settings can be found on the <em>Catalog settings</em> page in the <strong>Artificial Intelligence</strong> section.</p>
+<p><img src="_static/catalog-settings/ai_settings.png" alt="AI"></p>
+<p>Key configuration options include:</p>
+<ul>
+<li><strong>Enable artificial intelligence</strong>: You can enable or disable the entire AI generation functionality. You can also independently enable or disable the generation of SEO fields.</li>
+<li><strong>Provider type</strong>: A dropdown menu allows you to choose which of the three supported AI providers will be used for content generation.</li>
+<li><strong>Prompt Templates - AI query to generate[..]</strong>: The templates for all API requests sent to the AI service can be edited. This allows advanced users to customize and fine-tune the prompts to better suit their specific needs.</li>
+</ul>
+<h3 id="generating-product-descriptions">Generating Product Descriptions</h3>
+<ol>
+<li><p>Navigate to the product edit page. The <strong>&quot;Generate description with AI&quot;</strong> button is located directly beneath the product description editor.</p>
+<p><img src="_static/catalog-settings/ai_product_description.png" alt="AI"></p>
+</li>
+<li><p>Clicking the button opens a configuration window.</p>
+<p><img src="_static/catalog-settings/ai_product_description_generate.png" alt="AI"></p>
+<p>Here, you can adjust the parameters that will be sent to the AI service to generate the description. The following fields are mandatory:</p>
+<ul>
+<li><strong>Product name</strong></li>
+<li><strong>Target language</strong></li>
+<li><strong>Features and keywords</strong></li>
+<li><strong>Tone of voice</strong></li>
+<li>You can also provide any <strong>Special instructions</strong> to guide the AI.</li>
+</ul>
+</li>
+<li><p>Click the <strong>&quot;Generate description with AI&quot;</strong> button in the pop-up window to send the request.</p>
+<ul>
+<li>On Success: The generated text will be displayed in the window. You can then <strong>Save</strong> it directly to the product description field or <strong>Copy to the clipboard</strong>. If you are not satisfied with the result, you can click the &quot;Generate&quot; button again to get a new version.</li>
+</ul>
+<p><img src="_static/catalog-settings/ai_product_description_generated.png" alt="AI"></p>
+<ul>
+<li>On Failure: If an error occurs during generation, an error message will be displayed instead of the text, often including a link to the log file for troubleshooting.</li>
+</ul>
+<p><img src="_static/catalog-settings/ai_product_description_generated_fail.png" alt="AI"></p>
+</li>
+</ol>
+<h3 id="generating-seo-meta-tags">Generating SEO Meta Tags</h3>
+<ol>
+<li><p>In the SEO section of the product edit page, each meta tag block contains a <strong>&quot;Generate meta tags with AI&quot;</strong> button.</p>
+<p><img src="_static/catalog-settings/ai_product_seo.png" alt="AI"></p>
+</li>
+<li><p>Clicking this button will automatically generate content for all SEO fields that are:</p>
+<ul>
+<li>Enabled for generation in the settings.</li>
+<li>Currently empty (the tool will not overwrite existing, manually entered data).</li>
+</ul>
+</li>
+</ol>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>If you make changes to fields that are used as a basis for generation (e.g., the product name or short description) and do not save them, the system will prompt you to save your changes before sending the request to the AI service.</p>
+<p><img src="_static/catalog-settings/ai_product_seo_alert.png" alt="AI"></p>
+</div>
+<h2 id="set-up-a-search">Set up a search</h2>
+<p><img src="_static/catalog-settings/search.jpg" alt="Search"></p>
+<p>The top panel on the page sets up <em>Search</em>:</p>
+<ul>
+<li><p>Select the <strong>Search enabled</strong> checkbox if you want the search functionality to be enabled in the public store.</p>
+</li>
+<li><p>Select the <strong>Search autocomplete enabled</strong> checkbox to display the autocomplete search box in the public store as follows:</p>
+<p><img src="_static/catalog-settings/search.png" alt="Search"></p>
+<p>When this option is enabled, the following additional fields will be displayed:</p>
+<ul>
+<li><strong>Number of 'autocomplete' products to display</strong> sets up the number of results that will be visible in the autocomplete dropdown list of the search box in the public store.</li>
+<li>Select the <strong>Show a link to all search results in the autocomplete box</strong> checkbox to display the link to all results in the autocomplete search box. Displayed if the number of items found is greater than the displayed quantity in the autocomplete box.</li>
+<li>Select the <strong>Show product images in autocomplete box</strong> checkbox to enable displaying product images in the autocomplete search box.</li>
+</ul>
+</li>
+<li><p><strong>Search term minimum length</strong> is a minimum number of chars required for the search.</p>
+</li>
+<li><p>Select the <strong>Search page. Allow customers to select page size</strong> checkbox if you want to allow customers to select the page size from the predefined list of options.</p>
+<ul>
+<li>In the <strong>Search page. Page size options</strong> field, enter a comma-separated list of page size options for customers or the number of products that you want to display on the search products page.</li>
+<li>If the <strong>Search page. Allow customers to select page size</strong> setting is disabled, the <strong>Search page. Products per page</strong> field will be displayed. In this field, enter the number of products you want to be displayed on the search page.</li>
+</ul>
+</li>
+<li><p>Select the <strong>Search page. Price range filtering</strong> checkbox if you want to enable filtering by price range.</p>
+<ul>
+<li>If you want the price range to be entered manually, select the <strong>Search page. Enter price range manually</strong> checkbox.
+<ul>
+<li>If the setting above is enabled, enter the <strong>Search page. Price 'from'</strong>.</li>
+<li>And the <strong>Search page. Price 'to'</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>If the <strong>Allow customers to search with manufacturer name</strong> is enabled, customers can search by manufacturer name.</p>
+</li>
+<li><p>If the <strong>Allow customers to search with category name</strong> is enabled, customers can search by category name.</p>
+</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Standard nopCommerce search relies on exact matches, so if you want to increase the speed and relevance of the search on your website, we recommend using Full-text Search. Unlike standard search, Full-text Search analyzes the entire website's content to retrieve the most relevant results. Auto-complete and typo tolerance optimize search speed and help users find exactly what they need.</p>
+<p><a class="xref" href="full-text-search/index.html">Learn more</a></p>
+</div>
+<h2 id="product-reviews">Product reviews</h2>
+<p><img src="_static/catalog-settings/product-reviews.jpg" alt="Product reviews"></p>
+<p>The second panel sets up <em>Product reviews</em>. Define the following:</p>
+<ul>
+<li><strong>Product reviews must be approved</strong> to enforce product reviews to be approved by the store administrator prior to being published.</li>
+<li><strong>One review per product from customer</strong> to restrict customer to add just 1 review per product.</li>
+<li><strong>Allow anonymous users to write product reviews</strong> to allow anonymous users to write product reviews.</li>
+<li><strong>Product review possible only after product purchasing</strong> to allow reviewing the product only by customers who have already ordered it.</li>
+<li><strong>Notify about new product reviews</strong> to notify the store owner about new public reviews.</li>
+<li><strong>Notify customer about product review reply</strong> to notify a customer about product review reply.</li>
+<li><strong>Reviews per store</strong> allows only displaying reviews of the current store (on the product details page). Clear this checkbox if you want your customers to see the product's reviews written in all of your stores.</li>
+<li><strong>Show product reviews tab on 'My account' page</strong> to allow customers to see all their reviews on the 'My account' page.</li>
+<li><strong>Product reviews page size</strong> is the number of reviews per page.</li>
+<li><strong>Sort by ascending</strong> to sort product reviews by creation date in ascending order.</li>
+</ul>
+<h2 id="review-types">Review types</h2>
+<p>The next block sets up <em>Review types</em>. You can configure a list of review types if you think that a basic review is not enough.</p>
+<p><img src="_static/catalog-settings/review_types.png" alt="Review types"></p>
+<p>Click <strong>Add new button</strong> to create a new review type.</p>
+<p><img src="_static/catalog-settings/quality_rating.png" alt="Quality rating"></p>
+<p>Define the following:</p>
+<ul>
+<li>Enter your review type <strong>Name</strong>.</li>
+<li>Enter the review type <strong>Description</strong>.</li>
+<li>Define the <strong>Display order</strong>.</li>
+<li>When <strong>Required</strong>, customers have to choose an appropriate rating value before they can continue.</li>
+<li><strong>Visible to all customers</strong> sets the visibility of the review type to all customers.</li>
+</ul>
+<p>Click the <strong>Save</strong> button to add a new review type.</p>
+<p>Now customers will be able to fill additional ratings on the product review page in the public store.</p>
+<p><img src="_static/catalog-settings/product_reviews.png" alt="Product reviews"></p>
+<p>On this page, you can also see the feedback left by all customers (if this setting is active). On the customer personal account page, there is also an opportunity to view all the reviews left for the products.</p>
+<p><img src="_static/catalog-settings/my_account.png" alt="My account"></p>
+<h2 id="performance">Performance</h2>
+<p><img src="_static/catalog-settings/performance.jpg" alt="Performance"></p>
+<p>The next panel sets up <em>Performance</em>. Having the following settings enabled can significantly improve the store performance:</p>
+<ul>
+<li><strong>Ignore ACL rules (sitewide)</strong> turns off the <a class="xref" href="../customer-management/access-control-list.html">ACL rules</a> configured for entities.</li>
+<li><strong>Ignore limit per store (sitewide)</strong> allows ignoring limit per stores rules configured for entities. It is recommended to enable this setting if you only have one store or no store-specific limitations. Read more about multi-store in the <a class="xref" href="../../getting-started/advanced-configuration/multi-store.html">Multi-store</a> section.</li>
+<li><strong>Ignore discounts (sitewide)</strong>.</li>
+<li><strong>Ignore featured products (sitewide)</strong>.</li>
+<li><strong>Cache product prices</strong>. You should not enable it if you use complex discounts, discount requirement rules or coupon codes.</li>
+</ul>
+<h2 id="share">Share</h2>
+<p><img src="_static/catalog-settings/share.jpg" alt="Share"></p>
+<p>Sharing options in the <em>Share</em> panel allow to set up an opportunity for shoppers to share the products across their social media networks. The options will appear as small icons on product pages. To set up the sharing options:</p>
+<ul>
+<li><p>Select the <strong>Show a share button</strong> to display a share button on the product details page. When this field is selected, the <strong>Share button code</strong> field will be displayed.</p>
+</li>
+<li><p>The <strong>Share button code</strong> field displays the page's button code.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>By default, the ShareThis service is used (<a href="https://sharethis.com/">https://sharethis.com/</a>).</p>
+</div>
+</li>
+</ul>
+<p>This is what share links look like:
+<img src="_static/catalog-settings/zzz.png" alt="Share"></p>
+<ul>
+<li>Select the <strong>'Email a friend' enabled</strong> checkbox to allow customers to use the &quot;Email a friend&quot; option.</li>
+<li><strong>Allow anonymous users to email a friend</strong> if needed.</li>
+</ul>
+<h2 id="compare-products">Compare products</h2>
+<p><img src="_static/catalog-settings/compare-products.jpg" alt="Compare products"></p>
+<p>Compare products option enables customers to compare various offers based on their characteristics and prices so that they can make the best shopping decisions. Set up the <em>Compare products</em> block as follows:</p>
+<ul>
+<li>Select the <strong>'Compare products' enabled</strong> checkbox to enable customers to compare product options in your public store. The <em>Add to compare list</em> button will appear on product pages.</li>
+<li>Select the <strong>Include short description in compare products</strong> checkbox to display short product descriptions on the compare products page.</li>
+<li>Select the <strong>Include full description in compare products</strong> checkbox to display full product descriptions on the compare products page.</li>
+</ul>
+<p><img src="_static/catalog-settings/compare_product.png" alt="compare_product"></p>
+<h2 id="additional-sections">Additional sections</h2>
+<p><img src="_static/catalog-settings/additional-sections.jpg" alt="Additional sections"></p>
+<p>The <em>Additional sections</em> panel allows you to set the following options:</p>
+<ul>
+<li>Select the <strong>Remove required products</strong> checkbox to automatically remove the required product from the cart when the main product is removed.</li>
+<li><strong>Show best sellers on home page</strong> allows you to show bestsellers on the home page.
+<ul>
+<li>If the previous checkbox is selected, you will be able to enter the <strong>Number of best sellers on home page</strong>.</li>
+</ul>
+</li>
+<li>Select the <strong>'Products also purchased' enabled</strong> checkbox to enable customers to view a list of products also purchased by those who purchased the above.
+<ul>
+<li>When the previous option is enabled, the <strong>Number of also purchased products to display</strong> field will appear. Here, the store owner can set the number of products to be displayed.</li>
+</ul>
+</li>
+<li>Select the <strong>'Recently viewed products' enabled</strong> checkbox to enable customers to see products recently viewed in your store.
+<ul>
+<li>In the <strong>Number of 'Recently viewed products'</strong> field, enter the number of recently viewed products to be displayed when the previous checkbox is selected.</li>
+</ul>
+</li>
+<li>Select the <strong>'New products' page enabled</strong> checkbox if you want the 'New products' page to be enabled in the store.
+<ul>
+<li>In the <strong>'New products' page. Page size options</strong> field, enter the number of recently added products to display when the <em>'New products' page enabled</em> is selected.</li>
+</ul>
+</li>
+<li>Select the <strong>Display the date for a pre-order availability</strong> checkbox if needed.</li>
+</ul>
+<h2 id="product-fields">Product fields</h2>
+<p><img src="_static/catalog-settings/product-fields.jpg" alt="Product fields"></p>
+<p>In the <em>Product fields</em> panel, you can set the following options:</p>
+<ul>
+<li><strong>Show SKU on product details page</strong>.</li>
+<li><strong>Show SKU on catalog pages</strong>.</li>
+<li><strong>Show GTIN</strong> in the public store.</li>
+<li><strong>Show manufacturer part number</strong> in the public store.</li>
+<li><strong>Show short description on catalog pages</strong> in the public store.</li>
+</ul>
+<h2 id="product-page">Product page</h2>
+<p><img src="_static/catalog-settings/product-page.jpg" alt="Product page"></p>
+<p>In the <em>Product page</em> panel, you can set the following options:</p>
+<ul>
+<li><p><strong>Product URL structure type</strong>. Possible values:</p>
+<ul>
+<li>/Product</li>
+<li>/Category/Product</li>
+<li>/Manufacturer/Product</li>
+</ul>
+</li>
+<li><p><strong>Show &quot;free shipping&quot; icon</strong> for products with this option enabled.</p>
+</li>
+<li><p><strong>Allow viewing of unpublished product details page</strong>. In this case, SEO will not be affected, and search crawlers will index the page, even though a product is temporarily unpublished and invisible to customers. Note that a store owner always has access to unpublished products.</p>
+</li>
+<li><p>Select the <strong>Discontinued message for unpublished products</strong> checkbox to display the &quot;a product has been discontinued&quot; message when customers try to access details pages of unpublished products.</p>
+</li>
+<li><p>Select the <strong>Display type for attribute value when out of stock</strong>. If the attribute combination is out of stock, you can show it as disabled or as usual.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Note that the <strong>Allow only existing attribute combinations</strong> option should be enabled for a product.</p>
+</div>
+</li>
+</ul>
+<h2 id="catalog-pages">Catalog pages</h2>
+<p><img src="_static/catalog-settings/catalog-pages.jpg" alt="Catalog pages"></p>
+<p>The <em>Catalog pages</em> panel enables you to set:</p>
+<ul>
+<li><strong>Allow view mode changing</strong> on the categories and manufacturers pages.</li>
+<li>The <strong>Default view mode</strong> to either <em>Grid</em> or <em>List</em>.</li>
+<li><strong>Include products from subcategories</strong> when viewing a category details page.</li>
+<li>To <strong>Show number of distinct products beside each category</strong> in the category navigation area located in the left column in the public store.
+<ul>
+<li>If needed, turn on the <strong>Show the number of distinct products besides each category</strong> setting.</li>
+</ul>
+</li>
+<li><strong>Category breadcrumb enabled</strong>. Select to enable the category path (breadcrumb). This is the bar at the top of the screen that indicates in which categories and subcategories the product was viewed on the product pages. Each subelement of the bar is a separate hyperlink.</li>
+<li><strong>Number of manufacturers to display</strong> in the manufacturer navigation block.</li>
+<li><strong>Use AJAX products loading</strong> to load products asynchronously (applicable to 'paging,' 'filtering,' 'view modes') on catalog pages.</li>
+<li><strong>Enable manufacturer filtering</strong> to enable the manufacturer filtering on catalog pages.</li>
+<li><strong>Enable price range filtering</strong> to enable the price range filtering on catalog pages.</li>
+<li><strong>Enable specification attribute filtering</strong> on the catalog pages if needed. If turned off, the specification attribute filtering won't be displayed on the catalog pages even if you have such attributes created.</li>
+<li><strong>Display all pictures on catalog pages</strong> - On the pages of the catalog it becomes possible to view all the pictures of the product.</li>
+<li><strong>Display 'From' prices</strong> - Check to display 'From' prices on catalog pages. This will display the minimum possible price of a product based on price adjustments of attributes and combinations instead of the fixed base price. If enabled, it is also recommended to enable setting 'Cache product prices'. But please note that it can affect performance if you use some complex discounts, discount requirement rules, etc.</li>
+</ul>
+<div class="TIP">
+<h5>Tip</h5>
+<p>To display a short description of the product on the catalog pages you need to activate this setting -  <code>catalogsettings.showshortdescriptiononcatalogpages</code></p>
+</div>
+<h2 id="tags">Tags</h2>
+<p><img src="_static/catalog-settings/tags.jpg" alt="Tags"></p>
+<p>In the <em>Tags</em> panel, you can define:</p>
+<ul>
+<li><strong>Number of product tags (cloud)</strong> — the number of tags that appear in the tag cloud.</li>
+<li>To <strong>Allow customers to select 'Products by tag' page size</strong> on the product tag page from a list of options predefined by the store owner. When disabled, customers will not be able to select page size, and the store owner enters it.
+<ul>
+<li>If the previous option is selected, the <strong>'Products by tag' page size options</strong> field becomes visible. You can enter values that can be selected by shop users. Numbers should be separated with commas. The first value will be the default.</li>
+<li>If the <strong>Allow customers to select 'Products by tag' page size</strong> setting is disabled, the <strong>'Products by tag' page. Products per page</strong> field will be displayed. In this field, enter the number of products you want to be displayed on the search page.</li>
+</ul>
+</li>
+<li>Select the <strong>'Products by tag' page. Price range filtering</strong> checkbox if you want to enable filtering by price range.
+<ul>
+<li>If you want the price range to be entered manually, select the <strong>'Products by tag' page. Enter price range manually</strong> checkbox.
+<ul>
+<li>If the setting above is enabled, enter the <strong>'Products by tag' page. Price 'from'</strong>.</li>
+<li>And the <strong>'Products by tag' page. Price 'to'</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="tax">Tax</h2>
+<p><img src="_static/catalog-settings/tax.jpg" alt="Tax"></p>
+<p>Some tax/shipping info options specific to Germany are available in the <em>Tax</em> panel:</p>
+<ul>
+<li><strong>Display tax/shipping info (footer)</strong>.</li>
+<li><strong>Display tax/shipping info (product details page)</strong>.</li>
+<li><strong>Display tax/shipping info (product boxes)</strong>.</li>
+<li><strong>Display tax/shipping info (shopping cart)</strong>.</li>
+<li><strong>Display tax/shipping info (wishlist)</strong>.</li>
+<li><strong>Display tax/shipping info (order details page)</strong>.</li>
+</ul>
+<h2 id="exportimport">Export/import</h2>
+<p><img src="_static/catalog-settings/import-export.jpg" alt="Export/import"></p>
+<p>In the <em>Export/import</em> panel, you can define:</p>
+<ul>
+<li>Select the <strong>Export/import products with attributes</strong> checkbox if you need product attributes to be exported/imported whenever you export/import the product.</li>
+<li>Select the <strong>Export/import products with specification attributes</strong> checkbox if products should be exported/imported with specification attributes.</li>
+<li>Select the <strong>Export/import products with category breadcrumb</strong> checkbox if products should be exported/imported with full category names including names of all its parents.</li>
+<li>Select the <strong>Export/import categories using name of category</strong> checkbox if categories should be exported/imported using the category names.</li>
+<li>Select the <strong>Export/import products. Allow download images</strong> checkbox if images can be downloaded from a remote server when exporting products.</li>
+<li>Select the <strong>Export/import products. Allow splitting file</strong> checkbox if you want to import products from individual optimal-size files automatically created from the main file. This function will help you import a large amount of data with a smaller delay.</li>
+<li>Select the <strong>Export/import related entities using name</strong> checkbox if related entities should be exported/imported using names.</li>
+<li>Select the <strong>Export/import products with &quot;limited to stores&quot;</strong> checkbox if products should be exported/imported with their &quot;limited to stores&quot; properties.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>When you have two or more languages, Export/Import to Excel/XML supports multilingual data.</p>
+</div>
+<h2 id="product-sorting">Product sorting</h2>
+<p>In the <em>Product sorting</em> panel, you can define:</p>
+<ul>
+<li><p>Select the <strong>Allow product sorting</strong> checkbox to enable a product sorting option on the categories and manufacturers pages. You can activate/deactivate sorting by <em>Position</em>, <em>Name</em>, <em>Price</em>, and <em>Date of creation</em>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Selecting the value &quot;Position&quot; means that there will be no restrictions on the sorting of products.</p>
+</div>
+<p><img src="_static/catalog-settings/product_sorting.jpg" alt="product_sorting"></p>
+<p>You can edit the <strong>Display order</strong> and <strong>Is active</strong> property of each option by clicking the <strong>Edit</strong> button.</p>
+</li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/running-your-store/catalog/catalog-settings.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

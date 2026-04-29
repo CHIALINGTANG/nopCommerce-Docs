@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>如何編寫自己的運費計算方式 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="如何編寫自己的運費計算方式 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/developer/plugins/shipping-plugin">
+<h1 id="如何編寫自己的運費計算方式">如何編寫自己的運費計算方式</h1>
+
+<p>如果顧客購買了需要運送的商品，他們可以在結帳期間選擇運送方式。這些運送方式是由運費計算方式（例如 <em>UPS</em>、<em>USPS</em>、<em>FedEx</em> 等）所回傳的。在 nopCommerce 中，運費計算方式是以「外掛」的形式實作。我們建議您在開始編寫新的運費計算方式之前，先閱讀 <a class="xref" href="how-to-write-plugin-4.70.html">如何為 nopCommerce 4.90 編寫外掛</a>。該文章將向您解釋建立外掛所需的步驟。實際上，運費計算方式就是一個實作 <strong>IShippingRateComputationMethod</strong> 介面（位於 <code>Nop.Services.Shipping</code> 命名空間）的一般外掛。因此，請將一個新的外掛專案（<em>類別庫</em>）新增至解決方案，讓我們開始吧。</p>
+<h2 id="控制器檢視與模型">控制器、檢視與模型</h2>
+<p>新增一個控制器以及對應的 <strong>Configure</strong> 動作方法和檢視。這將決定商店擁有者如何在管理後台的 <em>系統 → 設定 → 運送 → 運送提供者</em> 中查看設定選項。本文不說明如何設定外掛，但您可以 <a class="xref" href="../../getting-started/configure-shipping/shipping-providers/index.html">在此處找到更多相關資訊</a>。</p>
+<p><img src="_static/shipping-plugin/shipping-plugin_1.png" alt="shipping-plugin_1"></p>
+<p>完成此步驟後，您就可以開始新增取得運送選項所需的業務邏輯。</p>
+<h2 id="取得運送選項">取得運送選項</h2>
+<p>現在，您需要建立一個實作 <strong>IShippingRateComputationMethod</strong> 介面的類別。這就是負責處理所有實際工作的類別。當 nopCommerce 計算運費總額或需要取得可用運送選項列表時，您類別中的 <strong>GetShippingOptionsAsync</strong> 或 <strong>GetFixedRateAsync</strong> 方法將會被呼叫。以下是 UPSComputationMethod 類別的定義方式（即「UPS」方法）：</p>
+<pre><code class="lang-csharp">public class UPSComputationMethod : BasePlugin, IShippingRateComputationMethod
+</code></pre>
+<p><strong>IShippingRateComputationMethod</strong> 介面有幾個必須實作的方法與屬性。</p>
+<ul>
+<li><strong>GetShippingOptionsAsync</strong>。當顧客在結帳期間選擇運送選項時，此方法會被呼叫。此方法回傳 <strong><code>GetShippingOptionResponse</code></strong>，其中包含一個 <strong>ShippingOption</strong> 物件列表。每個 <strong>ShippingOption</strong> 物件都包含關於特定運送選項的資訊，例如選項名稱（例如「陸運」）、其費率（例如 10 美元）以及其他資訊。請將您的所有邏輯放在這裡（從您的資料庫取得費率，或向第三方網站如 <em>UPS</em> 請求費率）。</li>
+<li><strong>GetFixedRateAsync</strong>。如您所知，<strong>GetShippingOptionsAsync</strong> 用於在結帳期間（在「選擇運送方式」頁面上）取得運送選項。但有時我們需要在選擇運送選項之前就知道運費（例如在購物車頁面上）。在這種情況下，您可以回傳一個固定費率。例如，若您的運費計算方式僅提供一種運送選項，則無需等待顧客在「選擇運送方式」頁面上進行選擇。若您的固定費率不支援此項功能，請回傳 <strong><code>null</code></strong>。在這種情況下，顧客將會在購物車的「運費總計」旁看到以下訊息：「<em>於結帳時計算</em>」。</li>
+<li><strong>GetShipmentTrackerAsync</strong>。此方法用於取得關聯的運送追蹤器。結果會回傳一個 <strong>IShipmentTracker</strong>，其中包含顯示追蹤資訊的頁面 URL（第三方追蹤頁面）以及關於運送事件的所有資訊。</li>
+</ul>
+<h2 id="結論">結論</h2>
+<p>希望這些內容能協助您開始新增自訂的運費計算方式。</p>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/developer/plugins/shipping-plugin.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

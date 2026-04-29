@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Requests for quote (RFQ) </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Requests for quote (RFQ) ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/running-your-store/order-management/rfq">
+<h1 id="request-for-quote-rfq--quote-support">Request for Quote (RFQ) &amp; Quote Support</h1>
+
+<h2 id="overview">Overview</h2>
+<p>This functionality is implemented as a standalone plugin that allows customers to submit a <strong>Request for Quote (RFQ)</strong> for products in their shopping cart. It is particularly useful for negotiating bulk discounts or special pricing that is not otherwise available on the site.</p>
+<p>In response, site administrators can create and send a formal <strong>Quote</strong> to the customer, outlining a special offer.</p>
+<h2 id="setup--configuration">Setup &amp; Configuration</h2>
+<p>The plugin's configuration is straightforward:</p>
+<ul>
+<li><strong>Activation</strong>: The entire feature can be enabled or disabled with a single setting.
+<img src="_static/rfq/configure.png" alt="Image"></li>
+<li><strong>Access Control</strong>: Access Control List (ACL) permissions can be configured separately for the public-facing storefront and the admin panel to control who can use the feature.
+<img src="_static/rfq/acl.png" alt="Image"></li>
+</ul>
+<h2 id="usage">Usage</h2>
+<h3 id="customer-workflow">Customer Workflow</h3>
+<ol>
+<li><strong>Initiating an RFQ</strong>: If the plugin is active and permitted by ACLs, a new button appears on the shopping cart page.
+<img src="_static/rfq/sc_request.png" alt="Image">
+Clicking it takes the user to the RFQ creation form.
+<img src="_static/rfq/sc_request_form.png" alt="Image"></li>
+<li><strong>Editing the RFQ</strong>: On this form, the user can adjust the request before submitting it. The RFQ is not saved to the database until it is sent.
+<ul>
+<li>Add comments to the request.</li>
+<li>Propose a custom quantity and price per unit for each item.</li>
+<li>The user can return to the cart by clicking <strong>&quot;Back to shopping cart&quot;</strong>.</li>
+</ul>
+</li>
+<li><strong>Submitting the RFQ</strong>: Once the user clicks <strong>&quot;Send request&quot;</strong>, the RFQ is submitted and can no longer be edited by the user. The only available actions are to cancel or delete it.
+<img src="_static/rfq/sc_request_form_create.png" alt="Image"></li>
+<li><strong>Managing RFQs and Quotes</strong>: After submitting a request, two new menu items appear in the user's account section:
+<ul>
+<li><strong>&quot;Requests for quote&quot;</strong>: A list of all submitted RFQs.
+<img src="_static/rfq/sc_request_list.png" alt="Image"></li>
+<li><strong>&quot;Quotes&quot;</strong>: A list of all offers received from the store administrator. The user receives an email notification when a new quote is sent.
+<img src="_static/rfq/customer_q_list.png" alt="Image"></li>
+</ul>
+</li>
+<li><strong>Creating an Order from a Quote</strong>: If a received quote is acceptable and not expired, the user can click <strong>&quot;Create the order&quot;</strong>.
+<img src="_static/rfq/customer_q_create_order.png" alt="Image">
+This action performs the following:
+<ul>
+<li>The user's current shopping cart is cleared.</li>
+<li>A new cart is created containing the exact items and prices from the quote.</li>
+<li>The user proceeds to the standard checkout process.</li>
+</ul>
+</li>
+<li><strong>Quote Mode Limitations</strong>:
+<ul>
+<li>Once a cart has been generated from a quote, it is considered in &quot;quote mode&quot;.</li>
+<li>The user cannot add any other items to the cart or modify the items from the quote. Attempting to do so will cancel the quote mode and empty the cart.</li>
+<li>The user can click <strong>&quot;Exit quote mode&quot;</strong> to clear the cart and return to the main store page.
+<img src="_static/rfq/sc_by_q.png" alt="Image"></li>
+</ul>
+</li>
+</ol>
+<h3 id="administrator-workflow">Administrator Workflow</h3>
+<ol>
+<li><strong>Notification and Management</strong>: When a user submits an RFQ, the store owner receives an email notification. Two new menu items appear in the admin panel for managing RFQs and Quotes, leading to their respective lists.
+<img src="_static/rfq/admin_rfq.png" alt="Image"></li>
+<li><strong>Reviewing an RFQ</strong>: From the RFQ list, an admin can view the details of a user's request. On the edit page, the admin can:
+<ul>
+<li>Modify any product line item.</li>
+<li>Delete an item from the request.</li>
+<li>Cancel or delete the entire RFQ.
+<img src="_static/rfq/admin_rfq_edit.png" alt="Image"></li>
+</ul>
+</li>
+<li><strong>Creating a Quote</strong>:
+<ul>
+<li><strong>From an RFQ</strong>: The admin can directly convert an RFQ into a quote by clicking the <strong>&quot;Create the quote&quot;</strong> button on the RFQ detail page.
+<img src="_static/rfq/admin_rfq_create_q.png" alt="Image"></li>
+<li><strong>From Scratch</strong>: A new quote can also be created independently from the main quotes list page.</li>
+</ul>
+</li>
+<li><strong>Editing a Quote</strong>: On the quote editing page, the admin can:
+<ul>
+<li>Modify existing product data.</li>
+<li>Add new products via a two-step process:
+<ul>
+<li>first search for the product;
+<img src="_static/rfq/admin_create_q.png" alt="Image"></li>
+<li>then set the desired quantity and price;
+<img src="_static/rfq/admin_create_q_product.png" alt="Image"></li>
+</ul>
+</li>
+<li>Set an expiration date for the offer. After this date, the user can no longer create an order from it.</li>
+</ul>
+</li>
+<li><strong>Sending a Quote</strong>: The quote is saved in the database but remains hidden from the user until the admin clicks <strong>&quot;Send quote&quot;</strong>. Upon sending, the user receives an email notification.</li>
+<li><strong>Post-Submission Rules</strong>:
+<ul>
+<li>Once a quote has been sent to the user, it can no longer be edited by the administrator.</li>
+<li>A sent quote can only be deleted if the user has not yet created an order from it.</li>
+</ul>
+</li>
+</ol>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/running-your-store/order-management/rfq.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

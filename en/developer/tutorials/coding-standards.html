@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Coding Standards </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Coding Standards ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/developer/tutorials/coding-standards">
+<h1 id="coding-standards">Coding Standards</h1>
+
+<p>nopCommerce has specific coding guidelines that developers should follow when creating source code. The <a href="https://github.com/nopSolutions/nopCommerce/blob/develop/.editorconfig">.editorconfig</a> file in Visual Studio helps to enforce the desired code style.</p>
+<p>There are three supported .NET coding convention categories:</p>
+<ul>
+<li>Language conventions</li>
+<li>Formating conventions</li>
+<li>Naming conventions</li>
+</ul>
+<h2 id="language-conventions">Language conventions</h2>
+<h3 id="net-code-style-settings">.NET code style settings</h3>
+<h4 id="this-qualifiers">&quot;this.&quot; qualifiers</h4>
+<p>This style rule can be applied to fields, properties, methods, or events.</p>
+<ul>
+<li><p>Prefer the code element <em>not</em> to be prefaced with <code>this.</code></p>
+</li>
+<li><p>Prefer fields <em>not</em> to be prefaced with <code>this.</code></p>
+<pre><code class="lang-csharp">//Right
+capacity = 0;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+this.capacity = 0;
+</code></pre>
+</li>
+<li><p>Prefer properties <em>not</em> to be prefaced with <code>this.</code></p>
+<pre><code class="lang-csharp">//Right
+ID = 0;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+this.ID = 0;
+</code></pre>
+</li>
+<li><p>Prefer methods <em>not</em> to be prefaced with <code>this.</code></p>
+<pre><code class="lang-csharp">//Right
+Display();
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+this.Display();
+</code></pre>
+</li>
+<li><p>Prefer events <em>not</em> to be prefaced with <code>this.</code></p>
+<pre><code class="lang-csharp">//Right
+Elapsed += Handler;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+this.Elapsed += Handler;
+</code></pre>
+</li>
+</ul>
+<h4 id="language-keywords-instead-of-framework-type-names-for-type-references">Language keywords instead of framework type names for type references</h4>
+<p>This style rule can be applied to local variables, method parameters, and class members, or as a separate rule to type member access expressions.</p>
+<ul>
+<li><p>Prefer the language keyword for local variables, method parameters, and class members, instead of the type name, for types that have a keyword to represent them.</p>
+<pre><code class="lang-csharp">//Right
+private int _member;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+private Int32 _member;
+</code></pre>
+</li>
+<li><p>Prefer the language keyword for member access expressions, instead of the type name, for types that have a keyword to represent them.</p>
+<pre><code class="lang-csharp">//Right
+var local = int.MaxValue;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var local = Int32.MaxValue;
+</code></pre>
+</li>
+</ul>
+<h4 id="modifier-preferences">Modifier preferences</h4>
+<p>The style rules in this section concern modifier preferences, including requiring accessibility modifiers, specifying the desired modifier sort order, and requiring the read-only modifier.</p>
+<ul>
+<li><p>Prefer accessibility modifiers to be declared except for public interface members.</p>
+<pre><code class="lang-csharp">//Right
+class MyClass
+{
+    private const string thisFieldIsConst = &quot;constant&quot;;
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+class MyClass
+{
+    const string thisFieldIsConst = &quot;constant&quot;;
+}
+</code></pre>
+</li>
+<li><p>Prefer the specified ordering:</p>
+<p><em><code>public, private, protected, internal, static, extern, new, virtual, abstract, sealed, override, readonly, unsafe, volatile, async:silent</code></em></p>
+<pre><code class="lang-csharp">//Right
+class MyClass
+{
+    private static readonly int _daysInYear = 365;
+}
+</code></pre>
+</li>
+</ul>
+<h4 id="parentheses-preferences">Parentheses preferences</h4>
+<p>The style rules in this section concern parentheses preferences, including the use of parentheses for arithmetic, relational, and other binary operators.</p>
+<ul>
+<li><p>Prefer parentheses to clarify arithmetic operator (*, /, %, +, -, &lt;&lt;, &gt;&gt;, &amp;, ^, |) precedence</p>
+<pre><code class="lang-csharp">//Right
+var v = a + (b * c);
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var v = a + b * c;
+</code></pre>
+</li>
+<li><p>Prefer parentheses to clarify relational operator (&gt;, &lt;, &lt;=, &gt;=, is, as, ==, !=) precedence</p>
+<pre><code class="lang-csharp">//Right
+var v = (a &lt; b) == (c &gt; d);
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var v = a &lt; b == c &gt; d;
+</code></pre>
+</li>
+<li><p>Prefer parentheses to clarify other binary operators (&amp;&amp;, ||, ??) precedence</p>
+<pre><code class="lang-csharp">//Right
+var v = a || (b &amp;&amp; c);
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var v = a || b &amp;&amp; c;
+</code></pre>
+</li>
+<li><p>Prefer to not have parentheses when operator precedence is obvious</p>
+<pre><code class="lang-csharp">//Right
+var v = a.b.Length;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var v = (a.b).Length;
+</code></pre>
+</li>
+</ul>
+<h4 id="expression-level-preferences">Expression-level preferences</h4>
+<p>The style rules in this section concern expression-level preferences, including the use of object initializers, collection initializers, explicit or inferred tuple names, and inferred anonymous types.</p>
+<ul>
+<li><p>Prefer objects to be initialized using object initializers when possible</p>
+<pre><code class="lang-csharp">//Right
+var c = new Customer() { Age = 21 };
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var c = new Customer();
+c.Age = 21;
+</code></pre>
+</li>
+<li><p>Prefer collections to be initialized using collection initializers when possible</p>
+<pre><code class="lang-csharp">//Right
+var list = new List&lt;int&gt; { 1, 2, 3 };
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var list = new List&lt;int&gt;();
+list.Add(1);
+list.Add(2);
+list.Add(3);
+</code></pre>
+</li>
+<li><p>Prefer tuple names to ItemX properties</p>
+<pre><code class="lang-csharp">//Right
+(string name, int age) customer = GetCustomer();
+var name = customer.name;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+(string name, int age) customer = GetCustomer();
+var name = customer.Item1;
+</code></pre>
+</li>
+<li><p>Prefer inferred tuple element names</p>
+<pre><code class="lang-csharp">//Right
+var tuple = (age, name);
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var tuple = (age: age, name: name);
+</code></pre>
+</li>
+<li><p>Prefer explicit anonymous type member names</p>
+<pre><code class="lang-csharp">//Right
+var anon = new { age = age, name = name };
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var anon = new { age, name };
+</code></pre>
+</li>
+<li><p>Prefer auto-properties over properties with private backing fields</p>
+<pre><code class="lang-csharp">//Right
+private int Age { get; }
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+private int age;
+
+public int Age
+{
+    get
+    {
+        return age;
+    }
+}
+</code></pre>
+</li>
+<li><p>Prefer using a null check with pattern-matching over <em><code>object.ReferenceEquals</code></em></p>
+<pre><code class="lang-csharp">//Right
+if (value is null)
+    return;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+if (object.ReferenceEquals(value, null))
+    return;
+</code></pre>
+</li>
+<li><p>Prefer assignments with a ternary conditional over an if-else statement</p>
+<pre><code class="lang-csharp">//Right
+string s = expr ? &quot;hello&quot; : &quot;world&quot;;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+string s;
+if (expr)
+{
+    s = &quot;hello&quot;;
+}
+else
+{
+    s = &quot;world&quot;;
+}
+</code></pre>
+</li>
+<li><p>Prefer return statements to use a ternary conditional over an if-else statement</p>
+<pre><code class="lang-csharp">//Right
+return expr ? &quot;hello&quot; : &quot;world&quot;;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+if (expr)
+{
+    return &quot;hello&quot;;
+}
+else
+{
+    return &quot;world&quot;;
+}
+</code></pre>
+</li>
+<li><p>Prefer compound assignment expressions</p>
+<pre><code class="lang-csharp">//Right
+x += 1;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+x = x + 1;
+</code></pre>
+</li>
+</ul>
+<h4 id="null-checking-preferences">Null-checking preferences</h4>
+<p>The style rules in this section concern null-checking preferences.</p>
+<ul>
+<li><p>Prefer null coalescing expressions to ternary operator checking</p>
+<pre><code class="lang-csharp">//Right
+var v = x ?? y;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var v = x != null ? x : y; // or
+var v = x == null ? y : x;
+</code></pre>
+</li>
+<li><p>Prefer to use a null-conditional operator when possible</p>
+<pre><code class="lang-csharp">//Right
+var v = o?.ToString();
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var v = o == null ? null : o.ToString(); // or
+var v = o != null ? o.String() : null;
+</code></pre>
+</li>
+</ul>
+<h3 id="c-code-style-settings">C# code style settings</h3>
+<h4 id="implicit-and-explicit-types">Implicit and explicit types</h4>
+<p>The style rules in this section concern the use of the var keyword versus an explicit type in a variable declaration. This rule can be applied separately to built-in types, when the type is apparent, and elsewhere.</p>
+<ul>
+<li><p>Prefer <em><code>var</code></em> is used to declare variables with built-in system types such as <em><code>int</code></em></p>
+<pre><code class="lang-csharp">//Right
+var x = 5;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+int x = 5;
+</code></pre>
+</li>
+<li><p>Prefer <em><code>var</code></em> when the type is already mentioned on the right-hand side of a declaration expression</p>
+<pre><code class="lang-csharp">//Right
+var obj = new Customer();
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+Customer obj = new Customer();
+</code></pre>
+</li>
+<li><p>Prefer <em><code>var</code></em> over explicit type in all cases, unless overridden by another code style rule</p>
+<pre><code class="lang-csharp">//Right
+var f = this.Init();
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+bool f = this.Init();
+</code></pre>
+</li>
+</ul>
+<h4 id="expression-bodied-members">Expression-bodied members</h4>
+<p>The style rules in this section concern the use of <a href="https://docs.microsoft.com/dotnet/csharp/programming-guide/statements-expressions-operators/expression-bodied-members">expression-bodied members</a> when the logic consists of a single expression. This rule can be applied to methods, constructors, operators, properties, indexers, and accessors.</p>
+<ul>
+<li><p>Prefer block bodies for methods</p>
+<pre><code class="lang-csharp">//Right
+public int GetAge() { return this.Age; }
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+public int GetAge() =&gt; this.Age;
+</code></pre>
+</li>
+<li><p>Prefer block bodies for constructors</p>
+<pre><code class="lang-csharp">//Right
+public Customer(int age) { Age = age; }
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+public Customer(int age) =&gt; Age = age;
+</code></pre>
+</li>
+<li><p>Prefer block bodies for operators</p>
+<pre><code class="lang-csharp">//Right
+public static ComplexNumber operator + (ComplexNumber c1, ComplexNumber c2)
+{ return new ComplexNumber(c1.Real + c2.Real, c1.Imaginary + c2.Imaginary); }
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+public static ComplexNumber operator + (ComplexNumber c1, ComplexNumber c2)
+    =&gt; new ComplexNumber(c1.Real + c2.Real, c1.Imaginary + c2.Imaginary);
+</code></pre>
+</li>
+<li><p>Prefer expression bodies for properties when they will be a single line</p>
+<pre><code class="lang-csharp">//Right
+public int Age =&gt; _age;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+public int Age { get { return _age; }}
+</code></pre>
+</li>
+<li><p>Prefer expression bodies for indexers</p>
+<pre><code class="lang-csharp">//Right
+public T this[int i] =&gt; _values[i];
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+public T this[int i] { get { return _values[i]; } }
+</code></pre>
+</li>
+<li><p>Prefer expression bodies for accessors</p>
+<pre><code class="lang-csharp">//Right
+public int Age { get =&gt; _age; set =&gt; _age = value; }
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+public int Age { get { return _age; } set { _age = value; } }
+</code></pre>
+</li>
+<li><p>Prefer expression bodies for lambdas</p>
+<pre><code class="lang-csharp">//Right
+Func&lt;int, int&gt; square = x =&gt; x * x;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+Func&lt;int, int&gt; square = x =&gt; { return x * x; };
+</code></pre>
+</li>
+</ul>
+<h4 id="pattern-matching">Pattern matching</h4>
+<p>The style rules in this section concern the use of <a href="https://docs.microsoft.com/dotnet/csharp/pattern-matching">pattern matching</a> in C#.</p>
+<ul>
+<li><p>Prefer pattern matching instead of is expressions with type casts</p>
+<pre><code class="lang-csharp">//Right
+if (o is int i) {...}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+if (o is int) {var i = (int)o; ... }
+</code></pre>
+</li>
+<li><p>Prefer pattern matching instead of <em><code>as</code></em> expressions with null checks to determine if something is of a particular type</p>
+<pre><code class="lang-csharp">//Right
+if (o is string s) {...}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var s = o as string;
+if (s != null) {...}
+</code></pre>
+</li>
+</ul>
+<h4 id="inlined-variable-declarations">Inlined variable declarations</h4>
+<p>This style rule concerns whether out variables are declared inline or not. Starting in C# 7, you can <a href="https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/out-parameter-modifier#calling-a-method-with-an-out-argument">declare an out variable in the argument list of a method call</a>, rather than in a separate variable declaration.</p>
+<ul>
+<li><p>Prefer <em><code>out</code></em> variables to be declared inline in the argument list of a method call when possible</p>
+<pre><code class="lang-csharp">//Right
+if (int.TryParse(value, out int i)) {...}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+int i;
+if (int.TryParse(value, out i)) {...}
+</code></pre>
+</li>
+</ul>
+<h4 id="c-expression-level-preferences">C# expression-level preferences</h4>
+<p>This style rule concerns using the <a href="https://docs.microsoft.com/dotnet/csharp/programming-guide/statements-expressions-operators/default-value-expressions#default-literal-and-type-inference">default literal for default value expressions</a> when the compiler can infer the type of the expression.</p>
+<ul>
+<li><p>Prefer <em><code>default</code></em> over <em><code>default(T)</code></em></p>
+<pre><code class="lang-csharp">//Right
+void DoWork(CancellationToken cancellationToken = default) { ... }
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+void DoWork(CancellationToken cancellationToken = default(CancellationToken)) {   ... }
+</code></pre>
+</li>
+</ul>
+<h4 id="c-null-checking-preferences">C# null-checking preferences</h4>
+<p>These style rules concern the syntax around null checking, including using throw expressions or throw statements, and whether to perform a null check or use the conditional coalescing operator (?.) when invoking a <a href="https://docs.microsoft.com/dotnet/csharp/lambda-expressions">lambda expression</a>.</p>
+<ul>
+<li><p>Prefer to use throw expressions instead of throw statements</p>
+<pre><code class="lang-csharp">//Right
+this.s = s ?? throw new ArgumentNullException(nameof(s));
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+if (s == null) { throw new ArgumentNullException(nameof(s)); }
+this.s = s;
+</code></pre>
+</li>
+<li><p>Prefer to use the conditional coalescing operator (?.) when invoking a lambda expression, instead of performing a null check</p>
+<pre><code class="lang-csharp">//Right
+func?.Invoke(args);
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+if (func != null) { func(args); }
+</code></pre>
+</li>
+</ul>
+<h4 id="code-block-preferences">Code block preferences</h4>
+<p>This style rule concerns the use of curly braces { } to surround code blocks.</p>
+<ul>
+<li><p>Prefer no curly braces if allowed</p>
+<pre><code class="lang-csharp">//Right
+if (test) this.Display();
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+if (test) { this.Display(); }
+</code></pre>
+</li>
+</ul>
+<h2 id="formatting-conventions">Formatting conventions</h2>
+<h3 id="net-formatting-settings">.NET formatting settings</h3>
+<h3 id="organize-using-directives">Organize using directives</h3>
+<p>These formatting rules concern the sorting and display of <em><code>using</code></em> directives and <em><code>Imports</code></em> statements.</p>
+<ul>
+<li><p>Sort <code>System.*</code> <em><code>using</code></em> directives alphabetically, and place them before other using directives.</p>
+<pre><code class="lang-csharp">//Right
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Octokit;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+using System.Collections.Generic;
+using Octokit;
+using System.Threading.Tasks;
+</code></pre>
+</li>
+<li><p>Do not place a blank line between using directive groups.</p>
+<pre><code class="lang-csharp">//Right
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Octokit;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+using System.Collections.Generic;
+using System.Threading.Tasks;
+
+using Octokit;
+</code></pre>
+</li>
+</ul>
+<h3 id="c-formatting-settings">C# formatting settings</h3>
+<p>The formatting rules in this section apply only to C# code.</p>
+<h4 id="new-line-options">New-line options</h4>
+<p>These formatting rules concern the use of new lines to format code.</p>
+<ul>
+<li><p>Require braces to be on a new line for all expressions (&quot;Allman&quot; style).</p>
+<pre><code class="lang-csharp">//Right
+void MyMethod()
+{
+    if (...)
+    {
+        ...
+    }
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+void MyMethod() {
+    if (...) {
+        ...
+    }
+}
+</code></pre>
+</li>
+<li><p>Place else statements on a new line.</p>
+<pre><code class="lang-csharp">//Right
+if (...) 
+{
+    ...
+}
+else 
+{
+    ...
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+if (...) {
+    ...
+} else {
+    ...
+}
+</code></pre>
+</li>
+<li><p>Place catch statements on a new line.</p>
+<pre><code class="lang-csharp">//Right
+try 
+{
+    ...
+}
+catch (Exception e) 
+{
+    ...
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+try {
+    ...
+} catch (Exception e) {
+    ...
+}
+</code></pre>
+</li>
+<li><p>Require finally statements to be on a new line after the closing brace.</p>
+<pre><code class="lang-csharp">//Right
+try 
+{
+    ...
+}
+catch (Exception e) 
+{
+    ...
+}
+finally 
+{
+    ...
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+try {
+    ...
+} catch (Exception e) {
+    ...
+} finally {
+    ...
+}
+</code></pre>
+</li>
+<li><p>Require members of object initializers to be on separate lines</p>
+<pre><code class="lang-csharp">//Right
+var z = new B()
+{
+    A = 3,
+    B = 4
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var z = new B()
+{
+    A = 3, B = 4
+}
+</code></pre>
+</li>
+<li><p>Require members of anonymous types to be on separate lines</p>
+<pre><code class="lang-csharp">//Right
+var z = new
+{
+    A = 3,
+    B = 4
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var z = new
+{
+    A = 3, B = 4
+}
+</code></pre>
+</li>
+<li><p>Require elements of query expression clauses to be on separate lines</p>
+<pre><code class="lang-csharp">//Right
+var q = from a in e
+        from b in e
+        select a * b;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var q = from a in e from b in e
+        select a * b;
+</code></pre>
+</li>
+</ul>
+<h4 id="indentation-options">Indentation options</h4>
+<p>These formatting rules concern the use of indentation to format code.</p>
+<ul>
+<li><p>Indent <em><code>switch</code></em> case contents</p>
+<pre><code class="lang-csharp">//Right
+switch(c) 
+{
+    case Color.Red:
+        Console.WriteLine(&quot;The color is red&quot;);
+        break;
+    case Color.Blue:
+        Console.WriteLine(&quot;The color is blue&quot;);
+        break;
+    default:
+        Console.WriteLine(&quot;The color is unknown.&quot;);
+        break;
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+switch(c) {
+    case Color.Red:
+    Console.WriteLine(&quot;The color is red&quot;);
+    break;
+    case Color.Blue:
+    Console.WriteLine(&quot;The color is blue&quot;);
+    break;
+    default:
+    Console.WriteLine(&quot;The color is unknown.&quot;);
+    break;
+}
+</code></pre>
+</li>
+<li><p>Indent <em><code>switch</code></em> labels</p>
+<pre><code class="lang-csharp">//Right
+switch(c) 
+{
+    case Color.Red:
+        Console.WriteLine(&quot;The color is red&quot;);
+        break;
+    case Color.Blue:
+        Console.WriteLine(&quot;The color is blue&quot;);
+        break;
+    default:
+        Console.WriteLine(&quot;The color is unknown.&quot;);
+        break;
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+switch(c) {
+case Color.Red:
+    Console.WriteLine(&quot;The color is red&quot;);
+    break;
+case Color.Blue:
+    Console.WriteLine(&quot;The color is blue&quot;);
+    break;
+default:
+    Console.WriteLine(&quot;The color is unknown.&quot;);
+    break;
+}
+</code></pre>
+</li>
+<li><p>Labels are placed at the same indent as the current context</p>
+<pre><code class="lang-csharp">//Right
+class C
+{
+    private string MyMethod(...)
+    {          
+        if (...) 
+        {
+            goto error;
+        }
+        error:
+        throw new Exception(...);
+    }
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+class C
+{
+    private string MyMethod(...)
+    {
+        if (...) {
+            goto error;
+        }
+error:
+        throw new Exception(...);
+    }
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+class C
+{
+    private string MyMethod(...)
+    {
+        if (...) {
+            goto error;
+        }
+    error:
+        throw new Exception(...);
+    }
+}
+</code></pre>
+</li>
+</ul>
+<h4 id="spacing-options">Spacing options</h4>
+<p>These formatting rules concern the use of space characters to format code.</p>
+<ul>
+<li><p>Remove space between the cast and the value</p>
+<pre><code class="lang-csharp">//Right
+int y = (int)x;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+int y = (int) x;
+</code></pre>
+</li>
+<li><p>Place a space character after a keyword in a control flow statement such as a   <em><code>for</code></em> loop</p>
+<pre><code class="lang-csharp">//Right
+for (int i;i&lt;x;i++) { ... }
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+for(int i;i&lt;x;i++) { ... }
+</code></pre>
+</li>
+<li><p>Place a space character before the colon for bases or interfaces in a type   declaration</p>
+<pre><code class="lang-csharp">//Right
+interface I
+{
+
+}
+
+class C : I
+{
+
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+interface I
+{
+
+}
+
+class C: I
+{
+
+}
+</code></pre>
+</li>
+<li><p>Place a space character after the colon for bases or interfaces in a type declaration</p>
+<pre><code class="lang-csharp">//Right
+interface I
+{
+
+}
+
+class C : I
+{
+
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+interface I
+{
+
+}
+
+class C :I
+{
+
+}
+</code></pre>
+</li>
+<li><p>Insert space before and after the binary operator</p>
+<pre><code class="lang-csharp">//Right
+return x * (x - y);
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+return x*(x-y);
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+return x  *  (x-y);
+</code></pre>
+</li>
+<li><p>Remove space characters after the opening parenthesis and before the closing   parenthesis of a method declaration parameter list</p>
+<pre><code class="lang-csharp">//Right
+void Bark(int x) { ... }
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+void Bark( int x ) { ... }
+</code></pre>
+</li>
+<li><p>Remove space within empty parameter list parentheses for a method declaration</p>
+<pre><code class="lang-csharp">//Right
+void Goo()
+{
+    Goo(1);
+}
+
+void Goo(int x)
+{
+    Goo();
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+void Goo( )
+{
+    Goo(1);
+}
+
+void Goo(int x)
+{
+    Goo();
+}
+
+</code></pre>
+</li>
+<li><p>Remove space characters between the method name and opening parenthesis in the   method declaration</p>
+<pre><code class="lang-csharp">//Right
+void M() { }
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+void M () { }
+</code></pre>
+</li>
+<li><p>Remove space characters after the opening parenthesis and before the closing   parenthesis of a method call</p>
+<pre><code class="lang-csharp">//Right
+MyMethod(argument);
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+MyMethod( argument );
+</code></pre>
+</li>
+<li><p>Remove space within empty argument list parentheses</p>
+<pre><code class="lang-csharp">//Right
+void Goo()
+{
+    Goo(1);
+}
+
+void Goo(int x)
+{
+    Goo();
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+void Goo()
+{
+    Goo(1);
+}
+
+void Goo(int x)
+{
+    Goo( );
+}
+</code></pre>
+</li>
+<li><p>Remove space between method call name and opening parenthesis</p>
+<pre><code class="lang-csharp">//Right
+void Goo()
+{
+    Goo(1);
+}
+
+void Goo(int x)
+{
+    Goo();
+}
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+void Goo()
+{
+    Goo(1);
+}
+
+void Goo(int x)
+{
+    Goo ();
+}
+</code></pre>
+</li>
+<li><p>Insert space after a comma</p>
+<pre><code class="lang-csharp">//Right
+int[] x = new int[] { 1, 2, 3, 4, 5 };
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+int[] x = new int[] { 1,2,3,4,5 };
+</code></pre>
+</li>
+<li><p>Remove space before a comma</p>
+<pre><code class="lang-csharp">//Right
+int[] x = new int[] { 1, 2, 3, 4, 5 };
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+int[] x = new int[] { 1 , 2 , 3 , 4 , 5 };
+</code></pre>
+</li>
+<li><p>Insert space after each semicolon in a for statement</p>
+<pre><code class="lang-csharp">//Right
+for (int i = 0; i &lt; x.Length; i++)
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+for (int i = 0;i &lt; x.Length;i++)
+</code></pre>
+</li>
+<li><p>Remove space before each semicolon in a for statement</p>
+<pre><code class="lang-csharp">//Right
+for (int i = 0; i &lt; x.Length; i++)
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+for (int i = 0 ; i &lt; x.Length ; i++)
+</code></pre>
+</li>
+<li><p>Remove extra space characters in declaration statements</p>
+<pre><code class="lang-csharp">//Right
+int x = 0;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+int    x    =    0   ;
+</code></pre>
+</li>
+<li><p>Remove space before opening square brackets <em><code>[</code></em></p>
+<pre><code class="lang-csharp">//Right
+int[] numbers = new int[] { 1, 2, 3, 4, 5 };
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+int [] numbers = new int [] { 1, 2, 3, 4, 5 };
+</code></pre>
+</li>
+<li><p>Remove space between empty square brackets <em><code>[]</code></em></p>
+<pre><code class="lang-csharp">//Right
+int[] numbers = new int[] { 1, 2, 3, 4, 5 };
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+int[ ] numbers = new int[ ] { 1, 2, 3, 4, 5 };
+</code></pre>
+</li>
+<li><p>Remove space characters in non-empty square brackets <em><code>[0]</code></em></p>
+<pre><code class="lang-csharp">//Right
+int index = numbers[0];
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+int index = numbers[ 0 ];
+</code></pre>
+</li>
+</ul>
+<h4 id="wrap-options">Wrap options</h4>
+<p>These formatting rules concern the use of single lines versus separate lines for statements and code blocks.</p>
+<ul>
+<li><p>Leave statements and member declarations on different lines</p>
+<pre><code class="lang-csharp">//Right
+int i = 0;
+string name = &quot;John&quot;;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+int i = 0; string name = &quot;John&quot;;
+</code></pre>
+</li>
+<li><p>Leave code block on a single line</p>
+<pre><code class="lang-csharp">//Right
+public int Foo { get; set; }
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+public int MyProperty
+{
+    get; set;
+}
+</code></pre>
+</li>
+</ul>
+<h2 id="naming-conventions">Naming conventions</h2>
+<ul>
+<li><p>Constants are named only in capital letters with a delimiter <em><code>_</code></em></p>
+<pre><code class="lang-csharp">//Right
+const int TEST_CONSTANT = 1;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+const int Test_Constant = 1;
+</code></pre>
+</li>
+<li><p>Fields with <em><code>public</code></em> access are referred to as PascalCase notation</p>
+<pre><code class="lang-csharp">//Right
+public int TestField;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+public int testField;
+</code></pre>
+</li>
+<li><p>Interface names must be in PascalCase notation and have the prefix <em><code>I</code></em></p>
+<pre><code class="lang-csharp">//Right
+public interface ITestInterface;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+public interface testInterface;
+</code></pre>
+</li>
+<li><p>The names of classes, structures, methods, enums, events, properties,   namespaces, and delegates should be in PascalCase notation</p>
+<pre><code class="lang-csharp">//Right
+public class SomeClass;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+public class someClass;
+</code></pre>
+</li>
+<li><p>Use a descriptive name in PascalCase for the parameter of a generic type, unless a single letter is sufficient and a descriptive name adds no value.</p>
+<pre><code class="lang-csharp">//Right
+public interface ISessionChannel&lt;TSession&gt; { /*...*/ }
+public delegate TOutput Converter&lt;TInput, TOutput&gt;(TInput from);
+public class List&lt;T&gt; { /*...*/ }
+</code></pre>
+</li>
+<li><p>Use the name of the type <em><code>T</code></em> parameter for types that contain only a single letter type parameter</p>
+<pre><code class="lang-csharp">//Right
+public int IComparer&lt;T&gt;() { return 0; }
+public delegate bool Predicate&lt;T&gt;(T item);
+public struct Nullable&lt;T&gt; where T : struct { /*...*/ }
+</code></pre>
+</li>
+<li><p>Use the prefix <em><code>T</code></em> for descriptive names of type parameters</p>
+<pre><code class="lang-csharp">//Right
+public interface ISessionChannel&lt;TSession&gt;
+{
+    TSession Session { get; }
+}
+</code></pre>
+<p>Specify the constraints associated with the type parameter in its name. For example, an <em><code>ISession</code></em> constraint parameter may be called <em><code>TSession</code></em>.</p>
+</li>
+<li><p>Private and protected class fields must begin with the prefix <em><code>_</code></em></p>
+<pre><code class="lang-csharp">//Right
+private int _testField;
+protected int _testField;
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+private int testField;
+protected int testField;
+</code></pre>
+</li>
+<li><p>All other code elements such as variables, method parameters, and class fields (except open ones) are named in camelCase notation.</p>
+<pre><code class="lang-csharp">//Right
+var testVar = new Object();
+public void Foo(int firstParam, string secondParam)
+</code></pre>
+<pre><code class="lang-csharp">//Wrong
+var TestVar = new Object();
+public void Foo(int FirstParam, string SecondParam)
+</code></pre>
+</li>
+</ul>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/developer/tutorials/coding-standards.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

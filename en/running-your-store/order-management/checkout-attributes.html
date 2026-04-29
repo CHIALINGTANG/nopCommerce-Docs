@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Checkout attributes </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Checkout attributes ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/running-your-store/order-management/checkout-attributes">
+<h1 id="checkout-attributes">Checkout attributes</h1>
+
+<p>Checkout attributes represent additional order information that is gathered during the final stage of the shopping process.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Using the checkout attributes, shop owners can specify, for example, whether a bought product requires gift wrapping or careful handling, as in the case of fragile goods.</p>
+</div>
+<p>Checkout attributes are displayed on the shopping cart page and enable users to select them, if required, before the checkout.</p>
+<p>To set up or edit checkout attributes, go to <strong>Catalog → Attributes → Checkout attributes</strong>.</p>
+<p><img src="_static/checkout-attributes/list.jpg" alt="Checkout attributes"></p>
+<p>You can select checkout attributes and click the <strong>Delete (selected)</strong> button to delete them.</p>
+<h2 id="add-a-new-checkout-attribute">Add a new checkout attribute</h2>
+<p>To create a new checkout attribute, click <strong>Add new</strong>. The <em>Add a new checkout attribute</em> window will be displayed as follows:</p>
+<p><img src="_static/checkout-attributes/add-new.jpg" alt="Add a new checkout attributes"></p>
+<p>This page is available in two modes: <strong>advanced</strong> and <strong>basic</strong>. Switch to the basic mode, which only displays the main fields, or use the advanced mode displaying all the available fields.</p>
+<p>In the <em>Attribute info</em> panel, define the following information:</p>
+<ul>
+<li><p><strong>Name</strong> — the attribute name.</p>
+</li>
+<li><p><strong>Text prompt</strong> — a question or a comment that will be displayed in the checkout area on the shopping cart page.</p>
+</li>
+<li><p>From the <strong>Control type</strong> dropdown list, select the required method for displaying the attribute value, such as <em>Dropdown list</em>, <em>Radio button list</em>, <em>Checkboxes</em>, <em>Textbox</em>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Dropdown lists, radio lists, checkboxes and color squares require the store owner to define values (such as Green, Blue, Red, and more). <em>Textbox</em> and <em>Date picker</em> control types do not require the store owner to define values since customers will be requested to fill these textbox fields. In addition, for some control types, you can specify validation rules. For example, for the <em>Textbox</em> attribute, you can define the <strong>Minimum length</strong>, <strong>Maximum length</strong>, and <strong>Default value</strong>. For the <em>File upload</em> attribute, you can define the <strong>Allowed file extension</strong> and <strong>Maximum file size (KB)</strong>.</p>
+</div>
+</li>
+<li><p>Select the <strong>Required</strong> checkbox if selecting an attribute value is required before completing the purchasing process.</p>
+</li>
+<li><p><strong>Display order</strong> — display order number of the checkout attribute.</p>
+</li>
+<li><p>Select the <strong>Shippable product required</strong> checkbox in case this attribute should only be displayed for the product that needs to be shipped.</p>
+</li>
+<li><p>Selected <strong>Tax exempt</strong> checkbox indicates that no tax will be applied to this checkout attribute.</p>
+</li>
+<li><p>In the case a tax is applied, from the <strong>Tax category</strong> dropdown list, select the checkout attribute tax category.</p>
+</li>
+<li><p><strong>Limited to stores</strong> enables you to limit the attribute to one or more stores.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>In order to use this functionality, you have to disable the following setting: <strong>Catalog settings → Ignore &quot;limit per store&quot; rules (sitewide)</strong>. Read more about multi-store functionality <a class="xref" href="../../getting-started/advanced-configuration/multi-store.html">here</a>.</p>
+</div>
+</li>
+</ul>
+<p>Click <strong>Save and continue edit</strong> to proceed to the <em>Attribute values</em> panel (if applicable).</p>
+<h3 id="add-a-new-checkout-attribute-value">Add a new checkout attribute value</h3>
+<p>In the <em>Attribute values</em> panel, click <strong>Add a new checkout attribute value</strong> to create a new attribute value.</p>
+<p><img src="_static/checkout-attributes/value.jpg" alt="Add a new checkout attribute value"></p>
+<p>In the <em>Add a new checkout attribute value</em> window, define the following information:</p>
+<ul>
+<li><p><strong>Name</strong> — the attribute value name.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>For example, <em>Yes</em> or <em>No</em>, for such questions as &quot;Do you require fragile care handling&quot;?</p>
+</div>
+</li>
+<li><p><strong>Price adjustment</strong> will add the entered amount to a total purchase sum in case the attribute value is selected.</p>
+</li>
+<li><p><strong>Weight adjustment</strong> will change an order weight by the entered amount in case the attribute value is selected.</p>
+</li>
+<li><p>Select the <strong>Pre-selected</strong> checkbox to indicate the attribute value is preselected for a customer.</p>
+</li>
+<li><p><strong>Display order</strong> — display order number of the attribute value.</p>
+</li>
+</ul>
+<p>You can <strong>Edit</strong> and <strong>Delete</strong> attribute values by clicking the corresponding buttons beside the attributes in the <em>Attribute values</em> panel.</p>
+<p><img src="_static/checkout-attributes/attribute_values.png" alt="attribute_values"></p>
+<h2 id="add-a-condition">Add a condition</h2>
+<p>In the <em>Condition</em> panel, a store owner can specify a condition for the checkout attribute to be visible (depending on other attributes). A conditional attribute only appears if the previous attribute is selected.</p>
+<p><img src="_static/checkout-attributes/condition.png" alt="condition"></p>
+<p>Click <strong>Save</strong>. The new attribute will be displayed on the shopping cart page in the public store.</p>
+<h2 id="tutorials">Tutorials</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=sJcZP1qjHmY&amp;list=PLnL_aDfmRHwsbhj621A-RFb1KnzeFxYz4&amp;index=3">Adding checkout attributes</a></li>
+<li><a href="https://www.youtube.com/watch?v=z3UiXgK8Jgo&amp;list=PLnL_aDfmRHwsbhj621A-RFb1KnzeFxYz4&amp;index=18">Overview of conditional checkout attributes</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/running-your-store/order-management/checkout-attributes.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

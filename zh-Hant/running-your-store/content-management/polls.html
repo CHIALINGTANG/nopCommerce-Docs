@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>民意調查 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="民意調查 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/running-your-store/content-management/polls">
+<h1 id="民意調查">民意調查</h1>
+
+<p>nopCommerce 的民意調查功能讓您可以使電子商務網站更具互動性。您可以透過許多方式在電子商務網站中使用民意調查。一種常見的方法是將其作為簡短的顧客滿意度調查。人們喜歡被詢問意見，這是一個檢視您作為線上商家表現如何的好機會。</p>
+<p>Default Clean nopCommerce 佈景主題首頁上的民意調查看起來像這樣：
+<img src="_static/polls/polls_3.png" alt="Home page poll"></p>
+<p>若要檢視所有民意調查並新增調查，請前往 <strong>內容管理 → 民意調查</strong>。</p>
+<p><img src="_static/polls/polls_1.png" alt="Polls list"></p>
+<p>若要搜尋在特定商店中使用的民意調查，請從清單中選擇商店名稱。</p>
+<h2 id="新增民意調查">新增民意調查</h2>
+<p>若要新增民意調查，請點擊右上角的 <strong>新增</strong> 按鈕。</p>
+<p><img src="_static/polls/add-new.jpg" alt="Add a new poll"></p>
+<h3 id="民意調查資訊">民意調查資訊</h3>
+<p>為新的民意調查定義以下詳細資料：</p>
+<ul>
+<li><p>如果啟用了多種語言，請從 <strong>語言</strong> 下拉式清單中選擇此民意調查的語言。顧客只會看到他們所選語言的民意調查。</p>
+</li>
+<li><p>輸入此民意調查的說明性 <strong>名稱</strong>。這是顧客將看到的文字。例如：「您覺得我們的商店如何？」</p>
+</li>
+<li><p>勾選 <strong>已發布</strong> 核取方塊以啟用此民意調查。</p>
+</li>
+<li><p>如果您想在首頁顯示該民意調查，請勾選 <strong>在首頁顯示民意調查</strong> 核取方塊。</p>
+</li>
+<li><p>勾選 <strong>允許訪客投票</strong> 核取方塊，以允許未註冊的使用者參與民意調查。</p>
+</li>
+<li><p>以協調世界時間 (UTC) 輸入 <strong>開始日期</strong> 和 <strong>結束日期</strong>。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>如果您不想定義民意調查的開始與結束日期，可以將這些欄位留空。</p>
+</div>
+</li>
+<li><p>在 <strong>限制商店</strong> 欄位中選擇商店，以僅針對特定商店啟用此民意調查。如果不需此功能，請將該欄位留空。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>若要使用此功能，您必須停用以下設定：<strong>目錄設定 → 忽略「依商店限制」規則 (全站)</strong>。閱讀更多關於多商店功能的內容 <a class="xref" href="../../getting-started/advanced-configuration/multi-store.html">here</a>。</p>
+</div>
+</li>
+<li><p>在 <strong>系統關鍵字</strong> 欄位中，您可以指定民意調查的顯示位置。例如：LeftColumnPoll。</p>
+</li>
+<li><p>輸入民意調查的 <strong>顯示順序</strong>。數值 1 代表位於清單最上方。</p>
+</li>
+</ul>
+<p>點擊 <strong>儲存並繼續編輯</strong> 以進入 <em>民意調查答案</em> 面板。</p>
+<h3 id="民意調查答案">民意調查答案</h3>
+<p>填寫以下民意調查答案資訊：</p>
+<ul>
+<li>將顯示給顧客的 <strong>名稱</strong>。</li>
+<li><strong>顯示順序</strong>。數值 1 代表位於清單最上方。</li>
+</ul>
+<p>然後點擊 <strong>新增記錄</strong> 按鈕來儲存答案。</p>
+<p>完整的答案清單可能如下所示：
+<img src="_static/polls/answers.jpg" alt="Poll answers"></p>
+<p>隨後，您可以根據需要 <strong>編輯</strong> 或 <strong>刪除</strong> 記錄。</p>
+<h2 id="教學課程">教學課程</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=RJP45cUhuZQ">在 nopCommerce 中管理民意調查</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/running-your-store/content-management/polls.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>信用卡（手動處理） </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="信用卡（手動處理） ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="preload" href="../../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/getting-started/configure-payments/payment-methods/credit-card-manual-processing">
+<h1 id="信用卡手動處理">信用卡（手動處理）</h1>
+
+<p>這是一種特殊的付款外掛，它允許所有的訂單能在網站上成功建立，但它「不會」真正地向顧客收款或呼叫任何即時的支付閘道。如果您想要執行下列任一作業，建議使用此付款方式：</p>
+<ul>
+<li>離線處理所有訂單</li>
+<li>透過其他後勤系統手動處理訂單</li>
+<li>在網站正式上線前進行端對端測試</li>
+</ul>
+<p>若要設定此付款方式，請前往 <strong>設定 → 付款方式</strong>。接著在付款方式列表中找到 <strong>信用卡 (Payments.Manual)</strong> 付款方式：</p>
+<p><img src="_static/credit-card-manual-processing/list.jpg" alt="List"></p>
+<h2 id="啟用付款方式編輯名稱與顯示順序">啟用付款方式、編輯名稱與顯示順序</h2>
+<p>您可以編輯將顯示在前台網站給顧客看的付款方式名稱，或是調整其顯示順序。若要這麼做，請點擊付款方式列表頁面中該外掛列的 <strong>編輯</strong> 按鈕。您可以輸入 <strong>友好名稱 (Friendly name)</strong> 與 <strong>顯示順序 (Display order)</strong>。在此列中，您也可以透過 <strong>已啟用 (Is active)</strong> 欄位來啟用或停用此外掛。點擊 <strong>更新</strong> 按鈕，您的變更將會被儲存。</p>
+<h2 id="設定付款方式">設定付款方式</h2>
+<p>在 <strong>設定 → 付款方式</strong> 頁面中，找到 <strong>信用卡 (Payments.Manual)</strong> 付款方式並點擊 <strong>設定</strong> 按鈕。屆時將顯示如下的 <em>設定 - 信用卡</em> 視窗：</p>
+<p><img src="_static/credit-card-manual-processing/manualprocessing.png" alt="manualprocessing"></p>
+<p>請依照下列方式設定付款方式：</p>
+<ul>
+<li>在 <strong>結帳後將付款標記為</strong> 欄位中，指定交易模式。</li>
+<li>定義使用此方式的 <strong>額外費用</strong>。</li>
+<li>在 <strong>額外費用為百分比</strong> 欄位中，定義是否要對訂單總額收取額外的百分比費用。若未啟用，則會使用固定金額。</li>
+</ul>
+<p>點擊 <strong>儲存</strong>。</p>
+<h2 id="限制商店與顧客角色">限制商店與顧客角色</h2>
+<p>您可以將任何付款方式限制在特定的商店與顧客角色。這意味著該方式將僅提供給特定的商店或顧客角色使用。您可以從 <em>外掛列表</em> 頁面進行此設定。</p>
+<ol>
+<li><p>前往 <strong>設定 → 本地外掛</strong>。找到您想要設定限制的外掛。在我們的案例中，它是 <strong>信用卡</strong>。若要更快找到它，請使用頁面頂部的 <em>搜尋</em> 面板，並使用 <em>付款方式</em> 選項依據 <strong>外掛名稱</strong> 或 <strong>群組</strong> 進行搜尋。</p>
+<p><img src="_static/credit-card-manual-processing/plugin.jpg" alt="Plugins"></p>
+</li>
+<li><p>點擊 <strong>編輯</strong> 按鈕，將顯示如下的 <em>編輯外掛詳細資料</em> 視窗：</p>
+<p><img src="_static/credit-card-manual-processing/edit.jpg" alt="Plugins"></p>
+</li>
+<li><p>您可以設定下列限制：</p>
+<ul>
+<li><p>在 <strong>限制顧客角色</strong> 欄位中，選擇一個或多個能夠使用此外掛的顧客角色（例如：管理員、供應商、訪客）。如果您不需要此選項，只需將此欄位留空即可。</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>為了使用此功能，您必須停用下列設定：<strong>目錄設定 → 忽略 ACL 規則 (全站)</strong>。閱讀更多關於存取控制清單 (ACL) 的資訊 <a class="xref" href="../../../running-your-store/customer-management/access-control-list.html">here</a>。</p>
+</div>
+</li>
+<li><p>使用 <strong>限制商店</strong> 選項將此外掛限制在特定商店。如果您有多家商店，請從列表中選擇一個或多個。如果您不使用此選項，只需將此欄位留空即可。</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>為了使用此功能，您必須停用下列設定：<strong>目錄設定 → 忽略「各商店限制」規則 (全站)</strong>。閱讀更多關於多商店功能的資訊 <a class="xref" href="../../advanced-configuration/multi-store.html">here</a>。</p>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+<p>點擊 <strong>儲存</strong>。</p>
+<h2 id="教學課程">教學課程</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=dN2q27dKvUU">設定信用卡（手動處理）付款方式</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/getting-started/configure-payments/payment-methods/credit-card-manual-processing.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

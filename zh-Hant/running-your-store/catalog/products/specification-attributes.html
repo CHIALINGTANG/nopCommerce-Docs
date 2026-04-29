@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>規格屬性 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="規格屬性 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="preload" href="../../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/running-your-store/catalog/products/specification-attributes">
+<h1 id="規格屬性">規格屬性</h1>
+
+<p>規格屬性與 <a class="xref" href="product-attributes.html">商品屬性</a> 類似；然而，它們僅用於提供資訊（顯示於商品詳細頁面），以及在分類詳細頁面上用來篩選商品。它們不會定義商品價格，也無法用於庫存追蹤。</p>
+<h2 id="範例">範例</h2>
+<p>假設您正在經營一家線上電腦商店。什麼有助於顧客做出購買決策？</p>
+<ul>
+<li><p>提供顧客關於您商品全面且具描述性的資訊。儘管您已經填寫了某台電腦的簡短描述與完整描述，仍應讓顧客能夠查看反映商品最重要細節的規格特性：</p>
+<p><img src="_static/specification-attributes/specs.jpg" alt="Specification attributes"></p>
+<p>當您在 <a class="xref" href="add-products.html#specification-attributes">為商品新增規格屬性</a> 時，若勾選了 <strong>顯示於商品頁面 (Show on product page)</strong> 欄位，此表格即可顯示在商品詳細資訊頁面上。</p>
+</li>
+<li><p>允許您的顧客使用篩選功能來搜尋電腦。假設我們可以在您的商店中依據 CPU 類型和記憶體進行搜尋，那麼分類頁面看起來會像這樣：</p>
+<p><img src="_static/specification-attributes/filter.jpg" alt="Filtering"></p>
+<p>當 <a class="xref" href="add-products.html#specification-attributes">為商品新增規格屬性</a> 時，若勾選 <strong>允許篩選 (Allow filtering)</strong> 欄位，即可針對特定商品啟用此屬性的篩選功能。</p>
+</li>
+<li><p>在您的商店中加入「商品比較」功能。此功能同樣使用規格屬性。對於您的電腦商店來說，「商品比較」頁面看起來會像這樣：</p>
+<p><img src="_static/specification-attributes/compare.jpg" alt="Compare products"></p>
+<p>若要啟用「商品比較」功能，請前往 <strong>設定 → 設定 → 目錄設定</strong>。在 <em>商品比較 (Compare products)</em> 面板中，勾選 <strong>啟用「商品比較」 ('Compare products' enabled)</strong> 核取方塊。</p>
+</li>
+</ul>
+<p>下一節將說明如何建立規格屬性。請注意，在建立規格屬性清單後，您需要將這些規格屬性逐一新增至各項商品中。請參閱 <a class="xref" href="add-products.html#specification-attributes">新增商品 - 規格屬性</a> 章節，了解如何將規格屬性新增至商品。</p>
+<h2 id="建立規格屬性群組">建立規格屬性群組</h2>
+<div class="NOTE">
+<h5>Note</h5>
+<p>所有未歸屬於任何群組的規格屬性都會顯示在 <em>預設群組 (未分組的規格屬性)</em> 中。</p>
+</div>
+<p>若要檢視並編輯規格屬性及其群組列表，請前往 <strong>目錄 → 屬性 → 規格屬性</strong>。</p>
+<p><img src="_static/specification-attributes/specification_attributes.jpg" alt="Specification attributes"></p>
+<p>點擊 <strong>新增群組</strong> 以新增群組。此時將顯示 <em>新增規格屬性群組</em> 視窗，如下所示：</p>
+<p><img src="_static/specification-attributes/specification_group.jpg" alt="Add group"></p>
+<p>在 <em>屬性群組資訊</em> 面板中，輸入：</p>
+<ul>
+<li>規格屬性群組的 <strong>名稱</strong>。</li>
+<li><strong>顯示順序</strong> 數字。</li>
+</ul>
+<p>然後儲存變更。</p>
+<h2 id="建立規格屬性">建立規格屬性</h2>
+<div class="NOTE">
+<h5>Note</h5>
+<p>預設情況下，nopCommerce 並未預先建立任何規格屬性。</p>
+</div>
+<p>若要檢視並編輯規格屬性列表，請前往 <strong>目錄 → 屬性 → 規格屬性</strong>。</p>
+<p><img src="_static/specification-attributes/specification_attributes.jpg" alt="Specification attributes"></p>
+<p>在此頁面上，您可以透過勾選規格屬性並點擊 <strong>刪除 (所選)</strong> 按鈕來刪除它們。</p>
+<p>點擊 <strong>新增屬性</strong> 來新增一個屬性。隨後將顯示 <em>新增規格屬性</em> 視窗，如下所示：</p>
+<p><img src="_static/specification-attributes/new-attribute.jpg" alt="Add new"></p>
+<p>在 <em>屬性資訊</em> 面板中，輸入以下內容：</p>
+<ul>
+<li>規格屬性的 <strong>名稱</strong>。</li>
+<li><strong>顯示順序</strong> 數字。</li>
+</ul>
+<p>點擊 <strong>儲存並繼續編輯</strong> 以進入 <em>選項</em> 編輯面板。</p>
+<h3 id="新增選項">新增選項</h3>
+<p>在「選項」面板中點擊 <strong>新增選項</strong> 按鈕以建立新的規格屬性選項。接著會顯示 <strong>新增選項</strong> 視窗，如下所示：</p>
+<p><img src="_static/specification-attributes/add_a_new_option.jpg" alt="Add a new option"></p>
+<p>定義以下選項設定：</p>
+<ul>
+<li><strong>名稱</strong>：規格屬性選項的名稱。</li>
+<li>勾選 <strong>指定顏色</strong> 核取方塊，以選擇用來取代選項文字名稱的顏色（它將顯示為一個「顏色方塊」）。
+<ul>
+<li>選擇要顯示給顧客的 <strong>RGB 顏色</strong>。</li>
+</ul>
+</li>
+<li><strong>顯示順序</strong>：排序編號。</li>
+</ul>
+<p>點擊 <strong>儲存</strong> 以儲存選項詳細資料。</p>
+<p>下圖顯示了已經新增的選項：
+<img src="_static/specification-attributes/options.jpg" alt="Options"></p>
+<h3 id="商品使用狀況">商品使用狀況</h3>
+<p>若您已將規格屬性套用至商品，您可以在「商品使用狀況」面板中查看這些商品的列表：</p>
+<p><img src="_static/specification-attributes/used-by.jpg" alt="Used by products"></p>
+<h2 id="參閱">參閱</h2>
+<ul>
+<li><a class="xref" href="add-products.html">新增商品</a></li>
+<li><a class="xref" href="product-attributes.html">商品屬性</a></li>
+<li><a href="https://www.youtube.com/watch?v=YmD_vHqWzQw&amp;index=11&amp;list=PLnL_aDfmRHwsbhj621A-RFb1KnzeFxYz4">YouTube 教學影片：管理規格屬性</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/running-your-store/catalog/products/specification-attributes.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>頂部選單與頁尾 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="頂部選單與頁尾 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/getting-started/design-your-store/top-menu-and-footer">
+<h1 id="頂部選單與頁尾">頂部選單與頁尾</h1>
+
+<div class="WARNING">
+<h5>Warning</h5>
+<p>本文章適用於 nopCommerce 4.80 及以下版本。自 nopCommerce 4.90 起開始使用的全新選單產生方式，請參考 <a class="xref" href="../../running-your-store/content-management/menu.html">選單 (Menu)</a> 一文。</p>
+</div>
+<p>在 nopCommerce 中，您可以自行決定頂部選單與頁尾的顯示方式。您可以將最重要且吸引人的連結放置於頂部選單，以吸引更多顧客；並將服務相關連結新增至頁尾，為您的顧客提供目前的商店資訊。</p>
+<h2 id="頂部選單">頂部選單</h2>
+<p>在 Default Clean 佈景主題中，頂部選單呈現如下：
+<img src="_static/top-menu-and-footer/top-menu.jpg" alt="Default Clean theme top menu"></p>
+<p>如您所見，它會顯示商店分類。請注意，若您希望某個分類顯示在頂部選單中，您必須在分類編輯頁面勾選 <strong>Include in top menu</strong> 核取方塊。詳細資訊請參閱下文。</p>
+<p>您可以在頂部選單中包含以下項目：</p>
+<ul>
+<li>分類</li>
+<li>自訂內容頁面 (Topics)</li>
+<li>網站區塊的連結</li>
+</ul>
+<p>請參閱下方關於如何新增上述各項目的說明。</p>
+<h3 id="商品分類">商品分類</h3>
+<p>若要將商品分類包含在頂部選單中，請前往管理後台的分類編輯頁面：選擇 <strong>目錄 → 商品分類</strong>。接著點擊該分類旁邊的 <strong>編輯</strong> 按鈕。畫面將顯示 <em>編輯分類詳情</em> 視窗：</p>
+<p><img src="_static/top-menu-and-footer/category-details.jpg" alt="Edit category details"></p>
+<p>勾選 <strong>包含在頂部選單</strong> 核取方塊並點擊 <strong>儲存</strong>。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>如果此分類為子分類，請確保其父分類也啟用了此屬性。</p>
+</div>
+<h3 id="自訂內容頁面pages">自訂內容頁面（pages）</h3>
+<p>若要將內容頁面包含在頂部選單中，請前往管理後台的內容頁面編輯頁面：選擇 <strong>內容管理 → 內容頁面（pages）</strong>。接著點擊該內容頁面旁邊的 <strong>編輯</strong> 按鈕。此時會顯示 <em>編輯內容頁面詳細資料</em> 視窗：</p>
+<p><img src="_static/top-menu-and-footer/topic-details-top-menu.jpg" alt="Edit topic details"></p>
+<p>勾選 <strong>包含於頂部選單</strong> 核取方塊並點擊 <strong>儲存</strong>。</p>
+<h3 id="連結至網站區塊">連結至網站區塊</h3>
+<p>若要將網站的某些區塊包含在頂部選單中，請前往 <strong>設定 → 設定 → 一般設定</strong>。接著進入「頂部選單項目」面板：</p>
+<p><img src="_static/top-menu-and-footer/general-settings-top-menu.jpg" alt="Top menu settings"></p>
+<p>從下列清單中選擇您想要顯示於頂部選單的項目：</p>
+<ul>
+<li><strong>顯示「首頁」</strong></li>
+<li><strong>顯示「新品」</strong></li>
+<li><strong>顯示「搜尋」</strong></li>
+<li><strong>顯示「我的帳戶」</strong></li>
+<li><strong>顯示「部落格」</strong></li>
+<li><strong>顯示「論壇」</strong></li>
+<li><strong>顯示「聯絡我們」</strong></li>
+</ul>
+<p>然後點擊 <strong>儲存</strong>。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>只有當「新品」頁面在 <strong>設定 → 設定 → 目錄設定</strong> 頁面（「其他區塊」面板）中啟用時，才會顯示「新品」選單項目。</p>
+</div>
+<h2 id="頁尾">頁尾</h2>
+<p>在 Default Clean 佈景主題中，頁尾顯示如下：
+<img src="_static/top-menu-and-footer/footer.jpg" alt="Default Clean theme footer"></p>
+<p>預設情況下，它會顯示分為三種類型的網站區塊連結：<em>資訊、顧客服務、我的帳戶</em>。您可以移除任何已顯示的連結或加入新的連結。</p>
+<p>您可以在頁尾包含以下項目：</p>
+<ul>
+<li>自訂內容頁面（Topic）</li>
+<li>網站區塊的連結</li>
+</ul>
+<p>請參閱下方說明，了解如何加入這些項目。</p>
+<h3 id="自訂內容頁面">自訂內容頁面</h3>
+<p>若要在頁尾包含一個內容頁面（Topic），請前往管理後台的內容頁面編輯頁面：選擇 <strong>內容管理 → 內容頁面 (頁面)</strong>。接著點擊該內容頁面旁的 <strong>編輯</strong> 按鈕。此時會顯示 <em>編輯內容頁面詳細資訊</em> 視窗：</p>
+<p><img src="_static/top-menu-and-footer/topic-details-footer.jpg" alt="Edit topic details"></p>
+<p>選擇您希望顯示內容頁面連結的位置。您可以勾選一個或多個核取方塊：</p>
+<ul>
+<li><strong>包含在頁尾 (欄位 1)</strong></li>
+<li><strong>包含在頁尾 (欄位 2)</strong></li>
+<li><strong>包含在頁尾 (欄位 3)</strong></li>
+</ul>
+<p>例如，如果您選擇 <strong>包含在頁尾 (欄位 1)</strong>，該連結就會顯示在 <em>資訊</em> 欄位中。</p>
+<p>點擊 <strong>儲存</strong> 以儲存變更。</p>
+<h3 id="連結至網站的區段">連結至網站的區段</h3>
+<p>若要在頁尾包含網站的某些區段，請前往 <strong>設定 → 設定 → 一般設定</strong>。接著進入 <em>頁尾項目 (Footer items)</em> 面板：</p>
+<p><img src="_static/top-menu-and-footer/general-settings-footer.jpg" alt="Footer settings"></p>
+<p>從下列清單中選擇您希望顯示在頁尾的項目：</p>
+<ul>
+<li><strong>顯示「網站地圖」</strong></li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>「網站地圖」選單項目僅會在 <strong>設定 → 設定 → 一般設定</strong> 頁面（<em>網站地圖</em> 面板）中勾選 <strong>啟用網站地圖</strong> 核取方塊時顯示。</p>
+</div>
+<ul>
+<li><strong>顯示「聯絡我們」</strong></li>
+<li><strong>顯示「搜尋」</strong></li>
+<li><strong>顯示「新聞」</strong></li>
+<li><strong>顯示「部落格」</strong></li>
+<li><strong>顯示「論壇」</strong></li>
+<li><strong>顯示「最近瀏覽過的商品」</strong></li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>「最近瀏覽過的商品」選單項目僅會在 <strong>設定 → 設定 → 目錄設定</strong> 頁面（<em>額外區段</em> 面板）中啟用「最近瀏覽過的商品」頁面時顯示。</p>
+</div>
+<ul>
+<li><strong>顯示「商品比較清單」</strong></li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>「商品比較清單」選單項目僅會在 <strong>設定 → 設定 → 目錄設定</strong> 頁面（<em>商品比較</em> 面板）中啟用「商品比較」功能時顯示。</p>
+</div>
+<ul>
+<li><strong>顯示「新商品」</strong></li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>「新商品」選單項目僅會在 <strong>設定 → 設定 → 目錄設定</strong> 頁面（<em>額外區段</em> 面板）中啟用「新商品」頁面時顯示。</p>
+</div>
+<ul>
+<li><strong>顯示「我的帳戶」</strong></li>
+<li><strong>顯示「訂單」</strong></li>
+<li><strong>顯示「地址」</strong></li>
+<li><strong>顯示「購物車」</strong></li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>「購物車」選單項目僅會在該顧客的角色已啟用「公開商店。啟用購物車」權限時，才會對該名顧客顯示。若要管理權限，請前往 <strong>設定 → 存取控制清單</strong> 頁面。或者，您可以在 <a class="xref" href="../../running-your-store/customer-management/access-control-list.html">存取控制清單</a> 章節閱讀更多關於權限的資訊。</p>
+</div>
+<ul>
+<li><strong>顯示「願望清單」</strong></li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>「願望清單」選單項目僅會在該顧客的角色已啟用「公開商店。啟用願望清單」權限時，才會對該名顧客顯示。若要管理權限，請前往 <strong>設定 → 存取控制清單</strong> 頁面。或者，您可以在 <a class="xref" href="../../running-your-store/customer-management/access-control-list.html">存取控制清單</a> 章節閱讀更多關於權限的資訊。</p>
+</div>
+<ul>
+<li><strong>顯示「申請供應商帳戶」</strong></li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>「申請供應商帳戶」選單項目僅會在 <strong>設定 → 設定 → 供應商設定</strong> 頁面（<em>一般</em> 面板）中勾選 <strong>允許顧客申請供應商帳戶</strong> 核取方塊時顯示。</p>
+</div>
+<p>點擊 <strong>儲存</strong> 以儲存變更。</p>
+<h3 id="追蹤我們">追蹤我們</h3>
+<p>若要自訂頁尾的 <strong>追蹤我們</strong> 區塊，請前往 <strong>設定 → 設定 → 一般設定</strong>。接著前往 <em>社群媒體</em> 面板，如下所示：</p>
+<p><img src="_static/top-menu-and-footer/social-media-settings.jpg" alt="Social media settings"></p>
+<p>輸入您的社群媒體連結：</p>
+<ul>
+<li><strong>Facebook 頁面 URL</strong></li>
+<li><strong>Twitter 頁面 URL</strong></li>
+<li><strong>YouTube 頻道 URL</strong></li>
+<li><strong>Instagram 頁面 URL</strong></li>
+</ul>
+<p>如果您想要啟用或停用頁尾的 RSS 連結，您需要前往 <strong>設定 → 設定 → 新聞設定</strong> 頁面（<em>一般</em> 面板）中，對應地啟用或停用新聞功能。</p>
+<h3 id="電子報">電子報</h3>
+<p>電子報區塊預設會顯示在頁尾。若要隱藏此區塊，請前往 <strong>設定 → 設定 → 顧客設定</strong>。進入「帳戶」面板並勾選 <strong>隱藏電子報方塊 (Hide newsletter box)</strong> 核取方塊，如下所示：</p>
+<p><img src="_static/top-menu-and-footer/newsletter-settings.jpg" alt="Newsletter box settings"></p>
+<p>點擊 <strong>儲存 (Save)</strong> 以儲存變更。頁尾將會隨之更新。</p>
+<h3 id="powered-by-nopcommerce">Powered by nopCommerce</h3>
+<p>根據 nopCommerce 授權條款，若未購買「版權移除金鑰」（<em>Copyright removal key</em>）：</p>
+<ul>
+<li>您不可以移除或隱藏出現在 nopCommerce 驅動網站每個頁面底部的「Powered by nopCommerce」聲明。</li>
+<li>當使用者點擊「Powered by nopCommerce」文字時，必須導向至 <a href="https://www.nopcommerce.com">https://www.nopcommerce.com</a>。此「Powered by nopCommerce」連結必須保持與程式原始碼中提供的格式相同，不得進行任何編輯。此義務同樣適用於任何複製品或衍生作品！</li>
+<li>您商店（網站）頁尾的版權聲明必須保持完整、未經編輯且清晰可見。請勿以任何方式嘗試編輯、移除或隱藏該版權聲明。</li>
+</ul>
+<p>在購買「版權移除金鑰」後，您將被允許移除「Powered by nopCommerce」聲明。
+侵犯版權是違法行為，敬請知悉。</p>
+<p>如需更多資訊，請造訪 <a href="https://nopcommerce.com/nopcommerce-copyright-removal-key?utm_source=documentation&amp;utm_medium=link&amp;utm_campaign=powered_by_nopcommerce&amp;utm_content=topmenu_footer">nopCommerce 版權移除金鑰</a> 頁面。</p>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/getting-started/design-your-store/top-menu-and-footer.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

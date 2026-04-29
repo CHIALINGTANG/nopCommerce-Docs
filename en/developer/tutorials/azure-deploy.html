@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Deployment on Azure with Git and Automatic Builds </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Deployment on Azure with Git and Automatic Builds ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/developer/tutorials/azure-deploy">
+<h1 id="deployment-on-azure-with-git-and-automatic-builds">Deployment on Azure with Git and Automatic Builds</h1>
+
+<h2 id="step-by-step-guide-for-automatic-deployment-of-nopcommerce-with-git-on-azure">Step by step guide for automatic deployment of nopCommerce with git on Azure</h2>
+<ol>
+<li><strong>Setup your git-repository</strong></li>
+</ol>
+<p>The default way to deploy nopCommerce is by using the “Publish” function in Visual Studio. But for publishing to Azure you need to have your own repository. You may use Bitbucket and keep that in sync with the official repository. Or you can <a href="https://azure.microsoft.com/documentation/articles/web-sites-publish-source-control/">setup git on Azure</a>. There's a great video <a href="http://channel9.msdn.com/Shows/Azure-Friday/What-is-Kudu-Azure-Web-Sites-Deployment-with-David-Ebbo">here</a>.</p>
+<ol>
+<li><p><strong>Prepare for local deployment</strong></p>
+<p>When you ensure that the automatic build works, we are ready to customize our deployment scripts. This is needed because the default automatic build only builds <code>Nop.Web</code> project. The problem with this is that it does not build any of the plugins. You cannot add their reference to `Nop.Web' project either as they would create circular references. So, we need to get the custom build working, these are the tools we need to install:</p>
+<ul>
+<li><p>Install NodeJs: <a href="https://nodejs.org">https://nodejs.org</a></p>
+</li>
+<li><p>Install Azure CLI: <a href="https://azure.microsoft.com/documentation/articles/xplat-cli-install/">https://azure.microsoft.com/documentation/articles/xplat-cli-install/</a></p>
+</li>
+</ul>
+</li>
+<li><p><strong>Get NuGet to work at the command line level.</strong></p>
+<p>The default behavior of the KUDU script (which is a tool for generating deployment scripts for Azure App Service) is to check for NuGet packages.</p>
+<ul>
+<li><p>To get access to the <code>Nuget.exe</code> file you could either download it from <a href="https://docs.nuget.org/consume/command-line-reference">here</a>. You can also &quot;Enable automatic restore of NuGet packages&quot; in your Visual Studio, and it will be added to your project automatically.</p>
+</li>
+<li><p>Ensure that NuGet is in the PATH. Copy the <code>nuget.exe</code> file to the preferred location (e.g. <code>c:/Program Files/Nuget/Nuget.exe</code>). Add it to the PATH environment variable.</p>
+</li>
+<li><p>Confirm that NuGet is in your PATH by starting <code>cmd.exe</code> and writing <em>nuget</em>. you should see the command options.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Generate deployment scripts locally</strong></p>
+<ul>
+<li><p>Open the &quot;Microsoft Azure Command Prompt&quot;</p>
+</li>
+<li><p>Navigate to the src folder of your project as you normally would in a shell window</p>
+</li>
+<li><p>Execute the kudu script generator (You may find wiki by <a href="https://github.com/projectkudu/kudu/wiki">this link</a> or see <a href="https://azure.microsoft.com/resources/videos/custom-web-site-deployment-scripts-with-kudu/">this video</a>).</p>
+<p>So you would write something like:</p>
+<p><code>kuduscript site deploymentscript --aspNetCore Presentation\Nop.Web\Nop.Web.csproj -s NopCommerce.sln -y</code></p>
+</li>
+<li><p>Verify that it has generated 2 files (in your local repository root):</p>
+<p><code>.deployment</code></p>
+<p><code>deploy.cmd</code></p>
+</li>
+</ul>
+</li>
+<li><p><strong>Run generated script</strong></p>
+<ul>
+<li>You must keep the .deployment and deploy.cmd file in the root of the git repository</li>
+<li>Edit the <code>deploy.cmd</code> as the <code>%DEPLOYMENT_SOURCE%</code> variable containing the root of the git repository. So we would add <code>%DEPLOYMENT_SOURCE%\src\Presentation\Nop.Web\Nop.Web.csproj</code> instead of <code>%DEPLOYMENT_SOURCE%\Presentation\Nop.Web\Nop.Web.csproj</code>. All paths in the deployment section must be corrected.</li>
+<li>Run <code>deploy.cmd</code> to see if the default deploy script works locally. It should create an <code>\artifact</code> folder just outside of your git repository.</li>
+</ul>
+</li>
+<li><p><strong>Customize the deployment script</strong></p>
+<p>Now we are at the final part. This is where all that work pays off. We want to alter the following piece:</p>
+<pre><code class="lang-sh">::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+:: Deployment
+:: ----------
+
+echo Handling ASP.NET Core Web Application deployment.
+
+:: 1. Restore nuget packages
+call :ExecuteCmd dotnet restore &quot;%DEPLOYMENT_SOURCE%\NopCommerce.sln&quot;
+IF !ERRORLEVEL! NEQ 0 goto error
+
+:: 2. Build and publish
+call :ExecuteCmd dotnet publish &quot;%DEPLOYMENT_SOURCE%\Presentation\Nop.Web\Nop.Web.csproj&quot; --output &quot;%DEPLOYMENT_TEMP%&quot; --configuration Release
+IF !ERRORLEVEL! NEQ 0 goto error
+
+:: 3. KuduSync
+call :ExecuteCmd &quot;%KUDU_SYNC_CMD%&quot; -v 50 -f &quot;%DEPLOYMENT_TEMP%&quot; -t &quot;%DEPLOYMENT_TARGET%&quot; -n &quot;%NEXT_MANIFEST_PATH%&quot; -p &quot;%PREVIOUS_MANIFEST_PATH%&quot; -i &quot;.git;.hg;.deployment;deploy.cmd&quot;
+IF !ERRORLEVEL! NEQ 0 goto error
+::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+</code></pre>
+<p>Between no ::1 and ::2 is where we are gonna place our commands for building plugins.</p>
+<p>An example for the first plugin would be:</p>
+<pre><code class="lang-sh">:: 1.01 Build plugin customer roles to temporary path
+call :ExecuteCmd dotnet build &quot;%DEPLOYMENT_SOURCE%\src\Plugins\Nop.Plugin.DiscountRules.CustomerRoles\Nop.Plugin.DiscountRules.CustomerRoles.csproj&quot; -c Release
+</code></pre>
+</li>
+</ol>
+<p>Now the plugin is built when you run the deploy scripts.</p>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/developer/tutorials/azure-deploy.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

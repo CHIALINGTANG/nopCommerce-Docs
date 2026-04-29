@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Multi-store </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Multi-store ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/getting-started/advanced-configuration/multi-store">
+<h1 id="multi-store">Multi-store</h1>
+
+<p>nopCommerce enables you to run more than one store using one interface from a single nopCommerce installation.</p>
+<p>This enables you to host more than one front-end store on different domains and manage all admin operations from your single administration panel. You can share the catalog data between stores, have a product in more than one store, and your customers can log in to all of your stores using the same credentials.</p>
+<h2 id="configuring-multi-store">Configuring multi-store</h2>
+<h3 id="1-hosting-control-panel-part">1. Hosting control panel part</h3>
+<p>In the following example we will describe the setup of two sample stores:</p>
+<ul>
+<li><code>www.store1.com</code></li>
+<li><code>www.store2.com</code></li>
+</ul>
+<ol>
+<li><p>Upload and install the site on <code>www.store1.com</code>. This is the only place where nopCommerce files and DLLs are stored.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Read more about how to install nopCommerce in the following chapter: <a class="xref" href="../../installation-and-upgrading/installing-nopcommerce/index.html">Installing nopCommerce</a>.</p>
+</div>
+</li>
+<li><p>In the control panel of <code>www.store2.com</code> (meaning your hosting control panel, not the nopCommerce administration area), ensure that all requests to <code>www.store2.com</code> are forwarded (not redirected) to <code>www.store1.com</code>. Perform this using CNAME records. This step is crucial.</p>
+</li>
+<li><p>In the control panel of <code>www.store1.com</code>, configure a domain alias for <code>www.store2.com</code>. This step can be complicated for some users (ask your system administrator to perform this step if you have issues).</p>
+<p>After completing the steps above, when accessing <code>www.store2.com</code> from your browser, the content of <code>www.store1.com</code> will be displayed. The next step is to configure the stores in the nopCommerce administration area, which will be described below. You can then start uploading content for both stores.</p>
+</li>
+<li><p>Optional (sample): This step can be performed from the Plesk control panel below as follows:</p>
+<p>Whenever <code>www.store2.com</code> is redirected to <code>www.store1.com</code>, the web server for Plesk does not know how to display <code>www.store2.com</code> since it uses Name-Based Virtual Hosting. Therefore, you must create a domain alias for <code>www.store2.com</code> as described below:</p>
+<ul>
+<li><p>Log in to the domain panel of <code>www.store1.com</code> either directly or via the <strong>Open in Control Panel</strong> link from the server administration panel.</p>
+</li>
+<li><p>In the <strong>Websites &amp; Domains</strong> tab, select the <strong>Add New Domain Alias</strong> link near the bottom of the tab.</p>
+</li>
+<li><p>Enter the full alias. For example, <code>store2.com</code>.</p>
+</li>
+<li><p>Ensure the <strong>Web service</strong> option is selected.</p>
+</li>
+<li><p>The <strong>Mail</strong> service is optional. Select this option if you want emails from <code>www.store2.com</code> to be redirected in a similar way.</p>
+</li>
+<li><p>Ensure the <strong>Synchronize DNS zone with the primary domain</strong> option is clear.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="2-nopcommerce-administration-area-part">2. nopCommerce administration area part</h3>
+<p>Once the installation and technical setup are done, you can manage your stores from the nopCommerce administration area. Go to <strong>Configuration → Stores</strong>. The <em>Stores</em> window will be displayed:</p>
+<p><img src="_static/multi-store/mainstore.png" alt="Stores window"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>By default, only one store is created.</p>
+</div>
+<p>To set up several stores, click <strong>Add new</strong> and define the following store settings:</p>
+<p><img src="_static/multi-store/create.jpg" alt="Create"></p>
+<ul>
+<li><p>Define the <strong>Store name</strong>.</p>
+</li>
+<li><p>Enter your <strong>Store URL</strong>.</p>
+</li>
+<li><p>Select the <strong>SSL enabled</strong> checkbox if your store is SSL secured. SSL (Secure Sockets Layer) is the standard security technology for establishing an encrypted link between a web server and a browser. This link ensures that all data passed between the web server and browsers remain private and integral. SSL is the industry standard used by millions of websites to protect online transactions with their customers.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Only select this option after you have installed the SSL certificate on your server. Otherwise, you won't be able to access your site and will have to manually edit the appropriate record in your database ([Store] table).</p>
+</div>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Read more about setting SSL up in the following chapter: <a class="xref" href="how-to-install-and-configure-ssl-certificates.html">How to install and configure SSL certificates</a>.</p>
+</div>
+</li>
+<li><p>The <strong>HOST values</strong> field is a list of possible HTTP_HOST values of your store (for example, <code>store1.com</code>, <code>www.store1.com</code>). Filling this field is only required when you have a multi-store solution to determine the current store. This field enables distinguishing requests to distinct URLs and determines the current store. You can also see the current HTTP_HOST value in <strong>System → System information</strong>.</p>
+</li>
+<li><p>In the <strong>Default language</strong> field, choose the default language of your store. You may also leave it unselected. In this case, the first found one (with the lowest display order) will be used.</p>
+</li>
+<li><p>Define the <strong>Display order</strong> for this store. 1 represents the top of the list.</p>
+</li>
+<li><p>Define the <strong>Company name</strong>.</p>
+</li>
+<li><p>Define the <strong>Company address</strong>.</p>
+</li>
+<li><p>Set your <strong>Company phone number</strong>.</p>
+</li>
+<li><p>In the <strong>Company VAT</strong> field, enter the VAT number of your company (used in the EU).</p>
+</li>
+</ul>
+<p>Add another store by clicking the <strong>Add new</strong> button on the <strong>Configuration → Stores</strong> page and filling in the similar fields.</p>
+<p>The two stores have now been configured using a single nopCommerce installation:</p>
+<ul>
+<li><a href="http://www.store1.com">www.store1.com</a></li>
+<li><a href="http://www.store2.com">www.store2.com</a></li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The multi-store solution (distinction of stores by HTTP_HOST) does not work for sites in virtual directories on the same domain.</p>
+</div>
+<p>For example, you cannot have one store on <code>http://www.site.com/store1</code> and the second store on <code>http://www.site.com/store2</code> since the HTTP_HOST value for both sites is the same (<code>www.site.com</code>).</p>
+<h2 id="configuring-entities-for-multi-store">Configuring entities for multi-store</h2>
+<p>Once the stores have been set up and configured, you can define your entities for each store. Do this by filling the <strong>Limited to stores</strong> field of the details pages for each of the following: <a class="xref" href="../../running-your-store/catalog/products/index.html">Products</a>, <a class="xref" href="../../running-your-store/catalog/categories.html">Categories</a>, <a class="xref" href="../../running-your-store/catalog/manufacturers.html">Manufacturers</a>, <a class="xref" href="localization.html">Languages</a>, <a class="xref" href="../configure-payments/advanced-configuration/currencies.html">Currencies</a>, <a class="xref" href="../../running-your-store/content-management/message-templates.html">Message templates</a>, <a class="xref" href="../../running-your-store/content-management/blog.html">Blogs</a>, <a class="xref" href="../../running-your-store/content-management/news.html">News</a>, <a class="xref" href="../../running-your-store/content-management/topics-pages.html">Topics</a>.</p>
+<p>Scroll down to the <strong>Limited to stores</strong> field and choose the name of the existing store from the dropdown menu as shown in the <em>Edit product details</em> screen below:</p>
+<p><img src="_static/multi-store/product-limited-to-store.png" alt="Mappings"></p>
+<h2 id="configuring-settings-for-multi-store">Configuring settings for multi-store</h2>
+<p>Different <a class="xref" href="../design-your-store/choose-and-install-a-theme.html">themes</a> can also be configured for different stores.</p>
+<p>In addition, you can override any setting value per store. For example, go to <strong>Settings → Order settings</strong> and see the <strong>Multi-store configuration for</strong> dropdown list where you can choose the store you want to override the settings for:</p>
+<p><img src="_static/multi-store/override-settings.jpg" alt="Override settings"></p>
+<p>When you choose the store, the page will be refreshed, and you will be able to define any field for the chosen store. Then just click <strong>Save</strong> to save the settings.</p>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/getting-started/advanced-configuration/multi-store.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

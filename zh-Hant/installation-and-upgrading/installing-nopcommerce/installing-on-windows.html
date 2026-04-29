@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>在 Windows 上安裝 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="在 Windows 上安裝 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/installation-and-upgrading/installing-nopcommerce/installing-on-windows">
+<h1 id="在-windows-上安裝">在 Windows 上安裝</h1>
+
+<p>本章節將說明如何下載 nopCommerce 軟體、將其上傳至伺服器並進行安裝。您也可以觀看我們 <a href="https://www.youtube.com/watch?v=L7NGodeB9sQ">YouTube 頻道</a> 上關於 nopCommerce 安裝的教學影片。</p>
+<p>在開始安裝之前，請確保您的網站主機符合 <a class="xref" href="../technology-and-system-requirements.html">執行 nopCommerce 的最低需求</a>。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>若需更多關於主機選擇的指南，請參閱 <a class="xref" href="choose-a-hosting-company.html">此頁面</a>。</p>
+</div>
+<h2 id="下載-nopcommerce">下載 nopCommerce</h2>
+<p>若要在 Windows 上安裝 nopCommerce，您必須先下載它。請前往 <a href="https://www.nopcommerce.com/download-nopcommerce">下載頁面</a> 並選擇適用於 Windows 的 <strong>Package without source code</strong> 版本。這是 nopCommerce 的預先編譯版本，只需上傳至您的託管服務供應商即可立即使用。</p>
+<h2 id="上傳-nopcommerce-檔案">上傳 nopCommerce 檔案</h2>
+<p>下一步是將 nopCommerce 檔案上傳到您的伺服器。為此，您需要使用 FTP 連線，這可以讓您在電腦之間傳輸檔案。請依照下列步驟進行設定：</p>
+<ol>
+<li>選擇並下載一個您要用於傳輸檔案的 FTP 客戶端應用程式。</li>
+<li>在您的主機控制台（hosting control panel）中找到您的 FTP 憑證。</li>
+<li>在您的 FTP 客戶端應用程式中，使用在上一步找到的 FTP 憑證，設定您的電腦與伺服器之間的連線。</li>
+<li>將 nopCommerce 檔案上傳至伺服器。</li>
+</ol>
+<h2 id="建立資料庫">建立資料庫</h2>
+<p>在執行 nopCommerce 之前，請先在您的主機控制台建立一個新的資料庫實例。此資料庫將用於儲存您的網站資料。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>建立資料庫時，若有要求，請選擇 MS SQL Server <em>2012</em> 或 <em>更新</em> 的版本。</p>
+</div>
+<p>我們將會在稍後的安裝過程中，使用您的資料庫名稱、伺服器名稱（或 IP、URL）、使用者登入帳號及密碼。這些憑證是建立資料庫連線所必需的。</p>
+<h2 id="建立新網站">建立新網站</h2>
+<p>在您的虛擬主機控制台建立一個新網站。接著，找到一個可以讓您存取該網站的 URL。</p>
+<h2 id="安裝-nopcommerce">安裝 nopCommerce</h2>
+<p>使用上一個步驟取得的 URL，透過瀏覽器存取網站。
+當您第一次開啟網站時，將會被重新導向至安裝頁面，如下所示：
+<img src="_static/installing-local/installation.jpg" alt="nopCommerce installation"></p>
+<p>在「商店資訊 (Store information)」面板中，請填寫以下詳細資訊：</p>
+<ul>
+<li><strong>管理員電子郵件 (Admin user email)</strong>：這是網站第一位管理員的電子郵件地址。</li>
+<li><strong>管理員密碼 (Admin user password)</strong>：您需要為管理員帳號提供一組密碼。</li>
+<li><strong>確認密碼 (Confirm the password)</strong>：確認管理員密碼。</li>
+<li><strong>國家/地區 (Country)</strong>：從下拉式清單中選擇國家/地區。這能讓系統根據您選擇的國家/地區預先設定您的商店。例如：
+<ul>
+<li>從官方網站下載並預先安裝語言包</li>
+<li>預先設定某些項目（例如：針對德國的 PangV 或「顯示稅金/運費資訊」設定）</li>
+<li>預先設定運送詳細資訊、增值稅 (VAT) 設定、貨幣、度量衡等。</li>
+</ul>
+</li>
+<li><strong>建立範例資料 (Create sample data)</strong>：如果您希望建立範例商品，請勾選此核取方塊。建議勾選此選項，以便在新增自己的商品之前，能先開始操作您的網站。您可以隨時刪除這些項目，或是取消發佈它們，使它們不再出現在您的網站上。</li>
+</ul>
+<p>在「資料庫資訊 (Database information)」面板中，您需要輸入以下資訊：</p>
+<ul>
+<li><strong>資料庫 (Database)</strong>：您可以在此選擇 Microsoft SQL Server、MySQL 或 PostgreSQL。如果您是在 Windows 上安裝 nopCommerce，請選擇第一個選項。</li>
+<li><strong>如果資料庫不存在則建立 (Create database if it doesn't exist)</strong>：建議您預先建立好資料庫及資料庫使用者，以確保安裝順利。只需建立一個資料庫實體並加入資料庫使用者即可。安裝程序將會建立所有的資料表、預存程序等。</li>
+<li><strong>輸入原始連線字串 (進階) (Enter raw connection string (advanced))</strong>：如果您想直接輸入 <strong>連線字串 (Connection string)</strong> 而非填寫個別連線欄位，請勾選此選項。</li>
+<li><strong>伺服器名稱 (Server name)</strong>：這是資料庫的 IP、URL 或伺服器名稱。請從您的主機控制台取得伺服器名稱。</li>
+<li><strong>資料庫名稱 (Database name)</strong>：這是 nopCommerce 使用的資料庫名稱。如果您已預先建立資料庫，請在此填入該名稱。</li>
+<li><strong>使用 Windows 整合驗證 (Use integrated Windows authentication)</strong>：如果您是在虛擬主機供應商處進行安裝，則不需要此選項。</li>
+<li><strong>SQL 使用者名稱 (SQL Username)</strong>：輸入您的資料庫使用者登入帳號。</li>
+<li><strong>SQL 密碼 (SQL Password)</strong>：輸入您的資料庫使用者密碼。</li>
+<li><strong>指定自訂定序 (Specify custom collation)</strong>：這是進階設定，通常保持空白即可。</li>
+</ul>
+<p>點擊 <strong>安裝 (Install)</strong> 開始安裝程序。當設定程序完成後，將會顯示您新網站的首頁。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>安裝頁面底部的 <strong>重新啟動安裝 (Restart installation)</strong> 按鈕，可讓您在發生任何問題時重新開始安裝程序。</p>
+</div>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>如果您想將 nopCommerce 網站完全重設為預設設定，您可以從 <code>App_Data</code> 目錄中刪除 <code>appsettings.json</code> 檔案。</p>
+</div>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/installation-and-upgrading/installing-nopcommerce/installing-on-windows.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

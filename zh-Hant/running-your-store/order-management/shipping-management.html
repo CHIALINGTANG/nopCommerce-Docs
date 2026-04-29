@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>出貨管理 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="出貨管理 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/running-your-store/order-management/shipping-management">
+<h1 id="出貨管理">出貨管理</h1>
+
+<p>若要搜尋並檢視出貨記錄，請前往 <strong>銷售 → 出貨</strong>。</p>
+<h2 id="出貨清單">出貨清單</h2>
+<p><img src="_static/shipping-management/order-shipment-list.jpg" alt="Shipment list"></p>
+<p>頁面頂端區域讓您能夠透過各種搜尋條件來搜尋出貨記錄：</p>
+<ul>
+<li><strong>開始日期</strong> 與 <strong>結束日期</strong>：搜尋在這段期間內建立的出貨記錄。</li>
+<li>輸入 <strong>追蹤號碼</strong>：若您想尋找具有特定追蹤號碼的出貨記錄。</li>
+<li>選擇 <strong>倉庫</strong>：搜尋從特定倉庫寄出的出貨記錄。</li>
+<li>勾選 <strong>載入未送達</strong> 核取方塊：若您不想載入已經送達的項目。</li>
+<li>使用 <strong>國家、州/省、郡/區域、城市</strong>：依據出貨目的地進行搜尋。</li>
+<li>勾選 <strong>載入未出貨</strong> 核取方塊：若您不想載入已經出貨的項目。</li>
+<li>勾選 <strong>載入未準備好取貨</strong> 核取方塊：若您想載入尚未準備好取貨的項目。</li>
+</ul>
+<p>選取特定的出貨記錄，即可執行 <strong>設為已出貨 (已選)</strong>、<strong>設為已送達 (已選)</strong> 或 <strong>設為準備取貨 (已選)</strong>。您也可以選擇 <strong>列印包裝明細 (已選)</strong> 或 <strong>列印包裝明細 (全部)</strong> 來列印出貨單據。</p>
+<p>在出貨清單中，商店擁有者可以透過點擊出貨記錄第一欄的 <img src="_static/shipping-management/order-shipment-expand.png" alt="expand"> 來檢視該出貨的所有項目。</p>
+<h2 id="出貨詳情">出貨詳情</h2>
+<p>如果您點擊 <strong>檢視</strong>，將會開啟如下的「檢視出貨詳情」視窗：</p>
+<p><img src="_static/shipping-management/shipment-details.jpg" alt="Shipment details"></p>
+<p>在此視窗中，您可以執行以下操作：</p>
+<ul>
+<li>前往訂單頁面。</li>
+<li>設定出貨的 <strong>追蹤號碼</strong>。</li>
+<li>新增供內部使用的 <strong>管理員註解</strong>。</li>
+<li>查看 <strong>出貨總重量</strong>。</li>
+<li>將出貨標記為 <strong>已出貨</strong>。</li>
+<li>編輯 <strong>出貨日期</strong>。</li>
+<li>將出貨標記為 <strong>已送達</strong>。</li>
+<li>編輯 <strong>送達日期</strong>。</li>
+<li><strong>列印包裝明細</strong>。</li>
+<li><strong>刪除</strong> 該出貨記錄。</li>
+</ul>
+<p>如果顧客在結帳過程中選擇了「店內取貨」的出貨方式，您將能夠將該出貨標記為「準備取貨」。在「檢視出貨詳情」頁面上，此按鈕顯示如下：</p>
+<p><img src="_static/shipping-management/ready-for-pickup.jpg" alt="Shipment details"></p>
+<h2 id="出貨設定">出貨設定</h2>
+<p>若要設定出貨功能，請前往 <a class="xref" href="../../getting-started/configure-shipping/index.html">設定出貨</a> 章節。</p>
+<h2 id="參閱">參閱</h2>
+<ul>
+<li><a class="xref" href="orders.html">訂單</a></li>
+<li><a class="xref" href="../catalog/products/add-products.html">新增商品</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/running-your-store/order-management/shipping-management.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

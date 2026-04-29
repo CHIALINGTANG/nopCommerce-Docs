@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>開發新外掛 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="開發新外掛 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/developer/tutorials/guide-to-expanding-the-functionality-of-the-basic-functions-of-nop-commerce-through-a-plugin">
+<h1 id="開發新外掛">開發新外掛</h1>
+
+<h2 id="概覽">概覽</h2>
+<p>nopCommerce 使用外掛系統來擴充管理後台的功能，並使用小工具系統來擴充網站的功能。外掛與小工具是一組獨立的程式或組件，可以被加入到現有的系統中以擴充某些特定功能，也可以在過程中從系統中移除，而不會影響主系統。因此，透過使用外掛與小工具的概念，我們可以在不更改或編輯 nopCommerce 解決方案核心原始程式碼的情況下，為系統增加更多功能並進行建置。這使我們能夠根據需要將 nopCommerce 解決方案升級或降級到最新版本或舊版本，而不必重寫我們已經建立的外掛與小工具。</p>
+<h2 id="外掛-plugins-與小工具-widgets-的差異">外掛 (Plugins) 與小工具 (Widgets) 的差異</h2>
+<p>我們知道外掛與小工具都是用來擴充 nopCommerce 解決方案的功能。那麼，您可能會問「它們之間有什麼差別」。基本上在 nopCommerce 中，您可以將小工具視為具備額外功能的外掛。建立小工具的過程與建立外掛大致相同，但透過使用小工具，我們可以在 nopCommerce 前台網站中，由 nopCommerce 預先定義的特定區域（稱為 widget-zones）顯示一些 UI（使用者介面），而這僅透過一般外掛是無法實現的。您可以將小工具視為外掛的一個子集。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>所有可用的 widget zones 可以在 <code>Nop.Web.Framework.Infrastructure</code> 命名空間中找到：</p>
+<ul>
+<li><p>管理後台的 widget-zones 可以在 <strong>AdminWidgetZones.cs</strong> 檔案中找到。</p>
+</li>
+<li><p>前台網站的 widget-zones 可以在 <strong>PublicWidgetZones.cs</strong> 檔案中找到。</p>
+</li>
+</ul>
+</div>
+<p>現在您應該更清楚什麼是小工具、什麼是外掛、何時使用它們，以及使用它們的好處。那麼，接下來讓我們建立一個簡單的小工具，在前台網站顯示「Hello World」訊息，藉此了解如何在 nopCommerce 中建立小工具。</p>
+<h2 id="初始化外掛專案">初始化外掛專案</h2>
+<h3 id="步驟-1建立新專案">步驟 1：建立新專案</h3>
+<p>前往 nopCommerce 官方網站並下載最新的 nopCommerce 原始碼。使用您偏好的 IDE 開啟 nopCommerce 方案（推薦使用 Microsoft Visual Studio）。若您想進一步了解專案結構，請先查看「<a class="xref" href="source-code-organization.html">原始碼組織</a>」一文。在方案的最上方，您會看到一個 <em>Plugins</em> 資料夾，展開該資料夾，即可看到 nopCommerce 預設提供的外掛專案清單。</p>
+<p><img src="_static/guide-to-expanding-the-functionality-of-the-basic-functions-of-nop-commerce-through-a-plugin/image1.png" alt="image1"></p>
+<p>為了建立一個新的小工具（Widget）專案，請對 <em>Plugins</em> 資料夾按右鍵：點選 <strong>加入 (Add)</strong> -&gt; <strong>新增專案 (New Project)</strong>，接著會出現「新增專案」視窗。</p>
+<p><img src="_static/guide-to-expanding-the-functionality-of-the-basic-functions-of-nop-commerce-through-a-plugin/image2.png" alt="image2"></p>
+<p>選擇 <strong>類別庫 (Class Library)</strong> 專案範本並進入下一步，您需要在該步驟指定專案名稱。</p>
+<p><img src="_static/guide-to-expanding-the-functionality-of-the-basic-functions-of-nop-commerce-through-a-plugin/image2_1.png" alt="image2_1"></p>
+<p>nopCommerce 遵循一些標準命名慣例，您可以在 nopCommerce 文件中取得更多資訊。我依照 nopCommerce 的命名慣例，將專案名稱命名為 <code>Nop.Plugin.Widget.HelloWorld</code>，並將位置設定在 <em>/src/Plugins</em> 目錄中。現在點選 <strong>下一步 (Next)</strong>。</p>
+<p><img src="_static/guide-to-expanding-the-functionality-of-the-basic-functions-of-nop-commerce-through-a-plugin/image2_2.png" alt="image2_2"></p>
+<p>這將在 Plugins 目錄中建立一個新專案。在您的方案中，您應該會看到如下畫面：</p>
+<p><img src="_static/guide-to-expanding-the-functionality-of-the-basic-functions-of-nop-commerce-through-a-plugin/image3.png" alt="image3"></p>
+<h3 id="步驟-2設定您的新專案以作為小工具widget使用">步驟 2：設定您的新專案以作為小工具（Widget）使用</h3>
+<p>我們需要在專案中設定一些項目，使其能作為「外掛（Plugin）」或「小工具（Widget）」使用。</p>
+<p>當您成功建立專案後，請開啟其 <code>.csproj</code> 檔案。您可以透過在專案上按一下滑鼠右鍵，並點選內容選單中的 <code>{Your_Project_Name.csproj}</code> 選項，然後將其內容替換為以下程式碼。</p>
+<pre><code class="lang-xml">&lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;
+    &lt;PropertyGroup&gt;
+        &lt;TargetFramework&gt;net9.0&lt;/TargetFramework&gt;
+        &lt;Copyright&gt;SOME_COPYRIGHT&lt;/Copyright&gt;
+        &lt;Company&gt;YOUR_COMPANY&lt;/Company&gt;
+        &lt;Authors&gt;SOME_AUTHORS&lt;/Authors&gt;
+        &lt;PackageLicenseUrl&gt;PACKAGE_LICENSE_URL&lt;/PackageLicenseUrl&gt;
+        &lt;PackageProjectUrl&gt;PACKAGE_PROJECT_URL&lt;/PackageProjectUrl&gt;
+        &lt;RepositoryUrl&gt;REPOSITORY_URL&lt;/RepositoryUrl&gt;
+        &lt;RepositoryType&gt;Git&lt;/RepositoryType&gt;
+        &lt;OutputPath&gt;$(SolutionDir)\Presentation\Nop.Web\Plugins\{PLUGIN_OUTPUT_DIRECTORY}&lt;/OutputPath&gt;
+        &lt;OutDir&gt;$(OutputPath)&lt;/OutDir&gt;
+        &lt;!--Set this parameter to true to get the dlls copied from the NuGet cache to the output of your    project. You need to set this parameter to true if your plugin has a nuget package to ensure that   the dlls copied from the NuGet cache to the output of your project--&gt;
+        &lt;CopyLocalLockFileAssemblies&gt;false&lt;/CopyLocalLockFileAssemblies&gt;
+        &lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;
+    &lt;/PropertyGroup&gt;
+    &lt;ItemGroup&gt;
+        &lt;ProjectReference Include=&quot;$(SolutionDir)\Presentation\Nop.Web.Framework\Nop.Web.Framework.csproj&quot; /&gt;
+        &lt;ClearPluginAssemblies Include=&quot;$(SolutionDir)\Build\ClearPluginAssemblies.proj&quot; /&gt;
+    &lt;/ItemGroup&gt;
+    &lt;!-- This target execute after &quot;Build&quot; target --&gt;
+    &lt;Target Name=&quot;NopTarget&quot; AfterTargets=&quot;Build&quot;&gt;
+        &lt;!-- Delete unnecessary libraries from plugins path --&gt;
+        &lt;MSBuild Projects=&quot;@(ClearPluginAssemblies)&quot; Properties=&quot;PluginPath=$(OutDir)&quot; Targets=&quot;NopClear&quot; /&gt;
+    &lt;/Target&gt;
+&lt;/Project&gt;
+</code></pre>
+<p>在此請將 <code>{Plugin_Output_Directory}</code> 替換為您的專案名稱，以我的案例來說是 <em>Widget.HelloWorld</em>。</p>
+<p>此動作會將與此專案相關的所有 DLL 檔案複製到 <code>Nop.Web/Plugin/{Plugin_Output_Directory}</code> 目錄中。這是因為 <code>Nop.Web</code> 內部的 <code>Plugin</code> 目錄是 nopCommerce 搜尋外掛與小工具的位置，以便在管理後台的「外掛」或「小工具」清單中顯示它們。</p>
+<h3 id="步驟-3建立-pluginjson-檔案">步驟 3：建立 plugin.json 檔案</h3>
+<p>對於我們為 nopCommerce 建立的每個 <em>外掛 (Plugin)</em> 或 <em>小工具 (Widget)</em>，此檔案皆為必要。此檔案包含關於我們外掛的後設資料（meta information），用以描述該外掛。它包含了諸如外掛名稱、目標對應的 nopCommerce 版本、外掛描述、外掛版本等資訊。如需更多資訊，請參閱 <a class="xref" href="../plugins/plugin.json.html">plugin.json 檔案</a> 一文。</p>
+<h3 id="步驟-4建立繼承自-baseplugin-類別的類別">步驟 4：建立繼承自 BasePlugin 類別的類別</h3>
+<p>我們需要有一個繼承自 <code>IPlugin</code> 介面的類別，這樣 nopCommerce 才會將我們的專案視為外掛。但 nopCommerce 已經提供了一個繼承自 <code>IPlugin</code> 介面並實作了該介面所有方法的 <code>BasePlugin</code> 類別。因此，我們可以直接擴充 <code>BasePlugin</code> 類別，而不是直接繼承 <code>IPlugin</code> 介面。如果我們在外掛或小工具的安裝與解除安裝過程中需要執行某些邏輯，我們可以將 <code>BasePlugin</code> 類別中的 <code>InstallAsync</code> 和 <code>UninstallAsync</code> 方法覆寫到我們的類別中。最後，該類別看起來應該像這樣：</p>
+<pre><code class="lang-cs">public class HelloWorldPlugin: BasePlugin
+{
+    public override async Task InstallAsync()
+    {
+        //Logic during installation goes here...
+
+        await base.InstallAsync();
+    }
+
+    public override async Task UninstallAsync()
+    {
+        //Logic during uninstallation goes here...
+
+         await base.UninstallAsync();
+    }
+}
+</code></pre>
+<p>現在請編譯並執行您的專案。導航至管理後台，在 <strong>設定</strong> 下方會有一個 <strong>在地外掛</strong> 選單，請點擊該選單。在這裡您將看到所有位於我們 <code>Nop.Web/Plugins</code> 目錄下的外掛清單。您應該會在那裡看到您剛建立的外掛。如果沒有看到，請點擊 <strong>重新載入外掛清單</strong> 按鈕，這會重新啟動您的應用程式並列出所有可用的外掛。現在您應該能看到您的外掛了。請點擊該外掛列中的綠色 <strong>安裝</strong> 按鈕。</p>
+<p><img src="_static/guide-to-expanding-the-functionality-of-the-basic-functions-of-nop-commerce-through-a-plugin/image5.png" alt="image5"></p>
+<p>點擊安裝按鈕後，請點擊 <strong>重新啟動應用程式以套用變更</strong> 按鈕。這將會重新啟動您的應用程式並安裝您的外掛。安裝完成後，您將會看到 <em>設定</em>、<em>編輯</em> 以及 <em>解除安裝</em> 按鈕，如下所示：</p>
+<p><img src="_static/guide-to-expanding-the-functionality-of-the-basic-functions-of-nop-commerce-through-a-plugin/image6.png" alt="image6"> 現在您的外掛已經安裝完畢。但 <em>設定</em> 按鈕目前還無法運作，因為我們在外掛中尚未建立任何設定頁面。</p>
+<h2 id="建立一個小工具以在我們的公開網站顯示-ui">建立一個小工具以在我們的公開網站顯示 UI</h2>
+<p>如前所述，<em>小工具 (Widget)</em> 與一般外掛相同，但具備額外的功能。因此，我們可以使用同一個外掛專案將其轉換為小工具，並將部分 UI 呈現到我們的公開網站上。讓我們來看看如何擴充此外掛並將其變成一個小工具。</p>
+<p>首先，我們需要建立一個 <code>ViewComponent</code>。在專案的根目錄中建立一個 <em>Components</em> 目錄，並建立一個 <strong><code>ViewComponent</code></strong> 類別。我們需要讓此類別繼承自 <code>NopViewComponent</code> 基底類別。</p>
+<pre><code class="lang-cs">public class ExampleWidgetViewComponent: NopViewComponent
+{
+    public IViewComponentResult Invoke(string widgetZone, object additionalData)
+    {
+        return Content(&quot;Hello World&quot;);
+    }
+}
+</code></pre>
+<p>現在，回到我們先前建立、繼承自 <code>BasePlugin</code> 的類別，並讓它實作 <code>IWidgetPlugin</code> 介面。此介面包含 <code>GetWidgetZones</code> 和 <code>GetWidgetViewComponent</code> 兩個函式宣告，我們需要在類別中實作它們。</p>
+<pre><code class="lang-cs">public class HelloWorldPlugin: BasePlugin, IWidgetPlugin
+{
+    /// &lt;summary&gt;
+    /// Gets a value indicating whether to hide this plugin on the widget list page in the admin area
+    /// &lt;/summary&gt;
+    public bool HideInWidgetList =&gt; false;
+
+    /// &lt;summary&gt;
+    /// Gets a type of a view component for displaying widget
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;widgetZone&quot;&gt;Name of the widget zone&lt;/param&gt;
+    /// &lt;returns&gt;View component type&lt;/returns&gt;
+    public Type GetWidgetViewComponent(string widgetZone)
+    {
+        return typeof(ExampleWidgetViewComponent);
+    }
+    
+    /// &lt;summary&gt;
+    /// Gets widget zones where this widget should be rendered
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;
+    /// A task that represents the asynchronous operation
+    /// The task result contains the widget zones
+    /// &lt;/returns&gt;
+    public Task&lt;IList&lt;string&gt;&gt; GetWidgetZonesAsync()
+    {
+        return Task.FromResult&lt;IList&lt;string&gt;&gt;(new List&lt;string&gt; { &quot;home_page_before_categories&quot; });        
+    }
+
+    public override async Task InstallAsync()
+    {
+        //Logic during installation goes here...
+
+        await base.InstallAsync();
+    }
+
+    public override async Task UninstallAsync()
+    {
+        //Logic during uninstallation goes here...
+
+         await base.UninstallAsync();
+    }
+}
+</code></pre>
+<p>現在，如果您建置您的專案，並瀏覽至管理後台，進入 <strong>設定 -&gt; 小工具</strong>，您將能夠在列表中看到您的小工具。</p>
+<p><img src="_static/guide-to-expanding-the-functionality-of-the-basic-functions-of-nop-commerce-through-a-plugin/image7.png" alt="image7"></p>
+<p>在這裡您可能會注意到這個小工具沒有 <em>設定</em> 按鈕。這是因為我們沒有為此小工具建立設定檢視檔案，也沒有覆寫 <code>BasePlugin</code> 類別中的 <code>GetConfigurationPageUrl</code> 方法。由於我們已經安裝了此外掛，因此不需要再次安裝，但您可以發現該小工具目前尚未啟用。我們可以點擊 <em>編輯</em> 按鈕來啟用它。</p>
+<p><img src="_static/guide-to-expanding-the-functionality-of-the-basic-functions-of-nop-commerce-through-a-plugin/image8.png" alt="image8"></p>
+<p>現在，在我們將小工具設為啟用後，它應該能如預期般運作。如果我們前往首頁，在類別清單之前，應該會看到如圖所示（黃色標記處）的「Hello World」訊息。</p>
+<p><img src="_static/guide-to-expanding-the-functionality-of-the-basic-functions-of-nop-commerce-through-a-plugin/image9.png" alt="image9"></p>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/developer/tutorials/guide-to-expanding-the-functionality-of-the-basic-functions-of-nop-commerce-through-a-plugin.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>詢價請求 (RFQ) 與報價支援 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="詢價請求 (RFQ) 與報價支援 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/running-your-store/order-management/rfq">
+<h1 id="詢價請求-rfq-與報價支援">詢價請求 (RFQ) 與報價支援</h1>
+
+<h2 id="概觀">概觀</h2>
+<p>此功能實作為一個獨立的外掛，允許顧客針對購物車中的商品提交 <strong>詢價請求 (Request for Quote, RFQ)</strong>。這對於協商大量折扣或網站上未提供之特殊定價特別有用。</p>
+<p>作為回應，網站管理員可以建立並寄送正式的 <strong>報價單 (Quote)</strong> 給顧客，列出特殊優惠條件。</p>
+<h2 id="設定與組態">設定與組態</h2>
+<p>此外掛的組態設定相當直觀：</p>
+<ul>
+<li><strong>啟用</strong>：整個功能可以透過單一設定來啟用或停用。
+<img src="_static/rfq/configure.png" alt="Image"></li>
+<li><strong>存取控制</strong>：可以分別為公開的前台網站和管理後台設定存取控制清單 (ACL) 權限，以管理誰可以使用此功能。
+<img src="_static/rfq/acl.png" alt="Image"></li>
+</ul>
+<h2 id="使用方式">使用方式</h2>
+<h3 id="顧客流程">顧客流程</h3>
+<ol>
+<li><strong>發起 RFQ</strong>：若外掛已啟用且 ACL 允許，購物車頁面上會出現一個新按鈕。
+<img src="_static/rfq/sc_request.png" alt="Image">
+點擊該按鈕會將使用者導向 RFQ 建立表單。
+<img src="_static/rfq/sc_request_form.png" alt="Image"></li>
+<li><strong>編輯 RFQ</strong>：在此表單上，使用者可以在提交前調整請求內容。在寄出之前，RFQ 不會儲存至資料庫。
+<ul>
+<li>在請求中新增備註。</li>
+<li>為每個項目提議自訂數量與單價。</li>
+<li>使用者可以點擊 <strong>「回到購物車」(Back to shopping cart)</strong> 返回購物車。</li>
+</ul>
+</li>
+<li><strong>提交 RFQ</strong>：當使用者點擊 <strong>「送出請求」(Send request)</strong> 後，RFQ 即會送出，之後使用者將無法編輯。唯一可用的動作是取消或刪除它。
+<img src="_static/rfq/sc_request_form_create.png" alt="Image"></li>
+<li><strong>管理 RFQ 與報價單</strong>：提交請求後，使用者的帳戶區塊會出現兩個新的選單項目：
+<ul>
+<li><strong>「詢價請求」(Requests for quote)</strong>：所有已提交 RFQ 的清單。
+<img src="_static/rfq/sc_request_list.png" alt="Image"></li>
+<li><strong>「報價單」(Quotes)</strong>：從商店管理員收到的所有報價清單。當收到新的報價單時，使用者會收到電子郵件通知。
+<img src="_static/rfq/customer_q_list.png" alt="Image"></li>
+</ul>
+</li>
+<li><strong>從報價單建立訂單</strong>：如果收到的報價單可以接受且尚未過期，使用者可以點擊 <strong>「建立訂單」(Create the order)</strong>。
+<img src="_static/rfq/customer_q_create_order.png" alt="Image">
+此動作會執行以下步驟：
+<ul>
+<li>清除使用者目前的購物車。</li>
+<li>建立一個包含報價單中確切項目與價格的新購物車。</li>
+<li>使用者繼續進行標準的結帳流程。</li>
+</ul>
+</li>
+<li><strong>報價模式限制</strong>：
+<ul>
+<li>一旦購物車由報價單產生，即視為處於「報價模式」。</li>
+<li>使用者無法將任何其他項目加入購物車，也無法修改報價單中的項目。嘗試這樣做將會取消報價模式並清空購物車。</li>
+<li>使用者可以點擊 <strong>「退出報價模式」(Exit quote mode)</strong> 來清除購物車並返回主要商店頁面。
+<img src="_static/rfq/sc_by_q.png" alt="Image"></li>
+</ul>
+</li>
+</ol>
+<h3 id="管理員流程">管理員流程</h3>
+<ol>
+<li><strong>通知與管理</strong>：當使用者提交 RFQ 時，商店擁有者會收到電子郵件通知。管理後台會出現兩個新的選單項目，用於管理 RFQ 與報價單，點擊後會進入對應的清單。
+<img src="_static/rfq/admin_rfq.png" alt="Image"></li>
+<li><strong>審核 RFQ</strong>：從 RFQ 清單中，管理員可以檢視使用者的請求詳細資訊。在編輯頁面上，管理員可以：
+<ul>
+<li>修改任何商品列項目。</li>
+<li>從請求中刪除項目。</li>
+<li>取消或刪除整個 RFQ。
+<img src="_static/rfq/admin_rfq_edit.png" alt="Image"></li>
+</ul>
+</li>
+<li><strong>建立報價單</strong>：
+<ul>
+<li><strong>從 RFQ 建立</strong>：管理員可以透過點擊 RFQ 詳細資料頁面上的 <strong>「建立報價單」(Create the quote)</strong> 按鈕，直接將 RFQ 轉換為報價單。
+<img src="_static/rfq/admin_rfq_create_q.png" alt="Image"></li>
+<li><strong>從零開始建立</strong>：也可以從主要報價單清單頁面獨立建立新的報價單。</li>
+</ul>
+</li>
+<li><strong>編輯報價單</strong>：在報價單編輯頁面上，管理員可以：
+<ul>
+<li>修改現有的商品資料。</li>
+<li>透過兩個步驟新增商品：
+<ul>
+<li>首先搜尋商品；
+<img src="_static/rfq/admin_create_q.png" alt="Image"></li>
+<li>然後設定所需的數量與價格；
+<img src="_static/rfq/admin_create_q_product.png" alt="Image"></li>
+</ul>
+</li>
+<li>為優惠設定過期日期。超過此日期後，使用者將無法從該報價單建立訂單。</li>
+</ul>
+</li>
+<li><strong>寄送報價單</strong>：報價單會儲存在資料庫中，但在管理員點擊 <strong>「寄送報價單」(Send quote)</strong> 之前，對使用者而言是隱藏的。寄出後，使用者會收到電子郵件通知。</li>
+<li><strong>提交後規則</strong>：
+<ul>
+<li>一旦報價單已寄送給使用者，管理員即無法再對其進行編輯。</li>
+<li>只有在使用者尚未根據該報價單建立訂單的情況下，才能刪除已寄出的報價單。</li>
+</ul>
+</li>
+</ol>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/running-your-store/order-management/rfq.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

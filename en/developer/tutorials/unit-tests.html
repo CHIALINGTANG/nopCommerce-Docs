@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Unit Testing </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Unit Testing ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/developer/tutorials/unit-tests">
+<h1 id="unit-testing">Unit Testing</h1>
+
+<p>I think everyone knows about the concept of UNIT tests. We know what UNIT tests are used for and agree that this is an important part of the process of developing reliable software. In this article, we won't discuss these issues. You can easily find all the necessary information on the Internet, for example, by following these links:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Unit_testing">https://en.wikipedia.org/wiki/Unit_testing</a></li>
+<li><a href="https://docs.microsoft.com/dotnet/core/testing/unit-testing-best-practices">https://docs.microsoft.com/dotnet/core/testing/unit-testing-best-practices</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Test-driven_development">https://en.wikipedia.org/wiki/Test-driven_development</a></li>
+</ul>
+<p>In this article, we will get acquainted with the features of testing in the nopCommerce project and learn how to add new tests and check their performance. We won't test an abstract task but will write a full-fledged test for the existing functionality from scratch. At the end of the article, you will be provided with a reference to the appropriate commit with all described code changes.</p>
+<h2 id="features-overview">Features overview</h2>
+<p><img src="_static/unit-tests/tests-project.jpg" alt="tests-project"></p>
+<p>In the screenshot, you can see the structure of the <code>Nop.Tests</code> project. The folders such as <code>Nop.Core.Tests</code> contain tests for the corresponding projects of the solution. The other files are responsible for the auxiliary and base classes. Let's look at the <code>BaseNopTest</code> class.</p>
+<h3 id="basenoptest">BaseNopTest</h3>
+<p>This is the main abstract class that exposes the IoC container for tests and allows us to use all the advantages of DI.</p>
+<p><img src="_static/unit-tests/base-nop-test.jpg" alt="base-nop-test"></p>
+<p>This class contains two methods available for child classes:</p>
+<ul>
+<li><p><code>PropertiesShouldEqual</code> that compares all fields of the database entity with the fields of the model.</p>
+</li>
+<li><p><code>GetService</code> that allows using the advantages of DI and relieves creating the classes necessary for testing.</p>
+</li>
+</ul>
+<p>The initialization of the <strong>IoC</strong> container is carried out in the static constructor of the class; this constructor contains the bulk of the code.</p>
+<h2 id="ischeduletaskservice">IScheduleTaskService</h2>
+<p>As an example, we will create tests for a class that implements the <code>IScheduleTaskService</code> interface.</p>
+<pre><code class="lang-csharp">public partial interface IScheduleTaskService
+{
+    System.Threading.Tasks.Task DeleteTaskAsync(ScheduleTask task);
+
+    Task&lt;ScheduleTask&gt; GetTaskByIdAsync(int taskId);
+
+    Task&lt;ScheduleTask&gt; GetTaskByTypeAsync(string type);
+
+    Task&lt;IList&lt;ScheduleTask&gt;&gt; GetAllTasksAsync(bool showHidden = false);
+
+    System.Threading.Tasks.Task InsertTaskAsync(ScheduleTask task);
+
+    System.Threading.Tasks.Task UpdateTaskAsync(ScheduleTask task);
+}
+</code></pre>
+<p>As you can see this is a simple interface. But at the same time, it allows nopCommerce to perform very important tasks such as sending email messages to customers. So we need to be sure that it works properly. Next, we will write tests for each of the interface methods.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>We don't use <strong>TDD</strong> but we are not against this approach. The reliability of the functionality is important for us, not a specific approach to testing.</p>
+</div>
+<h2 id="scheduletaskservicetests-class">ScheduleTaskServiceTests class</h2>
+<p>Add a new <code>ScheduleTaskServiceTests</code> class to the project (Nop.Tests\Nop.Services.Tests\Tasks). Its code is shown below:</p>
+<pre><code class="lang-csharp">using NUnit.Framework;
+
+namespace Nop.Tests.Nop.Services.Tests.Tasks
+{
+    [TestFixture]
+    public class ScheduleTaskServiceTests : ServiceTest
+    {
+    }
+}
+</code></pre>
+<p>This is the class template for testing. From this code, we can see that nopCommerce uses the <strong>NUnit framework</strong> for tests.
+There are two points to pay attention to:</p>
+<ol>
+<li>Our class has the <strong>TestFixture</strong> attribute which tells the engine that this class is a class with tests.</li>
+<li>We do not directly inherit the <code>BaseNopTest</code> class but inherit another abstract class - <code>ServiceTest</code> which adds the main plugins to the configuration.</li>
+</ol>
+<p>The next step is to add a method for the initialization of our tests. As a rule, such a method is called <strong>SetUp</strong>. In this method, we get an instance of a class that implements the <code>IScheduleTaskService</code> interface, which we will test.</p>
+<pre><code class="lang-csharp">private IScheduleTaskService _scheduleTaskService;
+
+[OneTimeSetUp]
+public void SetUp()
+{
+    _scheduleTaskService = GetService&lt;IScheduleTaskService&gt;();
+}
+</code></pre>
+<p>As you can see, the <strong>SetUp</strong> method should be declared with the <strong>OneTimeSetUp</strong> attribute as well as you may use the <strong>SetUp</strong> attribute. The difference between these two attributes is only the number of calls to the method itself: in the first case, the <strong>SetUp</strong> method is called once for all tests, and in the second, for each test separately.</p>
+<p>Next, let's add tests for CRUD methods. In this service, these are methods such as: <strong>InsertTaskAsync</strong>, <strong>GetTaskByIdAsync</strong>, <strong>UpdateTaskAsync</strong>, and <strong>DeleteTaskAsync</strong>.</p>
+<p>But first, let's add one more field to the class. This will be an instance of the <code>ScheduleTask</code> class which will be used for testing:</p>
+<pre><code class="lang-csharp"> private ScheduleTask _task;
+</code></pre>
+<p>Update the <strong>SetUp</strong> method the following way:</p>
+<pre><code class="lang-csharp">[OneTimeSetUp]
+public void SetUp()
+{
+   _scheduleTaskService = GetService&lt;IScheduleTaskService&gt;();
+
+   _task = new ScheduleTask { Enabled = true, Name = &quot;Test task&quot;, Seconds = 60, Type = &quot;nop.test.task&quot; };
+}
+</code></pre>
+<p>All CRUD testing methods are given below and as you can see there is nothing complicated in them:</p>
+<pre><code class="lang-csharp">#region CRUD tests
+
+[Test]
+public async System.Threading.Tasks.Task CanInsertAndGetTask()
+{
+    _task.Id = 0;
+    await _scheduleTaskService.InsertTaskAsync(_task);
+    var task = await _scheduleTaskService.GetTaskByIdAsync(_task.Id);
+    await _scheduleTaskService.DeleteTaskAsync(_task);
+
+    _task.Id.Should().NotBe(0);
+    task.Id.Should().Be(_task.Id);
+    task.Name.Should().Be(_task.Name);
+}
+
+[Test]
+public void InsertTaskShouldRaiseExceptionIfTaskIsNull()
+{
+    Assert.Throws&lt;AggregateException&gt;(() =&gt;
+            _scheduleTaskService.InsertTaskAsync(null).Wait());
+}
+
+[Test]
+public async System.Threading.Tasks.Task GetTaskByIdShouldReturnNullIfTaskIdIsZero()
+{
+    var task = await _scheduleTaskService.GetTaskByIdAsync(0);
+    task.Should().BeNull();
+}
+
+[Test]
+public async System.Threading.Tasks.Task GetTaskByIdShouldReturnNullIfTaskIdIsNotExists()
+{
+    var task = await _scheduleTaskService.GetTaskByIdAsync(int.MaxValue);
+    task.Should().BeNull();
+}
+
+[Test]
+public async System.Threading.Tasks.Task CanUpdateTask()
+{
+    _task.Id = 0;
+    await _scheduleTaskService.InsertTaskAsync(_task);
+    var task = await _scheduleTaskService.GetTaskByIdAsync(_task.Id);
+    task.Name = &quot;new test name&quot;;
+    await _scheduleTaskService.UpdateTaskAsync(task);
+    var task2 = await _scheduleTaskService.GetTaskByIdAsync(_task.Id);
+    await _scheduleTaskService.DeleteTaskAsync(_task);
+
+    task.Id.Should().Be(task2.Id);
+    task2.Name.Should().NotBe(_task.Name);
+}
+
+[Test]
+public void UpdateTaskShouldRaiseExceptionIfTaskIsNull()
+{
+    Assert.Throws&lt;AggregateException&gt;(() =&gt;
+        _scheduleTaskService.UpdateTaskAsync(null).Wait());
+}
+
+public async System.Threading.Tasks.Task CanDeleteTask()
+{
+    _task.Id = 0;
+    await _scheduleTaskService.InsertTaskAsync(_task);
+    await _scheduleTaskService.DeleteTaskAsync(_task);
+    var task = await _scheduleTaskService.GetTaskByIdAsync(_task.Id);
+    task.Should().BeNull();
+}
+
+[Test]
+public void DeleteTaskShouldRaiseExceptionIfTaskIsNull()
+{
+    Assert.Throws&lt;AggregateException&gt;(() =&gt;
+        _scheduleTaskService.DeleteTaskAsync(null).Wait());
+}
+
+#endregion
+</code></pre>
+<p>In addition, the list of connected namespaces has been changed. The updated list is provided below:</p>
+<pre><code class="lang-csharp">using System;
+using FluentAssertions;
+using Nop.Core.Domain.Tasks;
+using Nop.Services.Tasks;
+using NUnit.Framework;
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>We have to delete all changes made by a test from the database. In our case, we use the <code>DeleteTaskAsync</code> method for this purpose. Also, note that it should be done just before we call test methods such as <code>task.Should().BeNull();</code>, <code>task2.Name.Should().NotBe(_task.Name);</code> etc. because if the test fails, the database will contain data that can affect other testing processes.</p>
+</div>
+<p>Then let's test the two remaining methods:</p>
+<pre><code class="lang-csharp">[Test]
+public async System.Threading.Tasks.Task CanGetTaskByType()
+{
+    _task.Id = 0;
+    var task = await _scheduleTaskService.GetTaskByTypeAsync(_task.Type);
+    task.Should().BeNull();
+    await _scheduleTaskService.InsertTaskAsync(_task);
+    task = await _scheduleTaskService.GetTaskByTypeAsync(_task.Type);
+    await _scheduleTaskService.DeleteTaskAsync(_task);
+    task.Should().NotBeNull();
+}
+
+[Test]
+public async System.Threading.Tasks.Task GetTaskByTypeShouldReturnNullIfTypeIsNull()
+{
+    var task = await _scheduleTaskService.GetTaskByTypeAsync(null);
+    task.Should().BeNull();
+}
+
+[Test]
+public async System.Threading.Tasks.Task GetTaskByTypeShouldReturnNullIfTypeIsEmpty()
+{
+    var task = await _scheduleTaskService.GetTaskByTypeAsync(string.Empty);
+    task.Should().BeNull();
+}
+
+[Test]
+public async System.Threading.Tasks.Task CanGetAllTasks()
+{
+    _task.Id = 0;
+    var tasks = await _scheduleTaskService.GetAllTasksAsync(true);
+    tasks.Count.Should().Be(0);
+    tasks = await _scheduleTaskService.GetAllTasksAsync(false);
+    tasks.Count.Should().Be(0);
+
+    await _scheduleTaskService.InsertTaskAsync(_task);
+    var tasksWithHidden = await _scheduleTaskService.GetAllTasksAsync(true);
+    var tasksWitoutHidden = await _scheduleTaskService.GetAllTasksAsync(false);
+    await _scheduleTaskService.DeleteTaskAsync(_task);
+
+    tasksWithHidden.Count.Should().Be(1);
+    tasksWitoutHidden.Count.Should().Be(1);
+
+    _task.Enabled = false;
+
+    await _scheduleTaskService.InsertTaskAsync(_task);
+    tasksWithHidden = await _scheduleTaskService.GetAllTasksAsync(true);
+    tasksWitoutHidden = await _scheduleTaskService.GetAllTasksAsync(false);
+    await _scheduleTaskService.DeleteTaskAsync(_task);
+    _task.Enabled = true;
+
+    tasksWithHidden.Count.Should().Be(1);
+    tasksWitoutHidden.Count.Should().Be(0);
+}
+</code></pre>
+<p>Finally, let's add one more standard method for many tests which is usually called <strong>TearDown</strong>. In this method, we will carry out the final cleaning of the database for possible changes made by us during the testing process. This method must have the <strong>OneTimeTearDown</strong> or <strong>TearDown</strong> attribute, similar to the attributes of the SetUp method.</p>
+<pre><code class="lang-csharp">[OneTimeTearDown]
+public async System.Threading.Tasks.Task TearDown()
+{
+    var tasks = await _scheduleTaskService.GetAllTasksAsync(true);
+
+    foreach (var task in tasks.Where(t=&gt;t.Type.Equals(_task.Type, StringComparison.InvariantCultureIgnoreCase))) 
+        await _scheduleTaskService.DeleteTaskAsync(task);
+}
+</code></pre>
+<p>That's it, our test class is ready. As I promised at the beginning, you can find the entire class at <a href="https://github.com/nopSolutions/nopCommerce/blob/develop/src/Tests/Nop.Tests/Nop.Services.Tests/ScheduleTasks/ScheduleTaskServiceTests.cs">this link</a> and the commit with its addition by <a href="https://github.com/nopSolutions/nopCommerce/commit/81c31e1ee754f771ddfdc26e9b95a729e38b2d29">this link</a>.</p>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/developer/tutorials/unit-tests.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

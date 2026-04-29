@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>如何為 nopCommerce 編寫稅務外掛 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="如何為 nopCommerce 編寫稅務外掛 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/developer/plugins/how-to-write-tax-plugin-4.20">
+<h1 id="如何為-nopcommerce-編寫稅務外掛">如何為 nopCommerce 編寫稅務外掛</h1>
+
+<p>我們使用外掛來擴充 nopCommerce 的功能。nopCommerce 發行版本中已經包含多種不同類型的外掛，例如「PickupInStore」和「PayPal Standard」。您也可以在 <a href="https://www.nopcommerce.com/marketplace">nopCommerce 官方網站</a> 上搜尋各種外掛，看看是否已經有人開發出符合您需求的外掛。如果您找不到適合的，那麼您來對地方了，因為本文將引導您完成開發外掛的過程，特別是根據您的需求來開發稅務外掛。</p>
+<h2 id="外掛結構必要檔案與位置">外掛結構、必要檔案與位置</h2>
+<ol>
+<li><p>首先，在方案中建立一個新的「Class Library」專案。建議將您的外掛放置在原始碼根目錄下的 <strong>Plugins</strong> 目錄中，這裡也是其他外掛和小工具存放的地方。</p>
+<p><img src="_static/how-to-write-a-tax-plugin-4.20/image1.png" alt="image1"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>請勿將此目錄與 <code>Presentation\Nop.Web</code> 目錄中存在的目錄混淆。位於 <code>Nop.Web</code> 目錄中的 Plugins 目錄包含的是外掛的已編譯檔案。</p>
+</div>
+<p>外掛專案的建議命名格式為 <code>Nop.Plugin.{Group}.{Name}</code>。其中 <code>{Group}</code> 是您的外掛群組（例如 <code>Payment</code> 或 <code>Shipping</code>），<code>{Name}</code> 是您的外掛名稱（例如 <code>FixedOrByCountryStateZip</code>）。舉例來說，<code>FixedOrByCountryStateZip</code> 稅務外掛的名稱為：<code>Nop.Plugin.Tax.FixedOrByCountryStateZip</code>。但請注意，這並非強制要求，您可以為外掛選擇任何名稱，例如 <code>MyFirstTaxPlugin</code>。方案的 Plugins 目錄結構看起來如下。</p>
+<p><img src="_static/how-to-write-a-tax-plugin-4.20/image2.png" alt="image2"></p>
+</li>
+<li><p>外掛專案建立完成後，應使用任何文字編輯器應用程式更新 <strong>.csproj</strong> 檔案的內容。請將其內容替換為以下內容：</p>
+<pre><code class="lang-xml">&lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;
+    &lt;PropertyGroup&gt;
+        &lt;TargetFramework&gt;netcoreapp2.2&lt;/TargetFramework&gt;
+        &lt;Copyright&gt;SOME_COPYRIGHT&lt;/Copyright&gt;
+        &lt;Company&gt;YOUR_COMPANY&lt;/Company&gt;
+        &lt;Authors&gt;SOME_AUTHORS&lt;/Authors&gt;
+        &lt;PackageLicenseUrl&gt;PACKAGE_LICENSE_URL&lt;/PackageLicenseUrl&gt;
+        &lt;PackageProjectUrl&gt;PACKAGE_PROJECT_URL&lt;/PackageProjectUrl&gt;
+        &lt;RepositoryUrl&gt;REPOSITORY_URL&lt;/RepositoryUrl&gt;
+        &lt;RepositoryType&gt;Git&lt;/RepositoryType&gt;
+        &lt;OutputPath&gt;..\..\Presentation\Nop.Web\Plugins\PLUGIN_OUTPUT_DIRECTORY&lt;/OutputPath&gt;
+        &lt;OutDir&gt;$(OutputPath)&lt;/OutDir&gt;
+        &lt;!--Set this parameter to true to get the dlls copied from the NuGet cache to the output of your        project. You need to set this parameter to true if your plugin has a nuget package to ensure that       the dlls copied from the NuGet cache to the output of your project--&gt;
+        &lt;CopyLocalLockFileAssemblies&gt;true&lt;/CopyLocalLockFileAssemblies&gt;
+    &lt;/PropertyGroup&gt;
+    &lt;ItemGroup&gt;
+        &lt;ProjectReference Include=&quot;..\..\Presentation\Nop.Web.Framework\Nop.Web.Framework.csproj&quot; /&gt;
+        &lt;ClearPluginAssemblies Include=&quot;$(MSBuildProjectDirectory)\..\..\Build\ClearPluginAssemblies.sproj&quot; /&gt;
+    &lt;/ItemGroup&gt;
+    &lt;!-- This target execute after &quot;Build&quot; target --&gt;
+    &lt;Target Name=&quot;NopTarget&quot; AfterTargets=&quot;Build&quot;&gt;
+        &lt;!-- Delete unnecessary libraries from plugins path --&gt;
+        &lt;MSBuild Projects=&quot;@(ClearPluginAssemblies)&quot; Properties=&quot;PluginPath=$(MSBuildProjectDirectory)\ $    (OutDir)&quot; Targets=&quot;NopClear&quot; /&gt;
+    &lt;/Target&gt;
+&lt;/Project&gt;
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><strong>PLUGIN_OUTPUT_DIRECTORY</strong> 應替換為外掛名稱，例如 <code>Tax.FixedOrByCountryStateZip</code>。</p>
+</div>
+</li>
+<li><p>更新 <strong>.csproj</strong> 檔案後，應新增外掛所需的 <code>plugin.json</code> 檔案。此檔案包含描述您外掛的元資訊。只需從任何其他現有的外掛或小工具複製此檔案，並根據您的需求進行修改即可。有關 <code>plugin.json</code> 檔案的資訊，請參閱 <a class="xref" href="plugin.json.html">plugin.json 檔案</a>。</p>
+</li>
+<li><p>最後一個必要步驟是建立一個類別，該類別必須實作 <code>BasePlugin</code>（位於 <code>Nop.Core.Plugins</code> 命名空間）以及 <code>ITaxProvider</code> 介面（位於 <code>Nop.Services.Tax</code> 命名空間）。<strong>ITaxProvider</strong> 實作了 <code>GetTaxRate</code> 方法，該方法會根據自訂邏輯（通常基於顧客地址）回傳 <strong>CalculateTaxResult</strong> 型別（包含稅率、錯誤訊息（若有）以及 <code>Boolean</code> 的成功狀態）。</p>
+</li>
+</ol>
+<h2 id="處理請求控制器模型與檢視">處理請求：控制器、模型與檢視</h2>
+<p>現在，您可以前往 <strong>後台</strong> → <strong>設定</strong> → <strong>在地化外掛</strong> 來查看該外掛。</p>
+<p><img src="_static/how-to-write-a-tax-plugin-4.20/image4.png" alt="image4"></p>
+<p>當外掛/小工具已安裝時，您會看到 <strong>解除安裝</strong> 按鈕。為了效能最佳化，建議將非必要的外掛/小工具解除安裝，這是一個良好的習慣。</p>
+<p><img src="_static/how-to-write-a-tax-plugin-4.20/image5.png" alt="image5"></p>
+<p>當外掛/小工具尚未安裝或已被解除安裝時，將會顯示 <strong>安裝</strong> 和 <strong>刪除</strong> 按鈕。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>刪除操作會從伺服器上移除實體檔案。</p>
+</div>
+<p>但正如您所猜測的，我們的外掛目前什麼也沒做，甚至沒有用於設定的使用者介面。讓我們建立一個頁面來設定此外掛。</p>
+<p>我們現在需要做的是建立一個控制器 (Controller)、一個模型 (Model)、一個檢視 (View) 以及一個檢視元件 (View Component)。</p>
+<ul>
+<li>MVC 控制器負責回應針對 <code>ASP.NET MVC</code> 網站發出的請求。每個瀏覽器請求都會對應到特定的控制器。</li>
+<li>檢視包含傳送到瀏覽器的 HTML 標記與內容。在開發 <code>ASP.NET MVC</code> 應用程式時，檢視就相當於一個頁面。</li>
+<li>實作 <strong>NopViewComponent</strong> 的檢視元件，其中包含轉譯檢視所需的邏輯與程式碼。</li>
+<li>MVC 模型包含應用程式中所有未包含在檢視或控制器中的應用程式邏輯。</li>
+</ul>
+<p>那麼讓我們開始吧：</p>
+<ul>
+<li><strong>建立模型</strong>。在新的外掛中新增一個 <code>Models</code> 資料夾，然後新增一個符合您需求的模型類別。</li>
+<li><strong>建立檢視</strong>。在新的外掛中新增一個 <code>Views</code> 資料夾，然後新增一個名為 <code>Configure.cshtml</code> 的 <code>.cshtml</code> 檔案。將該檢視檔案的 <strong>建置動作 (Build Action)</strong> 屬性設為 <strong>內容 (Content)</strong>，並將 <strong>複製到輸出目錄 (Copy to Output Directory)</strong> 屬性設為 <strong>一律複製 (Copy always)</strong>。請注意，設定頁面應使用 <em>_ConfigurePlugin</em> 範本。</li>
+</ul>
+<pre><code class="lang-html">@model Nop.Plugin.Tax.FixedOrByCountryStateZip.Models.ConfigurationModel
+
+@{
+    Layout = &quot;_ConfigurePlugin&quot;;
+}
+
+&lt;div class=&quot;form-group&quot;&gt;
+    &lt;div class=&quot;col-md-12&quot;&gt;
+        &lt;div class=&quot;onoffswitch&quot;&gt;
+            &lt;input type=&quot;checkbox&quot; name=&quot;onoffswitch&quot; class=&quot;onoffswitch-checkbox&quot; id=&quot;advanced-settings-mode&quot; checked=&quot;@Model.CountryStateZipEnabled&quot;&gt;
+            &lt;label class=&quot;onoffswitch-label&quot; for=&quot;advanced-settings-mode&quot;&gt;
+                &lt;span class=&quot;onoffswitch-inner&quot;
+                      data-locale-basic=&quot;@T(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fixed&quot;)&quot;
+                      data-locale-advanced=&quot;@T(&quot;Plugins.Tax.FixedOrByCountryStateZip.TaxByCountryStateZip&quot;)&quot;&gt;&lt;/span&gt;
+                &lt;span class=&quot;onoffswitch-switch&quot;&gt;&lt;/span&gt;
+            &lt;/label&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;script&gt;
+    function checkAdvancedSettingsMode(advanced) {
+        if (advanced) {
+            $(&quot;body&quot;).addClass(&quot;advanced-settings-mode&quot;);
+            $(&quot;body&quot;).removeClass(&quot;basic-settings-mode&quot;);
+        } else {
+            $(&quot;body&quot;).removeClass(&quot;advanced-settings-mode&quot;);
+            $(&quot;body&quot;).addClass(&quot;basic-settings-mode&quot;);
+        }
+    }
+    checkAdvancedSettingsMode($(&quot;#advanced-settings-mode&quot;).is(':checked'));
+    $(document).ready(function() {
+        $(&quot;#advanced-settings-mode&quot;).click(function() {
+            checkAdvancedSettingsMode($(this).is(':checked'));
+            $.ajax({
+                cache: false,
+                url: &quot;@Url.Action(&quot;SaveMode&quot;, &quot;FixedOrByCountryStateZip&quot;)&quot;,
+                type: &quot;POST&quot;,
+                data: {
+                    value: $(this).is(':checked')
+                },
+                dataType: &quot;json&quot;,
+                error: function (jqXHR, textStatus, errorThrown) {
+                    $(&quot;#saveModeAlert&quot;).click();
+                }
+            });
+            ensureDataTablesRendered();
+        });
+    });
+&lt;/script&gt;
+&lt;nop-alert asp-alert-id=&quot;saveModeAlert&quot; asp-alert-message=&quot;@T(&quot;Admin.Common.Alert.Save.Error&quot;)&quot; /&gt;
+
+@await Html.PartialAsync(&quot;~/Plugins/Tax.FixedOrByCountryStateZip/Views/_FixedRate.cshtml&quot;)
+@await Html.PartialAsync(&quot;~/Plugins/Tax.FixedOrByCountryStateZip/Views/_CountryStateZip.cshtml&quot;, Model)
+</code></pre>
+<ul>
+<li>同時請確保您的 <code>Views</code> 目錄中有 <strong>_ViewImports.cshtml</strong> 檔案。您可以直接從任何其他現有的外掛或小工具中複製過來。</li>
+</ul>
+<p><img src="_static/how-to-write-a-tax-plugin-4.20/image6.png" alt="image6"></p>
+<ul>
+<li><strong>建立控制器</strong>。在新的外掛中新增一個 <code>Controllers</code> 資料夾，然後新增一個新的控制器類別。一個好的習慣是將外掛控制器命名為 <strong>{Group}{Name}Controller.cs</strong>。例如 <code>FixedOrByCountryStateZipController</code>。當然，這並非強制命名規範（僅為建議）。接著，為設定頁面（在後台區域）建立適當的動作方法 (Action method)。我們將其命名為 <code>Configure</code>。準備一個模型類別，並使用實體檢視路徑將其傳遞給檢視：<strong>~/Plugins/{PluginOutputDirectory}/Views/Configure.cshtml</strong>。</li>
+</ul>
+<pre><code class="lang-cs">public IActionResult Configure()
+{
+    if (!_permissionService.Authorize(StandardPermissionProvider.ManageTaxSettings))
+        return AccessDeniedView();
+
+    var taxCategories = _taxCategoryService.GetAllTaxCategories();
+    if (!taxCategories.Any())
+        return Content(&quot;No tax categories can be loaded&quot;);
+
+    var model = new ConfigurationModel { CountryStateZipEnabled = _countryStateZipSettings.CountryStateZipEnabled };
+    //stores
+    model.AvailableStores.Add(new SelectListItem { Text = &quot;*&quot;, Value = &quot;0&quot; });
+    var stores = _storeService.GetAllStores();
+    foreach (var s in stores)
+        model.AvailableStores.Add(new SelectListItem { Text = s.Name, Value = s.Id.ToString() });
+    //tax categories
+    foreach (var tc in taxCategories)
+        model.AvailableTaxCategories.Add(new SelectListItem { Text = tc.Name, Value = tc.Id.ToString() });
+    //countries
+    var countries = _countryService.GetAllCountries(showHidden: true);
+    foreach (var c in countries)
+        model.AvailableCountries.Add(new SelectListItem { Text = c.Name, Value = c.Id.ToString() });
+    //states
+    model.AvailableStates.Add(new SelectListItem { Text = &quot;*&quot;, Value = &quot;0&quot; });
+    var defaultCountry = countries.FirstOrDefault();
+    if (defaultCountry != null)
+    {
+        var states = _stateProvinceService.GetStateProvincesByCountryId(defaultCountry.Id);
+        foreach (var s in states)
+            model.AvailableStates.Add(new SelectListItem { Text = s.Name, Value = s.Id.ToString() });
+    }
+
+    return View(&quot;~/Plugins/Tax.FixedOrByCountryStateZip/Views/Configure.cshtml&quot;, model);
+}
+</code></pre>
+<ul>
+<li>為您的動作方法使用下列屬性：</li>
+</ul>
+<pre><code class="lang-cs">[AuthorizeAdmin] //confirms access to the admin panel
+[Area(AreaNames.Admin)] //specifies the area containing a controller or action
+[AdminAntiForgery] //Helps prevent malicious scripts from submitting forged page requests.
+</code></pre>
+<p>例如，開啟 <code>FixedOrByCountryStateZip</code> 外掛並查看其 <code>FixedOrByCountryStateZipController</code> 的實作方式。
+接著，對於每個具有設定頁面的外掛，您應該指定一個設定 URL。名為 <code>BasePlugin</code> 的基底類別具有 <code>GetConfigurationPageUrl</code> 方法，該方法會回傳設定 URL：</p>
+<pre><code class="lang-cs">public override string GetConfigurationPageUrl()
+{
+    return $&quot;{_webHelper.GetStoreLocation()}Admin/{CONTROLLER_NAME}/{ACTION_NAME}&quot;;
+}
+</code></pre>
+<p>其中 <em>{CONTROLLER_NAME}</em> 是您的控制器名稱，而 <em>{ACTION_NAME}</em> 是動作名稱（通常為 <code>Configure</code>）。</p>
+<p>為了根據顧客地址指定不同的稅率，需要一個記錄所有稅務相關資料的新資料表。為此，新增了一個 <code>Domain</code> 資料夾，並在其中加入一個繼承自 <strong>BaseEntity</strong> 類別的類別。在本例中為 <code>TaxRate.cs</code>。</p>
+<p><img src="_static/how-to-write-a-tax-plugin-4.20/image7.png" alt="image7"></p>
+<p>此外也新增了一個 <code>Data</code> 資料夾，其中包含對應類別 (Mapping class) 與物件內容類別 (Object Context class)。對應類別實作了 <strong><code>NopEntityTypeConfiguration&lt;T&gt;</code></strong> (<code>Nop.Data.Mapping</code> 命名空間)。在此處覆寫了 Configure 方法。</p>
+<pre><code class="lang-cs">public override void Configure(EntityTypeBuilder&lt;TaxRate&gt; builder)
+{
+    builder.ToTable(nameof(TaxRate));
+    builder.HasKey(rate =&gt; rate.Id);
+
+    builder.Property(rate =&gt; rate.Percentage).HasColumnType(&quot;decimal(18, 4)&quot;);
+}
+</code></pre>
+<p>物件內容類別實作了 <strong>DbContext</strong> 類別 (<code>Microsoft.EntityFrameworkCore</code> 命名空間) 與 <strong>IDbContext</strong> 介面 (<code>Nop.Data</code> 命名空間)。此 <code>IDbContext</code> 介面包含與資料表建立、刪除相關的方法，以及其他自訂動作，例如根據之前在 <code>Domain</code> 資料夾中新增的模型執行原始 SQL 查詢。</p>
+<pre><code class="lang-cs">public class CountryStateZipObjectContext : DbContext, IDbContext
+{
+    #region Ctor
+
+    public CountryStateZipObjectContext(DbContextOptions&lt;CountryStateZipObjectContext&gt; options) : base(options)
+    {
+    }
+
+    #endregion
+
+    #region Utilities
+
+    /// &lt;summary&gt;
+    /// Further configuration the model
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;modelBuilder&quot;&gt;Model muilder&lt;/param&gt;
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.ApplyConfiguration(new TaxRateMap());
+        base.OnModelCreating(modelBuilder);
+    }
+
+    #endregion
+
+    #region Methods
+
+    /// &lt;summary&gt;
+    /// Creates a DbSet that can be used to query and save instances of entity
+    /// &lt;/summary&gt;
+    /// &lt;typeparam name=&quot;TEntity&quot;&gt;Entity type&lt;/typeparam&gt;
+    /// &lt;returns&gt;A set for the given entity type&lt;/returns&gt;
+    public new virtual DbSet&lt;TEntity&gt; Set&lt;TEntity&gt;() where TEntity : BaseEntity
+    {
+        return base.Set&lt;TEntity&gt;();
+    }
+
+    /// &lt;summary&gt;
+    /// Generate a script to create all tables for the current model
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;A SQL script&lt;/returns&gt;
+    public virtual string GenerateCreateScript()
+    {
+        return Database.GenerateCreateScript();
+    }
+
+    /// &lt;summary&gt;
+    /// Creates a LINQ query for the query type based on a raw SQL query
+    /// &lt;/summary&gt;
+    /// &lt;typeparam name=&quot;TQuery&quot;&gt;Query type&lt;/typeparam&gt;
+    /// &lt;param name=&quot;sql&quot;&gt;The raw SQL query&lt;/param&gt;
+    /// &lt;param name=&quot;parameters&quot;&gt;The values to be assigned to parameters&lt;/param&gt;
+    /// &lt;returns&gt;An IQueryable representing the raw SQL query&lt;/returns&gt;
+    public virtual IQueryable&lt;TQuery&gt; QueryFromSql&lt;TQuery&gt;(string sql, params object[] parameters) where TQuery : class
+    {
+        throw new NotImplementedException();
+    }
+
+    /// &lt;summary&gt;
+    /// Creates a LINQ query for the entity based on a raw SQL query
+    /// &lt;/summary&gt;
+    /// &lt;typeparam name=&quot;TEntity&quot;&gt;Entity type&lt;/typeparam&gt;
+    /// &lt;param name=&quot;sql&quot;&gt;The raw SQL query&lt;/param&gt;
+    /// &lt;param name=&quot;parameters&quot;&gt;The values to be assigned to parameters&lt;/param&gt;
+    /// &lt;returns&gt;An IQueryable representing the raw SQL query&lt;/returns&gt;
+    public virtual IQueryable&lt;TEntity&gt; EntityFromSql&lt;TEntity&gt;(string sql, params object[] parameters) where TEntity : BaseEntity
+    {
+        throw new NotImplementedException();
+    }
+
+    /// &lt;summary&gt;
+    /// Executes the given SQL against the database
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;sql&quot;&gt;The SQL to execute&lt;/param&gt;
+    /// &lt;param name=&quot;doNotEnsureTransaction&quot;&gt;true - the transaction creation is not ensured; false - the transaction creation is ensured.&lt;/param&gt;
+    /// &lt;param name=&quot;timeout&quot;&gt;The timeout to use for command. Note that the command timeout is distinct from the connection timeout, which is commonly set on the database connection string&lt;/param&gt;
+    /// &lt;param name=&quot;parameters&quot;&gt;Parameters to use with the SQL&lt;/param&gt;
+    /// &lt;returns&gt;The number of rows affected&lt;/returns&gt;
+    public virtual int ExecuteSqlCommand(RawSqlString sql, bool doNotEnsureTransaction = false, int? timeout = null, params object[] parameters)
+    {
+        using (var transaction = Database.BeginTransaction())
+        {
+            var result = Database.ExecuteSqlCommand(sql, parameters);
+            transaction.Commit();
+
+            return result;
+        }
+    }
+
+    /// &lt;summary&gt;
+    /// Detach an entity from the context
+    /// &lt;/summary&gt;
+    /// &lt;typeparam name=&quot;TEntity&quot;&gt;Entity type&lt;/typeparam&gt;
+    /// &lt;param name=&quot;entity&quot;&gt;Entity&lt;/param&gt;
+    public virtual void Detach&lt;TEntity&gt;(TEntity entity) where TEntity : BaseEntity
+    {
+        throw new NotImplementedException();
+    }
+
+    /// &lt;summary&gt;
+    /// Install object context
+    /// &lt;/summary&gt;
+    public void Install()
+    {
+        //create tables
+        this.ExecuteSqlScript(GenerateCreateScript());
+    }
+
+    /// &lt;summary&gt;
+    /// Uninstall object context
+    /// &lt;/summary&gt;
+    public void Uninstall()
+    {
+        //drop the table
+        this.DropPluginTable(nameof(TaxRate));
+    }
+
+    #endregion
+}
+</code></pre>
+<p>針對稅率的 <strong>CRUD</strong> 操作，會建立對應的服務。在本例中，建立了介面 <strong>ICountryStateZipService</strong> 與類別 <strong>CountryStateZipService</strong>。它包含如 <code>InsertTaxRate</code>、<code>UpdateTaxRate</code>、<code>DeleteTaxRate</code>、<code>GetAllTaxRates</code> 和 <code>GetTaxRateById</code> 等方法。這些方法名稱具有自我描述性，並將由控制器調用。其他方法可根據需求進行新增。</p>
+<h3 id="icountrystatezipservicecs">ICountryStateZipService.cs</h3>
+<pre><code class="lang-cs">public partial interface ICountryStateZipService
+{
+    /// &lt;summary&gt;
+    /// Deletes a tax rate
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;taxRate&quot;&gt;Tax rate&lt;/param&gt;
+    void DeleteTaxRate(TaxRate taxRate);
+
+    /// &lt;summary&gt;
+    /// Gets all tax rates
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;Tax rates&lt;/returns&gt;
+    IPagedList&lt;TaxRate&gt; GetAllTaxRates(int pageIndex = 0, int pageSize = int.MaxValue);
+
+    /// &lt;summary&gt;
+    /// Gets a tax rate
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;taxRateId&quot;&gt;Tax rate identifier&lt;/param&gt;
+    /// &lt;returns&gt;Tax rate&lt;/returns&gt;
+    TaxRate GetTaxRateById(int taxRateId);
+
+    /// &lt;summary&gt;
+    /// Inserts a tax rate
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;taxRate&quot;&gt;Tax rate&lt;/param&gt;
+    void InsertTaxRate(TaxRate taxRate);
+
+    /// &lt;summary&gt;
+    /// Updates the tax rate
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;taxRate&quot;&gt;Tax rate&lt;/param&gt;
+    void UpdateTaxRate(TaxRate taxRate);
+}
+</code></pre>
+<h4 id="countrystatezipservicecs">CountryStateZipService.cs</h4>
+<pre><code class="lang-cs">public partial class CountryStateZipService : ICountryStateZipService
+{
+    #region Fields
+
+    private readonly IEventPublisher _eventPublisher;
+    private readonly IRepository&lt;TaxRate&gt; _taxRateRepository;
+    private readonly ICacheManager _cacheManager;
+
+    #endregion
+
+    #region Ctor
+
+    /// &lt;summary&gt;
+    /// Ctor
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;eventPublisher&quot;&gt;Event publisher&lt;/param&gt;
+    /// &lt;param name=&quot;cacheManager&quot;&gt;Cache manager&lt;/param&gt;
+    /// &lt;param name=&quot;taxRateRepository&quot;&gt;Tax rate repository&lt;/param&gt;
+    public CountryStateZipService(IEventPublisher eventPublisher,
+        ICacheManager cacheManager,
+        IRepository&lt;TaxRate&gt; taxRateRepository)
+    {
+        _eventPublisher = eventPublisher;
+        _cacheManager = cacheManager;
+        _taxRateRepository = taxRateRepository;
+    }
+
+    #endregion
+
+    #region Methods
+
+    /// &lt;summary&gt;
+    /// Deletes a tax rate
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;taxRate&quot;&gt;Tax rate&lt;/param&gt;
+    public virtual void DeleteTaxRate(TaxRate taxRate)
+    {
+        if (taxRate == null)
+            throw new ArgumentNullException(nameof(taxRate));
+
+        _taxRateRepository.Delete(taxRate);
+
+        //event notification
+        _eventPublisher.EntityDeleted(taxRate);
+    }
+
+    /// &lt;summary&gt;
+    /// Gets all tax rates
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;Tax rates&lt;/returns&gt;
+    public virtual IPagedList&lt;TaxRate&gt; GetAllTaxRates(int pageIndex = 0, int pageSize = int.MaxValue)
+    {
+        var key = string.Format(ModelCacheEventConsumer.TAXRATE_ALL_KEY, pageIndex, pageSize);
+        return _cacheManager.Get(key, () =&gt;
+        {
+            var query = from tr in _taxRateRepository.Table
+                        orderby tr.StoreId, tr.CountryId, tr.StateProvinceId, tr.Zip, tr.TaxCategoryId
+                        select tr;
+            var records = new PagedList&lt;TaxRate&gt;(query, pageIndex, pageSize);
+            return records;
+        });
+    }
+
+    /// &lt;summary&gt;
+    /// Gets a tax rate
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;taxRateId&quot;&gt;Tax rate identifier&lt;/param&gt;
+    /// &lt;returns&gt;Tax rate&lt;/returns&gt;
+    public virtual TaxRate GetTaxRateById(int taxRateId)
+    {
+        if (taxRateId == 0)
+            return null;
+
+       return _taxRateRepository.GetById(taxRateId);
+    }
+
+    /// &lt;summary&gt;
+    /// Inserts a tax rate
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;taxRate&quot;&gt;Tax rate&lt;/param&gt;
+    public virtual void InsertTaxRate(TaxRate taxRate)
+    {
+        if (taxRate == null)
+            throw new ArgumentNullException(nameof(taxRate));
+
+        _taxRateRepository.Insert(taxRate);
+
+        //event notification
+        _eventPublisher.EntityInserted(taxRate);
+    }
+
+    /// &lt;summary&gt;
+    /// Updates the tax rate
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;taxRate&quot;&gt;Tax rate&lt;/param&gt;
+    public virtual void UpdateTaxRate(TaxRate taxRate)
+    {
+        if (taxRate == null)
+            throw new ArgumentNullException(nameof(taxRate));
+
+        _taxRateRepository.Update(taxRate);
+
+        //event notification
+        _eventPublisher.EntityUpdated(taxRate);
+    }
+
+    #endregion
+}
+</code></pre>
+<p>最後，我們需要在應用程式啟動時註冊服務並設定外掛的 DB context。為此，我們加入了 <strong>Infrastructure</strong> 資料夾，其中包含 <code>DependencyRegister</code> 和 <code>PluginDbStartup</code> 類別。</p>
+<p><strong>DependencyRegister</strong> 類別實作了 <code>IDependencyRegister</code> 介面（位於 <code>Nop.Core.Infrastructure.DependencyManagement</code> 命名空間），該介面擁有一個 <code>Register</code> 方法。</p>
+<pre><code class="lang-cs">public class DependencyRegistrar : IDependencyRegistrar
+{
+    /// &lt;summary&gt;
+    /// Register services and interfaces
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;builder&quot;&gt;Container builder&lt;/param&gt;
+    /// &lt;param name=&quot;typeFinder&quot;&gt;Type finder&lt;/param&gt;
+    /// &lt;param name=&quot;config&quot;&gt;Config&lt;/param&gt;
+    public virtual void Register(ContainerBuilder builder, ITypeFinder typeFinder, NopConfig config)
+    {
+        builder.RegisterType&lt;FixedOrByCountryStateZipTaxProvider&gt;().As&lt;ITaxProvider&gt;().InstancePerLifetimeScope();
+        builder.RegisterType&lt;CountryStateZipService&gt;().As&lt;ICountryStateZipService&gt;().InstancePerLifetimeScope();
+
+        //data context
+        builder.RegisterPluginDataContext&lt;CountryStateZipObjectContext&gt;(&quot;nop_object_context_tax_country_state_zip&quot;);
+
+        //override required repository with our custom context
+        builder.RegisterType&lt;EfRepository&lt;TaxRate&gt;&gt;().As&lt;IRepository&lt;TaxRate&gt;&gt;()
+            .WithParameter(ResolvedParameter.ForNamed&lt;IDbContext&gt;(&quot;nop_object_context_tax_country_state_zip&quot;))
+            .InstancePerLifetimeScope();
+    }
+
+    /// &lt;summary&gt;
+    /// Order of this dependency registrar implementation
+    /// &lt;/summary&gt;
+    public int Order =&gt; 1;
+}
+</code></pre>
+<p>同樣地，<strong>PluginDbStartup</strong> 類別實作了 <code>INopStartup</code> 介面（位於 <code>Nop.Core.Infrastructure</code> 命名空間），該介面擁有 <code>ConfigureServices</code> 和 <code>Configure</code> 方法。在此範例中，object context 是在 <code>ConfigureServices</code> 方法中加入的。</p>
+<pre><code class="lang-cs">public class PluginDbStartup : INopStartup
+{
+    /// &lt;summary&gt;
+    /// Add and configure any of the middleware
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;services&quot;&gt;Collection of service descriptors&lt;/param&gt;
+    /// &lt;param name=&quot;configuration&quot;&gt;Configuration of the application&lt;/param&gt;
+    public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
+    {
+        //add object context
+        services.AddDbContext&lt;CountryStateZipObjectContext&gt;(optionsBuilder =&gt;
+        {
+            optionsBuilder.UseSqlServerWithLazyLoading(services);
+        });
+    }
+
+    /// &lt;summary&gt;
+    /// Configure the using of added middleware
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;application&quot;&gt;Builder for configuring an application's request pipeline&lt;/param&gt;
+    public void Configure(IApplicationBuilder application)
+    {
+    }
+
+    /// &lt;summary&gt;
+    /// Gets order of this startup configuration implementation
+    /// &lt;/summary&gt;
+    public int Order =&gt; 11;
+}
+</code></pre>
+<h2 id="稅務外掛的專案結構">稅務外掛的專案結構</h2>
+<p><img src="_static/how-to-write-a-tax-plugin-4.20/image8.png" alt="image8"></p>
+<h2 id="處理install與uninstall方法">處理「Install」與「Uninstall」方法</h2>
+<p>此步驟為選用。某些外掛在安裝過程中可能需要額外的邏輯。例如，外掛可以插入新的語系資源，或新增必要的資料表與設定值。因此，請開啟您的 <code>BasePlugin</code> 實作並覆寫下列方法：</p>
+<ul>
+<li><code>Install</code>。此方法將在安裝外掛時被呼叫。您可以在此初始化任何設定、插入新的語系資源，或建立一些新的資料庫資料表（若有需要）。</li>
+</ul>
+<pre><code class="lang-cs">public override void Install()
+{
+    //database objects
+    _objectContext.Install();
+
+    //settings
+    _settingService.SaveSetting(new FixedOrByCountryStateZipTaxSettings());
+
+    //locales
+    _localizationService.AddOrUpdatePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fixed&quot;, &quot;Fixed rate&quot;);
+    _localizationService.AddOrUpdatePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.TaxByCountryStateZip&quot;, &quot;By Country&quot;);
+    _localizationService.AddOrUpdatePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.TaxCategoryName&quot;, &quot;Tax category&quot;);
+    _localizationService.AddOrUpdatePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.Rate&quot;, &quot;Rate&quot;);
+    _localizationService.AddOrUpdatePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.Store&quot;, &quot;Store&quot;);
+    _localizationService.AddOrUpdatePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.Store.Hint&quot;, &quot;If an asterisk is selected, then this shipping rate will apply to all stores.&quot;);
+    _localizationService.AddOrUpdatePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.Country&quot;, &quot;Country&quot;);
+    _localizationService.AddOrUpdatePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.Country.Hint&quot;, &quot;The country.&quot;);
+    _localizationService.AddOrUpdatePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.StateProvince&quot;, &quot;State / province&quot;);
+    _localizationService.AddOrUpdatePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.StateProvince.Hint&quot;, &quot;If an asterisk is selected, then this tax rate will apply to all customers from the given country, regardless of the state.&quot;);
+    _localizationService.AddOrUpdatePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.Zip&quot;, &quot;Zip&quot;);
+    _localizationService.AddOrUpdatePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.Zip.Hint&quot;, &quot;Zip / postal code. If zip is empty, then this tax rate will apply to all customers from the given country or state, regardless of the zip code.&quot;);
+    _localizationService.AddOrUpdatePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.TaxCategory&quot;, &quot;Tax category&quot;);
+    _localizationService.AddOrUpdatePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.TaxCategory.Hint&quot;, &quot;The tax category.&quot;);
+    _localizationService.AddOrUpdatePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.Percentage&quot;, &quot;Percentage&quot;);
+    _localizationService.AddOrUpdatePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.Percentage.Hint&quot;, &quot;The tax rate.&quot;);
+    _localizationService.AddOrUpdatePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.AddRecord&quot;, &quot;Add tax rate&quot;);
+    _localizationService.AddOrUpdatePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.AddRecordTitle&quot;, &quot;New tax rate&quot;);
+
+    base.Install();
+}
+</code></pre>
+<ul>
+<li><code>Uninstall</code>。此方法將在移除外掛時被呼叫。您可以移除先前在安裝過程中由外掛所初始化的設定、語系資源或資料庫資料表。</li>
+</ul>
+<pre><code class="lang-cs">public override void Uninstall()
+{
+    //settings
+    _settingService.DeleteSetting&lt;FixedOrByCountryStateZipTaxSettings&gt;();
+
+    //fixed rates
+    var fixedRates = _taxCategoryService.GetAllTaxCategories()
+        .Select(taxCategory =&gt; _settingService.GetSetting(string.Format(FixedOrByCountryStateZipDefaults.FixedRateSettingsKey, taxCategory.Id)))
+        .Where(setting =&gt; setting != null).ToList();
+    _settingService.DeleteSettings(fixedRates);
+
+    //database objects
+    _objectContext.Uninstall();
+
+    //locales
+    _localizationService.DeletePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fixed&quot;);
+    _localizationService.DeletePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.TaxByCountryStateZip&quot;);
+    _localizationService.DeletePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.TaxCategoryName&quot;);
+    _localizationService.DeletePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.Rate&quot;);
+    _localizationService.DeletePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.Store&quot;);
+    _localizationService.DeletePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.Store.Hint&quot;);
+    _localizationService.DeletePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.Country&quot;);
+    _localizationService.DeletePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.Country.Hint&quot;);
+    _localizationService.DeletePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.StateProvince&quot;);
+    _localizationService.DeletePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.StateProvince.Hint&quot;);
+    _localizationService.DeletePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.Zip&quot;);
+    _localizationService.DeletePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.Zip.Hint&quot;);
+    _localizationService.DeletePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.TaxCategory&quot;);
+    _localizationService.DeletePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.TaxCategory.Hint&quot;);
+    _localizationService.DeletePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.Percentage&quot;);
+    _localizationService.DeletePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.Fields.Percentage.Hint&quot;);
+    _localizationService.DeletePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.AddRecord&quot;);
+    _localizationService.DeletePluginLocaleResource(&quot;Plugins.Tax.FixedOrByCountryStateZip.AddRecordTitle&quot;);
+
+    base.Uninstall();
+}
+</code></pre>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>如果您覆寫了其中一個方法，請勿隱藏其基礎實作，即必須呼叫 base.Install() 與 base.Uninstall()。</p>
+</div>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/developer/plugins/how-to-write-tax-plugin-4.20.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

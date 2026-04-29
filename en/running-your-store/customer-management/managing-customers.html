@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Managing customers </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Managing customers ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/running-your-store/customer-management/managing-customers">
+<h1 id="managing-customers">Managing customers</h1>
+
+<p>The customer list contains details of all existing customers and allows adding new ones. The customer list contains details of all existing customers and allows adding new ones. This and other customer management configurations makes nopCommerce an eCommerce platform with built-in <a href="https://www.nopCommerce.com/omnichannel-commerce">omnichannel feature</a>. In nopCommerce, customers include all users, such as administrators, vendors, and buyers. In nopCommerce, customers include all users, such as administrators, vendors, and buyers. To manage customers, go to <strong>Customers → Customers</strong>. The following window will be displayed:</p>
+<p><img src="_static/managing-customers/customers.png" alt="Customers"></p>
+<p>To search for customers, in the <em>Customers</em> window, enter one or more of the following search criteria:</p>
+<ul>
+<li><strong>Email</strong>.</li>
+<li><strong>Username</strong>, if enabled in the <a class="xref" href="customer-settings.html">customer settings</a>.</li>
+<li><strong>First name</strong>.</li>
+<li><strong>Last name</strong>.</li>
+<li><strong>Is active</strong>. Search customers by an account status.</li>
+<li><strong>Date of birth</strong>, if enabled in the <a class="xref" href="customer-settings.html">customer settings</a>.</li>
+<li><strong>Company</strong>, if enabled in the <a class="xref" href="customer-settings.html">customer settings</a>.</li>
+<li><strong>Phone</strong>, if enabled in the <a class="xref" href="customer-settings.html">customer settings</a>.</li>
+<li><strong>Zip code</strong>, if enabled in the <a class="xref" href="customer-settings.html">customer settings</a>.</li>
+<li><strong>IP address</strong>.</li>
+<li><strong>Customer roles</strong> — you can select one or more customer roles to be displayed.</li>
+<li><strong>Registration date from</strong> and <strong>Registration date to</strong></li>
+<li><strong>Last activity from</strong> and <strong>Last activity to</strong></li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You can export the customer data to an external file by clicking <strong>Export to XML (all)</strong> or <strong>Export to Excel (all)</strong>. You can export selected customer data to an external file by clicking <strong>Export to XML (selected)</strong> or <strong>Export to Excel (selected)</strong>.</p>
+</div>
+<p>Then click the <strong>Search</strong> button.</p>
+<h2 id="add-a-new-customer">Add a new customer</h2>
+<p>To add a new customer, in the <em>Customers</em> window, click <strong>Add new</strong>.
+The <em>Add a new customer</em> window will be displayed. Define the following customer details:</p>
+<h2 id="customer-info">Customer info</h2>
+<p>The <em>Customer info</em> panel allows to enter customers' personal and account information, for example, change a password, assign/remove customer roles.</p>
+<p><img src="_static/managing-customers/add-new.png" alt="Customer details"></p>
+<p>You can edit the following fields:</p>
+<ul>
+<li><strong>Email</strong> address.</li>
+<li><strong>Password</strong>.</li>
+<li><strong>First name</strong>.</li>
+<li><strong>Last name</strong>.</li>
+<li><strong>Gender</strong>.</li>
+<li><strong>Date of birth</strong>.</li>
+<li><strong>Company name</strong>.</li>
+<li><strong>Is tax exempt</strong> indicates whether the customer is exempted from taxes.</li>
+<li><strong>Customer roles</strong> — one or multiple customer roles. Note that any role that needs to log in to the system (for example, administrator, vendor) should have the &quot;Registered&quot; customer role among others. You can set up customer roles in the <a class="xref" href="customer-roles.html">Customer roles</a> section.</li>
+<li>From the <strong>Manager of vendor</strong> dropdown list, if required, select a vendor associated with this customer account. When associated, this customer will be able to log in to the selected vendor portal and manage its products and orders. Note that if you have a vendor associated with this customer, you should ensure this customer record is in the <a class="xref" href="../vendor-management.html">Vendors</a> list.</li>
+<li>Select the <strong>Active</strong> checkbox to activate the customer.</li>
+<li><strong>Customer must change password</strong> - Check to require the customer to change their password.</li>
+<li><strong>Admin comment</strong> — administrator comments for internal use if required.</li>
+</ul>
+<p>Click the <strong>Save</strong> button to save the changes or <strong>Save and continue edit</strong> button to proceed for more customer information. In this case, you will see the newly added panels on the customer details page.</p>
+<p>You will also see the <strong>Send email</strong>, <strong>Send private message</strong> (if <a class="xref" href="../content-management/forums.html">forums</a> are enabled), and <strong>Delete</strong> buttons.
+<img src="_static/managing-customers/edit_customer_details.png" alt="Buttons"></p>
+<p>After clicking the <strong>Send email</strong> button, the <em>Send email</em> window will be displayed, enabling the store owner to send an email to the customer. After clicking the <strong>Send private message</strong> button, the <em>Send private message</em> window will be displayed, enabling to send a message to the customer. To use private messaging, allow private messages in <a class="xref" href="../content-management/forums.html">forum settings</a>.</p>
+<h2 id="orders">Orders</h2>
+<p>In the <em>Orders</em> panel, you can view the customer's orders' details.
+<img src="_static/managing-customers/customer-orders.png" alt="customer_info"></p>
+<h2 id="addresses">Addresses</h2>
+<p>In the <em>Addresses</em> panel, you can view, edit, and create new addresses of the customer.
+<img src="_static/managing-customers/customert-adresses.png" alt="addresses"></p>
+<p>Click the <strong>Add new address</strong> button to add a new customer address. Fill in the appropriate fields and click <strong>Save</strong>. The new address will be added to the customer.</p>
+<h2 id="current-shopping-cart-and-wishlist">Current shopping cart and wishlist</h2>
+<p>In the <em>Current shopping cart and wishlist</em> panel, you can view the customer's shopping cart and wishlist.</p>
+<h2 id="activity-log">Activity log</h2>
+<p>In the <em>Activity log</em> panel, you can view the customer's activity log. See how to manage activity types in the <a class="xref" href="activity-log.html#customer-activity-types">Activity log - Customer activity types</a> section.</p>
+<h2 id="place-order-impersonate">Place order (impersonate)</h2>
+<p>In the <em>Place order (impersonate)</em> panel, store owners can create orders for their customers without password information. This is useful for customers who do not want to register or for large sites using CSRs to place orders over the phone.</p>
+<p>The panel contains the <strong>Place order</strong> button. After clicking this button, you will be redirected to the public store. Select the products the customer wants, add them to the cart exactly as the customer would do in the public store, then use the <strong>Checkout</strong> button to proceed through the usual checkout process, and then click the <strong>Finish session</strong> link at the top of the page to finish this session.</p>
+<h2 id="back-in-stock-subscriptions">Back in stock subscriptions</h2>
+<p>In the <em>Back in stock subscriptions</em> panel, see the products the customer is subscribed to.</p>
+<h2 id="reward-points">Reward points</h2>
+<p>In the <em>Reward points</em> panel, store owners can add reward points to the customer or view their reward points usage history. This panel is visible when the reward points program is enabled. Refer to the <a class="xref" href="../promotional-tools/reward-points.html">Reward points</a> section for more information.</p>
+<h3 id="add-reduce-points">Add (reduce) points</h3>
+<p><img src="_static/managing-customers/customer-reward-points.png" alt="Reward points"></p>
+<p>In this panel:</p>
+<ul>
+<li>Enter the number of <strong>Points</strong>. To reduce points, enter a negative value.</li>
+<li>In the <strong>Points validity</strong> field, specify the number of days the awarded points will be valid (only for a positive number of points).</li>
+<li>Enter a <strong>Message</strong> or comment.</li>
+<li>Select the <strong>Activate points immediately</strong> checkbox if you want to enable customers to use reward points right after earning them. If you don't select this checkbox, one more option will appear:</li>
+<li>If the previous checkbox is clear, in the <strong>Reward points activation</strong> field, specify the period (number of days/hours) after which reward points will be activated.</li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="customer-roles.html">Customer roles</a></li>
+<li><a class="xref" href="../vendor-management.html">Vendors</a></li>
+</ul>
+<h2 id="tutorials">Tutorials</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=DOl-g-NNFEM&amp;list=PLnL_aDfmRHwsbhj621A-RFb1KnzeFxYz4&amp;index=1">Customer management in nopCommerce</a></li>
+<li><a href="https://www.youtube.com/watch?v=lqmrWJdXZEE&amp;t=1s">Re-assigning a deleted email address</a></li>
+<li><a href="https://www.youtube.com/watch?v=KQi-CDVawJ4">Overview of impersonation mode</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/running-your-store/customer-management/managing-customers.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

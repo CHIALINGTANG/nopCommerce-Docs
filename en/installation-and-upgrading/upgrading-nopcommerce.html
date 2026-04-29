@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Upgrading nopCommerce </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Upgrading nopCommerce ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="preload" href="../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+  
+  <meta property="docfx:rel" content="../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/installation-and-upgrading/upgrading-nopcommerce">
+<h1 id="upgrading-nopcommerce">Upgrading nopCommerce</h1>
+
+<p>This chapter describes how to upgrade nopCommerce to the <a href="https://www.nopcommerce.com/download-nopcommerce">latest</a> version. You might want to do this because you've seen a message at the nopCommerce news section of your dashboard telling you that a new release is available. nopCommerce doesn't support automatic upgrades, you have to do it manually.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Since version 4.40 we don't use SQL upgrade scripts anymore. The upgrade is performed automatically with migrations (during the first application start). So when you upgrade from 4.30 to 4.40 you need to skip step 2 from the list below!</p>
+</div>
+<p>Follow the next steps:</p>
+<ol>
+<li>Make a backup of everything on your site, including the database. This is extremely important so that you can roll back to a running site no matter what happens during migration.</li>
+<li><strong>[To upgrade to nopCommerce 4.30 and below]</strong> Then you have to execute SQL upgrade scripts. You have to execute them stepwise. For example, if your current version is 3.90 and the latest available version is 4.20, then you have to upgrade to 4.00, then to 4.10, and then to 4.20. So download the required upgrade scripts from the <a href="https://www.nopcommerce.com/download-nopcommerce">download nopCommerce</a> page. Once an upgrade script is downloaded, execute it over your database.</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Don't forget to read the <code>Readme.txt</code> file provided with the upgrade script. Sometimes it contains important notes regarding upgrading to the newest version.</p>
+</div>
+<ol>
+<li>Remove all files from the previous version except JSON files in the 'App_Data' directory such as <code>appsettings.json</code> and  <code>plugins.json</code>. These files should be saved since we will use them later. For earlier versions: if such files as <code>dataSettings.json</code>, <code>Settings.txt</code> or <code>InstalledPlugins.txt</code> exist save them as well.</li>
+<li>Upload the new site files (get the latest version <a href="https://www.nopcommerce.com/download-nopcommerce">here</a>).</li>
+<li>Ensure that everything is OK.</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>As you deploy, make sure that the target <code>appsettings.json</code> is updated as per the latest nopCommerce version so that the production site continues to point to the production database. In earlier nopCommerce versions it can be <code>dataSettings.json</code> and <code>Settings.txt</code> files. Also, make sure that the <code>plugins.json</code> (<code>InstalledPlugins.txt</code>) file is also updated per the latest nopCommerce version.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If you're upgrading nopCommerce to version 4.50 from one of the previous versions, please ensure that your connection string contains one of the following parameters: <code>Encrypt=false</code> or <code>TrustServerCertificate=True</code> (depending on your server requirements). You can manually add these parameters to your connection string in the \App_Data\appsettings.json file. This step is caused by the <code>Microsoft.Data.SqlClient</code> library that changed the default value of the <code>Encrypt</code> option from <code>false</code> to <code>true</code>.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If you stored your pictures on the file system, then also backup them (<code>\wwwroot\Images\</code>) and copy back after the upgrade.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p><strong>(upgrading from 3.X to 4.X)</strong>: If you want to upgrade from a version 3.90 to the latest version, you would need to install 4.00 first (over the existing database), run the 3.90 to 4.00 migration SQL script, and then upgrade to 4.10, 4.20, and further.</p>
+</div>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>If you experience problems after the upgrade, you can always restore your backup and replace the files with ones from your previous version. You can always post a question on our <a href="https://www.nopcommerce.com/boards/">forums</a>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If when doing advanced search on our forums you cannot find what you need, then try a Google search focused into nopCommerce site: [your search words <strong>site:<a href="https://www.nopcommerce.com/" title="nopcommerce.com">nopcommerce.com</a></strong>].</p>
+</div>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/installation-and-upgrading/upgrading-nopcommerce.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>實體事件系統 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="實體事件系統 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/developer/design/entity-events-system">
+<h1 id="實體事件系統">實體事件系統</h1>
+
+<h2 id="概覽">概覽</h2>
+<p>nopCommerce 實作了事件驅動架構，允許開發人員在執行某些動作或發生事件時，訂閱或使用由事件發布者或事件來源廣播的事件；同時也讓我們能在觸發特定事件時，執行特定的商業邏輯。在 nopCommerce 中，我們可以訂閱或監聽由系統事件所發布的各種事件，甚至可以撰寫邏輯來發出（發布）一個事件，隨後再由其他程式碼進行監聽或訂閱。舉例來說，假設我們想要將顧客詳細資料同步到其他外部系統，那麼我們可以在有新顧客註冊到我們的商店或顧客變更其個人資料時觸發一個事件。我們可以監聽該事件並執行商業邏輯，該邏輯會取出新建立的顧客資料，並將其發送到外部服務進行同步。最棒的是，我們可以在不修改 nopCommerce 原始程式碼的情況下完成這一切。</p>
+<p>開發人員可以選擇發布事件或使用（消費）事件：</p>
+<ul>
+<li><p>若要發布事件，開發人員需要取得 <strong>IEventPublisher</strong> 的實例，並使用適當的事件資料呼叫 <strong>Publish</strong> 方法。</p>
+</li>
+<li><p>若要監聽事件，開發人員需要為泛型 <strong>IConsumer</strong> 介面建立一個新的實作。一旦建立了新的消費者實作，nopCommerce 就會使用 Reflection（反射）來尋找並註冊該實作以進行事件處理。</p>
+</li>
+</ul>
+<p>有三個用於資料修改事件的事件發布者擴充方法，分別名為 <code>EntityInsertedAsync</code>、<code>EntityUpdatedAsync</code> 和 <code>EntityDeletedAsync</code>，它們與繼承自 <strong>BaseEntity</strong> 的 <strong>IEventPublisher</strong> 介面搭配使用，負責分別廣播實體的插入、更新與刪除事件。</p>
+<h2 id="entityinsertedasync">EntityInsertedAsync</h2>
+<p>此擴充方法將型別為 <code>BaseEntity</code> 的模型實體作為參數。當新增資料時，此擴充方法會用於發佈/廣播型別為 <code>BaseEntity</code> 的實體已插入事件。接著，此擴充方法會呼叫 <code>EntityInsertedEvent</code> 泛型類別的參數化建構函式，並透過其 <code>Entity</code> 屬性公開已插入的實體。開發者可以透過實作型別為 <code>EntityInsertedEvent</code>（泛型型別為我們剛插入的實體）的 <code>IConsumer</code> 介面來訂閱/處理此事件，例如：<code>IConsumer&lt;EntyInsertedEvent&lt;BaseEntity&gt;&gt;</code>。在此處，<code>BaseEntity</code> 可以是任何繼承自 <code>BaseEntity</code> 類別的模型類別。</p>
+<h3 id="entityinserted-事件的-publisher-實作">EntityInserted 事件的 Publisher 實作</h3>
+<pre><code class="lang-cs">public class MyFirstPublisherClass
+{
+    IEventPublisher _eventPublisher;
+    public MyFirstPublisherClass(IEventPublisher eventPublisher)
+    {
+        this._eventPublisher = eventPublisher;
+    }
+
+    public async Task MyFirstProductInsertMethod(Product product)
+    {
+        //Logic to insert goes here
+        await _eventPublisher.EntityInsertedAsync(product);
+    }
+}
+</code></pre>
+<p>在上述範例中，我們透過建構函式相依性注入機制，注入 <code>IEventPublisher</code> 介面以取得 EventPublisher 類別的實例。在 <code>MyFirstProductInsertMethod</code> 中，完成商品插入邏輯後，我們呼叫了 <code>EntityInserted</code> 方法，並傳入泛型型別 <code>Product</code>（該型別需繼承自 BaseEntity 類別）以及新建立的商品物件作為參數。當呼叫此擴充方法後，它會針對商品型別廣播「實體已插入（entity inserted）」事件，此時任何訂閱或監聽此事件的物件都將接收到此商品物件作為事件參數。接著，讓我們看看如何使用此事件。</p>
+<h3 id="entityinserted-事件的消費者實作">EntityInserted 事件的消費者實作</h3>
+<pre><code class="lang-cs">public class MyFirstConsumerClass : IConsumer&lt;EntityInsertedEvent&lt;Product&gt;&gt;
+{
+    public async Task HandleEventAsync(EntityInsertedEvent&lt;Product&gt; insertEvent)
+    {
+        //you can access entity using insertEvent.Entity
+        var insertedEntity = insertEvent.Entity;
+
+        //Here goes the business logic you want to perform...
+
+    }
+}
+</code></pre>
+<p>在這裡，我們建立了一個繼承自 <code>IConsumer&lt;EntityInsertedEvent&lt;Product&gt;&gt;</code> 的類別。<code>IConsumer</code> 介面僅有一個需要實作的方法，即 <code>HandleEvent</code> 方法。現在，每當觸發型別為 Product 的 EntityInserted 事件時，此 <code>HandleEvent</code> 方法就會被呼叫，並傳入型別為產品實體物件的 <code>EntityInsertedEvent</code>。在此類別內部，我們可以執行後續處理該資料所需的商業邏輯。</p>
+<h2 id="entityupdatedasync">EntityUpdatedAsync</h2>
+<p>此 <code>IEventPublisher</code> 介面的擴充方法與 EntityInserted 的實作方式相同。此擴充方法同樣接收 <code>BaseEntity</code> 類型的模型實體作為引數/參數。此擴充方法用於在現有實體更新時，發布/廣播 <code>BaseEntity</code> 類型的實體更新事件。此擴充方法會呼叫 <code>EntityUpdatedEvent</code> 泛型類別的參數化建構函式，並透過其 Entity 屬性公開更新後的實體。開發者接著可以透過實作 <code>IConsumer</code> 介面（類型為 <code>EntityUpdatedEvent</code>，且泛型參數為我們剛才更新的 <code>Entity</code> 類型）來訂閱/處理此事件，例如：<code>IConsumer&lt;EntityUpdatedEvent&lt;BaseEntity&gt;&gt;</code>。</p>
+<h3 id="entityupdated-事件的發佈者實作">EntityUpdated 事件的發佈者實作</h3>
+<pre><code class="lang-cs">public class MyFirstPublisherClass
+{
+    IEventPublisher _eventPublisher;
+    public MyFirstPublisherClass(IEventPublisher eventPublisher)
+    {
+        this._eventPublisher = eventPublisher;
+    }
+
+    public async Task MyFirstProductUpdateMethod(Product product)
+    {
+        //Logic to insert goes here
+        await _eventPublisher.EntityUpdatedAsync(product);
+    }
+}
+</code></pre>
+<p>此類別的實作方式與 <code>EntityInserted</code> 中的範例大致相同。在此處的 <code>MyFirstProductInsertMethod</code> 中，在完成更新商品的邏輯後，我們呼叫了 <code>EntityUpdatedAsync</code> 方法，並將最近更新的商品物件作為參數傳入該泛型型別。現在，在呼叫此擴充方法後，它將會廣播商品類型的實體更新事件，而任何訂閱或監聽此事件的物件都將接收到此商品物件作為事件參數。現在讓我們看看如何使用此事件。</p>
+<h3 id="entityupdated-事件的消費者實作">EntityUpdated 事件的消費者實作</h3>
+<pre><code class="lang-cs">public class MyFirstConsumerClass : IConsumer&lt;EntityUpdatedEvent&lt;Product&gt;&gt;
+{
+    public async Task HandleEventAsync(EntityUpdatedEvent&lt;Product&gt; updateEvent)
+    {
+        //you can access entity using updateEvent.Entity
+        var updatedEntity = updateEvent.Entity;
+
+        //Here goes the business logic you want to perform...
+
+    }
+}
+</code></pre>
+<p>同樣地，這與實體插入（entity inserted）事件的消費者類別是一樣的。在此我們建立一個繼承自 <code>IConsumer&lt;EntityUpdatedEvent&lt;Product&gt;&gt;</code> 的類別。現在，每當 <code>Product</code> 類型的 <code>EntityUpdated</code> 事件被觸發時，該類別的 <code>HandleEvent</code> 方法就會被呼叫，並接收 <code>EntityUpdatedEvent</code> 類型的商品實體物件作為參數。在此類別內部，我們可以執行後續資料處理所需的商業邏輯。</p>
+<h2 id="entitydeletedasync">EntityDeletedAsync</h2>
+<p>實作此擴充方法的邏輯與 <code>IEventPublisher</code> 的 <code>EntityInsertedAsync</code> 及 <code>EntityUpdatedAsync</code> 擴充方法相同。此擴充方法同樣接收 <code>BaseEntity</code> 類型的模型實體作為參數。當現有實體被刪除時，此擴充方法會用於發布或廣播 <code>BaseEntity</code> 的實體刪除事件。此擴充方法會呼叫 <code>EntityDeletedEvent</code> 泛型類別的建構函式，並透過其 Entity 屬性公開被刪除的實體。開發者接著可以透過實作 <code>IConsumer&lt;EntityDeletedEvent&lt;BaseEntity&gt;&gt;</code> 來訂閱或處理此事件。</p>
+<h3 id="實體刪除-entitydeleted-事件的發佈者實作">實體刪除 (EntityDeleted) 事件的發佈者實作</h3>
+<pre><code class="lang-cs">public class MyFirstPublisherClass
+{
+    IEventPublisher _eventPublisher;
+    public ExamplePublisherClass(IEventPublisher eventPublisher)
+    {
+        this._eventPublisher = eventPublisher;
+    }
+
+    public async Task MyFirstProductDeleteMethod(Product product)
+    {
+        //Logic to insert goes here
+        await _eventPublisher.EntityDeletedAsync(product);
+    }
+}
+</code></pre>
+<p>此類別的實作方式與上述範例相同。在 <code>MyFirstProductDeleteMethod</code> 中，於完成刪除商品的邏輯後，我們呼叫了 <code>EntityDeleted</code> 方法，並將剛剛刪除的商品物件作為參數傳入。現在，當觸發此擴充方法時，它將會針對商品類型廣播實體刪除事件，而任何正在訂閱/監聽此事件的處理器都將接收到該商品物件作為事件參數。接下來，讓我們看看如何處理（消費）此事件。</p>
+<h3 id="entitydeleted-事件的消費者實作">EntityDeleted 事件的消費者實作</h3>
+<pre><code class="lang-cs">public class MyFirstConsumerClass : IConsumer&lt;EntityDeletedEvent&lt;Product&gt;&gt;
+{
+    public async Task HandleEventAsync(EntityDeletedEvent&lt;Product&gt; deleteEvent)
+    {
+        //you can access entity using deleteEvent.Entity
+        var updatedEntity = deleteEvent.Entity;
+
+        //Here goes the business logic you want to perform...
+    }
+}
+</code></pre>
+<p>這同樣與 entity inserted（實體新增）或 entity updated（實體更新）事件的消費者類別相同。在此，我們建立一個繼承自 <code>IConsumer&lt;EntityDeletedEvent&lt;Product&gt;&gt;</code> 的類別。</p>
+<p>現在，每當觸發 <code>Product</code> 型別的 <code>EntityDeleted</code> 事件時，此類別的 <code>HandleEvent</code> 方法就會被呼叫，並傳入型別為 <code>EntityDeletedEvent</code> 的商品實體物件作為參數。我們可以在這個類別中執行我們的商業邏輯，以進行後續的資料處理。</p>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/developer/design/entity-events-system.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

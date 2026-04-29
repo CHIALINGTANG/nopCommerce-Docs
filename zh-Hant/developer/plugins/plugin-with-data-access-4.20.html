@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>具備資料存取的插件 (4.20 與更早版本) </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="具備資料存取的插件 (4.20 與更早版本) ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/developer/plugins/plugin-with-data-access-4.20">
+<h1 id="具備資料存取的插件-420-與更早版本">具備資料存取的插件 (4.20 與更早版本)</h1>
+
+<p>在本教學中，我將使用 nopCommerce 外掛架構來實作一個商品瀏覽追蹤器。在開始開發之前，請務必確認您已閱讀、理解並成功完成下列教學課程。我將會跳過先前文章中已涵蓋的部分說明，但您可以透過提供的連結進行複習。</p>
+<ul>
+<li><a class="xref" href="../tutorials/index.html">開發者教學</a></li>
+<li><a class="xref" href="../tutorials/update-existing-entity.html">更新現有實體。如何新增屬性。</a></li>
+<li><a class="xref" href="how-to-write-plugin-4.20.html">如何為 nopCommerce 4.20 編寫外掛</a></li>
+</ul>
+<p>我們將從資料存取層開始編寫程式碼，接著進入服務層，最後以相依性注入結束。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>此插件的實際應用價值有待商榷，但我一時想不出什麼 nopCommerce 原生未包含且適合在適當篇幅內介紹的功能。如果您在正式營運環境中使用此插件，我不提供任何保證。我總是對成功案例感到興趣，若此文章不僅具備教學價值，還能對您有所幫助，我將感到非常高興。</p>
+</div>
+<h2 id="入門指南">入門指南</h2>
+<p>建立一個新的類別庫專案「Nop.Plugin.Other.ProductViewTracker」。</p>
+<p><img src="_static/plugin-with-data-access/plugin-with-data-access_1.jpg" alt="plugin-with-data-access_1"></p>
+<p>新增下列資料夾與 <code>plugin.json</code> 檔案。</p>
+<p><img src="_static/plugin-with-data-access/plugin-with-data-access_2.jpg" alt="plugin-with-data-access_2"></p>
+<p>關於 <code>plugin.json</code> 檔案的詳細資訊，請參閱 <a class="xref" href="plugin.json.html">plugin.json 檔案</a>。</p>
+<p>接著，加入對下列專案的參考：Nop.Core、Nop.Data、Nop.Web.Framework</p>
+<h2 id="資料存取層又名在-nopcommerce-中建立新實體">資料存取層（又名：在 nopCommerce 中建立新實體）</h2>
+<p>我們將在「domain」命名空間內建立一個名為 <code>ProductViewTrackerRecord</code> 的公開類別。此類別繼承自 <code>BaseEntity</code>，除此之外這是一個非常單純的檔案。有一點需要記住的是，所有屬性都被標記為 <code>virtual</code>，這不只是為了好玩。由於 Entity Framework 實例化與追蹤類別的方式，資料庫實體必須具備虛擬屬性。另一點需要注意的是，我們沒有導覽屬性（關聯屬性），我稍後會再詳細說明。</p>
+<pre><code class="lang-csharp">namespace Nop.Plugin.Other.ProductViewTracker.Domain
+{
+    public class ProductViewTrackerRecord : BaseEntity
+    {
+        public virtual int ProductId { get; set; }
+        public virtual string ProductName { get; set; }
+        public virtual int CustomerId { get; set; }
+        public virtual string IpAddress { get; set; }
+        public virtual bool IsRegistered { get; set; }
+    }
+}
+</code></pre>
+<p><strong>檔案位置</strong>：若要確定特定檔案應存放的位置，請分析其命名空間並據此建立檔案。</p>
+<p>接下來要建立的是 Entity Framework 對應類別。我們在對應類別中對應資料行、資料表關聯以及資料庫資料表。</p>
+<pre><code class="lang-csharp">namespace Nop.Plugin.Other.ProductViewTracker.Data
+{
+    public class ProductViewTrackerRecordMap : NopEntityTypeConfiguration&lt;ProductViewTrackerRecord&gt;
+    {
+        /// &lt;summary&gt;
+        /// Configures the entity
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;builder&quot;&gt;The builder to be used to configure the entity&lt;/param&gt;
+        public override void Configure(EntityTypeBuilder&lt;ProductViewTrackerRecord&gt; builder)
+        {
+            builder.ToTable(nameof(ProductViewTrackerRecord));
+            //Map the primary key
+            builder.HasKey(record =&gt; record.Id);
+            //Map the additional properties
+            builder.Property(record =&gt; record.ProductId);
+            //Avoiding truncation/failure
+            //so we set the same max length used in the product tame
+            builder.Property(record =&gt; record.ProductName).HasMaxLength(400);
+            builder.Property(record =&gt; record.IpAddress);
+            builder.Property(record =&gt; record.CustomerId);
+            builder.Property(record =&gt; record.IsRegistered);
+        }
+    }
+}
+</code></pre>
+<p>下一個類別是資料存取層中最複雜且最重要的類別。Entity Framework 的 Object Context 是一個傳遞類別，它提供我們資料庫存取權限，並協助追蹤實體狀態（例如：新增、更新、刪除）。此 Context 也用於產生資料庫結構描述（Schema）或更新現有的結構描述。在自訂 Context 類別中，我們無法參考先前存在的實體，因為這些型別已經關聯到另一個 Object Context。這也是為什麼我們的追蹤記錄中沒有複雜導覽屬性的原因。</p>
+<pre><code class="lang-csharp">namespace Nop.Plugin.Other.ProductViewTracker.Data
+{
+    public class ProductViewTrackerRecordObjectContext : DbContext, IDbContext
+    {
+        public ProductViewTrackerRecordObjectContext(DbContextOptions&lt;ProductViewTrackerRecordObjectContext&gt; options) : base(options)
+        {
+        }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfiguration(new ProductViewTrackerRecordMap());
+            base.OnModelCreating(modelBuilder);
+        }
+
+        public new virtual DbSet&lt;TEntity&gt; Set&lt;TEntity&gt;() where TEntity : BaseEntity
+        {
+            return base.Set&lt;TEntity&gt;();
+        }
+
+        public virtual string GenerateCreateScript()
+        {
+            return Database.GenerateCreateScript();
+        }
+
+        public virtual IQueryable&lt;TQuery&gt; QueryFromSql&lt;TQuery&gt;(string sql) where TQuery : class
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual IQueryable&lt;TEntity&gt; EntityFromSql&lt;TEntity&gt;(string sql, params object[] parameters) where TEntity : BaseEntity
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual int ExecuteSqlCommand(RawSqlString sql, bool doNotEnsureTransaction = false, int? timeout = null, params object[] parameters)
+        {
+            using (var transaction = Database.BeginTransaction())
+            {
+                var result = Database.ExecuteSqlCommand(sql, parameters);
+                transaction.Commit();
+                return result;
+            }
+        }
+
+        public void Install()
+        {
+               //create the table
+               this.ExecuteSqlScript(GenerateCreateScript());
+        }
+        public void Uninstall()
+        {
+               //drop the table
+               this.DropPluginTable(nameof(ProductViewTrackerRecord));
+        }
+
+        public IList&lt;TEntity&gt; ExecuteStoredProcedureList&lt;TEntity&gt;(string commandText, params object[] parameters) where TEntity : BaseEntity, new()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable&lt;TElement&gt; SqlQuery&lt;TElement&gt;(string sql, params object[] parameters)
+        {
+            throw new NotImplementedException();
+        }
+        public int ExecuteSqlCommand(string sql, bool doNotEnsureTransaction = false, int? timeout = null, params object[] parameters)
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual void Detach&lt;TEntity&gt;(TEntity entity) where TEntity : BaseEntity
+        {
+            throw new NotImplementedException();
+        }
+
+        public IQueryable&lt;TQuery&gt; QueryFromSql&lt;TQuery&gt;(string sql, params object[] parameters) where TQuery : class
+        {
+            throw new NotImplementedException();
+        }
+
+        public virtual bool ProxyCreationEnabled
+        {
+            get =&gt; ProxyCreationEnabled;
+            set =&gt; ProxyCreationEnabled = value;
+        }
+
+        public virtual bool AutoDetectChangesEnabled
+        {
+            get =&gt; AutoDetectChangesEnabled;
+            set =&gt; AutoDetectChangesEnabled = value;
+        }
+    }
+}
+</code></pre>
+<h2 id="應用程式啟動">應用程式啟動</h2>
+<p>此部分會註冊我們在先前步驟中建立的紀錄物件 context。</p>
+<pre><code class="lang-csharp">using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Nop.Core.Infrastructure;
+using Nop.Plugin.Other.ProductViewTracker.Data;
+using Nop.Web.Framework.Infrastructure.Extensions;
+
+namespace Nop.Plugin.Misc.RepCred.Infrastructure
+{
+    /// &lt;summary&gt;
+    /// Represents object for the configuring plugin DB context on application startup
+    /// &lt;/summary&gt;
+    public class PluginDbStartup : INopStartup
+    {
+        /// &lt;summary&gt;
+        /// Add and configure any of the middleware
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;services&quot;&gt;Collection of service descriptors&lt;/param&gt;
+        /// &lt;param name=&quot;configuration&quot;&gt;Configuration of the application&lt;/param&gt;
+        public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
+        {
+            //add object context
+            services.AddDbContext&lt;ProductViewTrackerRecordObjectContext&gt;(optionsBuilder =&gt;
+            {
+                optionsBuilder.UseSqlServerWithLazyLoading(services);
+            });
+        }
+
+        /// &lt;summary&gt;
+        /// Configure the using of added middleware
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;application&quot;&gt;Builder for configuring an application's request pipeline&lt;/param&gt;
+        public void Configure(IApplicationBuilder application)
+        {
+        }
+
+        /// &lt;summary&gt;
+        /// Gets order of this startup configuration implementation
+        /// &lt;/summary&gt;
+        public int Order =&gt; 11;
+    }
+}
+</code></pre>
+<h2 id="服務層">服務層</h2>
+<p>服務層負責連接資料存取層與表現層。由於在程式碼中混合任何類型的職責是不好的做法，因此每一層都需要被隔離。服務層將資料層與商業邏輯封裝起來，而表現層則相依於服務層。由於我們的任務非常簡單，我們的服務層僅負責與 Repository 進行通訊（在 nopCommerce 中，Repository 扮演著物件內容的外觀模式角色）。</p>
+<pre><code class="lang-csharp">namespace Nop.Plugin.Other.ProductViewTracker.Services
+{
+    public interface IProductViewTrackerService
+    {
+        /// &lt;summary&gt;
+        /// Logs the specified record.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;record&quot;&gt;The record.&lt;/param&gt;
+        void Log(ProductViewTrackerRecord record);
+    }
+}
+
+namespace Nop.Plugin.Other.ProductViewTracker.Services
+{
+    public class ProductViewTrackerService : IProductViewTrackerService
+    {
+        private readonly IRepository&lt;ProductViewTrackerRecord&gt; _productViewTrackerRecordRepository;
+        public ViewTrackingService(IRepository&lt;ProductViewTrackingRecord&gt; productViewTrackerRecordRepository)
+        {
+            _productViewTrackerRecordRepository = productViewTrackerRecordRepository;
+        }
+
+        /// &lt;summary&gt;
+        /// Logs the specified record.
+        /// &lt;/summary&gt;
+        /// &lt;param name=&quot;record&quot;&gt;The record.&lt;/param&gt;
+        public virtual void Log(ProductViewTrackerRecord record)
+        {
+            if (record == null)
+                throw new ArgumentNullException(nameof(record));
+            _productViewTrackerRecordRepository.Insert(record);
+        }
+    }
+}
+</code></pre>
+<h2 id="相依性注入">相依性注入</h2>
+<p>Martin Fowler 對於相依性注入（Dependency Injection）或控制反轉（Inversion of Control）有非常詳盡的描述。我不會重複他的工作，您可以點擊 <a href="https://martinfowler.com/articles/injection.html">此處</a> 閱讀他的文章。相依性注入會管理物件的生命週期，並提供實例供相依物件使用。首先，我們需要設定相依性容器（Dependency Container），讓它了解將要控制哪些物件，以及這些物件的建立規則為何。</p>
+<pre><code class="lang-csharp">namespace Nop.Plugin.Other.ProductViewTracker.Infrastructure
+{
+    public class DependencyRegistrar : IDependencyRegistrar
+    {
+        private const string CONTEXT_NAME = &quot;nop_object_context_product_view_tracker&quot;;
+
+        public virtual void Register(ContainerBuilder builder, ITypeFinder typeFinder, NopConfig config)
+        {
+            builder.RegisterType&lt;ProductViewTrackerService&gt;().As&lt;IProductViewTrackerService&gt;().InstancePerLifetimeScope();
+
+            //data context
+            builder.RegisterPluginDataContext&lt;ProductViewTrackerRecordObjectContext&gt;(CONTEXT_NAME);
+
+            //override required repository with our custom context
+            builder.RegisterType&lt;EfRepository&lt;ProductViewTrackerRecord&gt;&gt;()
+            .As&lt;IRepository&lt;ProductViewTrackerRecord&gt;&gt;()
+            .WithParameter(ResolvedParameter.ForNamed&lt;IDbContext&gt;(CONTEXT_NAME))
+            .InstancePerLifetimeScope();
+        }
+
+        public int Order =&gt; 1;
+    }
+}
+</code></pre>
+<p>在上述程式碼中，我們註冊了不同型別的物件，以便稍後可以將它們注入到 Controller、服務（Service）與 Repository 中。既然我們已經涵蓋了新的主題，接下來我將帶回一些舊的主題，以便我們完成此外掛的開發。</p>
+<h2 id="view-component">View component</h2>
+<p>讓我們來建立一個 view component：</p>
+<pre><code class="lang-csharp">namespace Nop.Plugin.Other.ProductViewTracker.Components
+{
+    [ViewComponent(Name = &quot;ProductViewTracker&quot;)]
+    public class ProductViewTrackerViewComponent : NopViewComponent
+    {
+        private readonly IProductService _productService;
+        private readonly IProductViewTrackerService _productViewTrackerService;
+        private readonly IWorkContext _workContext;
+        public ProductViewTrackerViewComponent(IWorkContext workContext,
+        IProductViewTrackerService productViewTrackerService,
+        IProductService productService)
+        {
+            _workContext = workContext;
+            _productViewTrackerService = productViewTrackerService;
+            _productService = productService;
+        }
+        public IViewComponentResult Invoke(int productId)
+        {
+            //Read from the product service
+            Product productById = _productService.GetProductById(productId);
+            //If the product exists we will log it
+            if (productById != null)
+            {
+                //Setup the product to save
+                var record = new ProductViewTrackerRecord();
+                record.ProductId = productId;
+                record.ProductName = productById.Name;
+                record.CustomerId = _workContext.CurrentCustomer.Id;
+                record.IpAddress = _workContext.CurrentCustomer.LastIpAddress;
+                record.IsRegistered = _workContext.CurrentCustomer.IsRegistered();
+                //Map the values we're interested in to our new entity
+                _productViewTrackerService.Log(record);
+            }
+            return Content(&quot;&quot;);
+        }
+    }
+}
+</code></pre>
+<h2 id="外掛安裝程式">外掛安裝程式</h2>
+<pre><code class="lang-csharp">namespace Nop.Plugin.Other.ProductViewTracker
+{
+    public class ProductViewTrackerPlugin : BasePlugin
+    {
+        private readonly ProductViewTrackerRecordObjectContext _context;
+        public ProductViewTrackerPlugin(ProductViewTrackerRecordObjectContext context)
+        {
+            _context = context;
+        }
+        public override void Install()
+        {
+            _context.Install();
+            base.Install();
+        }
+        public override void Uninstall()
+        {
+            _context.Uninstall();
+            base.Uninstall();
+        }
+    }
+}
+</code></pre>
+<h2 id="使用方式">使用方式</h2>
+<p>追蹤程式碼應新增至 <code>ProductTemplate.Simple.cshtml</code> 與 <code>ProductTemplate.Grouped.cshtml</code> 檔案中。這些檔案是商品範本。</p>
+<pre><code class="lang-csharp">@await Component.InvokeAsync(&quot;ProductViewTrackerIndex&quot;, new { productId = Model.Id })
+</code></pre>
+<p>附註：您也可以將其實作為一個小工具。在這種情況下，您就不需要編輯 cshtml 檔案。</p>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/developer/plugins/plugin-with-data-access-4.20.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

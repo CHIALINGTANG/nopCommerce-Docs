@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Order management </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Order management ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/running-your-store/order-management/orders">
+<h1 id="orders">Orders</h1>
+
+<p>To view and manage orders, go to <strong>Sales → Orders</strong>. The orders page lists all current orders. After a customer completes a transaction, a new order appears on the orders page.</p>
+<p>The top area of the page enables a store owner to search for orders. Enter specific search criteria and use a variety of filters to find any order placed in the store. Whenever a search is completed, the results of the search will be displayed in the lower half of the screen. You can click <strong>View</strong> to view the order details.</p>
+<p><img src="_static/orders/search.jpg" alt="Order list"></p>
+<h2 id="search-for-orders">Search for orders</h2>
+<p>To search for orders, enter one or more of the following search criteria:</p>
+<ul>
+<li><strong>Start date</strong> and <strong>End date</strong> to define a period of orders' creation.</li>
+<li><strong>Warehouse</strong> to load orders with products from a specified warehouse.</li>
+<li><strong>Product</strong> — enter a product name</li>
+<li><strong>Order statuses</strong> – select one of the following: <em>All</em>, <em>Pending</em>, <em>Processing</em>, <em>Complete</em>, <em>Cancelled</em>.</li>
+<li><strong>Payment statuses</strong> — select a specific payment status to search by: <em>All</em>, <em>Pending</em>, <em>Authorized</em>, <em>Paid</em>, <em>Partially refunded</em>, <em>Refunded</em>, <em>Voided</em>.</li>
+<li><strong>Shipping statuses</strong> — select a specific shipping status to search by: <em>All</em>, <em>Shipping not required</em>, <em>Not yet shipped</em>, <em>Partially shipped</em>, <em>Shipped</em>, <em>Delivered</em>.</li>
+<li><strong>Store</strong> — set a specific store in which orders were placed.</li>
+<li><strong>Vendor</strong> — search by a specific vendor. You'll see orders with products by a specified vendor.</li>
+<li><strong>Billing phone number</strong> — customer's phone number.</li>
+<li><strong>Billing email address</strong> — customer's email address.</li>
+<li><strong>Billing last name</strong> — customer's last name.</li>
+<li><strong>Billing country</strong> — customer's country.</li>
+<li><strong>Payment method</strong>  — set a specific payment method that was used during checkout.</li>
+<li><strong>Order notes</strong> — search in order notes. Leave empty to load all orders.</li>
+<li><strong>Go directly to order #</strong> — enter the order number and click <strong>Go</strong> to display the required order.</li>
+</ul>
+<h3 id="export-orders">Export orders</h3>
+<p>You can export orders to an external file by clicking the <strong>Export</strong> button at the top of the page. After clicking the <strong>Export</strong> button, you will see the dropdown menu enabling you to <strong>Export to XML (all found)</strong> or <strong>Export to XML (selected)</strong> and <strong>Export to Excel (all found)</strong> or <strong>Export to Excel (selected)</strong>.</p>
+<h3 id="import-orders">Import orders</h3>
+<p>You can import orders from Excel by clicking the <strong>Import</strong>, choose the file, and click the <strong>Import from Excel</strong> button. Imported orders are distinguished by order GUID. If the order GUID already exists, then its details will be updated.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Import requires a lot of memory resources. That's why it's not recommended to import more than 500 - 1,000 records at once. If you have more records, it's better to split them to multiple Excel files and import separately.</p>
+</div>
+<h2 id="order-details">Order details</h2>
+<p>To view the full order information, click <strong>View</strong> beside the order in the list.</p>
+<p>Click the <strong>Invoice (PDF)</strong> button in the top right corner to generate an invoice for the order in PDF. Click <strong>Delete</strong> if you want to delete the order.</p>
+<h3 id="info">Info</h3>
+<p>In the <strong>Info</strong> panel, a store owner can perform the following:</p>
+<ul>
+<li>View the <strong>Order #</strong>, which is a unique order number.</li>
+<li>View the <strong>Created on</strong> — the date/time the order was placed/created.</li>
+<li>View the <strong>Customer</strong> who placed the order.</li>
+<li>View the <strong>Order status</strong>. The order status will only be <em>Completed</em> when the payment status is set to <em>Paid</em> and the shipping status is set to <em>Delivered</em>. The order status can be changed manually by clicking the <strong>Change status</strong> button. However, this option is only recommended for advanced users because all appropriate actions (such as inventory adjustment, sending notification emails, reward points, gift card activation/deactivation) must be performed manually in this case.</li>
+<li><strong>Cancel order</strong>. A confirmation message will be displayed; click <strong>Yes</strong> to remove the order from the system.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>When a customer uses the Manual Credit Card payment method, which enables storing credit card information in the database, the <strong>Edit credit card</strong> button becomes visible. If a different payment method is used, this button will not be visible.</p>
+</div>
+<ul>
+<li><p>View the <strong>Order subtotal</strong>, <strong>Order shipping</strong>, <strong>Order tax</strong>, <strong>Order total</strong>, <strong>Profit</strong>. If you click the <strong>Edit order totals</strong> button, you will be able to edit the order totals as on the screenshot below:
+<img src="_static/orders/edit-totals.jpg" alt="Order totals"></p>
+</li>
+<li><p>View the <strong>Payment method</strong> used for this order.</p>
+</li>
+<li><p>View the <strong>Payment status</strong>. Can be one of the following: <em>Pending</em>, <em>Authorized</em>, <em>Paid (captured)</em>, <em>Refunded</em>, <em>Partially refunded</em>, or <em>Voided</em>.</p>
+</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Not all of the payment gateways support all of these statuses. Read more about payment methods in the <a class="xref" href="../../getting-started/configure-payments/payment-methods/index.html">Payment methods</a> chapter.</p>
+</div>
+<p>If the payment status is <em>Authorized</em>, the relevant buttons will be available to <strong>Void</strong> and <strong>Capture</strong> the order. <strong>Capture</strong> is used to collect the funds from the customer. <strong>Void</strong> cancels an order that has not been captured.</p>
+<p>If the payment status is <em>Pending</em>, the owner can click <strong>Mark as paid</strong> to indicate the payment has been issued for the order.</p>
+<p>If the payment status is <em>Paid</em>, the <strong>Refund</strong> and <strong>Partial refund</strong> buttons will be available. After clicking <strong>Refund</strong>, a confirmation window will be displayed. After clicking the <strong>Partial refund</strong> button, the <em>Partial refund</em> window will be displayed. This window enables the owner to refund part of the total order as follows:</p>
+<p><img src="_static/orders/refund.png" alt="Refund"></p>
+<ul>
+<li>View the <strong>Store</strong> in which this order was placed.</li>
+<li>View the <strong>Order GUID</strong> displayed for internal usage.</li>
+<li>View the <strong>Customer IP address</strong>, which a customer used when placing the order.</li>
+</ul>
+<h3 id="billing--shipping">Billing &amp; shipping</h3>
+<p>In the <strong>Billing &amp; shipping panel</strong>, view and edit the billing and shipping information if needed.</p>
+<ul>
+<li>View the <strong>Billing address</strong> and <strong>Shipping address</strong>. Optionally, you can click the <strong>View address on Google maps</strong> link to locate the required shipping address. Click the <strong>Edit</strong> button in order to edit the billing or shipping address.</li>
+<li>View and edit the <strong>Shipping method</strong> if needed.</li>
+<li>View the <strong>Shipping status</strong>.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Store owners can create several shipments per order. If you create a shipment but do not ship all products, then the shipping status of the order will be <strong>Partially shipped</strong>. Once all the products are shipped, the status changes to <strong>Shipped</strong>. Once all the shipments are delivered, the status changes to <strong>Delivered</strong>.</p>
+</div>
+<ul>
+<li>View the list of <strong>Shipments</strong>.
+<img src="_static/orders/shipments.jpg" alt="Shipments panel">
+Click <strong>View</strong> beside the shipment to view its details. The shipment information window will be displayed:
+<img src="_static/orders/shipment-details.jpg" alt="Shipment details"></li>
+</ul>
+<p><strong>Add shipment</strong> button enables creating several shipments per order and is visible when there is at least one unshipped product in the order. Click <strong>Add shipment</strong> button to add a new shipment to the order, and you will see the <strong>Add a new shipment to order</strong> window:
+<img src="_static/orders/add-shipment.jpg" alt="Add shipment"></p>
+<ul>
+<li>In the <strong>Tracking number</strong> field, enter the tracking number of the shipment. A tracking number enables your customers and you to check up on the progress of a shipment via telephone or online system operated by your shipping agent (post office or a private courier service, such as FedEx or UPS). Whenever a shipment passes certain points along its route, it will be identified by the shipping agent's system, and the tracking database will be updated with the new location and time information.</li>
+<li>Fill the <strong>Admin comment</strong> field if needed.</li>
+<li>Select the <strong>Shipped</strong> checkbox to mark the shipment as shipped using the current date.</li>
+<li>If the previous checkbox is selected, the <strong>Delivered</strong> checkbox will be available. Select this checkbox to mark the shipment as delivered using the current date.</li>
+<li>In the <strong>Products shipped</strong> panel: in the <strong>Qty to ship</strong> column, enter the required quantity of the specific order item to ship.</li>
+</ul>
+<h3 id="products">Products</h3>
+<p>In the <strong>Products</strong> panel, a store owner can:</p>
+<ul>
+<li><strong>View the product information</strong>, including price, quantity, and total price.</li>
+<li>Click the <strong>Product name</strong> link to view a product details page. If the product is downloadable, click <strong>Reset</strong> to reset the number of downloads or <strong>Upload license file</strong>. In addition, when the <em>Download activation type</em> of a product is set to <em>Manually</em>, the administrator has the option to click <strong>Activate</strong> to enable downloading the product from the site or <strong>Deactivate</strong> to disable downloading the product from the site.</li>
+<li><strong>Edit</strong> the product's <strong>Price</strong>, <strong>Quantity</strong>, <strong>Discount</strong>, and <strong>Total</strong>.</li>
+<li><strong>Delete</strong> a product from the system.
+<img src="_static/orders/products.jpg" alt="Products"></li>
+<li>Click <strong>Add product</strong>. Select the product from the list. Then, in the <em>Add a new product to order</em> window, find the required product. Then proceed to fill the required values and click <strong>Add product</strong>. Do not forget to update order totals after adding a new product to the order.
+<img src="_static/orders/add-product.jpg" alt="Add product"></li>
+</ul>
+<h3 id="order-notes">Order notes</h3>
+<p>In the <strong>Order notes</strong> panel, a store owner can view the notes that were added to the order for information purposes, delete notes, and add new ones. A note may contain an <strong>Attached file</strong> and can be <strong>Displayed to a customer</strong> in the public store.
+<img src="_static/orders/note.jpg" alt="Products"></p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../catalog/products/add-products.html">Adding products</a></li>
+<li><a class="xref" href="shipping-management.html">Shipments</a></li>
+<li><a href="https://www.youtube.com/watch?v=z6TUJOO3gVg&amp;index=5&amp;list=PLnL_aDfmRHwsbhj621A-RFb1KnzeFxYz4">YouTube tutorial on managing orders</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/running-your-store/order-management/orders.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

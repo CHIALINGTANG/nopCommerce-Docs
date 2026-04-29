@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Installing on Windows </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Installing on Windows ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/installation-and-upgrading/installing-nopcommerce/installing-on-windows">
+<h1 id="installing-on-windows">Installing on Windows</h1>
+
+<p>This chapter describes how to download nopCommerce software, upload it to your server and install it. You can also watch the screencast about nopCommerce installation on our <a href="https://www.youtube.com/watch?v=L7NGodeB9sQ">YouTube channel</a>.</p>
+<p>Before you begin the installation, ensure that your web host meets the <a class="xref" href="../technology-and-system-requirements.html">minimum requirements to run nopCommerce</a>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>For more information on hosting selection guidelines, visit <a class="xref" href="choose-a-hosting-company.html">this page</a>.</p>
+</div>
+<h2 id="download-nopcommerce">Download nopCommerce</h2>
+<p>To install nopCommerce on Windows you should download it first. Go to <a href="https://www.nopcommerce.com/download-nopcommerce">download page</a> and choose the <strong>Package without source code</strong> version for Windows. This is a precompiled version of nopCommerce that can simply be uploaded to your hosting provider and used immediately.</p>
+<h2 id="upload-the-nopcommerce-files">Upload the nopCommerce files</h2>
+<p>The next step is to upload the nopCommerce files to your server. To do this, you need to use an FTP connection, which allows transferring files between computers. Follow these steps to set this up:</p>
+<ol>
+<li>Choose and download one of the FTP client applications that you will use for transferring files.</li>
+<li>Find your FTP credentials in your hosting control panel.</li>
+<li>In your FTP client application, set up the connection between your computer and the server using the FTP credentials you found in the previous step.</li>
+<li>Upload the nopCommerce files to the server.</li>
+</ol>
+<h2 id="create-a-database">Create a database</h2>
+<p>Before running nopCommerce, create a new database instance in your hosting control panel. This database will be used to store your website data.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>When creating the database, choose MS SQL Server version <em>2012</em> or <em>above</em> if requested.</p>
+</div>
+<p>We will use the name, server name (or IP, URL), user login, and password of your database during the installation process later. These credentials are required for the database connection.</p>
+<h2 id="create-a-new-website">Create a new website</h2>
+<p>Create a new website in your hosting control panel. Then find a URL that allows you to access this site.</p>
+<h2 id="install-nopcommerce">Install nopCommerce</h2>
+<p>Using the URL from the previous step, access the website from your browser.
+Once you open the site for the first time, you will be redirected to the installation page as follows:
+<img src="_static/installing-local/installation.jpg" alt="nopCommerce installation"></p>
+<p>In the <em>Store information</em> panel, fill the following details:</p>
+<ul>
+<li><strong>Admin user email</strong>: this is the email address of the first admin of the site.</li>
+<li><strong>Admin user password</strong>: you will need to supply a password for the admin account.</li>
+<li><strong>Confirm the password</strong>: confirm the admin user password.</li>
+<li><strong>Country</strong>: select the country from the dropdown list. It allows preconfiguring your store based on the country you selected. For example:
+<ul>
+<li>download and preinstall a language pack from the official site</li>
+<li>preconfigure some settings (for example, PangV or &quot;Display tax/shipping info&quot; settings for Germany)</li>
+<li>preconfigure some shipping details, VAT settings, currencies, measures, and more.</li>
+</ul>
+</li>
+<li><strong>Create sample data</strong>: select this checkbox if you would like sample products to be created. This is recommended so you can start working with your site before adding any of your own products. You can always delete these items later, or unpublish them so that they no longer appear on your site.</li>
+</ul>
+<p>In the <em>Database information</em> panel, you need to enter the following info:</p>
+<ul>
+<li><strong>Database</strong>: here you can select either Microsoft SQL Server, MySQL, or PostgreSQL. Choose the first one if you are installing nopCommerce on Windows.</li>
+<li><strong>Create database if it doesn't exist</strong>: it is recommended that you create your database and database user beforehand to ensure a successful installation. Simply create a database instance and add the database user to it. The installation process will create all the tables, stored procedures, and more.</li>
+<li><strong>Enter raw connection string (advanced)</strong>: select this checkbox if you want to enter a <strong>Connection string</strong> instead of filling the connection fields.</li>
+<li><strong>Server name</strong>: this is the IP, URL, or server name of your database. Get your server name from the hosting control panel.</li>
+<li><strong>Database name</strong>: this is the name of the database used by nopCommerce. If you opted to create your database ahead of time, use its name here.</li>
+<li><strong>Use integrated Windows authentication</strong>: if you are installing at a hosting provider, you don't need this option.</li>
+<li><strong>SQL Username</strong>: enter your database user login.</li>
+<li><strong>SQL Password</strong>: enter your database user password.</li>
+<li><strong>Specify custom collation</strong>: this is an advanced setting and should be left clear.</li>
+</ul>
+<p>Click <strong>Install</strong> to start the installation process. When the setup process is complete, your new site's home page will be displayed.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The <strong>Restart installation</strong> button at the bottom of the installation page enables you to restart the installation process in case anything goes wrong.</p>
+</div>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>If you want to completely reset a nopCommerce site to its default settings, you can delete the <code>appsettings.json</code> file from the <code>App_Data</code> directory.</p>
+</div>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/installation-and-upgrading/installing-nopcommerce/installing-on-windows.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>手動（固定費用、按重量或按總金額計算） </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="手動（固定費用、按重量或按總金額計算） ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="preload" href="../../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/getting-started/configure-shipping/shipping-providers/manual">
+<h1 id="手動固定費用按重量或按總金額計算">手動（固定費用、按重量或按總金額計算）</h1>
+
+<p>手動（固定費用、按重量或按總金額計算）運送方式允許您為所有預先定義的運送方式設定固定費用，或根據重量及總金額來計算費用。</p>
+<p>若要查看此方法如何應用於您的商店範例，請參閱下方的 <a href="#example">範例</a> 章節。</p>
+<h2 id="定義手動配送提供者">定義手動配送提供者</h2>
+<p>前往 <strong>設定 → 配送 → 配送提供者</strong>。系統將會顯示 <em>配送提供者</em> 視窗：</p>
+<p><img src="_static/manual/methods.jpg" alt="Manual shipping methods"></p>
+<p>請依照下列步驟啟用手動配送費率計算方法：</p>
+<ul>
+<li>在 <strong>Manual (fixed or by weight and by total)</strong> 列中，點擊 <strong>編輯</strong> 按鈕。</li>
+<li>在 <strong>Is active</strong> 欄位中，勾選核取方塊。</li>
+<li>點擊 <strong>更新</strong> 按鈕。該 <em>false</em> 選項將會變更為 <em>true</em>。</li>
+</ul>
+<p>點擊清單中 Manual (fixed or by weight and by total) 選項旁邊的 <strong>設定</strong> 按鈕。</p>
+<p>您可以透過點擊頁面上方的按鈕，將 <em>固定費率 (Fixed rate)</em> 配送費計算方式切換為 <em>依重量/總計 (By weight/total)</em> 計算方式。</p>
+<h2 id="設定固定費率">設定固定費率</h2>
+<p><img src="_static/manual/fixed-rate-configure.jpg" alt="Manual configure"></p>
+<p>點擊物流方式旁邊的 <strong>編輯 (Edit)</strong> 按鈕，並為其輸入 <strong>費率 (Rate)</strong> 和 <strong>運送天數 (Transit days)</strong>（如有需要）。</p>
+<p>點擊 <strong>更新 (Update)</strong>。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>您可以透過點擊 <img src="_static/manual/manual-shipping-manage-button.png" alt="button"> 開啟「物流方式視窗」來新增或移除物流方式，並透過點擊上方的 <img src="_static/manual/manual-shipping-restrictions.png" alt="restrictions"> 來針對特定國家限制某些物流方式。</p>
+</div>
+<h2 id="依重量總計設定運費">依重量/總計設定運費</h2>
+<p><img src="_static/manual/manual-shipping-by-weight-total.png" alt="by weight"></p>
+<p>**依重量及總計運費（shipping by weight and by total）**選項允許您根據貨件的重量與總計金額設定不同的運費。根據貨件的重量與總計金額收取不同費用的能力，有助於公司在寄送重型商品時控制運費，同時又能為購買輕型產品的顧客提供合理的運費。</p>
+<p>使用公式 <strong>[額外固定成本] + ([訂單總重量] - [重量下限]) × [單位重量費率] + [訂單小計] × [收費百分比]</strong> 來計算費用，其中：</p>
+<ul>
+<li><strong>額外固定成本（additional fixed cost）</strong> 是指重量低於特定水平（重量下限）時的貨件成本。</li>
+<li><strong>單位重量費率（rate per weight unit）</strong> 是指超過重量下限後，每單位重量的成本。</li>
+<li><strong>訂單小計與收費百分比（order subtotal and charge percentage）</strong> 是根據訂單小計計算額外成本的參數。</li>
+</ul>
+<p>例如，如果您有以下運送條件：</p>
+<ul>
+<li>若重量為 0 到 1 磅，且訂單小計為 $1 到 $10，則成本為 $10。您應該建立<strong>下列運送規則</strong>：
+<ul>
+<li>訂單重量起始：<strong>0</strong></li>
+<li>訂單重量結束：<strong>1</strong></li>
+<li>訂單小計起始：<strong>1</strong></li>
+<li>訂單小計結束：<strong>10</strong></li>
+<li>額外固定成本：<strong>10</strong></li>
+<li>重量下限：<strong>0</strong></li>
+<li>單位重量費率：<strong>0</strong></li>
+</ul>
+</li>
+<li>若重量為 1.1 磅到 2 磅，且訂單小計為 $11 到 $1,000,000，則成本為 $15。您應該建立<strong>下列運送規則</strong>：
+<ul>
+<li>訂單重量起始：<strong>1.000</strong></li>
+<li>訂單重量結束：<strong>2</strong></li>
+<li>訂單小計起始：<strong>11</strong></li>
+<li>訂單小計結束：<strong>1000000</strong></li>
+<li>額外固定成本：<strong>15</strong></li>
+<li>重量下限：<strong>0</strong></li>
+<li>單位重量費率：<strong>0</strong></li>
+</ul>
+</li>
+<li>若超過 2 磅，每額外 0.5 磅的成本為 $3。您應該建立<strong>下列運送規則</strong>：
+<ul>
+<li>如果您的固定成本為 $15，則超過 2 磅後每磅的成本為 $6</li>
+<li>訂單重量起始：<strong>2.0001</strong></li>
+<li>訂單重量結束：<strong>99999</strong></li>
+<li>額外固定成本：<strong>15</strong></li>
+<li>重量下限：<strong>2</strong></li>
+<li>單位重量費率：<strong>6</strong></li>
+</ul>
+</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>超出部分的重量將按比例收費；
+例如，對於 2.1 磅的貨件，$15 + (0.1 * 6) = $15.6 將會被計費。</p>
+</div>
+<p>要新增運送規則，請點擊 <strong>新增記錄</strong>。系統將顯示 <em>新增記錄</em> 視窗：</p>
+<p><img src="_static/manual/manual-shipping-add-new.jpg" alt="Add rule"></p>
+<p>定義以下資訊：</p>
+<ul>
+<li><strong>商店</strong>：將應用此計算費用的商店。選擇 * 以將規則套用到所有商店。</li>
+<li><strong>倉庫</strong>：進行運送作業的倉庫。選擇 * 以將規則套用到所有倉庫。</li>
+<li><strong>國家、州/省、郵遞區號</strong>：貨件的目的地。</li>
+<li>從預先建立的選項清單中選擇一個 <strong>運送方式</strong>。使用上方的 <strong>管理運送方式</strong> 來新增/移除運送方式，或前往 <a href="#configure-shipping-methods">設定運送方式</a> 章節了解更多資訊。</li>
+<li>透過填寫 <strong>訂單重量起始</strong> 與 <strong>訂單重量結束</strong> 欄位來建立您的重量設定。如果顧客的貨件重量落在此範圍內，額外成本將會固定並根據此記錄進行計算。</li>
+<li>使用 <strong>訂單小計起始、訂單小計結束、額外固定成本、重量下限、單位重量費率、收費百分比（小計的百分比）</strong> 欄位，為此記錄設定定價規則。</li>
+<li>定義 <strong>轉運天數</strong> 欄位，該欄位定義了預計送達的天數。</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>請確保 <strong>設定 → 設定 → 運送設定 → 考慮關聯商品的尺寸與重量</strong> 設定為「開啟（true）」。</p>
+</div>
+<p>點擊 <strong>儲存</strong>。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>如果您希望將顧客僅限制在該畫面上設定的運送方式，請勾選頁面底部的 <strong>將運送方式限制為已設定的方式</strong> 核取方塊。</p>
+</div>
+<h2 id="設定運送方式">設定運送方式</h2>
+<p>商店擁有者可以定義在「手動（固定金額或依重量與總價）」提供者中所使用的運送方式清單。若要管理運送方式：</p>
+<p>前往 <strong>設定 → 運送 → 運送提供者</strong>。接著點擊「手動（固定金額或依重量與總價）」提供者旁邊的 <strong>設定</strong> 按鈕。此時將會顯示設定視窗：</p>
+<p><img src="_static/manual/fixed-rate-configure.jpg" alt="Configure"></p>
+<p>點擊 <strong>管理運送方式</strong>；接著將會顯示「運送方式視窗」：</p>
+<p><img src="_static/manual/fixed-rate-methods.jpg" alt="Methods"></p>
+<p>點擊 <strong>新增</strong> 按鈕；「新增運送方式」視窗將會如下顯示：</p>
+<p><img src="_static/manual/fixed-rate-methods-add-new.jpg" alt="Add new"></p>
+<p>為新紀錄定義以下欄位：</p>
+<ul>
+<li><strong>名稱</strong>：顧客所看到的運送方式名稱。</li>
+<li><strong>說明</strong>：顧客所看到的運送方式說明。</li>
+<li><strong>顯示順序</strong>：運送方式的顯示順序。值為 1 代表在清單的最上方。</li>
+</ul>
+<p>點擊 <strong>儲存</strong>。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>您可以在「運送方式」視窗中點擊 <strong>編輯</strong>，以編輯如上述所示的現有運送方式。</p>
+</div>
+<h2 id="運送方式限制">運送方式限制</h2>
+<p>商店管理者可以在特定國家/地區定義運送方式的限制。若要執行此動作，請前往 <strong>設定 → 運送 → 運送提供者</strong>。點擊 <em>Manual (fixed or by weight and by total)</em> 提供者旁邊的 <strong>設定</strong> 按鈕。此時將會顯示設定視窗：</p>
+<p><img src="_static/manual/fixed-rate-configure.jpg" alt="Configure"></p>
+<p>點擊 <strong>運送方式限制</strong>；此時將會顯示 <em>運送方式限制</em> 視窗：</p>
+<p><img src="_static/manual/fixed-rate-restrictions-methods.jpg" alt="Methods"></p>
+<p>選取您想要在特定國家/地區停用的一種或多種運送方式。</p>
+<p>如有需要，您可以選取該限制欄位以套用至所有國家/地區。</p>
+<p>點擊 <strong>儲存</strong>。</p>
+<h2 id="範例">範例</h2>
+<p>假設您有一家位於美國的商店，提供美國境內以及運送到加拿大的服務。您設定了三種可用的運送方式：</p>
+<ul>
+<li><strong>Ground</strong>：允許透過陸路運輸運送。</li>
+<li><strong>Next day air</strong>：提供次日航空運送。</li>
+<li><strong>2nd day air</strong>：提供兩日航空運送。</li>
+</ul>
+<div class="TIP">
+<h5>Tip</h5>
+<p>您可以點擊「設定 - 手動（固定費用或依重量與總計）」頁面上的 <strong>管理運送方式</strong> 按鈕來新增您自己的運送方式。</p>
+</div>
+<p>接著，假設運費取決於訂單總金額與運送地址。例如：</p>
+<ul>
+<li>若顧客的訂單金額為 $150，我們僅針對美國境內提供 <strong>Ground</strong> 方式的免運費服務。若訂單總額低於 $150，我們將收取 $10。美國境內的配送時間為 5 天。</li>
+<li>針對加拿大，顧客需訂購金額達 $250 的商品，才能透過 <strong>Ground</strong> 方式享受免運費。若訂單總額低於 $250，我們將收取 $20。此情況下的配送時間為 7 天。</li>
+<li>若顧客需要 <strong>Next day air</strong> 配送，美國境內的運費為 $60。假設您希望停用加拿大地區的 <strong>Next day air</strong> 選項。</li>
+<li>若顧客願意多等一天，我們建議使用 <strong>2nd day air</strong> 運送，美國與加拿大地區的費用皆為 $40。</li>
+</ul>
+<p>考量到上述所有需求，我們將在「設定 - 手動（固定費用或依重量與總計）」頁面上設定付款方式如下：</p>
+<ul>
+<li><p><strong>Ground</strong> 方式
+<img src="_static/manual/configuration-ground.jpg" alt="Configuration Ground"></p>
+</li>
+<li><p><strong>Next day air</strong> 方式
+<img src="_static/manual/configuration-nextday.jpg" alt="Configuration Next day air"></p>
+</li>
+<li><p><strong>2nd day air</strong> 方式
+<img src="_static/manual/configuration-2ndday.jpg" alt="Configuration 2nd day air"></p>
+</li>
+</ul>
+<p>若要停用加拿大地區的 <strong>Next day air</strong> 選項，請點擊 <strong>運送方式限制</strong> 按鈕，並依照下列方式填寫「運送方式限制」：
+<img src="_static/manual/restrictions-example.jpg" alt="Configuration example"></p>
+<h3 id="讓我們看看在前端商店中運送選項的樣貌">讓我們看看在前端商店中運送選項的樣貌</h3>
+<ol>
+<li><p>每當來自美國的顧客造訪商品頁面（或購物車頁面）時，運費預估將顯示如下：
+<img src="_static/manual/estimate-product-page.jpg" alt="Estimation"></p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>順帶一提，您可以透過取消勾選 <strong>設定 → 設定 → 運送設定</strong> 頁面上的 <strong>啟用運費預估（購物車頁面）</strong> 以及 <strong>啟用運費預估（商品頁面）</strong> 核取方塊來停用運費預估功能。</p>
+</div>
+<p>當顧客繼續進行運送細節流程時，將會顯示下列選項：
+<img src="_static/manual/estimation-popup-usa.jpg" alt="Estimation USA"></p>
+</li>
+<li><p>每當顧客在運費預估視窗中選擇加拿大時，將會顯示下列選項：
+<img src="_static/manual/estimation-popup-canada.jpg" alt="Estimation Canada">
+如您所見，<strong>Next day air</strong> 選項已不再提供。</p>
+</li>
+</ol>
+<div class="TIP">
+<h5>Tip</h5>
+<p>如果您想提供取貨點給顧客，請參閱 <a class="xref" href="../advanced-configuration/pickup-points.html">取貨點</a> 章節以了解如何進行設定。</p>
+</div>
+<h2 id="教學課程">教學課程</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=1nYj0NqVUWw&amp;t=8s">設定人工物流方式</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/getting-started/configure-shipping/shipping-providers/manual.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

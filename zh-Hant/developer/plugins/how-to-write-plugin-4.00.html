@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>如何為 nopCommerce 4.00 編寫外掛 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="如何為 nopCommerce 4.00 編寫外掛 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/developer/plugins/how-to-write-plugin-4.00">
+<h1 id="如何為-nopcommerce-400-編寫外掛">如何為 nopCommerce 4.00 編寫外掛</h1>
+
+<blockquote>
+<p>在電腦運算中，外掛（plugin）是一組軟體元件，能為大型軟體應用程式新增特定功能（維基百科）。</p>
+</blockquote>
+<p>外掛用於擴充 nopCommerce 的功能。nopCommerce 擁有幾種類型的外掛。例如，付款方式（如 PayPal）、稅務提供者、運送方式計算方法（如 UPS、USPS、FedEx）、小工具（如「線上交談」區塊）以及其他多種功能。nopCommerce 本身已經內建了許多不同的外掛。您也可以在 <a href="https://www.nopcommerce.com/marketplace">nopCommerce 官方網站</a> 上搜尋各種外掛，看看是否已經有人開發了符合您需求的外掛。如果沒有，本文將引導您完成建立自訂外掛的過程。</p>
+<h2 id="外掛結構必要檔案與位置">外掛結構、必要檔案與位置</h2>
+<ol>
+<li><p>首先，您需要為方案建立一個新的「類別庫 (Class Library)」專案。建議將所有外掛放置於方案根目錄下的 <code>\Plugins</code> 目錄中（請勿與位於 <code>\Nop.Web</code> 目錄下的 <code>\Plugins</code> 子目錄混淆，該目錄是專門用於已部署的外掛）。將所有外掛放置於「Plugins」方案資料夾中是一個良好的習慣（關於方案資料夾的更多資訊，請參閱 <a href="http://msdn.microsoft.com/library/sx2027y2.aspx">here</a>）。</p>
+<p>建議的外掛專案命名方式為「Nop.Plugin.{Group}.{Name}」。其中 {Group} 是您的外掛群組（例如「Payment」或「Shipping」），{Name} 則是您的外掛名稱（例如「PayPalStandard」）。例如，PayPal Standard 付款外掛的名稱為：Nop.Plugin.Payments.PayPalStandard。但請注意，這並非強制規定，您可以為外掛選擇任何名稱，例如「MyGreatPlugin」。</p>
+<p><img src="_static/how-to-write-plugin-4.00/write_plugin_4.00_1.jpg" alt="p1"></p>
+</li>
+<li><p>外掛專案建立完成後，您必須使用任何文字編輯器開啟其 <code>.csproj</code> 檔案，並將其內容取代為以下內容：</p>
+<pre><code class="lang-xml">&lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;
+ &lt;PropertyGroup&gt;
+   &lt;TargetFramework&gt;net461&lt;/TargetFramework&gt;
+ &lt;/PropertyGroup&gt;
+ &lt;PropertyGroup Condition=&quot;'$(Configuration)|$(Platform)'=='Release|AnyCPU'&quot;&gt;
+   &lt;OutputPath&gt;..\..\Presentation\Nop.Web\Plugins\PLUGIN_OUTPUT_DIRECTORY&lt;/OutputPath&gt;
+   &lt;OutDir&gt;$(OutputPath)&lt;/OutDir&gt;
+ &lt;/PropertyGroup&gt;
+ &lt;PropertyGroup Condition=&quot;'$(Configuration)|$(Platform)'=='Debug|AnyCPU'&quot;&gt;
+   &lt;OutputPath&gt;..\..\Presentation\Nop.Web\Plugins\PLUGIN_OUTPUT_DIRECTORY&lt;/OutputPath&gt;
+   &lt;OutDir&gt;$(OutputPath)&lt;/OutDir&gt;
+ &lt;/PropertyGroup&gt;
+ &lt;!-- This target execute after &quot;Build&quot; target --&gt;
+ &lt;Target Name=&quot;NopTarget&quot; AfterTargets=&quot;Build&quot;&gt;
+   &lt;!-- Delete unnecessary libraries from plugins path --&gt;
+   &lt;MSBuild Projects=&quot;$(MSBuildProjectDirectory)\..\..\Build\ClearPluginAssemblies.proj&quot;    Properties=&quot;PluginPath=$(MSBuildProjectDirectory)\$(OutDir)&quot; Targets=&quot;NopClear&quot; /&gt;
+ &lt;/Target&gt;
+&lt;/Project&gt;
+</code></pre>
+<p>其中 PLUGIN_OUTPUT_DIRECTORY 應替換為外掛名稱，例如 Payments.PayPalStandard。</p>
+<p>我們採用這種方式，是為了能夠使用 .NET Core 引入的新方法來新增第三方參考。但這並非強制要求。此外，已參考之函式庫中的參考項目會自動載入，非常方便。</p>
+</li>
+<li><p>下一步是為每個外掛建立必要的 <code>plugin.json</code> 檔案。此檔案包含描述您外掛的中繼資料。只需從任何其他現有外掛複製此檔案，並根據您的需求進行修改即可。有關 <code>plugin.json</code> 檔案的資訊，請參閱 <a class="xref" href="plugin.json.html">plugin.json file</a>。</p>
+</li>
+<li><p>最後一個必要步驟是建立一個實作 <code>IPlugin</code> 介面（位於 Nop.Core.Plugins 命名空間）的類別。nopCommerce 提供了 <code>BasePlugin</code> 類別，該類別已實作部分 <code>IPlugin</code> 方法，可讓您避免重複撰寫原始程式碼。nopCommerce 還提供了一些衍生自 <code>IPlugin</code> 的特定介面。例如，「IPaymentMethod」介面用於建立新的付款方式外掛。它包含一些僅適用於付款方式的方法，例如 <code>ProcessPayment()</code> 或 <code>GetAdditionalHandlingFee()</code>。目前，nopCommerce 具備以下特定的外掛介面：</p>
+<ul>
+<li><strong>IPaymentMethod</strong>：這些外掛用於處理付款。</li>
+<li><strong>IShippingRateComputationMethod</strong>：這些外掛用於取得可用的配送方式與對應的運費。例如 UPS、FedEx 等。</li>
+<li><strong>IPickupPointProvider</strong>：這些外掛用於提供取貨點。</li>
+<li><strong>ITaxProvider</strong>：稅務提供者用於取得稅率。</li>
+<li><strong>IExchangeRateProvider</strong>：用於取得匯率。</li>
+<li><strong>IDiscountRequirementRule</strong>：允許您建立新的折扣規則，例如「顧客的帳單地址國家必須是……」。</li>
+<li><strong>IExternalAuthenticationMethod</strong>：用於建立外部驗證方式，例如 Facebook、Twitter、OpenID 等。</li>
+<li><strong>IWidgetPlugin</strong>：允許您建立小工具。小工具會呈現在網站的某些區塊中。例如，網站左欄的「線上客服」區塊。</li>
+<li><strong>IMiscPlugin</strong>：如果您的外掛不屬於上述任何介面，請使用此介面。</li>
+</ul>
+</li>
+</ol>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>每次建置專案後，在進行變更之前請先清理方案。某些資源會被快取，這可能會導致開發者抓狂。</p>
+</div>
+<h2 id="處理請求控制器模型與檢視">處理請求：控制器、模型與檢視</h2>
+<p>現在您可以前往 <strong>管理後台 → 設定 → 外掛</strong> 查看您的外掛。但如您所料，我們的外掛目前什麼功能都沒有，甚至連設定用的使用者介面都沒有。讓我們來建立一個頁面來設定外掛。</p>
+<p>我們現在需要做的是建立一個控制器 (Controller)、一個模型 (Model) 以及一個檢視 (View)。</p>
+<ul>
+<li>MVC 控制器負責回應針對 ASP.NET MVC 網站發出的請求。每個瀏覽器請求都會對應到特定的控制器。</li>
+<li>檢視包含發送到瀏覽器的 HTML 標記與內容。在開發 ASP.NET MVC 應用程式時，檢視就等同於一個頁面。</li>
+<li>MVC 模型包含應用程式中所有未包含在檢視或控制器中的邏輯。</li>
+</ul>
+<p>您可以透過 <a href="http://www.asp.net/mvc/tutorials/older-versions/overview/understanding-models-views-and-controllers-cs">here</a> 找到更多關於 MVC 模式的資訊。</p>
+<p>那麼讓我們開始吧：</p>
+<ul>
+<li><p><strong>建立模型</strong>：在新的外掛中加入一個 <code>Models</code> 資料夾，然後新增一個符合您需求的模型類別。</p>
+</li>
+<li><p><strong>建立檢視</strong>：在新的外掛中加入一個 <code>Views</code> 資料夾，然後新增一個名為 <code>Configure.cshtml</code> 的 cshtml 檔案。將該檢視檔案的「Build Action」屬性設為「Content」，並將「Copy to Output Directory」屬性設為「Copy if newer」。請注意，設定頁面應使用 <code>_ConfigurePlugin</code> 範本。此外，請確保您的 <code>\Views</code> 目錄中有 <code>_ViewImports</code> 檔案。您可以直接從任何現有的外掛中複製一份。</p>
+</li>
+<li><p><strong>建立控制器</strong>：在新的外掛中加入一個 <code>Controllers</code> 資料夾，然後新增一個控制器類別。一個良好的做法是將外掛控制器命名為 <code>{Group}{Name}Controller.cs</code>。例如：<code>PaymentPayPalStandardController</code>。當然，這並非強制性要求（僅為建議）。接著，為設定頁面（在管理後台區域）建立適當的動作方法。我們將其命名為「Configure」。準備一個模型類別並使用實體檢視路徑將其傳遞給檢視：<code>~/Plugins/{PluginOutputDirectory}/Views/Configure.cshtml</code>。</p>
+</li>
+<li><p>請為您的動作方法使用以下屬性：</p>
+<pre><code class="lang-csharp">[AuthorizeAdmin] //confirms access to the admin panel
+[Area(AreaNames.Admin)] //specifies the area containing a controller or action
+</code></pre>
+<p>例如，開啟 PayPalStandard 付款外掛並查看其 <code>PaymentPayPalStandardController</code> 的實作。</p>
+</li>
+</ul>
+<p>接著，對於每個擁有設定頁面的外掛，您都應該指定一個設定 URL。名為 <code>BasePlugin</code> 的基礎類別擁有 <code>GetConfigurationPageUrl</code> 方法，該方法會回傳一個設定 URL：</p>
+<pre><code class="lang-csharp">return $&quot;{_webHelper.GetStoreLocation()}Admin/ControllerName/ActionName&quot;;
+</code></pre>
+<p>其中 ControllerName 是您的控制器名稱，ActionName 是動作名稱（通常為「Configure」）。</p>
+<p>一旦您安裝了外掛並新增了設定方法，您就會在 <strong>管理後台 → 設定 → 外掛</strong> 下方找到連結來設定您的外掛。</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>完成上述步驟最簡單的方法是開啟任何其他外掛，將這些檔案複製到您的外掛專案中，然後重新命名對應的類別與目錄。</p>
+</div>
+<p>例如，PayPalStandard 外掛的專案結構如下圖所示：</p>
+<p><img src="_static/how-to-write-plugin-4.00/write_plugin_4.00_3.jpg" alt="p3"></p>
+<h2 id="處理install與uninstall方法">處理「Install」與「Uninstall」方法</h2>
+<p>此步驟為選填。有些外掛在安裝過程中可能需要額外的邏輯。例如，外掛可能需要插入新的語言資源。請開啟您的 <code>IPlugin</code> 實作（大多數情況下會繼承自 <code>BasePlugin</code> 類別）並覆寫下列方法：</p>
+<ul>
+<li>Install。此方法將在外掛安裝期間被呼叫。您可以在此初始化任何設定、插入新的語言資源，或是建立新的資料庫資料表（如有需要）。</li>
+<li>Uninstall。此方法將在外掛移除期間被呼叫。</li>
+</ul>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>如果您覆寫了這些方法其中之一，請勿隱藏其基礎實作。</p>
+</div>
+<p>例如，覆寫的「Install」方法應包含下列方法呼叫：base.Install()。PayPalStandard 外掛的「Install」方法看起來如下方程式碼所示：</p>
+<pre><code class="lang-csharp">public override void Install()
+{
+    var settings = new PayPalStandardPaymentSettings()
+    {
+        UseSandbox = true
+    };
+    _settingService.SaveSetting(settings);
+    base.Install();
+}
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p>已安裝外掛的清單位於 <code>\App_Data\installedPlugins.json</code>。該清單會在安裝過程中建立。</p>
+</div>
+<h2 id="路由">路由</h2>
+<p>在這裡，我們將了解如何註冊外掛路由。ASP.NET Core 路由負責將傳入的瀏覽器請求對應到特定的 MVC 控制器動作。您可以參考 <a href="https://docs.microsoft.com/aspnet/core/fundamentals/routing">here</a> 以取得關於路由的更多資訊。請遵循以下步驟：</p>
+<ul>
+<li><p>如果您需要新增自訂路由，請建立 <code>RouteProvider.cs</code> 檔案。它會將外掛路由通知 nopCommerce 系統。例如，以下的 RouteProvider 類別新增了一個新路由，可以透過開啟網頁瀏覽器並瀏覽至 <code>http://www.yourStore.com/Plugins/PaymentPayPalStandard/PDTHandler</code> 這個 URL 來存取（PayPal 外掛會用到）：</p>
+<pre><code class="lang-csharp">public partial class RouteProvider : IRouteProvider
+{
+    public void RegisterRoutes(IRouteBuilder routeBuilder)
+    {
+         routeBuilder.MapRoute(&quot;Plugin.Payments.PayPalStandard.PDTHandler&quot;, &quot;Plugins/   PaymentPayPalStandard/PDTHandler&quot;,
+         new { controller = &quot;PaymentPayPalStandard&quot;, action = &quot;PDTHandler&quot; });
+    }
+    public int Priority
+    {
+        get
+        {
+            return -1;
+        }
+    }
+}
+</code></pre>
+</li>
+</ul>
+<h2 id="升級-nopcommerce-可能會導致外掛失效">升級 nopCommerce 可能會導致外掛失效</h2>
+<p>部分外掛可能會因為過時，而無法在新版本的 nopCommerce 中運作。如果您在升級到新版本後遇到問題，請刪除該外掛，並前往 nopCommerce 官方網站查看是否有更新的版本可用。許多外掛開發者會更新其外掛以適應新版本，但並非所有開發者都會這麼做，導致部分外掛會隨著 nopCommerce 的升級改進而變得無法使用。不過在大多數情況下，您可以直接開啟對應的 <code>plugin.json</code> 檔案，並更新 <strong>SupportedVersions</strong> 欄位。</p>
+<h2 id="結論">結論</h2>
+<p>希望這篇文章能幫助您入門 nopCommerce，並為您開發更複雜的外掛做好準備。</p>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/developer/plugins/how-to-write-plugin-4.00.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

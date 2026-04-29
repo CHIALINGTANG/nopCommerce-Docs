@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Mobile app documentation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Mobile app documentation ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/developer/mobile-app/index">
+<h1 id="mobile-app-documentation">Mobile app documentation</h1>
+
+<h2 id="introduction">Introduction</h2>
+<p>nopCommerce team provides a <a href="https://www.nopcommerce.com/ecommerce-mobile-app">mobile application for iOS and Android</a>. It will bring enormous value to your business. The mobile app is completely ready-to-go, so you can start selling your products and services straight away. Like the nopCommerce platform, the mobile app comes with the source code and offers unlimited customization options. What’s more, it can seamlessly adapt to your online store design and functionality. No coding or designing skills are required to integrate the app with your nopCommerce store, configure its content and features, publish it on the Google Play Store and App Store, and manage its workflow.</p>
+<p>Here are some other significant features that will ensure efficient mobile eCommerce launching, customization, and maintenance:</p>
+<ul>
+<li><p>Build with latest version of Flutter and Dart</p>
+</li>
+<li><p>Compatible with Android and iOS</p>
+</li>
+<li><p>Used Riverpod (state management) features</p>
+</li>
+<li><p>Easy to use UI and beautiful Material design 3</p>
+</li>
+<li><p>Token-Based Authentication</p>
+</li>
+<li><p>Internationalization support</p>
+</li>
+<li><p>Dark and Light theme support</p>
+</li>
+<li><p>Free icons</p>
+</li>
+</ul>
+<h2 id="setup">Setup</h2>
+<p>With the &quot;nopCommerce mobile app&quot; plugin, in addition to the &quot;Web API Frontend&quot; plugin, it is possible to manage some application settings.</p>
+<p><img src="_static/index/app_plugin.png" alt="image"></p>
+<p>The following functions are available:</p>
+<ol>
+<li>It is possible to transfer certain settings to the mobile application. This is done on purpose so as not to give access to absolutely all application settings. If you need additional settings, you must ensure that they are supported in the mobile application.</li>
+<li>Slider control on the main screen. You can also specify which products users will go to if they click on each slider image.</li>
+</ol>
+<h2 id="visual-studio-code">Visual Studio Code</h2>
+<p>The recommended development environment for Flutter is <a href="https://developer.android.com/studio">Android Studio</a>. A convenient alternative is the VS Studio Code editor, below are the basic settings that help you comfortably work with the code, as well as a set of extensions necessary for development and debugging.</p>
+<h3 id="editor-settings">Editor settings</h3>
+<pre><code class="lang-json">{
+    &quot;[dart]&quot;: {
+        &quot;editor.codeActionsOnSave&quot;: {
+            &quot;source.fixAll&quot;: true
+        },
+        &quot;editor.selectionHighlight&quot;: false,
+        &quot;editor.suggest.snippetsPreventQuickSuggestions&quot;: false,
+        &quot;editor.suggestSelection&quot;: &quot;first&quot;,
+        &quot;editor.tabCompletion&quot;: &quot;onlySnippets&quot;,
+        &quot;editor.wordBasedSuggestions&quot;: false,
+    },
+    &quot;dart.warnWhenEditingFilesOutsideWorkspace&quot;: false,
+    &quot;dart.renameFilesWithClasses&quot;: &quot;prompt&quot;,
+    &quot;editor.bracketPairColorization.enabled&quot;: true,
+    &quot;editor.inlineSuggest.enabled&quot;: true,
+    &quot;editor.formatOnSave&quot;: true,
+    &quot;explorer.compactFolders&quot;: false,
+    &quot;dart.debugExternalPackageLibraries&quot;: false,
+    &quot;dart.debugSdkLibraries&quot;: false,
+    &quot;editor.minimap.enabled&quot;: false
+}
+</code></pre>
+<h3 id="extensions">Extensions</h3>
+<p>For development, you will need to install the following extensions:</p>
+<p>Name: <strong>Flutter</strong><br>
+Id: Dart-Code.flutter<br>
+Description: Flutter support and debugger for Visual Studio Code.<br>
+Publisher: Dart Code<br>
+VS Marketplace Link: <a href="https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter">https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter</a></p>
+<p>Name: <strong>Dart</strong><br>
+Id: Dart-Code.dart-code<br>
+Description: Dart language support and debugger for Visual Studio Code.<br>
+Publisher: Dart Code<br>
+VS Marketplace Link: <a href="https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code">https://marketplace.visualstudio.com/items?itemName=Dart-Code.dart-code</a></p>
+<h2 id="start-development-and-customization">Start development and customization</h2>
+<p>Open the source code from the archive that you will receive after purchasing the application in the Visual Studio Code editor.</p>
+<p>Immediately after opening the project in the code editor, you will be prompted to download the included libraries. You can also do it yourself by running the following command in the terminal:</p>
+<pre><code class="lang-bash">flutter pub get
+</code></pre>
+<p>Now you need to specify an endpoint to connect to the server to access the API. This setting is in the <code>lib\constants\app_constants.dart</code> file:</p>
+<pre><code class="lang-dart">class AppConstants {
+  static const String storeUrl = 'https://yourstore.com';
+}
+</code></pre>
+<p>Now everything is ready to run the application:</p>
+<pre><code class="lang-bash">flutter run
+</code></pre>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Make sure the <code>paymentSettings.BypassPaymentMethodSelectionIfOnlyOne</code> setting is disabled.</p>
+<p>Another general recommendation for checkout flow settings: do not enable settings that disable or skip steps (for example, <code>ordersettings.disablebillingaddresscheckoutstep</code>). Such settings will have no effect in the mobile app.</p>
+</div>
+<h2 id="project-structure">Project structure</h2>
+<p>A mobile application developed on Flutter carries the functions of interacting with a public store using the Web API (Frontend). All the main processes of user interaction with the application are presented in the diagram below:</p>
+<p><img src="_static/index/app_flow.png" alt="image"></p>
+<p>The approach that focuses on the fact that the functions of the application are root folders will be applied. And inside this folder, we describe the architectural layers inherent in this particular function in the form of subfolders. Thus, everything related to the functionality of interest to us is located in one folder, which greatly simplifies the understanding of the code.</p>
+<p><img src="_static/index/app_structure.png" alt="image"></p>
+<h2 id="technology-stack">Technology stack</h2>
+<p>Frameworks &amp; Libraries used:</p>
+<ul>
+<li>Flutter SDK 3.35.1</li>
+<li>Dart SDK 3.9.0</li>
+<li>flutter_riverpod: 2.6.1</li>
+<li>go_router: 16.1.0</li>
+<li>flutter_secure_storage: 9.2.4</li>
+<li>dio: 5.9.0</li>
+</ul>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>For correct operation of the application, it is recommended to use the package versions specified in the configuration.</p>
+</div>
+<h2 id="app-architecture">App architecture</h2>
+<p>The application architecture is built according to generally accepted standards, described in the <a href="https://developer.android.com/topic/architecture">Android documentation</a>. Since the project uses the Riverpod state management system, the architecture has been extended and looks like this:</p>
+<p><img src="_static/index/app_arch.png" alt="image"></p>
+<h2 id="navigation---go_router">Navigation - go_router</h2>
+<p>For navigation in the application, the <a href="https://pub.dev/packages/go_router">go_router</a> library is used. It is a declarative routing system built on top of the <a href="https://api.flutter.dev/flutter/widgets/Router-class.html">Flutter Router API</a>.</p>
+<p>The navigation map in the app looks like this:</p>
+<pre><code class="lang-bash">├─/splash (SplashScreen)
+└─ (ShellRoute)
+  ├─/home 
+  ├─/catalog 
+  │ ├─/catalog/category/:id (CategoryDetailsScreen)
+  │ ├─/catalog/manufacturer/:id (ManufacturerDetailsScreen)
+  │ ├─/catalog/vendor/:id (VendorDetailsScreen)
+  │ ├─/catalog/productsByTag/:id (ProductsByTagScreen)
+  │ ├─/catalog/productSearch/:q (ProductsSearchScreen)
+  │ └─/catalog/product/:id (ProductDetailsScreen)
+  │   ├─/catalog/product/:id/review (ProductReviewScreen)
+  │   └─/catalog/product/:id/addReview 
+  ├─/cart 
+  │ └─/cart/checkout 
+  └─/account 
+    ├─/account/logincheckout 
+    ├─/account/login 
+    │ └─/account/login/forgotPassword (ForgotPasswordScreen)
+    ├─/account/register 
+    ├─/account/settings 
+    ├─/account/contactUs 
+    ├─/account/wishlist (WishlistScreen)
+    ├─/account/accountInfo (AccountInfoScreen)
+    ├─/account/accountAddresses (AccountAddressesScreen)
+    │ └─/account/accountAddresses/createUpdateAddress/:id teAddressScreen)
+    ├─/account/accountOrders (AccountOrdersScreen)
+    │ └─/account/accountOrders/orderDetails/:id (OrderDetailsScreen)
+    ├─/account/accountDownloadableProducts nloadableProductsScreen)
+    ├─/account/accountBackInStock (AccountBackInStockScreen)
+    ├─/account/accountRewardPoints (AccountRewardPointsScreen)
+    ├─/account/accountChangePassword (AccountChangePassword)
+    ├─/account/accountProductReviews (AccountProductReviewsScreen)
+    ├─/account/accountGdprTools (AccountGdprToolsScreen)
+    ├─/account/accountReturnRequests (AccountReturnRequestsScreen)
+    └─/account/returnRequest/:id (ReturnRequestScreen)
+</code></pre>
+<h2 id="web-api-client-generation">Web API client generation</h2>
+<p>Istall the <a href="https://openapi-generator.tech/">OpenAPI Generator</a> (Requires <a href="https://nodejs.org/en/download/">Node.js</a>)</p>
+<p>To update the version of OpenAPI Generator, use the following command and select the latest stable version from the list provided.</p>
+<pre><code class="lang-bash">openapi-generator-cli version-manager list
+</code></pre>
+<p>Create a file <em>openapitools.json</em>.
+Use the <a href="https://openapi-generator.tech/docs/generators/dart-dio">dart-dio</a> generator.</p>
+<pre><code class="lang-json">{
+  &quot;$schema&quot;: &quot;node_modules/@openapitools/openapi-generator-cli/config.schema.json&quot;,
+  &quot;spaces&quot;: 2,
+  &quot;generator-cli&quot;: {
+    &quot;version&quot;: &quot;7.14.0&quot;,
+    &quot;generators&quot;: {
+        &quot;frontend&quot;: {
+            &quot;input-spec&quot;: &quot;swagger.json&quot;,
+            &quot;generator-name&quot;: &quot;dart-dio&quot;,
+            &quot;output&quot;: &quot;frontend_api&quot;,
+            &quot;additionalProperties&quot;: {
+                &quot;pubName&quot;: &quot;frontend_api&quot;
+            }
+        }
+    }
+  }
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>To update the generator version, run the following command:</p>
+<pre><code class="lang-bash">openapi-generator-cli version-manager list
+</code></pre>
+</div>
+<p>It is necessary that the OpenAPI schema <em>swagger.json</em> be in the directory with the generator installed.</p>
+<ol>
+<li><p>Call the following command to generate the client:</p>
+<pre><code class="lang-bash">openapi-generator-cli generate
+</code></pre>
+</li>
+<li><p>The standard openapi-generator will only generate base code that uses libraries that rely on Dart's own code generation. Therefore, after the completion of the base generation, it is necessary to start the Dart generator:</p>
+<pre><code class="lang-bash">cd frontend_api
+flutter pub get  
+dart run build_runner build -d
+</code></pre>
+<p>As a result, we get a ready-made package, which will be located where you specified in  the configuration file or console command. It remains to include it in <em>pubspec.yaml</em>:</p>
+<pre><code class="lang-yaml">frontend_api: # &lt;- nopCommerce generated api library
+    path: lib/frontend_api
+</code></pre>
+</li>
+</ol>
+<h2 id="localization">Localization</h2>
+<p>To localize the interface of the application itself, you need to place a file with locales in the <code>\lib\localization</code> folder. It is important that the file name is in the following format:</p>
+<p><code>intl_</code><strong>{your_language_code_from_server}</strong><code>.arb</code></p>
+<p>As a basis, you can take the <em>intl_en.arb</em> file already in the kit and translate its resources into the target language.</p>
+<p>Run the following command in a terminal to generate the required resource files for localization.</p>
+<pre><code class="lang-bash">flutter gen-l10n
+</code></pre>
+<p>You can make sure that all the necessary resources are generated correctly in the <code>lib\localization\generated\i18n</code> path.</p>
+<p><img src="_static/index/localization.png" alt="image"></p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Do not make any changes to this file as this part of the code is auto-generated. All localization changes should be made strictly in the <code>intl_</code><strong>{your_language_code_from_server}</strong><code>.arb</code> file located along the path <code>\lib\localization</code>.</p>
+</div>
+<p>Now, when switching the language in the application settings, the application interface will also be localized.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>The language code that will be embedded in the name of the localization file must match the one added on your server. Otherwise, the interface will be localized by the default locales (i.e. <code>en</code>).</p>
+</div>
+<h2 id="designing-the-user-interface">Designing the user interface</h2>
+<p>To maintain a unified and consistent look across devices, we harnessed the potential of design tokens provided by Material 3. These tokens allow for storing styles, fonts, and animation values, enabling us to use the same style values in both design files and code.</p>
+<p>Using tokens provides several advantages:</p>
+<ul>
+<li>Consistency: Tokens ensure consistent design across screens and components.</li>
+<li>Theming: Easily switch between light/dark/dynamic themes by swapping the ColorScheme or ThemeData.</li>
+<li>Maintainability: Change the look of the entire app from one place (no need to search and replace color codes).</li>
+<li>Design/Dev collaboration: Tokens serve as a bridge between Figma and Flutter.</li>
+</ul>
+<h3 id="integrating-tokens-from-design-tools">Integrating Tokens from Design Tools</h3>
+<p><strong>Material Theme Builder</strong> (MTB) is a designer/developer tool for creating Material Design 3 (M3) color &amp; type tokens and exporting them as code (Flutter, Compose, Android XML, design tokens, etc.). It helps you produce coordinated light/dark <code>ColorScheme</code>s from a seed/brand color, preview components, and export ready-to-use artifacts for implementation.</p>
+<h4 id="generate-a-color-scheme">Generate a color scheme</h4>
+<ol>
+<li><p>Open the <strong><a href="https://m3.material.io/theme-builder">Material Theme Builder</a></strong>.</p>
+</li>
+<li><p>Pick a seed / primary color</p>
+<ul>
+<li><p>Enter a hex value, use the color picker, or use an eyedropper. The seed (primary) color is the single starting point from which tonal palettes are generated.</p>
+<p><img src="_static/index/color-picker.png" alt="image"></p>
+</li>
+<li><p>You can also enable <em>dynamic color</em> input (wallpaper/image) or import an image to extract colors — MTB will derive tonal palettes from that source.</p>
+<p><img src="_static/index/source-image.png" alt="image"></p>
+</li>
+</ul>
+</li>
+<li><p>Choose or tweak secondary / tertiary / error / neutral colors</p>
+<p>MTB shows slots for common roles (secondary, tertiary, error, neutral, etc.). You can accept automatically-generated values or override specific role colors (enter hex values manually). The builder keeps role relationships consistent with M3 rules.</p>
+<p><img src="_static/index/core-colors.png" alt="image"></p>
+<p>Here you need to select the base colors for the entire scheme. You can enter them manually, for example, if your brand colors are already defined. On the <strong>Dynamic</strong> panel, you can upload an image and extract colors from it. It is recommended to use the service <a href="https://coolors.co/">https://coolors.co/</a> to generate harmonious colors.</p>
+<p>Сlick <strong>Start the generator</strong>:</p>
+<p><img src="_static/index/make_colors.png" alt="image"></p>
+<p>You can delete the extra blocks until only 3 remain, and then press the spacebar to generate variations.</p>
+</li>
+<li><p>Switch between Light and Dark previews</p>
+<p>Toggle Light/Dark to immediately see both schemes;</p>
+<p><img src="_static/index/light-scheme.png" alt="image"></p>
+<p>MTB generates paired light/dark <code>ColorScheme</code>s so contrast &amp; visual hierarchy are preserved across brightness modes.</p>
+<p><img src="_static/index/dark-scheme.png" alt="image"></p>
+</li>
+<li><p>Preview components and surfaces</p>
+<p>The builder has live previews (app bars, buttons, chips, cards, list items, navigation bars, dialogs). Use them to validate how your palette behaves on surfaces, text, icons, and interactive controls.</p>
+<p><img src="_static/index/preview-components.gif" alt="image"></p>
+</li>
+<li><p>Use color-matching / harmonization</p>
+<p>If you have brand colors that clash with generated tonal palettes, MTB offers color-matching or harmonization modes that nudge palettes to harmonize with brand hues while still following M3 tonal rules. This is useful when starting from multiple brand colors.</p>
+<p><img src="_static/index/extended-colors.png" alt="image"></p>
+</li>
+<li><p>Typography</p>
+<p>Select base font family. MTB can produce tokens for typography (weights, sizes, line heights) to accompany your color tokens.</p>
+<p><img src="_static/index/choose-fonts.png" alt="image"></p>
+</li>
+<li><p>Export</p>
+<p>Choose the export format - <strong>Flutter (Dart)</strong>, then export/download a ZIP with code artifacts and token files. For Flutter, the builder typically generates <code>theme.dart</code> that you can drop into your project.</p>
+<p><img src="_static/index/export.png" alt="image"></p>
+</li>
+</ol>
+<h4 id="overview-of-the-themedart-file">Overview of the theme.dart file</h4>
+<p>Once you've created your color palette in <em>Material Theme Builder</em> and exported it, you'll get a <code>theme.dart</code> file. This file is the starting point for styling your app. Typically, its main content is two <code>ColorScheme</code> objects:</p>
+<ul>
+<li><p><code>lightScheme</code>: Defines a set of colors for your app's light theme (e.g. background, text, and accent colors in light mode).</p>
+</li>
+<li><p><code>darkScheme</code>: Defines the same colors for your dark theme.</p>
+</li>
+</ul>
+<p>These schemes are generated based on the seed color you choose and ensure a harmonious and consistent color combination throughout your app, following the principles of Material Design 3.</p>
+<h4 id="integration-themedart-into-the-project">Integration <code>theme.dart</code> into the project</h4>
+<p>To keep your project structure organized, it is recommended to store theme-related files in a separate directory.</p>
+<p>Peplace the generated <code>ColorScheme</code> objects from <code>theme.dart</code> into - <code>lib/themes/material_theme.dart</code>.</p>
+<p>As your design system grows, you may need to introduce custom tokens (e.g., specific brand colors, semantic states). Use extensions. This code demonstrates which extension tokens are used in the mobile application.</p>
+<pre><code class="lang-dart">ThemeData theme(ColorScheme colorScheme) =&gt; ThemeData(
+        useMaterial3: true,
+        brightness: colorScheme.brightness,
+        colorScheme: colorScheme,
+        textTheme: textTheme.apply(
+          bodyColor: colorScheme.onSurface,
+          displayColor: colorScheme.onSurface,
+        ),
+        scaffoldBackgroundColor: colorScheme.surface,
+        canvasColor: colorScheme.surface,
+        // defailt extensions - BEGIN
+        extensions: [
+          CustomColors(
+            subTextColor: colorScheme.onSurfaceVariant,
+            ratingStarColor: colorScheme.secondary,
+            pictureIndicatorColor: colorScheme.surfaceContainerHighest,
+            pictureIndicatorCurrentColor: colorScheme.primary,
+            inStockColor: colorScheme.tertiary,
+            outOfStockColor: colorScheme.error,
+          ),
+        ],
+        // defailt extensions - END
+      );
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You can use the entire contents of the <code>theme.dart</code> file, but don't forget to include the default extensions that are available in the <code>custom_color_scheme.dart</code> file.</p>
+</div>
+<p>That’s it — restart the application and enjoy your new color scheme.</p>
+<h2 id="publishing-to-the-google-play-store">Publishing to the Google Play Store</h2>
+<p>The process for releasing your Flutter app on the Google Play Store involves preparing, building, and then uploading your application to the Google Play Console.</p>
+<p>Key Steps:</p>
+<ol>
+<li>Sign Up for a Google Play Developer Account: You'll need to register for a developer account.</li>
+<li>Prepare the App for Release: This includes configuring the app's name, icon, and version number in the <code>pubspec.yaml</code> file and setting up necessary permissions.</li>
+<li>Sign the Application: You must generate an upload keystore and sign your app with it to verify your identity.</li>
+<li>Build the Release Version: Use the <code>flutter build appbundle</code> command to create an Android App Bundle (<em>.aab</em>) of your application.</li>
+<li>Publish on the Google Play Console: Create a new app listing in your Play Console, fill out all the required store listing details (title, description, screenshots, privacy policy), and upload your <em>.aab</em> file for review.</li>
+</ol>
+<p>Official Documentation: <a href="https://docs.flutter.dev/deployment/android">Build and release an Android app</a></p>
+<h2 id="publishing-to-the-apple-app-store">Publishing to the Apple App Store</h2>
+<p>Deploying to the Apple App Store requires enrolling in the Apple Developer Program and using Xcode to manage the final steps of the process.</p>
+<p>Key Steps:</p>
+<ol>
+<li>Enroll in the Apple Developer Program: This is a paid annual subscription that grants you access to publish on the App Store.</li>
+<li>Configure the Project in Xcode: Open the <code>ios</code> folder of your project in Xcode to set up the Bundle ID, version number, and code signing settings.</li>
+<li>Create an App Store Connect Listing: Log in to App Store Connect to create a new app record. Here, you will enter all the metadata for your app, such as its name, description, screenshots, keywords, and privacy information.</li>
+<li>Build and Archive the App: Use Xcode to create a build archive (<em>.ipa</em>) of your application.</li>
+<li>Upload to App Store Connect: Upload the archived build using Xcode or the Transporter tool.</li>
+<li>Submit for Review: Once the build is processed and all metadata is complete, you can submit the app to Apple for review.</li>
+</ol>
+<p>Official Documentation: <a href="https://docs.flutter.dev/deployment/ios">Build and release an iOS app</a></p>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/developer/mobile-app/index.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

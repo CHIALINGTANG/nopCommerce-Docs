@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Description of the structure of the plugin.json file </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Description of the structure of the plugin.json file ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/developer/plugins/plugin_json">
+<h1 id="description-of-the-structure-of-the-pluginjson-file">Description of the structure of the <code>plugin.json</code> file</h1>
+
+<p>This file contains the Meta information description for a plugin that is used by nopCommerce to determine which group this plugin belongs to if the plugin is compatible with the current version of nopCommerce or not, what is the version of the plugin and several other information. Each nopCommerce plugin must have this file.</p>
+<h2 id="file-structure">File Structure</h2>
+<pre><code class="lang-json">{
+  &quot;Group&quot;: &quot;Payment methods&quot;,
+  &quot;FriendlyName&quot;: &quot;PayPal Commerce&quot;,
+  &quot;SystemName&quot;: &quot;Payments.PayPalCommerce&quot;,
+  &quot;Version&quot;: &quot;4.70.1&quot;,
+  &quot;SupportedVersions&quot;: [ &quot;4.70&quot; ],
+  &quot;Author&quot;: &quot;nopCommerce team&quot;,
+  &quot;DisplayOrder&quot;: -1,
+  &quot;FileName&quot;: &quot;Nop.Plugin.Payments.PayPalCommerce.dll&quot;,
+  &quot;Description&quot;: &quot;&quot;
+}
+</code></pre>
+<ul>
+<li><p><strong>Group</strong>. It is used by nopCommerce to identify or search or filter plugins by their group name in the plugin list under the <code>Admin/Configuration/LocalPlugin</code> menu. This may be your company name.</p>
+</li>
+<li><p><strong>FriendlyName</strong>. It is the display name for the plugin. It is used to identify our plugin from the plugin list.</p>
+</li>
+<li><p><strong>SystemName</strong>. It is used by nopCommerce to identify the plugin uniquely, so it needs to be unique from all other plugins. We cannot register more than one plugin with the same <code>SystemName</code>.</p>
+</li>
+<li><p><strong>Version</strong>. This is the version number of the plugin, you can set this to any value you like. This number is used to identify which version of the plugin is currently installed in the nopCommerce application. However, we recommend sticking to the following format - <code>&quot;{nopCommerce_version_number}.{build_number}&quot;</code>.</p>
+</li>
+<li><p><strong>SupportedVersions</strong>. It is an array of strings. It contains one or more than one version of nopCommerce that this plugin is supported on or we can say this plugin is a target for. During development ensure that the current version of nopCommerce in which you are developing this plugin is included in this list, otherwise, it will not be loaded in the plugin list.</p>
+</li>
+<li><p><strong>Author</strong>. This is the information about the creator of the plugin. It may be a personal name or a company name or a team who created this plugin.</p>
+</li>
+<li><p><strong>DisplayOrder</strong>. It is used to set the order in which this plugin should be displayed in the plugin list. Its value is of type number.</p>
+</li>
+<li><p><strong>FileName</strong>. It has the following format <strong>Nop.Plugin.{Group}.{Name}.dll</strong> (it is your plugin assembly filename).</p>
+</li>
+<li><p><strong>Description</strong>. It contains a short description of your plugin like what this plugin is all about, what this plugin does. This is shown in the Plugin list under the plugin name.</p>
+</li>
+<li><p><strong>LimitedToStores</strong> - The list of store identifiers in which this plugin is available. If empty, then this plugin is available in all stores.</p>
+</li>
+<li><p><strong>LimitedToCustomerRoles</strong> - The list of customer role identifiers for which this plugin is available. If empty, then this plugin is available for all ones.</p>
+</li>
+<li><p><strong>DependsOnSystemNames</strong> - The list of plugins' system names that this plugin depends on.</p>
+</li>
+</ul>
+<div class="TIP">
+<h5>Tip</h5>
+<p>After you edit your <strong>plugin.json</strong> file's content you need to set its <code>Copy to Output Directory</code> property value to <code>Copy if newer</code>.
+<img src="_static/plugin.json/plugin_json_0.jpg" alt="image3">
+It is required because we need this file to be copied to the compiled directory from where nopCommerce can access this file to display our plugin in the plugin list in the admin panel.</p>
+</div>
+<h2 id="examples">Examples</h2>
+<ul>
+<li><p>The  <strong>FixedOrByCountryStateZip</strong> plugin has the following <code>plugin.json</code> file:</p>
+<pre><code class="lang-json">  {
+      &quot;Group&quot;: &quot;Tax providers&quot;,
+      &quot;FriendlyName&quot;: &quot;Manual (Fixed or By Country/State/Zip)&quot;,
+      &quot;SystemName&quot;: &quot;Tax.FixedOrByCountryStateZip&quot;,
+      &quot;Version&quot;: &quot;4.70.1&quot;,
+      &quot;SupportedVersions&quot;: [ &quot;4.70&quot; ],
+      &quot;Author&quot;: &quot;nopCommerce team&quot;,
+      &quot;DisplayOrder&quot;: 1,
+      &quot;FileName&quot;: &quot;Nop.Plugin.Tax.FixedOrByCountryStateZip.dll&quot;,
+      &quot;Description&quot;: &quot;This plugin allow to configure fix tax rates or tax rates by countries, states and zip codes&quot;
+  }
+</code></pre>
+</li>
+<li><p>The <strong>Google Analytics</strong> widget has the following <em>plugin.json</em> file:</p>
+<pre><code class="lang-json">  {
+      &quot;Group&quot;: &quot;Widgets&quot;,
+      &quot;FriendlyName&quot;: &quot;Google Analytics&quot;,
+      &quot;SystemName&quot;: &quot;Widgets.GoogleAnalytics&quot;,
+      &quot;Version&quot;: &quot;4.70.1&quot;,
+      &quot;SupportedVersions&quot;: [ &quot;4.70&quot; ],
+      &quot;Author&quot;: &quot;nopCommerce team, Nicolas Muniere&quot;,
+      &quot;DisplayOrder&quot;: 1,
+      &quot;FileName&quot;: &quot;Nop.Plugin.Widgets.GoogleAnalytics.dll&quot;,
+      &quot;Description&quot;: &quot;This plugin integrates with Google Analytics. It keeps track of statistics about    the visitors and ecommerce conversion on your website&quot;
+  }
+</code></pre>
+</li>
+</ul>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/developer/plugins/plugin.json.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

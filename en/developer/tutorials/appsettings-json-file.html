@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Settings in appsettings.json </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Settings in appsettings.json ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/developer/tutorials/appsettings-json-file">
+<h1 id="settings-in-appsettingsjson">Settings in appsettings.json</h1>
+
+<h2 id="overview">Overview</h2>
+<p>This article contains the description of the <em>appsettings.json</em> file. In this article, we will explain what settings are available in this file, what they are used for, and how to use these settings to change the functionality/behavior of the nopCommerce project.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>All settings can be overridden in environment variables.</p>
+</div>
+<h2 id="the-appsettingsjson-file-overview">The appsettings.json file overview</h2>
+<p>If you have worked on the <em>ASP.NET Core</em> project previously or you are familiar with <code>ASP.NET Core</code> then you might have used the <em>appsettings.json</em> file and have some understanding of what this file is and what this file is used for.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You can also edit this file from the <strong>Configuration → Settings → App settings</strong> page.</p>
+</div>
+<p>The <em>appsettings.json</em> file is generally used to store the application configuration settings such as database connection strings, any application scope global variables, and much other information. Actually, in <em>ASP.NET Core</em>, the application configuration settings can be stored in different configuration sources such as <em>appsettings.json</em> file, <strong><code>appsettings.{EnvironmentName}.json</code></strong> file (where the <code>{Environment}</code> is the application's current hosting environments such as Development, Staging or Production), <code>User Secrets</code> (where we used to store sensitive information), etc.</p>
+<h2 id="settings-available-in-the-appsettingsjson-file">Settings available in the appsettings.json file</h2>
+<h3 id="dataconfig">DataConfig</h3>
+<p>The connection to the database is configured through this section.</p>
+<ul>
+<li><p><strong>ConnectionString</strong> This setting expects a string value.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The connection string will have a format specific to the selected database provider.
+For example connection string for <strong>SqlServer</strong> look like this:</p>
+<pre><code class="lang-powershell">Data Source={localhost};Initial Catalog={your_data_base_name}};Integrated &gt;Security=False;Persist Security Info=False;User ID={your_user_id}};Password={your_password}};&gt;Trust Server Certificate=True
+</code></pre>
+</div>
+</li>
+<li><p><strong>DataProvider</strong> You can specify one of the supported data providers:</p>
+<ul>
+<li><a href="https://www.microsoft.com/sql-server"><strong>SqlServer</strong></a></li>
+<li><a href="https://www.mysql.com/"><strong>MySql</strong></a></li>
+<li><a href="https://www.postgresql.org/"><strong>PostgreSQL</strong></a></li>
+</ul>
+</li>
+<li><p><strong>SQLCommandTimeout</strong> Sets the wait time (in seconds) before terminating the attempt to execute a command and generating an error. By default, timeout isn't set and a default value for the current provider is used. Set <strong><code>0</code></strong> to use an infinite timeout.</p>
+</li>
+<li><p><strong>WithNoLock</strong> Indicates whether to add NoLock hint to SELECT statements (Relates to SQL Server only)</p>
+</li>
+</ul>
+<h3 id="azureblobconfig">AzureBlobConfig</h3>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>This settings section is relevant for version 4.80 and below. For nopCommerce version 4.90 and above, <a class="xref" href="../plugins/cloudflare-Images.html">Azure settings are described here</a>.</p>
+</div>
+<p>We can use <em>Azure Blob Storage</em> to store blob data. nopCommerce already has a feature integrated for that, we just need to set the following information correctly to use this feature. Values for these settings can be obtained for <em>Azure</em> while you create the storage account.</p>
+<ul>
+<li><strong>ConnectionString</strong> This setting expects a string value. Here you need to add your <code>AzureBlobStorage</code> connection string</li>
+<li><strong>ContainerName</strong> Value for this setting is also of type string. In this setting, we set the container name for <em>Azure BLOB storage</em>.</li>
+<li><strong>EndPoint</strong> This setting also expects a string value. Here we need to set the endpoint for <em>Azure BLOB storage</em>.</li>
+<li><strong>AppendContainerName</strong> This setting expects a boolean value. Set the value to <strong><code>true</code></strong> or <strong><code>false</code></strong> based on whether the Container Name is appended to the <code>EndPoint</code> when constructing the URL.</li>
+<li><strong>StoreDataProtectionKeys</strong> This setting  expects a boolean value. Set the value to <strong><code>true</code></strong> if you want to use the <em>Windows Azure BLOB storage</em> for <em>Data Protection Keys</em>.</li>
+<li><strong>DataProtectionKeysContainerName</strong> This  setting expects a string value. Here you need to set up an Azure  container name for storing <em>Data Protection Keys</em> (this container  should be separate from the container used for media and should be  Private)</li>
+<li><strong>DataProtectionKeysVaultId (optional)</strong> This setting also expects a string value. Set the <code>Azure key vault ID</code> if you need to encrypt the <em>Data Protection Keys</em></li>
+</ul>
+<h3 id="cacheconfig">CacheConfig</h3>
+<p>Cache configuration.</p>
+<ul>
+<li><strong>DefaultCacheTime</strong> This setting determines the lifetime of the cached data. The default is <strong><code>60</code></strong> minutes.</li>
+<li><strong>LinqDisableQueryCache</strong> Indicates whether to disable LINQ expressions caching for queries. This cache reduces time, required for query parsing but have several side-effects. For example, cached LINQ expressions could contain references to external objects as parameters, which could lead to memory leaks if those objects are not used anymore by other code. Or cache access synchronization could lead to bigger latencies than it saves.</li>
+</ul>
+<h3 id="commonconfig">CommonConfig</h3>
+<p><em>CommonConfig</em> contains settings used to configure the behavior of nopCommerce itself. It is a JSON object and contains some settings that can be tweaked to change the behavior of nopCommerce.</p>
+<ul>
+<li><p><strong>DisplayFullErrorStack</strong> This setting expects a boolean value. The default value is <strong><code>false</code></strong>. You can set the value to <strong><code>true</code></strong> if you want to see the full error in the production environment. Which is not what we usually suggest. But if you have a good reason to show full error during the production environment then you can do it from this setting. For the development environment this setting is ignored and whatever the value you set for this setting full error will be shown. We can say that this setting is always enabled for a development environment.</p>
+</li>
+<li><p><strong>UserAgentStringsPath</strong> This setting stores the path to the <code>Browscap.xml</code> file, <code>Browscap.xml</code> is, as the filename might indicate, a browser capabilities database. It's essentially a list of all known browsers and bots, along with their default capabilities and limitations.</p>
+<pre><code class="lang-powershell">~/App_Data/browscap.xml
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>In computing, a user agent is software (a software agent) that is acting on behalf of a user, such as a web browser that &quot;retrieves, renders and facilitates end-user interaction with Web content&quot;. For more information please visit <a href="https://en.wikipedia.org/wiki/User_agent">UserAgent</a>.</p>
+</div>
+</li>
+<li><p><strong>CrawlerOnlyUserAgentStringsPath</strong> This setting stores the location/path for <code>browscap.crawlersonly.xml</code>. It stores user agents only for &quot;CrawlerOnly&quot;.</p>
+<pre><code class="lang-powershell">~/App_Data/browscap.crawlersonly.xml
+</code></pre>
+</li>
+<li><p><strong>CrawlerOnlyAdditionalUserAgentStringsPath</strong> This setting stores the location/path for <code>additional.crawlers.xml</code>. It stores user agents only for &quot;Сrawlers&quot;.</p>
+<pre><code class="lang-powershell">~/App_Data/additional.crawlers.xml
+</code></pre>
+</li>
+<li><p><strong>UseSessionStateTempDataProvider</strong> This setting expects a boolean value. The default value for this setting is <strong><code>false</code></strong>. You might want to set the value to <strong><code>true</code></strong> if you want to store <code>TempData</code> in the session state. By default, the cookie-based <code>TempData</code> provider is used to store <code>TempData</code> in cookies.</p>
+</li>
+<li><p><strong>ScheduleTaskRunTimeout</strong> allows you to set up a running schedule task timeout in milliseconds. Set <strong><code>null</code></strong> to use a default value.</p>
+</li>
+<li><p><strong>StaticFilesCacheControl</strong> specifies the value of the 'Cache-Control' header for static content (in seconds).</p>
+<pre><code class="lang-powershell">public,max-age=31536000
+</code></pre>
+</li>
+<li><p><strong>ServeUnknownFileTypes</strong> setting specifies the value indicating whether to serve files that don't have a recognized content type. The default value is <strong><code>false</code></strong>.</p>
+</li>
+<li><p><strong>UseAutofac</strong>. The value indicating whether to use <em>Autofac IoC container</em>. If disabled, then the default <em>.Net IoC container</em> will be used.</p>
+</li>
+<li><p><strong>PermitLimit</strong>. Maximum number of permit counters that can be allowed in a window (1 minute). Must be set to a value <code>&gt; 0</code> by the time these options are passed to the constructor of <code>FixedWindowRateLimiter</code>. If set to <strong><code>0</code></strong> than limitation is off.</p>
+</li>
+<li><p><strong>QueueCount</strong>. Maximum cumulative permit count of queued acquisition requests. Must be set to a value <code>&gt;= 0</code> by the time these options are passed to the constructor of <code>FixedWindowRateLimiter</code>. If set to <strong><code>0</code></strong> than Queue is off.</p>
+</li>
+<li><p><strong>RejectionStatusCode</strong>. Default status code to set on the response when a request is rejected.</p>
+</li>
+</ul>
+<h3 id="distributedcacheconfig">DistributedCacheConfig</h3>
+<p>A distributed cache is a cache shared by multiple app servers, typically maintained as an external service to the app servers that access it. A distributed cache can improve the performance and scalability of an ASP.NET Core app, especially when the app is hosted by a cloud service or a server farm.</p>
+<ul>
+<li><p><strong>DistributedCacheType</strong> You can choose one of the implementations:</p>
+<ul>
+<li><p><strong>Memory</strong>  - This is a framework-provided implementation of <code>IDistributedCache</code> that stores items in memory. The Distributed Memory Cache isn't a distributed cache. Cached items are stored by the app instance on the server where the app is running.</p>
+</li>
+<li><p><strong>SQL Server</strong>  - The Distributed SQL Server Cache implementation allows the distributed cache to use a SQL Server database as its backing store. To create a SQL Server cached item table in a SQL Server instance, you can use the SQL-cache tool. The tool creates a table with the name and schema that you specify. It is recommended to use a separate database for this purpose.</p>
+<pre><code class="lang-sh">dotnet sql-cache create &quot;Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=DistCache;Integrated   Security=True;&quot; dbo nopCache
+</code></pre>
+</li>
+<li><p><strong>Redis</strong> - nopCommerce supports <em>Redis</em> out of the box. To enable the <em>Redis</em> in your application you must set the corresponding settings. For more information about <a href="https://azure.microsoft.com/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache">Redis</a>.</p>
+</li>
+<li><p><strong>Redis Synchronized Memory</strong>  - nopCommerce version 4.70 introduces a new way of caching with synchronization through the message mechanism in <em>Redis</em>. This option has very high performance since the cache itself is stored in memory and <em>Redis</em> is used only as a synchronizer. To enable this option in your application you must set the same settings as and for the base <em>Redis</em> cache.</p>
+</li>
+</ul>
+</li>
+<li><p><strong>Enabled</strong> This setting expects a boolean value. Set the value to <strong><code>true</code></strong> if you want to enable <code>Distributed cache</code>. The system uses In-Memory caching, so this setting is used to indicate whether we should use <code>Distributed Cache</code> for caching, instead of the default <code>in-memory caching</code>. So, use this setting if you want to use for example <em>Redis</em> for caching.</p>
+</li>
+<li><p><strong>ConnectionString (optional)</strong> This setting is only used in conjunction with <em>Redis</em> or <em>SQL Server</em>. This setting expects a string value. The default value for this setting is</p>
+<pre><code class="lang-powershell">127.0.0.1:{PORT},ssl=False
+</code></pre>
+</li>
+<li><p><strong>SchemaName (optional)</strong> This setting is only used in conjunction with <code>SQL Server</code>.</p>
+</li>
+<li><p><strong>TableName (optional)</strong> This setting is only used in conjunction with <code>SQL Server</code>. SQL Server database name.</p>
+</li>
+<li><p><strong>InstanceName (optional)</strong> Specify the instance name (by default &quot;nopCommerce&quot;).</p>
+</li>
+<li><p><strong>PublishIntervalMs (optional)</strong> Specify the interval to publish key change events, in milliseconds.</p>
+</li>
+</ul>
+<h3 id="hostingconfig">HostingConfig</h3>
+<p>Hosting contains settings used to configure the hosting behavior. It is a JSON object and contains some properties settings which can be tweaked to change the behavior for hosting.</p>
+<ul>
+<li><strong>UseProxy</strong> This setting expects a boolean value. Enable this setting to apply forwarded headers to their matching fields on the current HTTP request.</li>
+<li><strong>ForwardedProtoHeaderName</strong> This setting expects a string value. Specify a custom HTTP header name for identifying the protocol (HTTP or HTTPS) that a client used to connect to your proxy or load balancer.</li>
+<li><strong>ForwardedForHeaderName</strong> This setting expects a string value. Specify a custom HTTP header name to determine the originating IP address (e.g., <strong><code>CF-Connecting-IP</code></strong>, <strong><code>X-ProxyUser-Ip</code></strong>).</li>
+<li><strong>KnownProxies</strong> This setting expects a string value. Specify a list of IP addresses (comma separated) to accept forwarded headers.</li>
+<li><strong>KnownNetworks</strong> This setting expects a string value. Specify a list of IP CIDR notations (comma separated) to accept forwarded headers. e.g. 172.64.0.0/13,162.158.0.0/15</li>
+</ul>
+<h3 id="installationconfig">InstallationConfig</h3>
+<p>It contains settings that are used to configure the behavior of nopCommerce during the nopCommerce installation.</p>
+<ul>
+<li><strong>DisableSampleData</strong> This setting expects a boolean value. This setting indicates whether a store owner can install sample data during installation. If you don't want the store owner to install sample data during installation then just set the value for this setting to <strong><code>true</code></strong>.</li>
+<li><strong>DisabledPlugins</strong> This setting expects a string value. Specify a list of plugins (comma separated) ignored during installation.</li>
+<li><strong>InstallRegionalResources</strong> This setting expects a boolean value. This setting enables the selection of additional language resources during installation. The choice of the country determines the settings that will be applied to the store (exchange rates, taxes, units of measurement, etc. regional features).</li>
+</ul>
+<h3 id="pluginconfig">PluginConfig</h3>
+<ul>
+<li><strong>UseUnsafeLoadAssembly</strong> This setting expects a boolean value. You might want to set the value to <strong><code>true</code></strong> if you want to load an assembly into the load-from context, bypassing some security checks.</li>
+</ul>
+<h3 id="weboptimizer">WebOptimizer</h3>
+<p>We use the <a href="https://github.com/ligershark/WebOptimizer">WebOptimizer</a> tool for minification and bundling of <em>CSS</em> and <em>JavaScript</em> code, which is an <em>ASP.NET Core</em> middleware. Optimization is performed at runtime with server-side and client-side caching for high performance.</p>
+<ul>
+<li><strong>EnableJavaScriptBundling</strong> This setting expects a boolean value. You can set it to <strong><code>true</code></strong> if you want JS file bundling and minification to be enabled.</li>
+<li><strong>EnableCssBundling</strong> This setting expects a boolean value. You can set it to <strong><code>true</code></strong> if you want CSS file bundling and minification to be enabled.</li>
+<li><strong>JavaScriptBundleSuffix</strong> This setting expects a string value. You can set a suffix for the js-file name of generated bundles (by default <strong><code>.scripts</code></strong>).</li>
+<li><strong>CssBundleSuffix</strong> This setting expects a string value. You can set a suffix for the CSS-file name of generated bundles (by default <strong><code>.styles</code></strong>).</li>
+<li><strong>EnableCaching</strong> This setting expects a boolean value. You can set a value indicating whether server-side caching is enabled (by default <strong><code>true</code></strong>).</li>
+<li><strong>EnableMemoryCache</strong> This setting expects a boolean value. You can set a value indicating whether <em>Microsoft.Extensions.Caching.Memory.IMemoryCache</em> based caching is enabled (by default <strong><code>true</code></strong>).</li>
+<li><strong>EnableDiskCache</strong> This setting expects a boolean value. Determines if the pipeline assets are cached to disk. This can speed up application restarts by loading pipeline assets from the disk instead of re-executing the pipeline. Can be helpful to disable while in development mode.</li>
+<li><strong>EnableTagHelperBundling</strong> This setting expects a boolean value. You can set whether bundling is enabled (by default <strong><code>false</code></strong>).</li>
+<li><strong>CdnUrl</strong> This setting expects a string value. You can set the CDN URL used for TagHelpers (by default <strong><code>null</code></strong>).</li>
+<li><strong>CacheDirectory</strong> This setting expects a string value. Sets the directory where assets will be stored if <strong>EnableDiskCache</strong> is <strong><code>true</code></strong> (by default <strong><code>{ContentRootPath}\\wwwroot\\bundles</code></strong>).</li>
+<li><strong>AllowEmptyBundle</strong> This setting expects a boolean value. You can set whether the empty bundle is allowed to generate instead of throwing an exception (by default <strong><code>true</code></strong>).</li>
+<li><strong>HttpsCompression</strong> This setting expects an integer value. You can set a value Indicating if files should be compressed for HTTPS requests when the Response Compression middleware is available. The default value is <strong><code>2</code></strong>. You can choose one of the implementations:
+<ul>
+<li><strong>1</strong> - Opts out of compression over HTTPS.</li>
+<li><strong>2</strong> - Opts into compression over HTTPS.
+<div class="NOTE">
+<h5>Note</h5>
+<p>Enabling compression on HTTPS requests for remotely manipulable content may expose security problems.</p>
+</div>
+</li>
+</ul>
+</li>
+<li><strong>MemoryCacheTimeToLive</strong> If <em>EnableMemoryCache</em> memory caching is enabled, control how long an entry is stored in memory. Default is 60 minutes.</li>
+</ul>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/developer/tutorials/appsettings-json-file.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

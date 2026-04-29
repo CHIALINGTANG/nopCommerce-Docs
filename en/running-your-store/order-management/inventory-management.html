@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Inventory management </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Inventory management ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/running-your-store/order-management/inventory-management">
+<h1 id="inventory-management">Inventory management</h1>
+
+<p>Inventory management is a system of stock level control. In nopCommerce, it consists of setting up the inventory and tracking low stocks.</p>
+<p>To set up inventory, go to <strong>Catalog → Products → Edit a product</strong>. In the <em>Edit product details</em> window, go to the <em>Inventory</em> panel. In this panel, you can choose one of the three inventory methods:</p>
+<ol>
+<li><a href="#dont-track-inventory">Don't track inventory</a></li>
+<li><a href="#track-inventory">Track inventory</a></li>
+<li><a href="#track-inventory-by-product-attributes">Track inventory by product attributes</a></li>
+</ol>
+<p>In the next sections, we will see the difference between these methods.</p>
+<h2 id="dont-track-inventory">Don't track inventory</h2>
+<p>Some products might not require inventory tracking. For example, services, second hand or custom-made goods. In this case, a store owner can opt for no tracking by choosing the <em>Don't track inventory</em> option in the <strong>Inventory method</strong> field.
+<img src="_static/inventory-management/inventory.png" alt="Don't track inventory"></p>
+<p>In this case, the store owner can define:</p>
+<ul>
+<li><strong>Warehouse</strong> that will be used when calculating shipping rates. Read more in the <a class="xref" href="../../getting-started/configure-shipping/advanced-configuration/warehouses.html">Warehouses</a> chapter.</li>
+<li><strong>Minimum cart qty</strong> is a quantity allowed in a customer's shopping cart, for example, set to 3 to only allow customers to purchase 3 or more items of this product.</li>
+<li><strong>Maximum cart qty</strong> is a quantity allowed in a customer's shopping cart, for example, set to 5 to only allow customers to purchase 5 or fewer items of this product.</li>
+<li>In the <strong>Allowed quantities</strong> field, enter a comma-separated list of quantities you want this product to be restricted to. Instead of a quantity textbox that allows them to enter any quantity, they will receive a dropdown list of the values you enter here.</li>
+<li>Select the <strong>Not returnable</strong> checkbox if this product is not returnable. In this case, a customer won't be allowed to submit a return request.</li>
+</ul>
+<h2 id="track-inventory">Track inventory</h2>
+<p>In case inventory tracking is required, the shop owner can select an <strong>Inventory method</strong> between two options: <em>Track inventory</em> (by product) or <em>Track inventory by product attributes</em>. The <em>Track inventory</em> option is for those who don't have product variants and simply need to know how many items are left. In this section, we will describe the <em>Track inventory</em> option.
+Once this option is chosen, the section expands, displaying new fields:</p>
+<p><img src="_static/inventory-management/track-inventory.jpg" alt="Track inventory"></p>
+<p>Set up inventory as follows:</p>
+<ul>
+<li><p><strong>Stock quantity</strong> is the total quantity. It is reduced whenever an order is shipped.</p>
+</li>
+<li><p>Choose the <strong>Warehouse</strong> that will be used when calculating shipping rates. You can manage warehouses on the <strong>Configuration → Shipping → Warehouses</strong> page. For further details, refer to the <a class="xref" href="../../getting-started/configure-shipping/advanced-configuration/warehouses.html">Warehouses</a> page.</p>
+</li>
+<li><p>Select the <strong>Multiple warehouses</strong> checkbox if you want to support shipping and inventory management from multiple warehouses. This way, you can manage inventory per warehouse:
+<img src="_static/inventory-management/multiple-warehouses.jpg" alt="Multiple warehouses">
+Click <strong>Use</strong> in the appropriate row if you want to use this warehouse for the product.</p>
+<ul>
+<li>Enter the <strong>Stock qty</strong>, which is the total quantity. It is reduced whenever an order is shipped.</li>
+<li>Enter the <strong>Reserved qty</strong>, which is the product quantity that is ordered but not shipped or added to a shipment yet.</li>
+<li>The <strong>Planned qty</strong> is the product quantity that is ordered and already added to a shipment but not shipped yet.</li>
+</ul>
+</li>
+<li><p>To prevent customers from placing orders and then finding out that the product is out of stock, you can take certain actions. Select the <strong>Display availability</strong> checkbox to display stock availability in the public store.</p>
+<ul>
+<li><p>If required, select the <strong>Display stock quantity</strong> checkbox to enable customers to see a product stock quantity on the product details page (this checkbox is only displayed when the <strong>Display availability</strong> checkbox is selected). The following screenshot demonstrates what a customer will see in the public store:</p>
+<p><img src="_static/inventory-management/stock-quantity.png" alt="Availability"></p>
+</li>
+</ul>
+</li>
+<li><p>In the <strong>Minimum stock qty</strong> field, enter the minimum value below which further actions will be taken.</p>
+</li>
+<li><p>From the <strong>Low stock activity</strong> dropdown list, select the action to be taken when the stock quantity falls below the minimum stock quantity value, as follows:</p>
+<ul>
+<li><strong>Nothing</strong>: store owners can still choose to take no action. It means that customers can continue to order products.</li>
+<li><strong>Disable buy button</strong>: the buy button becomes disabled when stock is low. Therefore, customers cannot buy this product but can still see it existing in the store.</li>
+<li><strong>Unpublish</strong>: the product is not visible in the store anymore. Used when the product is going to be stopped entirely.</li>
+</ul>
+</li>
+<li><p>In the <strong>Notify for qty below</strong> field, enter the value below which a notification email will be sent to the administrator.</p>
+</li>
+<li><p>Store owners can set up <strong>Backorders</strong>, that is, orders that can not be fulfilled at the moment of purchase. From the backorders dropdown list, select the required backorder mode as follows:</p>
+<ul>
+<li><strong>No backorders</strong>: customers can't purchase this product when there is no stock available.</li>
+<li><strong>Allow qty below 0</strong>: customers can purchase this product even when there is no stock available.</li>
+<li><strong>Allow qty below 0 and notify customer</strong>: customers can purchase this product even when there is no stock available. In addition, they get a notification with the following message: <em>Out of stock - on backorder and will be dispatched once in stock (<strong>Display availability</strong> option should also be enabled in this case)</em>.</li>
+</ul>
+</li>
+<li><p>Select <strong>Allow back in stock subscriptions</strong>, to enable customers to subscribe for notifications about product availability, as on the screenshot below:</p>
+<p><img src="_static/inventory-management/stock-subscription.png" alt="Subscribe"></p>
+</li>
+<li><p>Choose the <strong>Product availability range</strong> that will be displayed for customers when the product is not available at the moment. You can set up availability ranges in the <em>Product availability ranges</em> panel of the <strong>Configuration → Shipping → Dates and ranges</strong> page. For further details, refer to the <a class="xref" href="../../getting-started/configure-shipping/advanced-configuration/dates-and-ranges.html">Dates and ranges</a> page.</p>
+</li>
+<li><p><strong>Minimum cart qty</strong> is a quantity allowed in a customer's shopping cart, for example, set to 3 to only allow customers to purchase 3 or more items of this product.</p>
+</li>
+<li><p><strong>Maximum cart qty</strong> is a quantity allowed in a customer's shopping cart, for example, set to 5 to only allow customers to purchase 5 or fewer items of this product.</p>
+</li>
+<li><p>In the <strong>Allowed quantities</strong> field, enter a comma-separated list of quantities you want this product to be restricted to. Instead of a quantity textbox that allows them to enter any quantity, they will receive a dropdown list of the values you enter here.</p>
+</li>
+<li><p>Select the <strong>Not returnable</strong> checkbox if this product is not returnable. In this case, a customer won't be allowed to submit a return request.</p>
+</li>
+</ul>
+<h2 id="track-inventory-by-product-attributes">Track inventory by product attributes</h2>
+<p>In the case you have various product attribute combinations and need to track their stock quantity, select the <em>Track inventory by product attributes</em> inventory method.
+Once this option is chosen, the section expands, displaying new fields:</p>
+<p><img src="_static/inventory-management/track-inventory-attributes.jpg" alt="Track inventory by product attributes"></p>
+<ul>
+<li><p>Choose the <strong>Warehouse</strong> that will be used when calculating shipping rates. You can manage warehouses on the <strong>Configuration → Shipping → Warehouses</strong> page. For further details, refer to the <a class="xref" href="../../getting-started/configure-shipping/advanced-configuration/warehouses.html">Warehouses</a> page.</p>
+</li>
+<li><p>To prevent customers from placing orders and then finding out that the product is out of stock, you can take certain actions. Select the <strong>Display availability</strong> checkbox to display stock availability in the public store.</p>
+<ul>
+<li><p>If required, select the <strong>Display stock quantity</strong> checkbox to enable customers to see a product stock quantity on the product details page (this checkbox is only displayed when the <strong>Display availability</strong> checkbox is selected). The following screenshot demonstrates what a customer will see in the public store:</p>
+<p><img src="_static/inventory-management/stock-quantity.png" alt="Availability"></p>
+</li>
+</ul>
+</li>
+<li><p>Choose the <strong>Product availability range</strong> that will be displayed for customers when the product is not available at the moment. You can set up availability ranges in the <em>Product availability ranges</em> panel of the <strong>Configuration → Shipping → Dates and ranges</strong> page. For further details, refer to the <a class="xref" href="../../getting-started/configure-shipping/advanced-configuration/dates-and-ranges.html">Dates and ranges</a> page.</p>
+</li>
+<li><p><strong>Minimum cart qty</strong> is a quantity allowed in a customer's shopping cart, for example, set to 3 to only allow customers to purchase 3 or more of items this product.</p>
+</li>
+<li><p><strong>Maximum cart qty</strong> is a quantity allowed in a customer's shopping cart, for example, set to 5 to only allow customers to purchase 5 or fewer items of this product.</p>
+</li>
+<li><p>In the <strong>Allowed quantities</strong> field, enter a comma-separated list of quantities you want this product to be restricted to. Instead of a quantity textbox that allows them to enter any quantity, they will receive a dropdown list of the values you enter here.</p>
+</li>
+<li><p>Select <strong>Allow only existing attribute combinations</strong> to only allow adding to the cart/wishlist existing attribute combinations with stock quantities greater than 0. In this case, you have to create all product attribute combinations that you have in stock.</p>
+</li>
+<li><p>Select the <strong>Not returnable</strong> checkbox if this product is not returnable. In this case, a customer won't be allowed to submit a return request.</p>
+</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>To set <strong>Stock quantity</strong> for different attribute combinations, go to the <strong>Attribute combinations</strong> tab of the <em>Product attributes</em> panel on the edit product details page. In this tab, you can define whether to <strong>Allow out of stock</strong> for a certain attribute combination to enable orders to be approved even when the product is out of stock.
+<img src="_static/inventory-management/atribute-combinations.jpg" alt="Attribute combinations"></p>
+</div>
+<div class="TIP">
+<h5>Tip</h5>
+<p>To track products currently under stock, go to <strong>Reports → Low stock</strong>.
+A low stock report contains a list of products that are currently under stock, that is, the stock quantity is equal to or less than the minimum stock quantity set in the <em>Inventory</em> section on the product details page.
+<img src="_static/inventory-management/low-stock.png" alt="Low stock">
+Click <strong>View</strong> to view the product details page, where these stock settings can be changed.
+For more details about reports in nopCommerce, visit the <a class="xref" href="../reports.html">Reports</a> page.</p>
+</div>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../catalog/products/product-attributes.html">Product attributes</a></li>
+<li><a class="xref" href="../../getting-started/configure-shipping/advanced-configuration/warehouses.html">Warehouses</a></li>
+</ul>
+<h2 id="tutorials">Tutorials</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=CMhQ39clCKM">Managing backorders in nopCommerce</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/running-your-store/order-management/inventory-management.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

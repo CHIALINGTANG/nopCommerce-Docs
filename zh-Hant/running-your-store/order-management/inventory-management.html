@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>庫存管理 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="庫存管理 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/running-your-store/order-management/inventory-management">
+<h1 id="庫存管理">庫存管理</h1>
+
+<p>庫存管理是一種用於控制庫存水平的系統。在 nopCommerce 中，它包含了設定庫存以及追蹤低庫存量的功能。</p>
+<p>若要設定庫存，請前往 <strong>目錄 → 商品 → 編輯商品</strong>。在 <em>編輯商品詳情</em> 視窗中，移至 <em>庫存</em> 面板。在此面板中，您可以選擇以下三種庫存管理方式之一：</p>
+<ol>
+<li><a href="#dont-track-inventory">不追蹤庫存</a></li>
+<li><a href="#track-inventory">追蹤庫存</a></li>
+<li><a href="#track-inventory-by-product-attributes">透過商品屬性追蹤庫存</a></li>
+</ol>
+<p>在接下來的章節中，我們將探討這些方法之間的差異。</p>
+<h2 id="不追蹤庫存">不追蹤庫存</h2>
+<p>有些商品可能不需要進行庫存追蹤。例如：服務、二手商品或客製化商品。在這種情況下，商店經營者可以選擇不追蹤，只要在 <strong>庫存方式</strong> 欄位中選擇 <em>不追蹤庫存</em> 選項即可。
+<img src="_static/inventory-management/inventory.png" alt="Don't track inventory"></p>
+<p>在此情況下，商店經營者可以定義以下項目：</p>
+<ul>
+<li><strong>倉庫</strong>：在計算運費時將會使用此倉庫。請參閱 <a class="xref" href="../../getting-started/configure-shipping/advanced-configuration/warehouses.html">倉庫</a> 章節以了解更多資訊。</li>
+<li><strong>最小購物車數量</strong>：允許放入顧客購物車的商品數量。例如，設定為 3，表示僅允許顧客購買 3 件（含）以上該商品。</li>
+<li><strong>最大購物車數量</strong>：允許放入顧客購物車的商品數量。例如，設定為 5，表示僅允許顧客購買 5 件（含）以下該商品。</li>
+<li>在 <strong>允許數量</strong> 欄位中，輸入您希望限制此商品購買數量的清單，並以逗號分隔。顧客將會看到一個下拉式選單來選擇您在此輸入的數值，而不是透過文字輸入框自行填寫任何數量。</li>
+<li>若此商品不可退貨，請勾選 <strong>不可退貨</strong> 核取方塊。在這種情況下，顧客將無法提交退貨請求。</li>
+</ul>
+<h2 id="追蹤庫存">追蹤庫存</h2>
+<p>如果需要進行庫存追蹤，商店擁有者可以在兩個選項中選擇一種 <strong>庫存方法</strong>：<em>追蹤庫存</em>（按商品）或 <em>按商品屬性追蹤庫存</em>。<em>追蹤庫存</em> 選項適用於那些沒有商品變體，僅需知道剩餘商品數量的商店。在本節中，我們將介紹 <em>追蹤庫存</em> 選項。
+一旦選擇此選項，該區段將會展開並顯示新的欄位：</p>
+<p><img src="_static/inventory-management/track-inventory.jpg" alt="Track inventory"></p>
+<p>請依照下列方式設定庫存：</p>
+<ul>
+<li><p><strong>庫存數量</strong> 為總數量。每當訂單出貨時，此數量會隨之減少。</p>
+</li>
+<li><p>選擇計算運費時所使用的 <strong>倉庫</strong>。您可以在 <strong>設定 → 運送 → 倉庫</strong> 頁面管理倉庫。詳細資訊請參閱 <a class="xref" href="../../getting-started/configure-shipping/advanced-configuration/warehouses.html">倉庫</a> 頁面。</p>
+</li>
+<li><p>如果您想要支援多個倉庫的運送與庫存管理，請勾選 <strong>多個倉庫</strong> 核取方塊。透過這種方式，您可以針對每個倉庫進行庫存管理：
+<img src="_static/inventory-management/multiple-warehouses.jpg" alt="Multiple warehouses">
+如果您希望在此商品使用該倉庫，請點擊對應列中的 <strong>使用</strong>。</p>
+<ul>
+<li>輸入 <strong>庫存數量</strong>，即為總數量。每當訂單出貨時，此數量會隨之減少。</li>
+<li>輸入 <strong>預留數量</strong>，這是指已訂購但尚未出貨或尚未加入出貨單的商品數量。</li>
+<li><strong>計畫數量</strong> 是指已訂購且已加入出貨單但尚未實際出貨的商品數量。</li>
+</ul>
+</li>
+<li><p>為了避免顧客下單後才發現商品缺貨，您可以採取某些行動。勾選 <strong>顯示庫存狀態</strong> 核取方塊，即可在前台網站顯示庫存狀況。</p>
+<ul>
+<li><p>若有需要，勾選 <strong>顯示庫存數量</strong> 核取方塊，讓顧客能在商品詳細資訊頁面看到商品庫存數量（此核取方塊僅在勾選 <strong>顯示庫存狀態</strong> 後顯示）。下方的螢幕截圖展示了顧客在前台網站會看到的情形：</p>
+<p><img src="_static/inventory-management/stock-quantity.png" alt="Availability"></p>
+</li>
+</ul>
+</li>
+<li><p>在 <strong>最低庫存數量</strong> 欄位中，輸入將觸發後續行動的最小值。</p>
+</li>
+<li><p>從 <strong>低庫存行為</strong> 下拉式清單中，選擇當庫存數量低於最低庫存數量時所採取的行動，如下所示：</p>
+<ul>
+<li><strong>無</strong>：商店擁有者可以選擇不採取任何行動。這表示顧客可以繼續訂購商品。</li>
+<li><strong>停用購買按鈕</strong>：當庫存不足時，購買按鈕會變為停用狀態。因此，顧客無法購買此商品，但仍能看見該商品存在於商店中。</li>
+<li><strong>取消發佈</strong>：商品將不再於商店中顯示。當商品即將完全停止販售時使用。</li>
+</ul>
+</li>
+<li><p>在 <strong>低於此數量時通知</strong> 欄位中，輸入一個數值，當庫存低於此數值時，系統會發送電子郵件通知管理員。</p>
+</li>
+<li><p>商店擁有者可以設定 <strong>缺貨訂單 (Backorders)</strong>，即購買當下無法立即履行的訂單。從缺貨訂單下拉式清單中，選擇所需的缺貨模式，如下所示：</p>
+<ul>
+<li><strong>不允許缺貨訂單</strong>：當沒有庫存時，顧客無法購買此商品。</li>
+<li><strong>允許數量低於 0</strong>：即使沒有庫存，顧客仍可購買此商品。</li>
+<li><strong>允許數量低於 0 並通知顧客</strong>：即使沒有庫存，顧客仍可購買此商品。此外，他們會收到包含以下訊息的通知：<em>缺貨 - 已加入缺貨訂單，一旦到貨將立即出貨（此情況下也應啟用 <strong>顯示庫存狀態</strong> 選項）</em>。</li>
+</ul>
+</li>
+<li><p>勾選 <strong>允許到貨通知訂閱</strong>，讓顧客能夠訂閱商品到貨通知，如下圖所示：</p>
+<p><img src="_static/inventory-management/stock-subscription.png" alt="Subscribe"></p>
+</li>
+<li><p>選擇當商品暫時無庫存時，要顯示給顧客看的 <strong>商品庫存狀態範圍</strong>。您可以在 <strong>設定 → 運送 → 日期與範圍</strong> 頁面的 <em>商品庫存狀態範圍</em> 面板中設定這些範圍。詳細資訊請參閱 <a class="xref" href="../../getting-started/configure-shipping/advanced-configuration/dates-and-ranges.html">日期與範圍</a> 頁面。</p>
+</li>
+<li><p><strong>最低購物車數量</strong> 是指顧客購物車中允許的數量，例如設定為 3，則僅允許顧客購買 3 件或更多的此商品。</p>
+</li>
+<li><p><strong>最高購物車數量</strong> 是指顧客購物車中允許的數量，例如設定為 5，則僅允許顧客購買 5 件或更少的此商品。</p>
+</li>
+<li><p>在 <strong>允許數量</strong> 欄位中，輸入以逗號分隔的數量清單，限制此商品的購買數量。顧客將會看到一個下拉式選單來選擇您輸入的數值，而不是透過數量輸入框輸入任意數值。</p>
+</li>
+<li><p>如果此商品無法退貨，請勾選 <strong>不可退貨</strong> 核取方塊。在這種情況下，顧客將無法提交退貨請求。</p>
+</li>
+</ul>
+<h2 id="依據商品屬性追蹤庫存">依據商品屬性追蹤庫存</h2>
+<p>如果您有各種不同的商品屬性組合，且需要追蹤其庫存數量，請選擇「依據商品屬性追蹤庫存」(Track inventory by product attributes) 的庫存方法。
+選擇此選項後，區塊將會展開並顯示新的欄位：</p>
+<p><img src="_static/inventory-management/track-inventory-attributes.jpg" alt="Track inventory by product attributes"></p>
+<ul>
+<li><p>選擇計算運費時所使用的 <strong>倉庫</strong> (Warehouse)。您可以在 <strong>設定 → 貨運 → 倉庫</strong> 頁面管理倉庫。詳細資訊請參閱 <a class="xref" href="../../getting-started/configure-shipping/advanced-configuration/warehouses.html">倉庫</a> 頁面。</p>
+</li>
+<li><p>為了避免顧客下單後才發現商品缺貨，您可以採取某些措施。勾選 <strong>顯示庫存狀態</strong> (Display availability) 核取方塊，以便在前台網站顯示庫存狀況。</p>
+<ul>
+<li><p>若有需要，請勾選 <strong>顯示庫存數量</strong> (Display stock quantity) 核取方塊，讓顧客可以在商品詳細資訊頁面看到商品庫存數量（此核取方塊僅在勾選 <strong>顯示庫存狀態</strong> 後才會顯示）。以下截圖示範了顧客在前台網站所看到的畫面：</p>
+<p><img src="_static/inventory-management/stock-quantity.png" alt="Availability"></p>
+</li>
+</ul>
+</li>
+<li><p>選擇當商品目前無庫存時，要顯示給顧客看的 <strong>商品可用性範圍</strong> (Product availability range)。您可以在 <strong>設定 → 貨運 → 日期與範圍</strong> 頁面的「商品可用性範圍」面板中設定可用性範圍。詳細資訊請參閱 <a class="xref" href="../../getting-started/configure-shipping/advanced-configuration/dates-and-ranges.html">日期與範圍</a> 頁面。</p>
+</li>
+<li><p><strong>購物車最少數量</strong> (Minimum cart qty) 是指顧客購物車中允許的數量，例如設定為 3，代表顧客購買該商品時必須購買 3 個或以上。</p>
+</li>
+<li><p><strong>購物車最多數量</strong> (Maximum cart qty) 是指顧客購物車中允許的數量，例如設定為 5，代表顧客購買該商品時最多只能購買 5 個。</p>
+</li>
+<li><p>在 <strong>允許的數量</strong> (Allowed quantities) 欄位中，輸入以逗號分隔的數量清單，限制此商品的購買數量。顧客將不會看到可以輸入任意數量的文字方塊，而是會看到一個包含您在此處輸入數值的下拉式選單。</p>
+</li>
+<li><p>勾選 <strong>僅允許現有的屬性組合</strong> (Allow only existing attribute combinations)，則僅允許將庫存數量大於 0 的現有屬性組合加入購物車或願望清單。在此情況下，您必須建立所有現有庫存的商品屬性組合。</p>
+</li>
+<li><p>若此商品不可退貨，請勾選 <strong>不可退貨</strong> (Not returnable) 核取方塊。在此情況下，顧客將無法提交退貨請求。</p>
+</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>若要為不同的屬性組合設定 <strong>庫存數量</strong> (Stock quantity)，請前往編輯商品詳細資訊頁面中「商品屬性」面板的 <strong>屬性組合</strong> (Attribute combinations) 索引標籤。在此索引標籤中，您可以定義是否針對特定屬性組合 <strong>允許缺貨</strong> (Allow out of stock)，以利即使在商品缺貨時仍能核准訂單。
+<img src="_static/inventory-management/atribute-combinations.jpg" alt="Attribute combinations"></p>
+</div>
+<div class="TIP">
+<h5>Tip</h5>
+<p>若要追蹤目前庫存不足的商品，請前往 <strong>報表 → 低庫存</strong> (Reports → Low stock)。
+低庫存報表包含目前庫存不足的商品清單，亦即庫存數量等於或小於商品詳細資訊頁面「庫存」區段中所設定之最低庫存數量的商品。
+<img src="_static/inventory-management/low-stock.png" alt="Low stock">
+點擊 <strong>檢視</strong> (View) 即可查看商品詳細資訊頁面，並於該處更改這些庫存設定。
+關於 nopCommerce 報表的更多詳細資訊，請造訪 <a class="xref" href="../reports.html">報表</a> 頁面。</p>
+</div>
+<h2 id="參閱">參閱</h2>
+<ul>
+<li><a class="xref" href="../catalog/products/product-attributes.html">商品屬性</a></li>
+<li><a class="xref" href="../../getting-started/configure-shipping/advanced-configuration/warehouses.html">倉庫</a></li>
+</ul>
+<h2 id="教學課程">教學課程</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=CMhQ39clCKM">在 nopCommerce 中管理預購訂單 (backorders)</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/running-your-store/order-management/inventory-management.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>web.config 中的設定 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="web.config 中的設定 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/developer/tutorials/description-of-the-web-config-file-in-project">
+<h1 id="webconfig-中的設定">web.config 中的設定</h1>
+
+<h2 id="什麼是-webconfig-檔案">什麼是 web.config 檔案</h2>
+<p><code>web.config</code> 檔案是一個基於 XML 的設定檔，用於 ASP.NET 應用程式中，以管理與我們網站設定相關的各種設定。透過這種方式，我們可以將應用程式邏輯與設定邏輯分開。其主要優點在於，如果我們想要更改某些設定，則不需要重新啟動應用程式來套用新的變更，ASP.NET 會自動偵測變更並將其套用到執行中的 ASP.NET 應用程式。</p>
+<p>ASP.NET 框架使用分層的設定系統。您可以將 <code>web.config</code> 檔案放置在應用程式的任何子目錄中。該檔案隨後會套用到位於相同目錄或任何子目錄中的所有頁面。</p>
+<h2 id="nopcommerce-的-webconfig">nopCommerce 的 web.config</h2>
+<p>nopCommerce 使用位於 <code>Nop.Web</code> 專案中的 <code>web.config</code>，該檔案位於 Presentation 目錄內。在專案目錄的根目錄下，您可以看到一個 web.config 檔案。如果您的解決方案是剛安裝好的 nopCommerce，該檔案內容大致如下：</p>
+<pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;configuration&gt;
+    &lt;system.webServer&gt;
+    &lt;modules&gt;
+        &lt;!-- Remove WebDAV module so that we can make DELETE requests --&gt;
+        &lt;remove name=&quot;WebDAVModule&quot; /&gt;
+    &lt;/modules&gt;
+    &lt;handlers&gt;
+        &lt;!-- Remove WebDAV module so that we can make DELETE requests --&gt;
+        &lt;remove name=&quot;WebDAV&quot; /&gt;
+        &lt;add name=&quot;aspNetCore&quot; path=&quot;*&quot; verb=&quot;*&quot; modules=&quot;AspNetCoreModuleV2&quot; resourceType=&quot;Unspecified&quot; /&gt;
+    &lt;/handlers&gt;
+    &lt;!-- When deploying on Azure, make sure that &quot;dotnet&quot; is installed and the path to it is registered in the PATH environment variable or specify the full path to it --&gt;
+    &lt;aspNetCore requestTimeout=&quot;23:00:00&quot; processPath=&quot;%LAUNCHER_PATH%&quot; arguments=&quot;%LAUNCHER_ARGS%&quot; forwardWindowsAuthToken=&quot;false&quot; stdoutLogEnabled=&quot;false&quot; stdoutLogFile=&quot;.\logs\stdout&quot; startupTimeLimit=&quot;3600&quot; hostingModel=&quot;InProcess&quot;&gt;
+    &lt;/aspNetCore&gt;
+    &lt;httpProtocol&gt;
+        &lt;customHeaders&gt;
+        &lt;remove name=&quot;X-Powered-By&quot; /&gt;
+        &lt;!-- Protects against XSS injections. ref.: https://www.veracode.com/blog/2014/03/guidelines-for-setting-security-headers/ --&gt;
+        &lt;add name=&quot;X-XSS-Protection&quot; value=&quot;1; mode=block&quot; /&gt;
+        &lt;!-- Protects against Clickjacking attacks. ref.: http://stackoverflow.com/a/22105445/1233379 --&gt;
+        &lt;add name=&quot;X-Frame-Options&quot; value=&quot;SAMEORIGIN&quot; /&gt;
+        &lt;!-- Protects against MIME-type confusion attack. ref.: https://www.veracode.com/blog/2014/03/guidelines-for-setting-security-headers/ --&gt;
+        &lt;add name=&quot;X-Content-Type-Options&quot; value=&quot;nosniff&quot; /&gt;
+        &lt;!-- Protects against Clickjacking attacks. ref.: https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet --&gt;
+        &lt;add name=&quot;Strict-Transport-Security&quot; value=&quot;max-age=31536000; includeSubDomains&quot; /&gt;
+        &lt;!-- CSP modern XSS directive-based defence, used since 2014. ref.: http://content-security-policy.com/ --&gt;
+        &lt;add name=&quot;Content-Security-Policy&quot; value=&quot;default-src 'self'; connect-src *; font-src * data:; frame-src *; img-src * data:; media-src *; object-src *; script-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline';&quot; /&gt;
+        &lt;!-- Prevents from leaking referrer data over insecure connections. ref.: https://scotthelme.co.uk/a-new-security-header-referrer-policy/ --&gt;
+        &lt;add name=&quot;Referrer-Policy&quot; value=&quot;same-origin&quot; /&gt;
+        &lt;!-- Permissions-Policy is a new header that allows a site to control which features and APIs can be used in the browser. ref.: https://w3c.github.io/webappsec-permissions-policy/ --&gt;
+        &lt;add name=&quot;Permissions-Policy&quot; value=&quot;accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=*, usb=()&quot; /&gt;
+      &lt;/customHeaders&gt;
+    &lt;/httpProtocol&gt;
+    &lt;/system.webServer&gt;
+&lt;/configuration&gt;
+</code></pre>
+<pre><code class="lang-xml">&lt;configuration&gt;
+    ...
+&lt;/configuration&gt;
+</code></pre>
+<p>所有的設定規則都放置在 「<code>&lt;configuration&gt;</code>」 元素內。</p>
+<pre><code class="lang-xml">&lt;system.webServer&gt;
+    ...
+&lt;/system.webServer&gt;
+</code></pre>
+<p><code>&lt;system.webServer&gt;</code> 元素為 IIS 的許多網站層級與應用程式層級設定指定了根元素，並包含定義 Web 伺服器引擎與模組所使用設定的設定元素。</p>
+<pre><code class="lang-xml">&lt;modules&gt;
+    &lt;!-- Remove WebDAV module so that we can make DELETE requests --&gt;
+    &lt;remove name=&quot;WebDAVModule&quot; /&gt;
+&lt;/modules&gt;
+</code></pre>
+<p><code>&lt;modules&gt;</code> 元素定義了為應用程式註冊的原生程式碼模組與受控程式碼模組。我們通常使用模組來實作自訂功能。</p>
+<p><code>&lt;modules&gt;</code> 元素包含了一組 <code>&lt;add&gt;</code>、<code>&lt;remove&gt;</code> 和 <code>&lt;clear&gt;</code> 元素。</p>
+<p>在此處，nopCommerce 使用 <code>&lt;remove&gt;</code> 元素從應用程式中移除 WebDAVModule 模組。</p>
+<pre><code class="lang-xml">&lt;handlers&gt;
+    &lt;!-- Remove WebDAV module so that we can make DELETE requests --&gt;
+    &lt;remove name=&quot;WebDAV&quot; /&gt;
+    &lt;add name=&quot;aspNetCore&quot; path=&quot;*&quot; verb=&quot;*&quot; modules=&quot;AspNetCoreModuleV2&quot; resourceType=&quot;Unspecified&quot; /&gt;
+&lt;/handlers&gt;
+</code></pre>
+<p>處理常式（Handlers）是 IIS 的元件，經設定後可處理特定內容的請求，通常用於為請求的資源產生回應。例如，ASP.NET 網頁就是一種處理常式。您可以使用處理常式來處理任何需要將資訊回傳給使用者（而非靜態檔案）的資源請求。</p>
+<p><code>&lt;handlers&gt;</code> 元素包含了一組 <code>&lt;add&gt;</code>、<code>&lt;remove&gt;</code> 和 <code>&lt;clear&gt;</code> 元素，每個元素都定義了應用程式的處理常式對應。<code>&lt;add&gt;</code> 元素會將處理常式新增至處理常式集合中，<code>&lt;remove&gt;</code> 元素會從集合中移除處理常式的參考，而 <code>&lt;clear&gt;</code> 元素則會移除處理常式集合中的所有處理常式參考。在上述程式碼中，「WebDAV」處理常式已被移除，並加入了 <code>AspNetCoreModuleV2</code> 模組的處理常式。</p>
+<pre><code class="lang-xml">&lt;aspNetCore requestTimeout=&quot;23:00:00&quot; processPath=&quot;%LAUNCHER_PATH%&quot; arguments=&quot;%LAUNCHER_ARGS%&quot; forwardWindowsAuthToken=&quot;false&quot; stdoutLogEnabled=&quot;false&quot; stdoutLogFile=&quot;.\logs\stdout&quot; startupTimeLimit=&quot;3600&quot; hostingModel=&quot;InProcess&quot;/&gt;
+</code></pre>
+<pre><code class="lang-xml">&lt;httpProtocol&gt;
+        &lt;customHeaders&gt;
+        &lt;remove name=&quot;X-Powered-By&quot; /&gt;
+        &lt;!-- Protects against XSS injections. ref.: https://www.veracode.com/blog/2014/03/guidelines-for-setting-security-headers/ --&gt;
+        &lt;add name=&quot;X-XSS-Protection&quot; value=&quot;1; mode=block&quot; /&gt;
+        &lt;!-- Protects against Clickjacking attacks. ref.: http://stackoverflow.com/a/22105445/1233379 --&gt;
+        &lt;add name=&quot;X-Frame-Options&quot; value=&quot;SAMEORIGIN&quot; /&gt;
+        &lt;!-- Protects against MIME-type confusion attack. ref.: https://www.veracode.com/blog/2014/03/guidelines-for-setting-security-headers/ --&gt;
+        &lt;add name=&quot;X-Content-Type-Options&quot; value=&quot;nosniff&quot; /&gt;
+        &lt;!-- Protects against Clickjacking attacks. ref.: https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet --&gt;
+        &lt;add name=&quot;Strict-Transport-Security&quot; value=&quot;max-age=31536000; includeSubDomains&quot; /&gt;
+        &lt;!-- CSP modern XSS directive-based defence, used since 2014. ref.: http://content-security-policy.com/ --&gt;
+        &lt;add name=&quot;Content-Security-Policy&quot; value=&quot;default-src 'self'; connect-src *; font-src * data:; frame-src *; img-src * data:; media-src *; object-src *; script-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline';&quot; /&gt;
+        &lt;!-- Prevents from leaking referrer data over insecure connections. ref.: https://scotthelme.co.uk/a-new-security-header-referrer-policy/ --&gt;
+        &lt;add name=&quot;Referrer-Policy&quot; value=&quot;same-origin&quot; /&gt;
+        &lt;!-- Permissions-Policy is a new header that allows a site to control which features and APIs can be used in the browser. ref.: https://w3c.github.io/webappsec-permissions-policy/ --&gt;
+        &lt;add name=&quot;Permissions-Policy&quot; value=&quot;accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=*, usb=()&quot; /&gt;
+      &lt;/customHeaders&gt;
+    &lt;/httpProtocol&gt;
+</code></pre>
+<p><code>&lt;httpProtocol&gt;</code> 元素中的 <code>&lt;customHeaders&gt;</code> 元素指定了 IIS 將在 Web 伺服器的 HTTP 回應中回傳的自訂 HTTP 標頭。</p>
+<p>HTTP 標頭是從 Web 伺服器回傳回應時包含的名稱與數值對。自訂回應標頭會與預設的 HTTP 標頭一同傳送給用戶端。與僅在發生重新導向時才在回應中回傳的重新導向回應標頭不同，自訂回應標頭會出現在每一次的回應中。</p>
+<h2 id="在-iis-中設定重新導向規則">在 IIS 中設定重新導向規則</h2>
+<p>除了上述設定外，我們還可以增加其他設定。在此我們將說明如何在 IIS 中設定重新導向規則。</p>
+<p>重新導向規則讓多個 URL 可以指向同一個網頁。您可能基於多種原因需要將請求從一台伺服器重新導向至另一台。例如，若您的公司名稱變更，您可能想要註冊一個新的網域並將網站遷移過去；在這種情況下，您會希望將所有來自舊網域的請求重新導向至新網域。</p>
+<p>為了讓我們的網站能夠使用重新導向規則，我們需要安裝「URL rewrite」模組，這是 IIS 的一個延伸模組。</p>
+<p>為了演示起見，假設我們必須將請求從舊站台重新導向至新站台，我們需要在 <code>web.config</code> 檔案中寫入下列規則。</p>
+<pre><code class="lang-xml">&lt;rewrite&gt;
+  &lt;rules&gt;
+     &lt;rule name=&quot;[RULE NAME]&quot; stopProcessing=&quot;true&quot;&gt;
+     &lt;match url=&quot;(.*)&quot; /&gt;
+     &lt;conditions logicalGrouping=&quot;MatchAny&quot; trackAllCaptures=&quot;false&quot;&gt;
+        &lt;add input=&quot;{HTTP_HOST}{REQUEST_URI}&quot; pattern=&quot;[OLD URL]&quot; /&gt;
+     &lt;/conditions&gt;
+     &lt;action type=&quot;Redirect&quot; url=&quot;http://[NEW URL]/{R:1}&quot; redirectType=&quot;Permanent&quot;/&gt;
+     &lt;/rule&gt;
+  &lt;/rules&gt;
+&lt;/rewrite&gt;
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>透過使用此規則，我們可以將舊網域的所有頁面重新導向至新網域的相同頁面。</p>
+</div>
+<p>在此，我們需要將 [RULE NAME]、[OLD URL] 和 [NEW URL] 取代為適當的資訊。</p>
+<ul>
+<li>[RULE NAME] 可以是任何描述此規則用途的名稱。</li>
+<li>[OLD URL] 是您想要重新導向來源的舊 URL。</li>
+<li>[NEW URL] 是您想要重新導向前往的新 URL。</li>
+</ul>
+<pre><code class="lang-xml">&lt;match url=&quot;(.*)&quot; /&gt;
+</code></pre>
+<p>上述元素表示此規則將會符合所有 URL 字串。</p>
+<pre><code class="lang-xml">&lt;add input=&quot;{HTTP_HOST}{REQUEST_URI}&quot; pattern=&quot;[OLD URL]&quot; /&gt;
+</code></pre>
+<p>上述元素為規則增加了一個條件，該條件透過讀取伺服器變數 HTTP_HOST 和 REQUEST_URI 來取得主機與請求的 Uri 標頭值，並將其與 [OLD URL] 所提供的模式值進行比對。</p>
+<pre><code class="lang-xml">&lt;action type=&quot;Redirect&quot; url=&quot;http://[NEW URL]/{R:1}&quot; redirectType=&quot;Permanent&quot;/&gt;
+</code></pre>
+<p>此元素會將符合的舊 URL 重新導向至新 URL。</p>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/developer/tutorials/description-of-the-web-config-file-in-project.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

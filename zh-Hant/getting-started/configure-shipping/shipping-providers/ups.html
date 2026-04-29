@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>UPS </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="UPS ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="preload" href="../../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/getting-started/configure-shipping/shipping-providers/ups">
+<h1 id="ups">UPS</h1>
+
+<h2 id="定義-ups-即時運費計算">定義 UPS 即時運費計算</h2>
+<ol>
+<li><p>透過 <a href="https://www.ups.com/">UPS.com</a> 建立 UPS 使用者帳號，然後前往 <a href="https://developer.ups.com/">developer.ups.com</a>，並建立一個應用程式以取得以下資訊：</p>
+<ul>
+<li><p>Client ID</p>
+</li>
+<li><p>Client Secret</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>這是為了使用 UPS OAuth，所有 2023 年 6 月之後的新帳號，以及 2024 年 6 月之後的所有帳號均強制要求使用此驗證方式。</p>
+</div>
+<p><img src="_static/ups/ups-apps-configuration.jpg" alt="Shipping rate methods"></p>
+</li>
+</ul>
+</li>
+<li><p>加入 UPS 產品以啟用貨件追蹤、費率計算等功能。推薦的產品如下：</p>
+<ul>
+<li>Rating（費率計算）</li>
+<li>Address Validation（地址驗證）</li>
+<li>Landed Cost Quoting（到岸成本報價）</li>
+<li>Tracking（追蹤）</li>
+<li>Shipping（貨運）</li>
+<li>Time In Transit（運送時間）</li>
+</ul>
+</li>
+<li><p>在 nopCommerce 管理後台，前往 <strong>設定 → 設定 → 貨運設定</strong>。設定貨運點位置。預設選項是設定單一的 <strong>貨運起始地 (Shipping Origin)</strong>，此項設定在頁面下方。然而，如果您希望使用在 <strong>設定 → 貨運 → 倉庫</strong> 中設定的內容，也可以選擇 <strong>使用倉庫位置 (Use Warehouse Location)</strong>。點擊頁面設定選擇器下方的 <strong>Shipping settings</strong> 標題，選擇 <strong>進階 (Advanced)</strong> 即可顯示 <strong>使用倉庫位置</strong> 核取方塊。</p>
+<p><img src="_static/ups/shipping-settings-advanced.jpg" alt="Shipping rate methods"></p>
+</li>
+<li><p>在 nopCommerce 管理後台，前往 <strong>設定 → 貨運 → 貨運提供者</strong>。
+<img src="_static/ups/shipping-rate-methods.jpg" alt="Shipping rate methods"></p>
+</li>
+<li><p>啟用此方式步驟如下：</p>
+<ul>
+<li>在 UPS (United Postal Service) 資料列中，點擊 <strong>編輯</strong> 按鈕。</li>
+<li>在 <strong>啟用 (Is active)</strong> 欄位中，勾選該選項。</li>
+<li>點擊 <strong>更新</strong>。該 <em>false</em> 選項將變更為 <em>true</em>。</li>
+</ul>
+</li>
+<li><p>點擊清單中 UPS (United Parcel Service) 選項旁邊的 <strong>設定</strong>。
+系統將顯示 <em>設定 – UPS (United Parcel Service)</em> 視窗，如下所示：<img src="_static/ups/ups-configure.jpg" alt="Configure page"></p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>自 2024 年 6 月起，您將無法再使用存取金鑰 (Access Key) 來進行 UPS API 驗證，必須將安全模型更新為 OAuth 2.0。</p>
+</div>
+</li>
+<li><p>輸入從 UPS 提供者取得的下列資訊，並選擇與您商店相關的選項：</p>
+<ul>
+<li>勾選 <strong>使用沙盒 (Use sandbox)</strong> 核取方塊以使用測試環境。</li>
+<li>輸入 UPS 提供者的 <strong>Client ID</strong>。</li>
+<li>輸入從提供者取得的 <strong>Client Secret</strong>。</li>
+<li>輸入從提供者取得的 <strong>帳號號碼 (Account Number)</strong>。</li>
+<li>選擇您所需的 <strong>UPS 顧客分類 (UPS Customer Classification)</strong>：
+<ul>
+<li>Rates Associated With Shipper Number（與託運人號碼相關的費率）</li>
+<li>Daily Rates（每日費率）</li>
+<li>Retail Rates（零售費率）</li>
+<li>Regional Rates（區域費率）</li>
+<li>General List Rates（一般列表費率）</li>
+<li>Standard List Rates（標準列表費率）</li>
+</ul>
+</li>
+<li>選擇您所需的 <strong>UPS 取貨類型 (UPS Pickup Type)</strong>：
+<ul>
+<li>Daily Pickup（每日取貨）</li>
+<li>Customer Counter（顧客櫃台）</li>
+<li>One Time Pickup（單次取貨）</li>
+<li>On Call Air（電話預約空運取貨）</li>
+<li>Letter Center（信件中心）</li>
+<li>Air Service Center（航空服務中心）</li>
+</ul>
+</li>
+<li>選擇您所需的 <strong>UPS 包裝類型 (UPS Packaging Type)</strong>：
+<ul>
+<li>Unknown（未知）</li>
+<li>Letter（信件）</li>
+<li>Customer Supplied Package（客戶自備包裹）</li>
+<li>Tube（圓筒）</li>
+<li>P A K</li>
+<li>Express Box（快遞盒）</li>
+<li>10 kg Box（10公斤盒）</li>
+<li>25 kg Box（25公斤盒）</li>
+<li>Pallet（棧板）</li>
+<li>Small Express Box（小型快遞盒）</li>
+<li>Medium Express Box（中型快遞盒）</li>
+<li>Large Express Box（大型快遞盒）</li>
+</ul>
+</li>
+<li>勾選 <strong>保險包裹 (Insure package)</strong> 核取方塊，表示包裹將進行保險。</li>
+<li>輸入 <strong>額外手續費 (Additional handling charge)</strong>。這是向顧客收取的額外費用。</li>
+<li>選擇您要提供給顧客的 <strong>承運商服務 (Carrier Services)</strong>。</li>
+<li>選擇是否啟用 <strong>週六配送 (Saturday Delivery enabled)</strong> 的費率計算。</li>
+<li>選擇 <strong>包裝類型 (Packing type)</strong>：
+<ul>
+<li>Pack by dimensions（依尺寸包裝）</li>
+<li>Pack by one item per package（每個包裹單一項目包裝）</li>
+<li>Pack by volume（依體積包裝）</li>
+</ul>
+</li>
+<li>勾選 <strong>傳遞尺寸 (Pass dimensions)</strong> 核取方塊，以便在請求費率時傳遞包裹尺寸。</li>
+<li>選擇 <strong>重量單位 (Weight type)</strong> – 英磅或公斤。</li>
+<li>選擇 <strong>尺寸單位 (Dimensions type)</strong> – 英吋或公分。</li>
+<li>勾選 <strong>追蹤 (Tracing)</strong> 核取方塊以將系統追蹤記錄至系統日誌中。系統將記錄完整的請求與回應 XML（包含 AccessKey/使用者名稱、密碼）。請勿在正式環境中保持此功能開啟。</li>
+</ul>
+<p>點擊 <strong>儲存</strong>。</p>
+</li>
+</ol>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/getting-started/configure-shipping/shipping-providers/ups.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

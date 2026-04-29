@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>內容安全政策 (CSP) 標頭 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="內容安全政策 (CSP) 標頭 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/developer/tutorials/csp-headers">
+<h1 id="內容安全政策-csp-標頭">內容安全政策 (CSP) 標頭</h1>
+
+<p>Content-Security-Policy 是一種 HTTP 回應標頭，現代瀏覽器使用它來增強文件（或網頁）的安全性。HTTP Content Security Policy 回應標頭賦予網站管理員一種控制感，讓他們有權限制使用者在網站內允許載入的資源，例如 JavaScript 和 CSS。換句話說，您可以將網站的內容來源列入白名單。雖然它主要用作 HTTP 回應標頭，但您也可以透過 meta 標籤來套用它。</p>
+<pre><code class="lang-html">&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src 'self'; img-src 'self' https://img.nopcommerce.com; object-src 'none'; script-src 'self'; style-src 'self'; frame-ancestors 'self'; base-uri 'self'; form-action 'self';&quot;&gt;
+</code></pre>
+<p>若要新增此自訂 meta 標籤，您可以前往 <code>www.yourStore.com/Admin/Setting/GeneralCommon</code>，找到 <strong><code>Custom &lt;head&gt; tag</code></strong>，並按照下圖所示進行新增。</p>
+<p><img src="_static/csp-headers/custom-csp-head-tag.png" alt="custom CSP head tag image"></p>
+<p>內容安全政策可防護 <strong>跨站指令碼 (XSS)</strong> 以及其他形式的攻擊，例如 <strong>點擊劫持 (ClickJacking)</strong>。雖然它不能完全消除這些攻擊的可能性，但確實能將損害降至最低。相容性不是問題，因為大多數的主流瀏覽器都支援 CSP。但 Internet Explorer 不支援此功能。</p>
+<p>若要測試您的瀏覽器是否支援 CSP，您可以參考此 <a href="https://content-security-policy.com/browser-test/">link</a>。</p>
+<h2 id="csp-指令參考">CSP 指令參考</h2>
+<p><strong>Content-Security-Policy</strong> 標頭值由一個或多個指令（定義如下）組成，多個指令之間以<em>分號 (;)</em> 分隔。</p>
+<h3 id="default-src">default-src</h3>
+<p><em>default-src</em> 指令定義了取得資源（如 JavaScript、影像、CSS、字型、AJAX 請求、Frames 以及 HTML5 媒體）的預設政策。並非所有指令都會回退（fallback）至 <em>default-src</em>。</p>
+<pre><code class="lang-html">default-src 'self' cdn.nopcommerce.com;
+</code></pre>
+<h3 id="script-src">script-src</h3>
+<p>定義 JavaScript 的有效來源。</p>
+<pre><code class="lang-html">script-src 'self' js.nopcommerce.com;
+</code></pre>
+<h3 id="style-src">style-src</h3>
+<p>定義樣式表或 CSS 的有效來源。</p>
+<pre><code class="lang-html">style-src 'self' css.nopcommerce.com;
+</code></pre>
+<h3 id="img-src">img-src</h3>
+<p>定義影像的有效來源。</p>
+<pre><code class="lang-html">img-src 'self' img.nopcommerce.com;
+</code></pre>
+<h3 id="connect-src">connect-src</h3>
+<p>適用於 <em>XMLHttpRequest (AJAX)</em>、<em>WebSocket</em> 或 <em>EventSource</em>。如果未經允許，瀏覽器將模擬 <strong>400</strong> HTTP 狀態代碼。</p>
+<pre><code class="lang-html">connect-src 'self';
+</code></pre>
+<h3 id="font-src">font-src</h3>
+<p>定義字型資源（透過 *@font-face* 載入）的有效來源。</p>
+<pre><code class="lang-html">font-src font.nopcommerce.com;
+</code></pre>
+<h3 id="object-src">object-src</h3>
+<p>定義外掛的有效來源，例如 <code>&lt;object&gt;</code>、<code>&lt;embed&gt;</code> 或 <code>&lt;applet&gt;</code>。</p>
+<pre><code class="lang-html">object-src 'self';
+</code></pre>
+<h3 id="media-src">media-src</h3>
+<p>定義音訊與影片的有效來源，例如 HTML5 的 <code>&lt;audio&gt;</code> 與 <code>&lt;video&gt;</code> 元素。</p>
+<pre><code class="lang-html">media-src media.nopcommerce.com;
+</code></pre>
+<h3 id="frame-src">frame-src</h3>
+<p>定義載入 frame 的有效來源。</p>
+<pre><code class="lang-html">frame-src 'self';
+</code></pre>
+<h3 id="sandbox">sandbox</h3>
+<p>啟用所請求資源的沙盒（sandbox），這與 <em>iframe sandbox</em> 屬性相似。沙盒會套用同源政策（same-origin policy）並防止彈出視窗、外掛以及指令碼執行。您可以將 sandbox 的值留空以保留所有限制，或是新增以下值：<em>allow-forms, allow-same-origin, allow-scripts, allow-popups, allow-modals, allow-orientation-lock, allow-pointer-lock, allow-presentation, allow-popups-to-escape-sandbox</em> 以及 <em>allow-top-navigation</em>。</p>
+<pre><code class="lang-html">sandbox allow-forms allow-scripts;
+</code></pre>
+<h3 id="child-src">child-src</h3>
+<p>定義了網頁工作者（web workers）以及使用諸如 <code>&lt;frame&gt;</code> 和 <code>&lt;iframe&gt;</code> 等元素所載入的巢狀瀏覽內容的有效來源。</p>
+<pre><code class="lang-html">child-src 'self'
+</code></pre>
+<h3 id="form-action">form-action</h3>
+<p>定義可用作 HTML <code>&lt;form&gt;</code> 動作的有效來源。</p>
+<pre><code class="lang-html">form-action 'self';
+</code></pre>
+<h3 id="frame-ancestors">frame-ancestors</h3>
+<p>定義使用 <code>&lt;frame&gt; &lt;iframe&gt; &lt;object&gt; &lt;embed&gt; &lt;applet&gt;</code> 來嵌入資源的有效來源。將此指令設定為 <strong>'none'</strong> 大致等同於 <strong>X-Frame-Options: DENY</strong>。</p>
+<pre><code class="lang-html">frame-ancestors 'none';
+</code></pre>
+<h3 id="plugin-types">plugin-types</h3>
+<p>定義透過 <code>&lt;object&gt;</code> 與 <code>&lt;embed&gt;</code> 呼叫的外掛之有效 MIME 類型。若要載入 <code>&lt;applet&gt;</code>，您必須指定 <em>application/x-java-applet</em>。</p>
+<pre><code class="lang-html">plugin-types application/pdf;
+</code></pre>
+<h3 id="report-to">report-to</h3>
+<p>定義由 <em>Report-To</em> HTTP 回應標頭所定義的報告群組名稱。詳細資訊請參閱 <a href="https://w3c.github.io/reporting/">Reporting API</a>。</p>
+<pre><code class="lang-html">report-to groupName;
+</code></pre>
+<h3 id="worker-src">worker-src</h3>
+<p>限制可以載入為 Worker、SharedWorker 或 ServiceWorker 的 URL。</p>
+<pre><code class="lang-html">worker-src 'none';
+</code></pre>
+<h3 id="manifest-src">manifest-src</h3>
+<p>限制可以載入應用程式資訊清單（manifests）的 URL。</p>
+<pre><code class="lang-html">manifest-src 'none';
+</code></pre>
+<h3 id="navigate-to">navigate-to</h3>
+<p>限制文件透過任何方式所能導向的 URL。例如：當點擊連結、提交表單，或呼叫 <em>window.location</em> 時。若存在 <em>form-action</em>，則針對表單提交的情況，此指令將會被忽略。<a href="https://www.chromestatus.com/features/6457580339593216">實作狀態</a></p>
+<pre><code class="lang-html">navigate-to nopcommerce.com
+</code></pre>
+<h2 id="content-security-policy-範例">Content-Security-Policy 範例</h2>
+<h3 id="允許來自相同來源的所有請求">允許來自相同來源的所有請求</h3>
+<pre><code class="lang-html">default-src 'self';
+</code></pre>
+<h3 id="僅允許來自相同來源的指令碼">僅允許來自相同來源的指令碼</h3>
+<pre><code class="lang-html">script-src 'self';
+</code></pre>
+<h3 id="允許-google-analyticsgoogle-ajax-cdn-和-same-origin">允許 Google Analytics、Google AJAX CDN 和 Same Origin</h3>
+<pre><code class="lang-html">script-src 'self' www.google-analytics.com ajax.googleapis.com;
+</code></pre>
+<h3 id="starter-policy">Starter Policy</h3>
+<pre><code class="lang-html">default-src 'none'; script-src 'self'; connect-src 'self'; img-src 'self'; style-src 'self';
+</code></pre>
+<p>此原則允許來自相同來源的圖片、指令碼、AJAX 和 CSS，且不允許載入任何其他資源（例如 object、frame、media 等）。對於許多網站而言，這是一個很好的起點。</p>
+<h2 id="content-security-policy-錯誤訊息">Content-Security-Policy 錯誤訊息</h2>
+<p>根據瀏覽器的不同，CSP 的錯誤訊息可能會有所差異。</p>
+<p>在 Chrome 的開發者工具中，我們可以看到以下訊息：</p>
+<pre><code class="lang-js">Refused to load the script 'script-uri' because it violates the following Content Security Policy directive: &quot;your CSP directive&quot;.
+</code></pre>
+<p>在 Firefox 的開發者工具中，訊息如下所示：</p>
+<pre><code class="lang-js">Content Security Policy: A violation occurred for a report-only CSP policy (&quot;An attempt to execute inline scripts has been blocked&quot;). The behavior was allowed, and a CSP report was sent.
+</code></pre>
+<p>除了控制台訊息外，視窗上還會觸發 <strong>securitypolicyviolation</strong> 事件。欲知更多資訊，請參考此 <a href="https://www.w3.org/TR/CSP2/#firing-securitypolicyviolationevent-events.">link</a>。</p>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/developer/tutorials/csp-headers.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>基於 Elasticsearch 的全文搜尋 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="基於 Elasticsearch 的全文搜尋 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="preload" href="../../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/running-your-store/catalog/catalog-settings/full-text-search/elasticsearch-configure">
+<h1 id="基於-elasticsearch-的全文搜尋">基於 Elasticsearch 的全文搜尋</h1>
+
+<p>請取得與 Elasticsearch 的官方整合 <a href="https://www.nopcommerce.com/full-text-search-elasticsearch?utm_source=docs.nopcommerce&amp;utm_medium=documentation&amp;utm_campaign=full-text-search-elasticsearch">here</a>。</p>
+<p>Elasticsearch 是一個基於 Lucene 函式庫的搜尋引擎。它提供了一個具備分散式、多租戶能力的全文搜尋引擎，並具有 HTTP 網頁介面與無 Schema 的 JSON 文件。</p>
+<p>我們的整合方案提供了一套強型別 API 與查詢 DSL，以利與 Elasticsearch 伺服器互動。此外掛包含針對商品的高階操作，例如批次索引（bulk indexing）、更新操作與搜尋。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>此整合基於 v8 .NET 用戶端，適用於 Elasticsearch 8.x 版本。</p>
+</div>
+<h2 id="可用功能">可用功能</h2>
+<p>以下是支援的功能列表：</p>
+<ul>
+<li>自動更新 Elasticsearch 伺服器上的商品資料（即時或排程更新）。</li>
+<li>自動將可用的索引語言對應到目前的商店語言。</li>
+<li>多種內建搜尋類型：
+<ul>
+<li>模糊搜尋（Fuzzy search）：用於拼字錯誤的詞句。例如，如果您輸入「test」而不是「text」，系統仍然能找到結果。</li>
+<li>萬用字元搜尋（Wildcard search）：用於符合詞句模式而非搜尋完整詞句。此整合使用 <code>*</code> 萬用字元運算子來表示字詞結尾。</li>
+<li>精確搜尋（Exact search）：將查詢與索引後的 Token 進行嚴格比對。</li>
+</ul>
+</li>
+<li>多種存取 Elasticsearch 叢集的驗證方法。</li>
+</ul>
+<h2 id="外掛安裝">外掛安裝</h2>
+<p>本章節說明如何將 Elasticsearch 整合至您的商店。</p>
+<ol>
+<li>前往 <a href="https://www.nopcommerce.com/full-text-search-elasticsearch?utm_source=docs.nopcommerce&amp;utm_medium=documentation&amp;utm_campaign=full-text-search-elasticsearch">https://www.nopcommerce.com/full-text-search-elasticsearch</a> 購買整合套件。</li>
+<li>下載外掛壓縮檔。</li>
+<li>前往 <strong>後台 &gt; 設定 &gt; 本地外掛</strong>。使用「上傳外掛或佈景主題」功能上傳該外掛壓縮檔。</li>
+<li>在外掛清單中向下捲動，找到剛安裝的外掛。點擊「安裝」按鈕以完成安裝。</li>
+</ol>
+<p>您可以參考 <a href="https://docs.nopcommerce.com/getting-started/advanced-configuration/plugins-in-nopcommerce.html">here</a> 以取得更多關於如何安裝外掛的資訊。</p>
+<p>必須正確設定 Elasticsearch 才能使外掛正常運作。關於 Elasticsearch 安裝流程的詳細資訊，請參考 <a href="https://www.elastic.co/downloads/elasticsearch">here</a>。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>此外掛屬於 <strong>搜尋提供者</strong> 群組。您可以在搜尋面板中使用 <strong>群組</strong> 欄位來篩選外掛，以便更快速地找到目標。</p>
+</div>
+<p><img src="_static/local-plugins-elasticsearch.png" alt="Local plugins"></p>
+<h2 id="外掛設定">外掛設定</h2>
+<p>點擊清單中 Elastic search 提供者選項旁邊的 <strong>Configure</strong> 按鈕。接著，請遵循下列步驟完成外掛設定：</p>
+<p><img src="_static/elasticsearch-config-page.png" alt="Lucene configuration page"></p>
+<ol>
+<li>輸入外掛將用來連接至您的 Elasticsearch 叢集的 Node 端點 URL。</li>
+<li>輸入將用於 Elasticsearch 伺服器請求的索引名稱（預設為 <em>nopcommerceproducts</em>）。</li>
+<li>輸入您的 Elasticsearch 伺服器憑證：
+<ul>
+<li><strong>Authentication type</strong>：選擇用於授權存取 Elasticsearch 叢集的驗證方法。</li>
+<li><strong>Username</strong>：這是您在使用 Basic 驗證機制時所使用的使用者名稱。</li>
+<li><strong>Password</strong>：這是您在使用 Basic 驗證機制時所使用的密碼。</li>
+<li><strong>Api Key</strong>：這是您在使用 Bearer 驗證機制時所使用的金鑰。</li>
+</ul>
+</li>
+<li>選擇搜尋演算法：
+<ul>
+<li>&quot;<strong>Fuzzy</strong>&quot;（模糊）搜尋是基於 Levenshtein 距離（例如，搜尋「roam」一詞會找到「foam」和「roams」等詞）。</li>
+<li>&quot;<strong>Contains</strong>&quot;（包含）搜尋會基於在末尾加上「*」的萬用字元搜尋，尋找 0 個或多個字元（例如，若要搜尋「test」、「tests」或「tester」，您可以使用「test」一詞）。</li>
+<li>&quot;<strong>None</strong>&quot;（無）選項則是基於精確比對。</li>
+</ul>
+</li>
+<li>選擇搜尋查詢中詞彙的比對規則：
+<ul>
+<li>&quot;<strong>Should</strong>&quot; 運算子：詞彙應出現在相符商品的欄位中，但非強制條件。</li>
+<li>&quot;<strong>Must</strong>&quot; 運算子：詞彙必須出現在相符商品的欄位中。</li>
+</ul>
+</li>
+<li>設定更新搜尋索引文件的行為。勾選 <strong>Immediately update indexes</strong> 以立即套用對應商品（例如，商品名稱或描述已變更）的變更。否則，重新索引作業將會排程執行。
+<div class="NOTE">
+<h5>Note</h5>
+<p>您也可以手動點擊「Rebuild index」按鈕來開始重新索引。</p>
+</div>
+</li>
+<li>如有必要，請輸入 <strong>Result limit</strong>。結果限制是搜尋查詢從 Elasticsearch 伺服器取回的最高結果比對數量。</li>
+<li>輸入額外的分隔字元，將搜尋查詢分割成多個詞彙。請注意，搜尋查詢除了依據您輸入的分隔字元外，永遠都會以空格進行分割。</li>
+<li>點擊 <strong>Save</strong> 按鈕。</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>若要切換外掛狀態，請使用 &quot;<strong>Enable</strong>&quot; 或 &quot;<strong>Disable</strong>&quot; 按鈕。這些按鈕會根據目前的狀態顯示。</p>
+</div>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/running-your-store/catalog/full-text-search/elasticsearch-configure.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

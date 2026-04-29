@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Product attributes </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Product attributes ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="preload" href="../../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/running-your-store/catalog/products/product-attributes">
+<h1 id="product-attributes">Product attributes</h1>
+
+<p>Product attributes are variations of a product (such as color, size).</p>
+<p>A user can create various combinations of attributes. For example, a product can be in various sizes and colors. Thus, a user would create two attributes and their values, for example, &quot;size&quot; (S, M, L) and &quot;color&quot; (red, blue, white) and then set up groups according to the availability of the products.</p>
+<p>In nopCommerce, product attributes are used in <strong>inventory tracking</strong> and can also cause a <strong>price difference</strong>.</p>
+<p>To define product attributes, go to <strong>Catalog → Attributes → Product attributes</strong>.</p>
+<p><img src="_static/product-attributes/product_attributes.png" alt="Product attributes"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>By default, there are no product attributes precreated in nopCommerce.</p>
+</div>
+<h2 id="adding-product-attributes">Adding product attributes</h2>
+<p>Click <strong>Add new</strong> to add an attribute.</p>
+<p><img src="_static/product-attributes/add_a_new_product_attribute.png" alt="Add new"></p>
+<p>In the <em>Add a new product attribute</em> window, fill the <strong>Name</strong> and <strong>Description</strong> fields.</p>
+<p>Click <strong>Save and continue edit</strong> to proceed to the <em>Predefined values</em> editing panel.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p><a href="https://youtu.be/QihipwQ61YU">YouTube tutorial: Adding a product with color attributes</a></p>
+</div>
+<h2 id="adding-predefined-values">Adding predefined values</h2>
+<p>In the <em>Predefined values</em> panel, click <strong>Add a new value</strong>, and the <em>Add a new value window</em> will be opened:</p>
+<p><img src="_static/product-attributes/add_a_new_value.png" alt="Adding predefined values"></p>
+<p>In the <em>Add a new value</em> window, define:</p>
+<ul>
+<li>The attribute <strong>Name</strong>.</li>
+<li>The <strong>Price adjustment</strong> applied when choosing this attribute value. For example, '10' to add 10 dollars. Or 10% if <strong>Price adjustment. Use percentage</strong> is selected.</li>
+<li><strong>Price adjustment. Use percentage</strong> checkbox allows for determining percentage price adjustment instead of an absolute value.</li>
+<li>The <strong>Weight adjustment</strong> applied when choosing this attribute value.</li>
+<li>The <strong>Cost</strong> attribute value is the cost of all components that make up this value. This may be either the purchase price if the components are bought from third-party suppliers or the combined cost of materials and manufacturing processes if the component is made in-house.</li>
+<li>Whether the value <strong>Is pre-selected</strong> for a customer.</li>
+<li>The <strong>Display order</strong> in an attribute list.</li>
+</ul>
+<p>After filling the fields, click <strong>Save</strong>.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>It's not necessary to create attribute values when adding the product attribute; you can create them later when applying a certain product attribute to the product.
+Once the attributes and values are set, they can be grouped and managed in the <em>Product attributes</em> panel on the product edit page.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Some store owners prefer to highlight products differentiated by attributes and create a separate product with each specific attribute (for example, separately listed blue T-shirts and red T-shirts). In this case, we recommend creating a grouped product (shirts, as in the example) in order for all the variations to be displayed on the same page once the grouped product is being viewed by a customer. Read more about <a class="xref" href="grouped-products-variants.html">grouped products</a>.</p>
+</div>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Adding new or updating existing &quot;Predefined values&quot; does not affect products that already have the attribute.</p>
+</div>
+<h2 id="used-by-products-panel">Used by products panel</h2>
+<p>In the <em>Used by products</em> panel, you can choose which products use this attribute:</p>
+<p><img src="_static/product-attributes/used-by.jpg" alt="Used by products"></p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="add-products.html">Adding products</a></li>
+<li><a class="xref" href="grouped-products-variants.html">Grouped product</a></li>
+</ul>
+<h2 id="tutorials">Tutorials</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=eIdHVcEdos8&amp;t=55s">Overview of conditional product attributes</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/running-your-store/catalog/products/product-attributes.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

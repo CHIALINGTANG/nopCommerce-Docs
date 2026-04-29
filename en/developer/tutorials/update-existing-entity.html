@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Updating an Existing Entity (how to add a new property) </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Updating an Existing Entity (how to add a new property) ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/developer/tutorials/update-existing-entity">
+<h1 id="updating-an-existing-entity-how-to-add-a-new-property">Updating an existing entity (How to add a new property)</h1>
+
+<p>This tutorial covers how to add a property to the &quot;Category&quot; entity that ships with the nopCommerce source code.</p>
+<h2 id="the-data-model">The data model</h2>
+<p>Entities will have two classes that are used to map records to a table. The first class defines the properties, fields, and methods consumed by the web application.</p>
+<pre><code class="lang-sh">File System Location: [Project Root]\Libraries\Nop.Core\Domain\Catalog\Category.cs
+Assembly: Nop.Core
+Solution Location: Nop.Core.Domain.Catalog.Category.cs
+</code></pre>
+<p>The second class is used to map the properties defined in the class above to their respective SQL columns. The mapping class is also responsible for mapping relationships between different SQL tables.</p>
+<pre><code class="lang-sh">File System Location: [Project Root]\Libraries\Nop.Data\Mapping\Builders\Catalog\CategoryBuilder.cs
+Assembly: Nop.Data
+Solution Location: Nop.Data.Mapping.Builders.Catalog.CategoryBuilder.cs
+</code></pre>
+<p>But we recommend you to use it only for your entity classes. In our case, we'll use the migration mechanism instead of the mapping class.</p>
+<p>Add the following property to the <code>Category</code> class.</p>
+<pre><code class="lang-csharp">public string SomeNewProperty { get; set; }
+</code></pre>
+<p>Add the new class <code>Nop.Data.Migrations.AddSomeNewProperty</code> with following code:</p>
+<pre><code class="lang-csharp">using FluentMigrator;
+using Nop.Core.Domain.Catalog;
+
+namespace Nop.Data.Migrations
+
+[NopSchemaMigration(&quot;2024-04-20 00:00:00&quot;, &quot;Category. Add some new property&quot;)]
+public class AddSomeNewProperty: ForwardOnlyMigration
+{
+    /// &lt;summary&gt;
+    /// Collect the UP migration expressions
+    /// &lt;/summary&gt;
+    public override void Up()
+    {
+        var categoryTableName = nameof(Category);
+        if (!Schema.Table(categoryTableName).Column(nameof(Category.SomeNewProperty)).Exists())
+            Alter.Table(categoryTableName)
+                .AddColumn(nameof(Category.SomeNewProperty)).AsInt32().AsString(255).Nullable();
+    }
+}
+
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The procedure for updating migrations is carried out during the initialization of the database.</p>
+<pre><code class="lang-csharp">public virtual void InitializeDatabase()
+{
+   var migrationManager = EngineContext.CurrenResolve&lt;IMigrationManager&gt;();
+   migrationManager.ApplyUpMigrations(typeof(NopDbStartup).Assembly);
+}
+</code></pre>
+</div>
+<h2 id="the-presentation-model">The presentation model</h2>
+<p>The presentation model is used to transport information from a controller to the view (read more at asp.net/mvc). Models have another purpose; defining requirements.</p>
+<p>We configured our database to only store 255 characters for the <code>SomeNewProperty</code>. If we try and save a <code>SomeNewProperty</code> with 300 characters the application will break (or truncate the text). We want the application to protect users from failures the best we can, and our view models help enforce requirements like string length.</p>
+<pre><code class="lang-sh">File System Location: [Project Root]\Presentation\Nop.Web\Areas\Admin\Models\Catalog\CategoryModel.cs
+Assembly: Nop.Admin
+Solution Location: Nop.Web.Areas.Admin.Models.Catalog.CategoryModel.cs
+</code></pre>
+<p>The validator class is used to validate the data stored inside of the model class (e.g. required fields, max length, and required ranges).</p>
+<pre><code class="lang-sh">File System Location: [Project Root]\Presentation\Nop.Web\Areas\Admin\Validators\Catalog\CategoryValidator.cs
+Assembly: Nop.Web
+Solution Location: Nop.Web.Areas.Admin.Validators.Catalog.CategoryValidator.cs
+</code></pre>
+<p>Add the property to our view model.</p>
+<pre><code class="lang-csharp">// The NopResourceDisplayName provides the &quot;key&quot; used during localization
+[NopResourceDisplayName(&quot;Admin.Catalog.Categories.Fields.SomeNewProperty&quot;)]
+public string SomeNewProperty { get; set; }
+</code></pre>
+<p>The requirements code will be added to the constructor of the validator.</p>
+<pre><code class="lang-csharp">//I think this code can speak for itself
+RuleFor(m =&gt; m.SomeNewProperty).Length(0, 255);
+</code></pre>
+<h2 id="the-view">The view</h2>
+<pre><code class="lang-sh">File System Location: [Project Root]\Presentation\Nop.Web\Areas\Admin\Views\Category\_CreateOrUpdate.Info.cshtml
+Assembly: Nop.Web
+</code></pre>
+<p>Views contain the HTML for displaying model data. Place this HTML under the &quot;PictureId&quot; section.</p>
+<pre><code class="lang-csharp">&lt;div class=&quot;form-group&quot;&gt;
+     &lt;div class=&quot;col-md-3&quot;&gt;
+        &lt;nop-label asp-for=&quot;SomeNewProperty&quot; /&gt;
+     &lt;/div&gt;
+     &lt;div class=&quot;col-md-9&quot;&gt;
+        &lt;nop-editor asp-for=&quot;SomeNewProperty&quot; /&gt;
+        &lt;span asp-validation-for=&quot;SomeNewProperty&quot;&gt;&lt;/span&gt;
+     &lt;/div&gt;
+ &lt;/div&gt;
+</code></pre>
+<h2 id="the-controller">The controller</h2>
+<p>In this case, the controller is responsible for mapping the domain data model to our view model and vice versa. The reason we chose the category model to update is because of its simplicity.</p>
+<pre><code class="lang-sh">File System Location: [Project Root]\Presentation\Nop.Web\Areas\Admin\Controllers\CategoryController.cs
+Assembly: Nop.Admin
+Solution Location: Nop.Web.Areas.Admin.Controllers.CategoryController.cs
+</code></pre>
+<p>We're going to make three updates to the CategoryController class.</p>
+<ul>
+<li>Data Model → View Model</li>
+<li>Create View Model → Data Model</li>
+<li>Edit View Model → Data Model</li>
+</ul>
+<p>Normally we would write tests for the following code and verify that model mapping is working correctly, but we'll skip unit testing for now to keep it simple.</p>
+<p>In the appropriate methods (&quot;Create&quot;, &quot;Edit&quot;, or &quot;PrepareSomeModel&quot;) add the code to set this property. In most cases, it's not required because it's automatically handled by <em>AutoMapper</em> in the <code>.ToModel()</code> method.</p>
+<p>In the public method to save entity (usually: &quot;Create&quot; or &quot;Edit&quot; methods with <code>[HttpPost]</code> attribute)</p>
+<pre><code class="lang-csharp">// Edit View Model → Data Model
+category.SomeNewProperty = model.SomeNewProperty;
+</code></pre>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<ul>
+<li>Recreate the database. Either your custom SQL script or use the nopCommerce installer.</li>
+<li>Stop the development web server between schema changes.</li>
+<li>Post a detailed comment on <a href="http://www.nopcommerce.com/boards/">our forums</a>.</li>
+</ul>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/developer/tutorials/update-existing-entity.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>PayPal Commerce </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="PayPal Commerce ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="preload" href="../../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/getting-started/configure-payments/payment-methods/paypal-commerce">
+<h1 id="paypal-commerce">PayPal Commerce</h1>
+
+<p><code>PayPal Commerce</code> 為您的買家提供簡化且安全的結帳體驗。PayPal 會自動向您的顧客顯示最相關的付款方式，讓他們能更輕鬆地使用信用卡付款、Apple Pay、Google Pay、PayPal Credit、Venmo、iDEAL、Bancontact 以及其他付款方式來完成購買。</p>
+<h2 id="設定付款方式">設定付款方式</h2>
+<p>若要設定 <code>PayPal Commerce</code> 外掛，請前往 <strong>設定 → 付款方式</strong>。接著在此頁面找到 <strong>PayPal</strong> 付款方式。這並不困難，因為它是我們推薦的付款方式。</p>
+<p><img src="_static/paypal-commerce/list.png" alt="List"></p>
+<p>此外，您也可以從導覽選單存取外掛設定。</p>
+<p><img src="_static/paypal-commerce/list_2.png" alt="List"></p>
+<p>請依照下列步驟設定 <code>PayPal Commerce</code>：</p>
+<h3 id="1-連接-paypal-帳戶">1. 連接 PayPal 帳戶</h3>
+<p>無論您是否已經擁有 PayPal 商業帳戶、僅有個人帳戶，或是尚未註冊，連接的步驟都是相同的：</p>
+<ol>
+<li><p>在管理後台開啟 PayPal Commerce 設定頁面。您將會看到以下表單：</p>
+<p><img src="_static/paypal-commerce/onboarding.png" alt="PayPal Commerce Onboarding"></p>
+</li>
+<li><p>選擇您想要連接的帳戶類型：正式環境（production）或沙盒測試環境（sandbox）。如果您想先測試此外掛，請啟用 <strong>Use sandbox</strong> 設定。</p>
+</li>
+<li><p>點擊 <strong>Sign up for PayPal</strong> 按鈕，您將會看到下方的彈出視窗，讓您填寫資料並連接帳戶：</p>
+<p><img src="_static/paypal-commerce/popup-form-first-page.png" alt="PayPal Commerce Onboarding Popup"></p>
+<p>您需要完成幾個步驟以填寫所有必要細節。具體的填寫內容會根據您是建立新帳戶、連接現有帳戶，還是將個人帳戶升級為商業帳戶而有所不同。</p>
+</li>
+<li><p>當您完成作業並通過 PayPal 付款核准後，請回到外掛設定頁面並重新整理。您將會看到以下表單：</p>
+<p><img src="_static/paypal-commerce/onboarding-completed.png" alt="PayPal Commerce Onboarding completed"></p>
+<p>在此您將會看到連接成功的通知。若出現任何警告或錯誤，請前往 <strong>後台 → 系統 → 紀錄</strong> 查看更多詳細資訊。</p>
+<p>同時也會顯示帳戶連接程序的狀態；若有任何步驟尚未完成，請登入您的 PayPal 個人帳戶以完成該步驟。</p>
+<p>如果您連接的是沙盒帳戶，系統也會提醒您在完成測試後需建立正式環境帳戶。</p>
+</li>
+<li><p>如果您在 PayPal 帳戶中已經建立了 REST API App 並希望繼續使用，請勾選 <strong>Specify API credentials manually</strong> 核取方塊，並依照下列方式在下方欄位指定您的憑證：</p>
+<p><img src="_static/paypal-commerce/credentials.png" alt="PayPal Commerce Credentials"></p>
+</li>
+</ol>
+<h3 id="2-設定外掛">2. 設定外掛</h3>
+<ol>
+<li><p>在 <strong>後台 → 設定 → 付款方式</strong> 頁面中找到 <strong>PayPal Commerce</strong> 付款方式並點擊 <strong>設定</strong>，您將會看到以下設定區塊：</p>
+<p><img src="_static/paypal-commerce/configuration.png" alt="PayPal Commerce Configuration"></p>
+<ul>
+<li><p>選擇 <strong>付款類型</strong>，設定為立即請款，或在訂單建立後進行請款授權。</p>
+</li>
+<li><p>勾選 <strong>使用自訂卡片欄位</strong> 以在您的商店中啟用進階信用卡與簽帳金融卡付款。這是一個符合 PCI 標準的解決方案，讓顧客能直接在您的商店進行信用卡與簽帳金融卡付款，無需重新導向至第三方網站。</p>
+</li>
+<li><p>勾選 <strong>使用 Apple Pay</strong> 以在您的商店中啟用 Apple Pay。在沙盒或正式環境開始使用之前，請驗證您環境中將顯示 Apple Pay 按鈕的任何網域名稱。Apple Pay 交易僅能在註冊給您的網域與網站上運作。</p>
+<ol>
+<li><a href="https://paypalobjects.com/devdoc/apple-pay/well-known/apple-developer-merchantid-domain-association">下載</a> 您環境的網域關聯檔案。</li>
+<li>在您想要註冊的每個網域與子網域的網站上，將該檔案放置於 <em>/.well-known/apple-developer-merchantid-domain-association</em> 路徑下。</li>
+<li>登入 PayPal 商務帳戶，前往 <strong>付款方式</strong>，在 <strong>Apple Pay</strong> 區塊中選擇 <strong>管理</strong> 連結，並在該處 <strong>新增網域</strong>。</li>
+</ol>
+</li>
+<li><p>勾選 <strong>使用 Google Pay</strong> 以在您的商店中啟用 Google Pay。</p>
+</li>
+<li><p>勾選 <strong>使用替代付款方式</strong> 以在您的商店中啟用替代付款方式。透過替代付款方式，全球各地的顧客皆能使用其銀行帳戶、電子錢包及其他在地付款方式進行支付。例如，荷蘭的顧客可能傾向使用 iDEAL（當地超過半數消費者用於線上購物的支付方式），而同一網站上的比利時顧客則可能想使用當地的熱門付款方式 Bancontact。此外掛預設會自動在單一位置呈現所有符合資格的按鈕。</p>
+</li>
+<li><p>勾選 <strong>使用 Vault</strong> 以啟用 PayPal Vault。這能讓系統安全地儲存顧客的付款資訊，並在後續交易中使用，顧客無需再次輸入付款明細。</p>
+</li>
+<li><p>勾選 <strong>跳過「確認訂單」頁面</strong> 以在結帳過程中跳過此步驟；如此一來，在 PayPal 網站上核准付款後，顧客將被直接重新導向至「訂單完成」頁面。</p>
+</li>
+<li><p>勾選 <strong>使用貨運追蹤</strong> 以使用包裹追蹤功能。若要自動將貨運狀態與 PayPal 同步，請在管理後台建立或編輯貨運資訊時，指定追蹤號碼與貨運公司：</p>
+<p><img src="_static/paypal-commerce/shipment.png" alt="Shipment"></p>
+</li>
+</ul>
+</li>
+<li><p>接著前往 <em>PayPal 顯著功能</em> 面板：</p>
+<p><img src="_static/paypal-commerce/display-settings.png" alt="PayPal Commerce Configuration"></p>
+<p>在此面板上，定義顯示設定：</p>
+<ul>
+<li><p>勾選 <strong>在購物車顯示按鈕</strong> 核取方塊，除了預設的結帳按鈕外，亦在購物車頁面上顯示 PayPal 按鈕。</p>
+</li>
+<li><p>勾選 <strong>在商品詳細頁顯示按鈕</strong> 核取方塊，以在商品詳細頁面上顯示 PayPal 按鈕，讓買家無需執行完整的結帳流程即可完成購買。</p>
+</li>
+<li><p>勾選 <strong>在頁首連結顯示標誌</strong> 核取方塊，以在頁首連結中顯示 PayPal 標誌。這些標誌與橫幅是讓買家知道您選擇 PayPal 來安全處理付款的絕佳方式。</p>
+<ul>
+<li>若已勾選前一個核取方塊，則會顯示 <strong>標誌原始碼</strong> 欄位。在此欄位中，輸入該標誌的原始碼。您可以在 PayPal 標誌中心 (PayPal Logo Center) 找到更多標誌與橫幅。您也可以修改程式碼，使其能妥善契合您的佈景主題與網站風格。</li>
+</ul>
+</li>
+<li><p>勾選 <strong>在頁尾顯示標誌</strong> 核取方塊，以在頁尾顯示 PayPal 標誌。這些標誌與橫幅是讓買家知道您選擇 PayPal 來安全處理付款的絕佳方式。</p>
+<ul>
+<li>若已勾選前一個核取方塊，則會顯示 <strong>標誌原始碼</strong> 欄位。在此欄位中，輸入該標誌的原始碼。您可以在 PayPal 標誌中心找到更多標誌與橫幅。您也可以修改程式碼，使其能妥善契合您的佈景主題與網站風格。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>點擊 <strong>儲存</strong> 以儲存外掛設定。</p>
+</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>您不需要啟用此外掛，它在安裝後會立即啟用。如果基於某些原因您不打算在商店中使用它，可以在 <strong>設定 → 本機外掛</strong> 頁面中將其停用。</p>
+</div>
+<h3 id="3-設定-paypal-pay-later-訊息">3. 設定 PayPal Pay Later 訊息</h3>
+<p>PayPal 提供短期、無息付款以及其他特殊融資選項，讓買家可以「先買後付」，同時賣家能預先收到款項。Pay Later 優惠會根據國家/地區而有所不同。透過 Pay Later 優惠，賣家能賦予顧客更強大的購買力，並讓他們能靈活地分期支付購物費用。
+如需有關 Pay Later 的詳細資訊，請參閱 <a href="https://www.paypal.com/digital-wallet/ways-to-pay/buy-now-pay-later">先買後付</a>。</p>
+<ol>
+<li><p>點擊 <strong>設定 → PayPal Commerce</strong> 選單項目中的 <strong>Pay Later</strong> 連結，您將會看到以下設定介面：</p>
+<p><img src="_static/paypal-commerce/pay-later-settings.png" alt="PayPal Commerce Pay Later"></p>
+<p>您可以在此自訂您的 Pay Later 訊息。</p>
+</li>
+<li><p>點擊 <strong>Publish changes</strong> 以儲存設定。</p>
+</li>
+</ol>
+<h2 id="限制商店與顧客角色">限制商店與顧客角色</h2>
+<p>您可以將任何付款方式限制在特定的商店與顧客角色。這意味著該付款方式將僅適用於特定的商店或顧客角色。您可以從<em>外掛清單</em>頁面進行此設定。</p>
+<ol>
+<li><p>前往 <strong>設定 → 本地外掛</strong>。找到您想要限制的外掛。以我們的範例來說，是 <strong>PayPal Commerce</strong>。為了更快速找到它，請使用頁面上方的<em>搜尋</em>面板，並選擇<em>付款方式</em>選項來搜尋 <strong>外掛名稱</strong> 或 <strong>群組</strong>。</p>
+<p><img src="_static/paypal-commerce/local-plugins.png" alt="Local Plugins"></p>
+</li>
+<li><p>點擊 <strong>編輯</strong> 按鈕，<em>編輯外掛詳情</em>視窗將顯示如下：</p>
+<p><img src="_static/paypal-commerce/edit-plugin.png" alt="Edit plugin"></p>
+</li>
+<li><p>您可以設定以下限制：</p>
+<ul>
+<li><p>在 <strong>限制顧客角色</strong> 欄位中，選擇一個或多個可以使用此外掛的顧客角色，例如系統管理員、供應商、訪客等。如果您不需要此選項，只需將此欄位留空即可。</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>為了使用此功能，您必須停用以下設定：<strong>目錄設定 → 忽略 ACL 規則 (全站)</strong>。閱讀更多關於存取控制清單 (ACL) 的資訊 <a class="xref" href="../../../running-your-store/customer-management/access-control-list.html">here</a>。</p>
+</div>
+</li>
+<li><p>使用 <strong>限制商店</strong> 選項將此外掛限制在特定商店。如果您有多個商店，請從清單中選擇一個或多個。如果您不使用此選項，只需將此欄位留空即可。</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>為了使用此功能，您必須停用以下設定：<strong>目錄設定 → 忽略「限制每間商店」規則 (全站)</strong>。閱讀更多關於多商店功能的資訊 <a class="xref" href="../../advanced-configuration/multi-store.html">here</a>。</p>
+</div>
+</li>
+</ul>
+</li>
+<li><p>點擊 <strong>儲存</strong>。</p>
+</li>
+</ol>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/getting-started/configure-payments/payment-methods/paypal-commerce.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

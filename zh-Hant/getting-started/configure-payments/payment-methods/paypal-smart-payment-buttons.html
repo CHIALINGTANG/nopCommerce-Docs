@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>PayPal Smart Payment Buttons </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="PayPal Smart Payment Buttons ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="preload" href="../../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/getting-started/configure-payments/payment-methods/paypal-smart-payment-buttons">
+<h1 id="paypal-smart-payment-buttons">PayPal Smart Payment Buttons</h1>
+
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>此此外掛目前已棄用，並已由 <a class="xref" href="paypal-commerce.html"><strong>PayPal Commerce</strong></a> 外掛所取代。</p>
+</div>
+<p>透過 Smart Payment Buttons 進行的 PayPal Checkout 可為您的買家提供簡化且安全的結帳體驗。PayPal 會自動為您的顧客呈現最合適的付款方式，讓他們能更輕鬆地使用各種方式完成購買，例如 Pay with Venmo、PayPal Credit、信用卡付款、iDEAL、Bancontact、Sofort 以及其他付款類型。</p>
+<h2 id="影片教學">影片教學</h2>
+<p>觀看此 <a href="https://youtu.be/lJxVqjwUFkY">影片教學</a> 以學習如何設定 PayPal Smart Payment Buttons。</p>
+<h2 id="設定付款方式">設定付款方式</h2>
+<p>若要設定 PayPal Smart Payment Buttons 外掛，請前往 <strong>設定 → 付款方式</strong>。接著在付款方式清單中找到 <strong>PayPal Smart Payment Buttons</strong> 付款方式：</p>
+<p><img src="_static/paypal-smart-payment-buttons/list.jpg" alt="List"></p>
+<p>請依照下列步驟設定 PayPal Smart Payment Buttons：</p>
+<h3 id="1-啟用付款方式">1. 啟用付款方式</h3>
+<p>若要執行此操作，請在付款方式列表頁面中，點擊該外掛列的 <strong>編輯 (Edit)</strong> 按鈕。勾選 <strong>啟用 (Is active)</strong> 核取方塊來啟用此外掛。點擊 <strong>更新 (Update)</strong> 按鈕，您的變更即會儲存。</p>
+<h3 id="2-建立-paypal-帳戶">2. 建立 PayPal 帳戶</h3>
+<p>如果您已經擁有 PayPal 帳戶，請直接前往 <a href="#3-set-up-the-paypal-developer-dashboard">下一節</a>。</p>
+<p>請在 <a href="https://www.paypal.com/us/webapps/mpp/referral/paypal-business-account2?partner_id=9JJPJNNPQ7PZ8">PayPal</a> 上註冊一個企業帳戶。接著填寫關於您個人及企業的相關資訊：</p>
+<p><img src="_static/paypal-smart-payment-buttons/signUp1step.png" alt="Step 1"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>如果您已有帳戶，系統將會重新導向至授權頁面。</p>
+</div>
+<p><img src="_static/paypal-smart-payment-buttons/signUp2step.png" alt="Step 2"></p>
+<p><img src="_static/paypal-smart-payment-buttons/signUp3step.png" alt="Step 3"></p>
+<p><img src="_static/paypal-smart-payment-buttons/signUp4step.png" alt="Step 4"></p>
+<p><img src="_static/paypal-smart-payment-buttons/signUp5step.png" alt="Step 5"></p>
+<h3 id="3-設定-paypal-開發者控制台">3. 設定 PayPal 開發者控制台</h3>
+<ol>
+<li><p>使用您的 PayPal 帳號憑證登入 <a href="https://developer.paypal.com/developer/applications">Developer Dashboard</a>。</p>
+</li>
+<li><p>在 <strong>My Apps &amp; Credentials</strong> 中，使用切換開關在正式環境（live）與沙盒測試環境（sandbox）的應用程式之間進行切換。
+<img src="_static/paypal-smart-payment-buttons/my-apps.jpg" alt="My Apps &amp; Credentials"></p>
+</li>
+<li><p>前往 <em>REST API apps</em> 區塊並點擊 <strong>Create App</strong>。
+<img src="_static/paypal-smart-payment-buttons/rest.jpg" alt="Create App"></p>
+</li>
+<li><p>輸入您的應用程式名稱並點擊 <strong>Create App</strong>。接著會開啟應用程式詳細資料頁面，並顯示您的憑證資訊。</p>
+</li>
+<li><p>複製並儲存您應用程式的 <strong>Client ID</strong> 與 <strong>Secret</strong>。</p>
+</li>
+<li><p>檢查您的應用程式詳細資料，若有任何變更，請務必儲存。</p>
+</li>
+</ol>
+<h3 id="4-在-nopcommerce-中設定付款方式">4. 在 nopCommerce 中設定付款方式</h3>
+<ol>
+<li><p>在 <strong>設定 → 付款方式</strong> 頁面中找到 <strong>PayPal Smart Payment Buttons</strong> 付款方式，並點擊 <strong>設定</strong>。隨後將顯示 <em>設定 - PayPal Smart Payment Buttons</em> 頁面，如下所示：
+<img src="_static/paypal-smart-payment-buttons/configure.jpg" alt="Configure"></p>
+</li>
+<li><p>在 <em>設定 - PayPal Smart Payment Buttons</em> 頁面中定義以下設定：</p>
+<ul>
+<li>若您想先測試此付款方式，請勾選 <strong>使用沙盒 (Use sandbox)</strong>。</li>
+<li>輸入您在前幾個步驟中儲存的 <strong>用戶端 ID (Client ID)</strong>。</li>
+<li>輸入您在前幾個步驟中儲存的 <strong>密鑰 (Secret)</strong>。</li>
+<li>選擇 <strong>付款類型 (Payment type)</strong>，以決定是要立即請款，還是在訂單建立後進行授權。</li>
+</ul>
+</li>
+<li><p>接著前往 <em>PayPal 顯著位置 (PayPal Prominently)</em> 面板：
+<img src="_static/paypal-smart-payment-buttons/display.jpg" alt="Create App"></p>
+<p>在此面板上定義顯示設定：</p>
+<ul>
+<li><p>勾選 <strong>在購物車顯示按鈕 (Display buttons on shopping cart)</strong> 核取方塊，以便在購物車頁面顯示 PayPal 按鈕，取代預設的結帳按鈕。</p>
+</li>
+<li><p>勾選 <strong>在商品詳細頁顯示按鈕 (Display buttons on product details)</strong>，以便在商品詳細頁面顯示 PayPal 按鈕；點擊這些按鈕的效果與預設的「加入購物車」按鈕行為相同。</p>
+</li>
+<li><p>勾選 <strong>在頁首連結顯示標誌 (Display logo in header links)</strong> 核取方塊，以便在頁首連結中顯示 PayPal 標誌。這些標誌和橫幅是讓買家了解您選擇 PayPal 安全處理付款的絕佳方式。</p>
+<ul>
+<li>若勾選上述核取方塊，將會顯示 <strong>標誌原始碼 (Logo source code)</strong> 欄位。請在此欄位中輸入標誌的原始碼。您可以在 PayPal Logo Center 找到更多標誌和橫幅。您也可以修改程式碼以使其正確契合您的佈景主題與網站風格。</li>
+</ul>
+</li>
+<li><p>勾選 <strong>在頁尾顯示標誌 (Display logo in footer)</strong> 核取方塊，以便在頁尾顯示 PayPal 標誌。這些標誌和橫幅是讓買家了解您選擇 PayPal 安全處理付款的絕佳方式。</p>
+<ul>
+<li>若勾選上述核取方塊，將會顯示 <strong>標誌原始碼 (Logo source code)</strong> 欄位。請在此欄位中輸入標誌的原始碼。您可以在 PayPal Logo Center 找到更多標誌和橫幅。您也可以修改程式碼以使其正確契合您的佈景主題與網站風格。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p>點擊 <strong>儲存</strong> 以儲存外掛設定。</p>
+<h2 id="限制商店與顧客角色">限制商店與顧客角色</h2>
+<p>您可以將任何付款方式限制在特定的商店與顧客角色中。這表示該付款方式將僅適用於特定的商店或顧客角色。您可以從<em>外掛清單</em>頁面執行此操作。</p>
+<ol>
+<li><p>前往 <strong>設定 → 本地外掛</strong>。找到您想要限制的外掛。以本例來說，它是 <strong>PayPal Smart Payment Buttons</strong>。若要更快找到它，請使用頁面上方的<em>搜尋</em>面板，並透過<em>付款方式</em>選項，以 <strong>外掛名稱</strong> 或 <strong>群組</strong> 進行搜尋。</p>
+<p><img src="_static/paypal-smart-payment-buttons/plugins.jpg" alt="Plugins"></p>
+</li>
+<li><p>按一下 <strong>編輯</strong> 按鈕，系統將會顯示如下的<em>編輯外掛詳細資料</em>視窗：</p>
+<p><img src="_static/paypal-smart-payment-buttons/edit.jpg" alt="Edit"></p>
+</li>
+<li><p>您可以設定下列限制：</p>
+<ul>
+<li><p>在 <strong>限制顧客角色</strong> 欄位中，選擇一個或多個顧客角色（例如：管理員、供應商、訪客），這些角色將能夠使用此外掛。如果您不需要此選項，只需將此欄位留空即可。</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>為了使用此功能，您必須停用下列設定：<strong>目錄設定 → 忽略 ACL 規則 (全站)</strong>。閱讀更多關於存取控制清單 (ACL) 的說明 <a class="xref" href="../../../running-your-store/customer-management/access-control-list.html">here</a>。</p>
+</div>
+</li>
+<li><p>使用 <strong>限制商店</strong> 選項可將此外掛限制在特定的商店。如果您有多個商店，請從清單中選擇一個或多個。如果您不使用此選項，只需將此欄位留空即可。</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>為了使用此功能，您必須停用下列設定：<strong>目錄設定 → 忽略「依商店限制」規則 (全站)</strong>。閱讀更多關於多商店功能的說明 <a class="xref" href="../../advanced-configuration/multi-store.html">here</a>。</p>
+</div>
+</li>
+</ul>
+<p>按一下 <strong>儲存</strong>。</p>
+</li>
+</ol>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/getting-started/configure-payments/payment-methods/paypal-smart-payment-buttons.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

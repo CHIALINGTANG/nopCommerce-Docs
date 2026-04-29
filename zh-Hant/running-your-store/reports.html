@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>報表 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="報表 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="preload" href="../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+  
+  <meta property="docfx:rel" content="../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/running-your-store/reports">
+<h1 id="報表">報表</h1>
+
+<p>報表對管理層來說非常重要；它們能夠監控商店的績效、追蹤關鍵指標，並為決策提供支援。nopCommerce 報表提供了存取銷售額與顧客資訊的功能。</p>
+<h2 id="儀表板">儀表板</h2>
+<p>儀表板是您進入管理後台時看到的第一個頁面。它讓您能夠檢視商店統計資料，包含在特定期間（年度、月份、週次）內處理的訂單總數、註冊顧客數、低庫存商品，以及商店中最熱門的商品。</p>
+<p><img src="_static/reports/dashboard.png" alt="Dashboard"></p>
+<p>儀表板由多個區塊組成：</p>
+<h3 id="nopcommerce-新聞">nopCommerce 新聞</h3>
+<p>顯示一般性的 nopCommerce 新聞，例如新版本的發布資訊。
+<img src="_static/reports/news.png" alt="News"></p>
+<h3 id="常見統計資料">常見統計資料</h3>
+<p><img src="_static/reports/common.png" alt="Common"></p>
+<p>在這裡，您可以找到前往更詳細報表的連結：</p>
+<ul>
+<li>銷售 → 訂單</li>
+<li>銷售 → 退貨要求</li>
+<li>顧客 → 已註冊顧客</li>
+<li>報表 → 低庫存產品</li>
+</ul>
+<h3 id="訂單">訂單</h3>
+<p>此圖表顯示過去一週、一個月、一年所處理的訂單數量。
+<img src="_static/reports/orders.jpg" alt="Orders"></p>
+<h3 id="新顧客">新顧客</h3>
+<p>此圖表顯示了過去一週、一個月、一年內註冊的顧客數量。
+<img src="_static/reports/customers.jpg" alt="New customers"></p>
+<h3 id="訂單總計">訂單總計</h3>
+<p>本區塊顯示過去一天、一週、一個月、一年內處理的訂單總計。訂單將會依據訂單狀態進行顯示。
+<img src="_static/reports/order-totals.png" alt="Order totals"></p>
+<h3 id="未完成的訂單">未完成的訂單</h3>
+<p>此區段顯示目前尚未完成的訂單數量。
+<img src="_static/reports/order-incomplete.png" alt="Orders incomplete"></p>
+<h3 id="最新訂單">最新訂單</h3>
+<p>「最新訂單」區段會向您顯示最近下達的訂單。
+<img src="_static/reports/order-latest.png" alt="Latest orders"></p>
+<h3 id="熱門搜尋關鍵字">熱門搜尋關鍵字</h3>
+<p>此區塊會顯示最常被使用的關鍵字。</p>
+<p><img src="_static/reports/keywords.png" alt="Keywords"></p>
+<h3 id="暢銷商品報表">暢銷商品報表</h3>
+<p>此區段顯示按數量與按金額排序的暢銷商品。
+<img src="_static/reports/bestsellers.png" alt="Bestsellers"></p>
+<h2 id="銷售摘要">銷售摘要</h2>
+<p>此報表呈現了訂單的總體摘要。若要產生報表，您可以使用下列篩選條件：</p>
+<ul>
+<li><strong>開始日期</strong>：搜尋的開始日期。</li>
+<li><strong>結束日期</strong>：搜尋的結束日期。</li>
+<li><strong>訂單狀態</strong>：依特定訂單狀態進行搜尋，例如「已完成」。</li>
+<li><strong>付款狀態</strong>：依特定付款狀態進行搜尋，例如「已付款」。</li>
+<li><strong>類別</strong>：在特定類別中進行搜尋。</li>
+<li><strong>製造商</strong>：依特定製造商進行搜尋。</li>
+<li><strong>帳單國家</strong>：依訂單的帳單國家進行篩選。</li>
+<li><strong>供應商</strong>：依特定供應商進行搜尋。</li>
+<li><strong>商品</strong>：依特定商品進行搜尋。</li>
+<li><strong>分組方式</strong>：用於依時間週期進行分組。當此選項設為「日」時，它將顯示所選期間（開始/結束日期）的日期列表。例如：「2020年11月8日」、「2020年11月7日」等。當設為「週」時，它將顯示週的列表（例如：「2020年12月7日 - 2020年12月12日」等）。當設為「月」時，它將顯示月份的列表（例如：「2020年12月」、「2020年11月」等）。</li>
+</ul>
+<p>接著點擊 <strong>執行報表</strong>。</p>
+<p><img src="_static/reports/sales-summary.jpg" alt="Sales summary"></p>
+<h2 id="低庫存報告">低庫存報告</h2>
+<p>低庫存報告包含目前庫存不足的商品清單。在下方所示範例中，最小庫存數量設為 20，而目前庫存數量為 0；因此系統會為此商品產生低庫存報告。您可以在新增商品時設定低庫存相關設定。</p>
+<p>若要檢視低庫存報告，請前往 <strong>報表 → 低庫存</strong>。系統將顯示 <em>低庫存</em> 報告視窗，如下所示：
+<img src="_static/reports/low-stock-reports.png" alt="Low stock report"></p>
+<p>低庫存報告可以透過 <strong>已發佈 (Published)</strong> 屬性進行篩選，該屬性代表商品的 <em>已發佈</em> 狀態。</p>
+<p>在顯示的表格中，點擊 <strong>檢視 (View)</strong> 即可進入商品詳細資料頁面，您可以在該頁面更新庫存數量。</p>
+<h2 id="熱銷與從未售出商品">熱銷與從未售出商品</h2>
+<p>了解熱銷商品與從未售出的商品對於任何商店經營者來說都至關重要。</p>
+<p>首先，這有助於做出更正確的採購決策：您可以增加熱門商品的庫存，並將不熱銷的商品從產品列表中剔除。在分析時，請考慮例如某些顏色是否賣得更快，或者您的商品銷售是否具有季節性。</p>
+<p>其次，定義最暢銷與最滯銷的商品可以幫助您<em>重新評估商品設計與行銷策略</em>。也許您賣得最好的商品只是因為它們在您的網站上擺放的位置較顯眼，或是擁有更好的商品描述。請提出各種選項並進行測試。為了更有效地做到這一點，請與您的顧客互動。<em>進行各種調查</em>以找出為什麼熱銷商品會受到青睞，以及是什麼因素讓它們在您的買家心中顯得特別。利用這些深入的見解來改進您的行銷並提升銷售業績。</p>
+<h3 id="暢銷商品">暢銷商品</h3>
+<p>若要在 nopCommerce 中檢視暢銷商品，請前往 <strong>報表 → 暢銷商品</strong>。輸入以下一項或多項搜尋條件來執行報表：</p>
+<ul>
+<li><strong>開始日期</strong> 和/或 <strong>結束日期</strong>。</li>
+<li><strong>商店</strong>（如果您想要選取特定的商店）。</li>
+<li><strong>訂單狀態</strong>，例如 <em>全部</em>、<em>待處理</em>、<em>處理中</em>、<em>已完成</em> 或 <em>已取消</em>。</li>
+<li><strong>付款狀態</strong>，例如 <em>全部</em>、<em>待處理</em>、<em>已授權</em>、<em>已付款</em>、<em>已退款</em>、<em>部分退款</em> 或 <em>已作廢</em>。</li>
+<li>選擇 <strong>類別</strong>。</li>
+<li>選擇 <strong>製造商</strong>。</li>
+<li>選擇 <strong>帳單國家/地區</strong>。</li>
+<li>選擇 <strong>供應商</strong>。</li>
+</ul>
+<p>接著點擊 <strong>執行報表</strong>。</p>
+<p>此報表將根據銷售數量與營收來細分您的暢銷商品：</p>
+<p><img src="_static/reports/bestsellers.jpeg" alt="Bestsellers"></p>
+<h3 id="從未售出的商品">從未售出的商品</h3>
+<p>若要查看從未售出的商品，請前往 <strong>報表 → 從未售出的商品</strong>。輸入以下一項或多項搜尋條件來執行報表：</p>
+<ul>
+<li>選擇 <strong>類別 (Category)</strong>。</li>
+<li>選擇 <strong>製造商 (Manufacturer)</strong>。</li>
+<li><strong>商店 (Store)</strong>：如果您想要選擇其中一家商店。</li>
+<li>選擇 <strong>供應商 (Vendor)</strong>。</li>
+<li><strong>開始日期 (Start date)</strong> 和/或 <strong>結束日期 (End date)</strong>。</li>
+</ul>
+<p>然後點擊 <strong>執行報表 (Run report)</strong>。</p>
+<p><img src="_static/reports/never-purchased.jpg" alt="Products never purchased"></p>
+<h2 id="國家銷售額">國家銷售額</h2>
+<p>國家銷售報告包含一份訂單清單，其中顯示每個國家的訂單數量與訂單總金額。這讓商店管理者能夠查看各個國家的訂單狀況。</p>
+<p>若要查看國家銷售報告，請前往 <strong>報表 → 國家銷售額</strong>。</p>
+<p><img src="_static/reports/country-report.png" alt="Country sales"></p>
+<p>若要設定此報告，請輸入以下一項或多項搜尋條件：</p>
+<ul>
+<li><strong>開始日期</strong>：搜尋的起始時間。</li>
+<li><strong>結束日期</strong>：搜尋的結束時間。</li>
+<li><strong>訂單狀態</strong>：例如 <em>全部 (All)</em>、<em>待處理 (Pending)</em>、<em>處理中 (Processing)</em>、<em>完成 (Complete)</em> 或 <em>已取消 (Cancelled)</em>。</li>
+<li><strong>付款狀態</strong>：例如 <em>全部 (All)</em>、<em>待處理 (Pending)</em>、<em>已授權 (Authorized)</em>、<em>已付款 (Paid)</em>、<em>已退款 (Refunded)</em>、<em>部分退款 (Partially refunded)</em> 或 <em>已作廢 (Voided)</em>。</li>
+<li><strong>商店</strong>：若您想選擇特定商店進行篩選。</li>
+</ul>
+<p>設定完成後，點擊 <strong>執行報表 (Run report)</strong>。</p>
+<h2 id="顧客報表">顧客報表</h2>
+<p>顧客報表為商店負責人提供關於註冊顧客及其訂單的概括資訊。您可以在 <strong>報表 → 顧客報表</strong> 選單中找到各種報表。</p>
+<h3 id="已註冊顧客">已註冊顧客</h3>
+<p>若要執行此報表，請前往 <strong>報表 → 顧客報表 → 已註冊顧客</strong>。
+此報表會顯示特定期間內已註冊的顧客數量。
+您可以追蹤過去一天、一週、兩週、一個月與一年內註冊的使用者數量。</p>
+<p><img src="_static/reports/customer-registered.png" alt="Registered customers"></p>
+<h3 id="依訂單總金額查詢顧客">依訂單總金額查詢顧客</h3>
+<p>若要執行此報表，請前往 <strong>報表 → 顧客報表 → 依訂單總金額查詢顧客</strong>。
+在此報表中，您可以查看顧客的訂單總金額以及他們所下的訂單數量。</p>
+<p><img src="_static/reports/Customers-by-order-total.png" alt="Customers by order total"></p>
+<p>輸入一個或多個搜尋條件來彙編報表：</p>
+<ul>
+<li>註冊 <strong>開始日期</strong>。</li>
+<li>註冊 <strong>結束日期</strong>。</li>
+<li><strong>訂單狀態</strong>，例如 <em>全部</em>、<em>待處理</em>、<em>處理中</em>、<em>已完成</em> 或 <em>已取消</em>。</li>
+<li><strong>付款狀態</strong>，例如 <em>全部</em>、<em>待處理</em>、<em>已授權</em>、<em>已付款</em>、<em>已退款</em>、<em>部分退款</em> 或 <em>已作廢</em>。</li>
+<li><strong>貨運狀態</strong>，例如 <em>全部</em>、<em>無需貨運</em>、<em>尚未出貨</em>、<em>部分出貨</em>、<em>已出貨</em>、<em>已送達</em>。</li>
+</ul>
+<p>接著點擊 <strong>執行報表</strong>。</p>
+<h3 id="依訂單數排列的顧客">依訂單數排列的顧客</h3>
+<p>若要執行此報表，請前往 <strong>報表 → 顧客報表 → 依訂單數排列的顧客</strong>。
+此報表會根據所發出的訂單總數，顯示前 20 名的顧客。</p>
+<p><img src="_static/reports/Customers-by-number-of-orders.png" alt="Customers by number of orders"></p>
+<p>輸入一個或多個搜尋條件來編製報表：</p>
+<ul>
+<li>註冊 <strong>開始日期</strong>。</li>
+<li>註冊 <strong>結束日期</strong>。</li>
+<li><strong>訂單狀態</strong>，例如 <em>全部 (All)</em>、<em>待處理 (Pending)</em>、<em>處理中 (Processing)</em>、<em>完成 (Complete)</em> 或 <em>已取消 (Cancelled)</em>。</li>
+<li><strong>付款狀態</strong>，例如 <em>全部 (All)</em>、<em>待處理 (Pending)</em>、<em>已授權 (Authorized)</em>、<em>已付款 (Paid)</em>、<em>已退款 (Refunded)</em>、<em>部分退款 (Partially refunded)</em> 或 <em>作廢 (Voided)</em>。</li>
+<li><strong>出貨狀態</strong>，例如 <em>全部 (All)</em>、<em>無需出貨 (Shipping not required)</em>、<em>尚未出貨 (Not yet shipped)</em>、<em>部分出貨 (Partially shipped)</em>、<em>已出貨 (Shipped)</em>、<em>已送達 (Delivered)</em>。</li>
+</ul>
+<p>接著點擊 <strong>執行報表 (Run report)</strong>。</p>
+<h2 id="教學課程">教學課程</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=IbfoppTG9tM">在 nopCommerce 中執行報表</a></li>
+</ul>
+<h2 id="參閱">參閱</h2>
+<ul>
+<li><a class="xref" href="reports/microsoft-power-bi.html">Microsoft Power BI</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/running-your-store/reports.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

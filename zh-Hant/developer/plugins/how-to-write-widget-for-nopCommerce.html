@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>如何為 nopCommerce 撰寫小工具 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="如何為 nopCommerce 撰寫小工具 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/developer/plugins/how-to-write-widget-for-nopCommerce">
+<h1 id="如何為-nopcommerce-撰寫小工具">如何為 nopCommerce 撰寫小工具</h1>
+
+<p>為了擴充 nopCommerce 的功能，我們使用小工具（Widgets）。nopCommerce 的儲存庫中已經包含多種不同類型的小工具，例如 <a href="https://github.com/nopSolutions/nopCommerce/tree/master/src/Plugins/Nop.Plugin.Widgets.Swiper">Swiper</a> 和 <a href="https://github.com/nopSolutions/nopCommerce/tree/master/src/Plugins/Nop.Plugin.Widgets.GoogleAnalytics">Google Analytics</a>。nopCommerce 市集也已經提供了各種（包含免費與付費的）小工具，或許能滿足您的需求。如果您還沒找到合適的，那麼您來對地方了，因為這篇文章將引導您完成根據需求建立小工具的流程。</p>
+<h2 id="小工具的結構必要檔案與位置">小工具的結構、必要檔案與位置</h2>
+<ol>
+<li><p>首先，在方案中建立一個新的 <strong>Class Library</strong> 專案。建議將您的小工具放置在原始碼根目錄下的 <strong>Plugins</strong> 資料夾中，其他的小工具與外掛皆存放於此。</p>
+<p><img src="_static/how-to-write-a-widget-for-nopCommerce/image1.png" alt="image1"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>請勿將此目錄與 <em>Presentation\Nop.Web</em> 目錄下的同名資料夾搞混。位於 <em>Nop.Web</em> 目錄下的 <em>Plugins</em> 資料夾包含的是已編譯完成的外掛檔案。</p>
+</div>
+<p>小工具專案建議的命名格式為 <code>Nop.Plugin.Widgets.{Name}</code>。其中 <code>{Name}</code> 是您的小工具名稱（例如 &quot;<strong>GoogleAnalytics</strong>&quot;）。舉例來說，<em>Google Analytics widget</em> 的名稱為：<code>Nop.Plugin.Widgets.GoogleAnalytics</code>。但請注意這並非強制要求，您可以為小工具選擇任何名稱，例如 &quot;<em>MyFirstNopWidget</em>&quot;。方案中的 <em>Plugins</em> 目錄結構如下所示。</p>
+<p><img src="_static/how-to-write-a-widget-for-nopCommerce/image2.png" alt="image2"></p>
+</li>
+<li><p>當小工具專案建立完成後，應使用任何文字編輯器應用程式更新 <strong>.csproj</strong> 檔案的內容。請將其內容替換為以下程式碼：</p>
+<pre><code class="lang-xml">&lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;
+    &lt;PropertyGroup&gt;
+        &lt;TargetFramework&gt;net9.0&lt;/TargetFramework&gt;
+        &lt;Copyright&gt;SOME_COPYRIGHT&lt;/Copyright&gt;
+        &lt;Company&gt;YOUR_COMPANY&lt;/Company&gt;
+        &lt;Authors&gt;SOME_AUTHORS&lt;/Authors&gt;
+        &lt;PackageLicenseUrl&gt;PACKAGE_LICENSE_URL&lt;/PackageLicenseUrl&gt;
+        &lt;PackageProjectUrl&gt;PACKAGE_PROJECT_URL&lt;/PackageProjectUrl&gt;
+        &lt;RepositoryUrl&gt;REPOSITORY_URL&lt;/RepositoryUrl&gt;
+        &lt;RepositoryType&gt;Git&lt;/RepositoryType&gt;
+        &lt;OutputPath&gt;$(SolutionDir)\Presentation\Nop.Web\Plugins\WIDGET_OUTPUT_DIRECTORY&lt;/OutputPath&gt;
+        &lt;OutDir&gt;$(OutputPath)&lt;/OutDir&gt;
+        &lt;!--Set this parameter to true to get the dlls copied from the NuGet cache to the output of your    project. You need to set this parameter to true if your plugin has a nuget package to ensure that   the dlls copied from the NuGet cache to the output of your project--&gt;
+        &lt;CopyLocalLockFileAssemblies&gt;true&lt;/CopyLocalLockFileAssemblies&gt;
+        &lt;ImplicitUsings&gt;enable&lt;/ImplicitUsings&gt;
+    &lt;/PropertyGroup&gt;
+    &lt;ItemGroup&gt;
+        &lt;ProjectReference Include=&quot;$(SolutionDir)\Presentation\Nop.Web.Framework\Nop.Web.Framework.csproj&quot; /&gt;
+        &lt;ClearPluginAssemblies Include=&quot;$(SolutionDir)\Build\ClearPluginAssemblies.csproj&quot; /&gt;
+    &lt;/ItemGroup&gt;
+    &lt;!-- This target execute after &quot;Build&quot; target --&gt;
+    &lt;Target Name=&quot;NopTarget&quot; AfterTargets=&quot;Build&quot;&gt;
+        &lt;!-- Delete unnecessary libraries from plugins path --&gt;
+        &lt;MSBuild Projects=&quot;@(ClearPluginAssemblies)&quot; Properties=&quot;PluginPath=$(OutDir)&quot; Targets=&quot;NopClear&quot; /&gt;
+    &lt;/Target&gt;
+&lt;/Project&gt;
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p><strong>WIDGET_OUTPUT_DIRECTORY</strong> 應替換為外掛名稱，例如 <em>Widgets.GoogleAnalytics</em>。</p>
+</div>
+</li>
+<li><p>更新 <em>.csproj</em> 檔案後，應加入小工具必備的 <strong>plugin.json</strong> 檔案。此檔案包含描述您小工具的詮釋資料。您可以直接從任何現有的外掛或小工具複製此檔案，並根據需求進行修改。關於 <code>plugin.json</code> 檔案的詳細資訊，請參閱 <a class="xref" href="plugin.json.html">plugin.json 檔案</a>。</p>
+<p>最後一個必要步驟是建立一個類別，該類別需實作 <strong>BasePlugin</strong>（位於 <em>Nop.Core.Plugins</em> 命名空間）以及 <strong>IWidgetPlugin</strong> 介面（位於 <em>Nop.Services.Cms</em> 命名空間）。IWidgetPlugin 允許您建立小工具。小工具會顯示在您網站的某些區塊中；例如，它可以是網站右下角的即時對話視窗。</p>
+</li>
+</ol>
+<h2 id="處理請求controllersmodels-與-views">處理請求：Controllers、Models 與 Views</h2>
+<p>現在，您可以前往 <strong>後台</strong> → <strong>設定</strong> → <strong>在地外掛</strong> 查看該小工具。</p>
+<p><img src="_static/how-to-write-a-widget-for-nopCommerce/image4.png" alt="image4"></p>
+<p>當外掛/小工具安裝後，您會看到 <strong>解除安裝</strong> 按鈕。<em>為了提升效能，建議您將不需要的外掛/小工具解除安裝</em>。</p>
+<p><img src="_static/how-to-write-a-widget-for-nopCommerce/image5.png" alt="image5">
+當外掛/小工具未安裝或已解除安裝時，會顯示 <strong>安裝</strong> 和 <strong>刪除</strong> 按鈕。<em>執行刪除將會從伺服器移除實體檔案</em>。</p>
+<p>但如您所料，我們的小工具目前什麼都沒做。它甚至沒有用於設定的使用者介面。讓我們建立一個頁面來設定該小工具。</p>
+<p>我們現在需要做的是建立一個 controller、一個 model、一個 view 以及一個 view component。</p>
+<ul>
+<li><strong>MVC controllers</strong> 負責回應針對 <em>ASP.NET MVC</em> 網站發出的請求。每個瀏覽器請求都會對應到特定的 controller。</li>
+<li>View 包含了發送到瀏覽器的 <strong>HTML</strong> 標記和內容。在使用 <em>ASP.NET MVC</em> 應用程式時，view 就相當於一個頁面。</li>
+<li>實作 <strong>NopViewComponent</strong> 的 view component 包含了轉譯 view 所需的邏輯與程式碼。</li>
+<li><strong>MVC model</strong> 包含了應用程式中不屬於 view 或 controller 的所有邏輯。</li>
+</ul>
+<p>那麼讓我們開始吧：</p>
+<ol>
+<li><p>建立 model。在新的小工具中加入一個 <code>Models</code> 資料夾，然後加入一個符合您需求的 model 類別。</p>
+</li>
+<li><p>建立 view。在新的小工具中加入一個 <code>Views</code> 資料夾，然後加入一個名為 <code>Configure.cshtml</code> 的 <code>cshtml</code> 檔案。將該 view 檔案的「<strong>建置動作</strong> (Build Action)」屬性設為「<strong>內容</strong> (Content)」，並將「<strong>複製到輸出目錄</strong> (Copy to Output Directory)」屬性設為「<strong>永遠複製</strong> (Copy always)」。請注意，設定頁面應使用「<strong>_ConfigurePlugin</strong>」版面配置。</p>
+<pre><code class="lang-cs">@{
+    Layout = &quot;_ConfigurePlugin&quot;;
+}
+</code></pre>
+</li>
+<li><p>同時確保您的 <code>Views</code> 目錄中有 <strong>_ViewImports.cshtml</strong> 檔案。您可以直接從任何其他現有的外掛或小工具中複製它。</p>
+<p><img src="_static/how-to-write-a-widget-for-nopCommerce/image7.png" alt="image7"></p>
+</li>
+<li><p>建立 controller。在新的小工具中加入一個 <code>Controllers</code> 資料夾，然後加入一個新的 controller 類別。一個良好的做法是將外掛的 controller 命名為 <code>Widgets{Name}Controller.cs</code>。例如：<strong>WidgetsGoogleAnalyticsController</strong>。當然，這並非強制性的命名方式，僅為建議。接著，為設定頁面（在後台區域）建立適當的動作方法 (action method)。我們將其命名為 <code>Configure</code>。準備一個 model 類別並使用實體 view 路徑將其傳遞給 view：<code>~/Plugins/{PluginOutputDirectory}/Views/Configure.cshtml</code>。</p>
+<pre><code class="lang-cs">public async Task&lt;IActionResult&gt; Configure()
+{
+    if (!await _permissionService.AuthorizeAsync(StandardPermissionProvider.ManageWidgets))
+        return AccessDeniedView();
+
+    //load settings for a chosen store scope
+    var storeScope = await _storeContext.GetActiveStoreScopeConfigurationAsync();
+    var myWidgetSettings = await _settingService.LoadSettingAsync&lt;MyWidgetSettings&gt;(storeScope);
+
+    var model = new ConfigurationModel
+    {
+        // configuration model settings here
+    };
+
+    if (storeScope &gt; 0)
+    {
+        // override settings here based on store scope
+    }
+
+    return View(&quot;~/Plugins/Widgets.MyFirstNopWidget/Views/Configure.cshtml&quot;, model);
+}
+</code></pre>
+</li>
+<li><p>為您的動作方法使用以下屬性：</p>
+<pre><code class="lang-cs">[AutoValidateAntiforgeryToken]
+[AuthorizeAdmin] //confirms access to the admin panel
+[Area(AreaNames.Admin)] //specifies the area containing a controller or action
+[AdminAntiForgery] //Helps prevent malicious scripts from submitting forged page requests.
+</code></pre>
+<p>例如，開啟 <code>GoogleAnalytics</code> 小工具並查看其 <code>WidgetsGoogleAnalyticsController</code> 的實作方式。
+接著，對於每個擁有設定頁面的小工具，您都應該指定一個設定 URL。名為 <strong>BasePlugin</strong> 的基底類別擁有 <code>GetConfigurationPageUrl</code> 方法，該方法會回傳設定 URL：</p>
+<pre><code class="lang-cs">public override string GetConfigurationPageUrl()
+{
+    return $&quot;{_webHelper.GetStoreLocation()}Admin/{CONTROLLER_NAME}/{ACTION_NAME}&quot;;
+}
+</code></pre>
+<p>其中 <code>{CONTROLLER_NAME}</code> 是您的 controller 名稱，而 <code>{ACTION_NAME}</code> 是動作名稱（通常為 &quot;Configure&quot;）。
+每個小工具都應該指定一個小工具區域 (widget zones) 清單。名為 <strong>IWidgetPlugin</strong> 的介面擁有 <code>GetWidgetZones</code> 方法，該方法會回傳一組將被轉譯的小工具區域清單。</p>
+<pre><code class="lang-cs">public Task&lt;IList&lt;string&gt;&gt; GetWidgetZonesAsync()
+{
+    return Task.FromResult&lt;IList&lt;string&gt;&gt;(new List&lt;string&gt; {PublicWidgetZones.HeadHtmlTag });
+}
+</code></pre>
+<p>您可以從此處 <a href="https://github.com/nopSolutions/nopCommerce/blob/master/src/Presentation/Nop.Web.Framework/Infrastructure/PublicWidgetZones.cs">link</a> 找到公開小工具區域的清單，並依循此處 <a href="https://github.com/nopSolutions/nopCommerce/blob/master/src/Presentation/Nop.Web.Framework/Infrastructure/AdminWidgetZones.cs">link</a> 找到後台小工具區域。
+除了 <code>GetWidgetZonesAsync</code> 之外，<strong>IWidgetPlugin</strong> 還擁有 <code>GetWidgetViewComponentName</code> 方法，該方法會回傳 ViewComponent 名稱。它接受 &quot;<em>widgetZone</em>&quot; 名稱作為參數，並可用於根據所選的小工具區域來轉譯不同的 view。</p>
+<pre><code class="lang-cs">public string GetWidgetViewComponentName(string widgetZone)
+{
+    return &quot;MyFirstWidget&quot;;
+}
+</code></pre>
+</li>
+</ol>
+<h2 id="google-analytics-小工具的專案結構">Google Analytics 小工具的專案結構</h2>
+<p><img src="_static/how-to-write-a-widget-for-nopCommerce/image11.png" alt="image11"></p>
+<h2 id="處理installasync與uninstallasync方法">處理「InstallAsync」與「UninstallAsync」方法</h2>
+<p>此步驟為選填。有些小工具在安裝過程中可能需要額外的邏輯。例如，小工具可以插入新的語言資源或設定值。因此，請開啟您的 <strong>IWidgetPlugin</strong> 實作（大多數情況下它會繼承自 <strong>BasePlugin</strong> 類別）並覆寫下列方法：</p>
+<ol>
+<li><p><strong>InstallAsync</strong>。此方法將在安裝外掛期間被呼叫。您可以在此初始化任何設定、插入新的語言資源，或建立新的資料庫資料表（若有需要）。</p>
+<pre><code class="lang-cs">public override async Task InstallAsync()
+{
+    // custom logic like adding settings, locale resources, and database table(s) here
+
+    await base.InstallAsync();
+}
+</code></pre>
+</li>
+<li><p><strong>UninstallAsync</strong>。此方法將在解除安裝外掛期間被呼叫。您可以移除該小工具在安裝期間所初始化的設定、語言資源或資料庫資料表。</p>
+<pre><code class="lang-cs">public override async Task UninstallAsync()
+{
+    // custom logic like removing settings, locale resources, and database table(s) which was created during widget installation
+
+    await base.UninstallAsync();
+}
+</code></pre>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>若您覆寫了這些方法中的其中一個，請勿隱藏其基礎實作——即上圖中所標示的 <strong>base.InstallAsync()</strong> 與 <strong>base.UninstallAsync()</strong>。</p>
+</div>
+</li>
+</ol>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/developer/plugins/how-to-write-widget-for-nopCommerce.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

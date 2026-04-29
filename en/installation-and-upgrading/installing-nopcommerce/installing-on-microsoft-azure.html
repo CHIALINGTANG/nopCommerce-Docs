@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Installing on Microsoft Azure </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Installing on Microsoft Azure ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/installation-and-upgrading/installing-nopcommerce/installing-on-microsoft-azure">
+<h1 id="installing-on-microsoft-azure">Installing on Microsoft Azure</h1>
+
+<p>There are three ways to deploy nopCommerce on Microsoft Azure:</p>
+<ol>
+<li><p><strong>FTP</strong>. Use this method if you already have a package ready to deploy (no source code). You can publish to a local file system, then upload the published files through FTP.
+How to get FTP credentials for Azure? You should go to <strong><a href="https://azure.microsoft.com/">Azure.com</a> → My Account → Management portal → Choose your website → go to Dashboard → quick glance</strong>. Here, you can find the FTP credentials or <em>Reset your deployment credentials</em> or <em>Download the publish profile</em>.
+For the new Azure portal, go to <a href="http://portal.azure.com/">portal.azure.com</a> → browse websites → navigate to your website → Properties. Here, you can find the FTP credentials or <em>Reset your deployment credentials</em> or <em>Download the publish profile</em>.</p>
+</li>
+<li><p><strong>Visual Studio</strong> - web deploy. You can also deploy directly to Azure from <em>Visual Studio</em>. Download or get the deployment credentials from Azure using the method above and setup a web deploy profile in <em>Visual Studio</em>.</p>
+</li>
+<li><p><strong>Web platform installer</strong>. nopCommerce is available in the Azure Web Sites application gallery. So go to Azure portal, click &quot;<em>start, new site, from gallery</em>&quot;.  Select nopCommerce from the list of available applications. After you enter your database connection information and click <em><code>OK</code></em>, nopCommerce will be ready to launch.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>If you get the error &quot;HTTP Error 500.32 - ANCM Failed to Load dll,&quot; it might be that the platform has to be changed to 64bit (through Azure: <strong>App Settings - Settings - Configuration - General settings - Platform settings - Platform</strong>).</p>
+</div>
+</li>
+</ol>
+<p>Once the site is deployed, you have to install nopCommerce. Please <a class="xref" href="index.html">read more about it here</a>.</p>
+<p>Azure has support for multiple instances since version 3.70. It's great for any application scalability. Now you should not worry about whether your site can handle many visitors. So what exactly has been done to support multiple instances in Azure and web farms?</p>
+<ul>
+<li><p><strong>BLOB storage account support in Microsoft Azure</strong>. Please learn more about <a href="https://azure.microsoft.com/documentation/articles/storage-introduction/">storage accounts in Azure here</a>. <em>How to configure:</em></p>
+<ul>
+<li>Once your BLOB storage is set up in Azure, open your <code>appsettings.json</code> (or <code>web.config</code> in previous versions) file, find the <strong>AzureBlobStorage</strong> element and specify your BLOB storage connection string, container, endpoint.
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>These settings are valid for nopCommerce version 4.80 and below.</p>
+</div>
+</li>
+<li>Once you have configured BLOB storage in Azure, open the <strong>Azure Blob Storage</strong> plugin configuration page and specify the BLOB storage connection string, container, and endpoint.
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>These settings are relevant for nopCommerce version 4.90 and above.</p>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Distributed caching and session management support</strong>. Supported options are SQL Server and Redis. To configure SQL Server, see <a href="https://docs.nopcommerce.com/en/developer/tutorials/appsettings-json-file.html#distributedcacheconfig">DistributedCacheConfig</a> section for more details. Following description assumes that <a href="http://redis.io/">Redis</a> has been chosen as a caching server (already available in Azure, Amazon, other cloud hosting companies). <em>How to configure:</em></p>
+<ul>
+<li>First, you have to install and setup Redis. Please find more about <a href="https://azure.microsoft.com/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/">how to use Redis in Azure here</a>.</li>
+<li>Once it's done you have to configure it in nopCommerce. In order to enable caching in Redis open <code>appsettings.json</code> file. Find the <strong>DistributedCacheConfig</strong> config section. There, set <strong>DistributedCacheType</strong> to Redis and <strong>Enabled</strong> to <em><code>true</code></em> and then specify <strong>ConnectionString</strong> pointing to your Redis server (configured in the first step).</li>
+<li>For version 3.90 (and below), you also have to enable Redis as our distributed session management. Please open the <code>web.config</code> file. Find and uncomment the <strong>sessionState</strong> element. Specify its attributes (such as <em>host</em>, <em>accessKey</em>, etc.) pointing to your Redis server.</li>
+</ul>
+</li>
+<li><p>Recommended settings of the <code>appsettings.json</code> file to improve stability (for nopCommerce 4.50 and below):</p>
+<ul>
+<li><strong>UsePluginsShadowCopy</strong> - set it to <em><code>false</code></em> to prevent the problem with IIS pool recycle and horizontal scaling.</li>
+</ul>
+</li>
+<li><p><strong>Configure Azure monitoring agents as crawlers (nopCommerce 4.70 and above)</strong>. When using Azure Traffic Manager endpoint monitoring (for example, when the Path is set to <code>/</code>) or Azure App Service <strong>Always On</strong>, their requests to the root URL can create a new guest customer on each call. To avoid this, configure these user agents as crawlers in the <code>additional.crawlers.xml</code> file (see the <code>CrawlerOnlyAdditionalUserAgentStringsPath</code> setting in <code>appsettings.json</code>):</p>
+<pre><code class="lang-xml">&lt;browscapitem name=&quot;Azure Traffic Manager Endpoint Monitor&quot;&gt; &lt;!-- Azure Traffic Manager --&gt;
+  &lt;item name=&quot;Crawler&quot; value=&quot;true&quot; /&gt;
+&lt;/browscapitem&gt;
+
+&lt;browscapitem name=&quot;AlwaysOn&quot;&gt; &lt;!-- Azure AppService AlwaysOn --&gt;
+  &lt;item name=&quot;Crawler&quot; value=&quot;true&quot; /&gt;
+&lt;/browscapitem&gt;
+</code></pre>
+</li>
+<li><p>Ensure that the nopCommerce schedule tasks are run on one instance at a time. To configure this :</p>
+<ul>
+<li>For version 3.90 (and below), open the <code>web.config</code> file, find the <strong>WebFarms</strong> element, and set its <strong>MultipleInstancesEnabled</strong> attribute to <em><code>true</code></em>. If you use Microsoft Azure Websites (not cloud services), then set the <strong>RunOnAzureWebsites</strong> attribute to <em><code>true</code></em> as well.</li>
+<li>For newer versions no configuration change is required because the task runner uses the distributed cache to ensure that tasks will run on one instance at a time.</li>
+</ul>
+</li>
+</ul>
+<h2 id="installation-process">Installation process</h2>
+<p>The further installation process for nopCommerce is the same as the installation process on Windows; you can see the instruction following <a class="xref" href="installing-on-windows.html#install-nopcommerce">this link</a>.</p>
+<h2 id="web-farms">Web farms</h2>
+<p>You can also configure load balancing with IIS web farms. Please <a class="xref" href="web-farms.html">read more about it here</a>.</p>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/installation-and-upgrading/installing-nopcommerce/installing-on-microsoft-azure.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

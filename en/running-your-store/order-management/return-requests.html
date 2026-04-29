@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Return requests </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Return requests ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/running-your-store/order-management/return-requests">
+<h1 id="return-requests">Return requests</h1>
+
+<p>The return request feature enables customers to request a return on items previously purchased. These are also known as RMA requests. This option is only available for completed orders. Return requests settings are managed in <strong>Configuration → Settings → Order settings</strong> in the <em>Return request settings</em> panel.</p>
+<p>To enable return requests, select the <strong>Enable returns system</strong> checkbox.
+When this option is enabled, a <strong>Return item(s)</strong> button is displayed for completed orders on the order details page in the public store.</p>
+<p>To proceed to the <a href="#return-request-settings">return request settings section, click here</a>.</p>
+<p>In the next sections, we will describe how the return request functionality can be used by your customers and how to manage return requests in the admin area.</p>
+<h2 id="submit-a-return-request">Submit a return request</h2>
+<p>To submit a return request, a customer should take the following steps:</p>
+<ol>
+<li><p>In the public store, go to the <em>My account</em> window and click <strong>Orders</strong>. The following page will be displayed:
+<img src="_static/return-requests/my-account-orders.jpg" alt="My account - Orders"></p>
+</li>
+<li><p>Click the <strong>Return Item(s)</strong> button beside the completed order to be returned. The <em>Return item(s) from order #</em> window will be displayed as shown in the following example:
+<img src="_static/return-requests/return-items.jpg" alt="Return items"></p>
+<ul>
+<li>The <strong>Qty to return</strong> dropdown list allows selecting the number of items to be returned.</li>
+<li>The <strong>Return reason</strong> dropdown list allows selecting the reason for requesting a return. For example, the wrong product ordered, wrong product received, and more. Read <a href="#return-request-settings">below</a> about how to manage return reasons.</li>
+<li>The <strong>Return action</strong> dropdown list allows selecting the required return action to take. For example, repair a product, replace a product, issue credit, and more. Read <a href="#return-request-settings">below</a> about how to manage return actions.</li>
+<li>Use the <strong>Upload a file</strong> option if you want to attach some additional documents or pictures to your request.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This option is only available when the <strong>Allow file uploads</strong> checkbox is selected. Read <a href="#return-request-settings">below</a> about how to set this up.</p>
+</div>
+<ul>
+<li>In the <strong>Comments</strong> field, a customer can enter an optional comment for information purposes.</li>
+</ul>
+</li>
+<li><p>After using the return request feature, the customer can see the created return requests and their statuses on the <em>My Account</em> page in the public store by clicking <strong>Return requests</strong>:
+<img src="_static/return-requests/return-requests.jpg" alt="Return requests public"></p>
+</li>
+</ol>
+<h2 id="manage-return-requests">Manage return requests</h2>
+<p>The store owner can now manage this return request in the administration area.</p>
+<p>To view and edit return requests, go to <strong>Sales → Return requests</strong>. All return requests will be displayed as follows:
+<img src="_static/return-requests/return-requests-admin.jpg" alt="Return requests admin"></p>
+<p>Click <strong>Edit</strong> beside the return request; the <em>Edit return request details</em> window will be displayed:
+<img src="_static/return-requests/edit-return-request.jpg" alt="Edit return request"></p>
+<p>The store administrator is allowed to:</p>
+<ul>
+<li><p>View the return request <strong>ID</strong>.</p>
+</li>
+<li><p>View the <strong>Order #</strong>. Clicking the order number redirects to the associated order details page.</p>
+</li>
+<li><p>View the <strong>Customer</strong>. Clicking the customer email redirects to the associated customer details page.</p>
+</li>
+<li><p>View the <strong>Product</strong>. Clicking the product name redirects to the associated product details page.</p>
+</li>
+<li><p>Enter the <strong>Quantity</strong> of the returned product.</p>
+</li>
+<li><p>Fill the <strong>Quantity returned to stock</strong> field. It represents the number of items that should be returned to stock.</p>
+</li>
+<li><p>Select the <strong>Return request status</strong>:</p>
+<ul>
+<li><em>Pending</em></li>
+<li><em>Received</em></li>
+<li><em>Return authorized</em></li>
+<li><em>Item(s) repaired</em></li>
+<li><em>Item(s) refunded</em></li>
+<li><em>Request rejected</em></li>
+<li><em>Cancelled</em></li>
+</ul>
+</li>
+<li><p>In the <strong>Reason for return</strong> field, edit the reason for return if necessary.</p>
+</li>
+<li><p>In the <strong>Requested action</strong> field, edit the requested action if necessary.</p>
+</li>
+<li><p>In the <strong>Customer comments</strong> field, edit the comment entered by the customer if necessary.</p>
+</li>
+<li><p>In the <strong>Staff notes</strong> field, enter an optional note for information purposes. These notes will not be displayed to a customer.</p>
+</li>
+<li><p>View the <strong>Date</strong> when the return request was submitted.</p>
+</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Click the <strong>Notify customer about status change</strong> button to send an email to the customer informing them on the return request status change. <img src="_static/return-requests/control-elements.png" alt="Control buttons"></p>
+</div>
+<h2 id="return-request-settings">Return request settings</h2>
+<p>To define the return request settings, go to <strong>Configuration → Settings → Order settings</strong>.</p>
+<p>This page enables multi-store configuration; it means that the same settings can be defined for all stores or differ from store to store. If you want to manage settings for a certain store, choose its name from the multi-store configuration dropdown list and select all the checkboxes needed on the left to set custom values for them. For further details, refer to <a class="xref" href="../../getting-started/advanced-configuration/multi-store.html">Multi-store</a>.</p>
+<p>Go to the <em>Return request settings</em> panel:
+<img src="_static/return-requests/return-request-settings.jpg" alt="Return request settings"></p>
+<p>In this panel, you can define:</p>
+<ul>
+<li><p><strong>Enable returns system</strong> to enable your customers to submit return requests for purchased items.</p>
+</li>
+<li><p>In the <strong>Return request number mask</strong> field, specify a custom return request number if needed.</p>
+</li>
+<li><p><strong>Number of days that the return request is available</strong> to set the number of days that the return request link will be available in the customer area.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>For example, if the store owner allows returns within 30 days after the purchase, this field will be set to 30. When the customer logs into the website and looks at &quot;My account,&quot; orders completed earlier than 30 days ago will have no <strong>Return item(s)</strong> button.</p>
+</div>
+</li>
+<li><p>Select the <strong>Allow file uploads</strong> checkbox if you want to allow uploading files (pictures, for example) when submitting a return request. This option is especially useful for customers who face some problems with their orders, such as receiving damaged items or wrong products.</p>
+</li>
+</ul>
+<h3 id="return-request-reasons">Return request reasons</h3>
+<p>This panel represents a list of reasons a customer can choose from when submitting a return request.
+<img src="_static/return-requests/return-request-reasons.jpg" alt="Return request reasons"></p>
+<p>Click <strong>Add new</strong> to add a new request reason. The <em>Add new return request reason</em> window will be displayed as follows:
+<img src="_static/return-requests/add-reason.jpg" alt="Add a return request reason"></p>
+<p>Enter the return request reason <strong>Name</strong> and <strong>Display order</strong> number (1 represents the first item in the list). Click <strong>Save</strong> to save the changes.</p>
+<h3 id="return-request-actions">Return request actions</h3>
+<p>This panel represents a list of actions a customer can choose from when submitting a return request.
+<img src="_static/return-requests/return-request-actions.jpg" alt="Return request actions"></p>
+<p>Click <strong>Add new</strong> to add a new request action. The <em>Add new return request action</em> window will be displayed as follows:
+<img src="_static/return-requests/add-action.jpg" alt="Add a return request action"></p>
+<p>Enter the return request action <strong>Name</strong> and <strong>Display order</strong> number (1 represents the first item in the list). Click <strong>Save</strong> to save the changes.</p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=VqF2GZ2ip_0&amp;list=PLnL_aDfmRHwsbhj621A-RFb1KnzeFxYz4&amp;index=17">YouTube tutorial: managing return requests</a></li>
+<li><a class="xref" href="order-settings.html">Order settings</a></li>
+<li><a class="xref" href="orders.html">Orders</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/running-your-store/order-management/return-requests.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

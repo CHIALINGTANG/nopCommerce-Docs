@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Specification attributes </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Specification attributes ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="preload" href="../../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/running-your-store/catalog/products/specification-attributes">
+<h1 id="specification-attributes">Specification attributes</h1>
+
+<p>Specification attributes are similar to <a class="xref" href="product-attributes.html">product attributes</a>; however, they are only used for information (visible on the product details page) and for filtering products on the category details page. They don't define product price and can't be used for inventory tracking.</p>
+<h2 id="example">Example</h2>
+<p>Let's say you are running an online computer store. What helps a customer to make a decision?</p>
+<ul>
+<li><p>Provide a customer with comprehensive and descriptive information about your products. Although you fill the short and full descriptions of a certain computer, allow the customer to see the product's characteristics reflecting its most important details:</p>
+<p><img src="_static/specification-attributes/specs.jpg" alt="Specification attributes"></p>
+<p>This table can be displayed on the product details page if you select the <strong>Show on product page</strong> field when <a class="xref" href="add-products.html#specification-attributes">adding a specification attribute to a product</a>.</p>
+</li>
+<li><p>Allow your customers to search computers using the filter functionality. Let's say we can search in your store by CPU type and memory. Then, the category page will look as follows:</p>
+<p><img src="_static/specification-attributes/filter.jpg" alt="Filtering"></p>
+<p>Select the <strong>Allow filtering</strong> field when <a class="xref" href="add-products.html#specification-attributes">adding a specification attribute to a product</a> to allow filtering by this attribute for a certain product.</p>
+</li>
+<li><p>Include the &quot;Compare products&quot; functionality in your store. This feature uses specification attributes as well. For your computer store, the &quot;Compare products&quot; page will look as follows:</p>
+<p><img src="_static/specification-attributes/compare.jpg" alt="Compare products"></p>
+<p>To enable the &quot;Compare products&quot; functionality, go to <strong>Configuration → Settings → Catalog settings</strong>. In the <em>Compare products</em> panel, select the <strong>'Compare products' enabled</strong> checkbox.</p>
+</li>
+</ul>
+<p>The next section describes how to create specification attributes. Note that after creating a list of specification attributes, you will need to add the specification attributes to the products one by one. Learn how to add specification attributes to products in the <a class="xref" href="add-products.html#specification-attributes">Add products - Specification attributes</a> section.</p>
+<h2 id="create-a-specification-attribute-group">Create a specification attribute group</h2>
+<div class="NOTE">
+<h5>Note</h5>
+<p>All specification attributes that don't belong to any group are in the <em>Default group (non-grouped specification attributes)</em>.</p>
+</div>
+<p>To view and edit a list of specification attributes and their groups, go to <strong>Catalog → Attributes → Specification attributes</strong>.</p>
+<p><img src="_static/specification-attributes/specification_attributes.jpg" alt="Specification attributes"></p>
+<p>Click <strong>Add group</strong> to add a new group. The <em>Add a new specification attribute group</em> window will be displayed as follows:</p>
+<p><img src="_static/specification-attributes/specification_group.jpg" alt="Add group"></p>
+<p>In the <em>Attribute group info</em> panel, enter:</p>
+<ul>
+<li>The <strong>Name</strong> of the specification attribute group.</li>
+<li>The <strong>Display order</strong> number.</li>
+</ul>
+<p>Then save the changes.</p>
+<h2 id="create-a-specification-attribute">Create a specification attribute</h2>
+<div class="NOTE">
+<h5>Note</h5>
+<p>By default, there are no specification attributes precreated in nopCommerce.</p>
+</div>
+<p>To view and edit a list of specification attributes, go to <strong>Catalog → Attributes → Specification attributes</strong>.</p>
+<p><img src="_static/specification-attributes/specification_attributes.jpg" alt="Specification attributes"></p>
+<p>On this page, you can delete specification attributes by selecting them and then clicking the <strong>Delete(selected)</strong> button.</p>
+<p>Click <strong>Add attribute</strong> to add a new attribute. The <em>Add a new specification attribute</em> window will be displayed as follows:</p>
+<p><img src="_static/specification-attributes/new-attribute.jpg" alt="Add new"></p>
+<p>In the <em>Attribute info</em> panel, enter:</p>
+<ul>
+<li>The <strong>Name</strong> of the specification attribute.</li>
+<li>The <strong>Display order</strong> number.</li>
+</ul>
+<p>Click <strong>Save and continue edit</strong> to proceed to the <em>Options</em> editing panel.</p>
+<h3 id="add-a-new-option">Add a new option</h3>
+<p>Click the <strong>Add a new option</strong> button in the <em>Options</em> panel to create a new specification attribute option. The <em>Add a new option</em> window will be displayed as follows:</p>
+<p><img src="_static/specification-attributes/add_a_new_option.jpg" alt="Add a new option"></p>
+<p>Define the following option settings:</p>
+<ul>
+<li>The <strong>Name</strong> of the specification attribute option.</li>
+<li>Select the <strong>Specify color</strong> checkbox to choose the color to be used instead of the option's text name (it will be displayed as a &quot;color square&quot;).
+<ul>
+<li>Choose the <strong>RGB color</strong> that will be displayed to customers.</li>
+</ul>
+</li>
+<li>The <strong>Display order</strong> number.</li>
+</ul>
+<p>Click <strong>Save</strong> to save the option details.</p>
+<p>The following screenshot shows already added options:
+<img src="_static/specification-attributes/options.jpg" alt="Options"></p>
+<h3 id="used-by-products">Used by products</h3>
+<p>If you have applied the specification attribute to products, you can see the list of these products in the <em>Used by products</em> panel:</p>
+<p><img src="_static/specification-attributes/used-by.jpg" alt="Used by products"></p>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="add-products.html">Adding products</a></li>
+<li><a class="xref" href="product-attributes.html">Product attributes</a></li>
+<li><a href="https://www.youtube.com/watch?v=YmD_vHqWzQw&amp;index=11&amp;list=PLnL_aDfmRHwsbhj621A-RFb1KnzeFxYz4">YouTube tutorial: Managing Specification Attributes</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/running-your-store/catalog/products/specification-attributes.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

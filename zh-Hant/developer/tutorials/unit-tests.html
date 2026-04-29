@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>單元測試 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="單元測試 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/developer/tutorials/unit-tests">
+<h1 id="單元測試">單元測試</h1>
+
+<p>我想大家都知道單元測試（UNIT test）的概念。我們知道單元測試的用途，也同意這是開發可靠軟體過程中重要的一環。在本文中，我們將不討論這些議題。您可以輕鬆地在網路上找到所有必要的資訊，例如透過以下連結：</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Unit_testing">https://en.wikipedia.org/wiki/Unit_testing</a></li>
+<li><a href="https://docs.microsoft.com/dotnet/core/testing/unit-testing-best-practices">https://docs.microsoft.com/dotnet/core/testing/unit-testing-best-practices</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Test-driven_development">https://en.wikipedia.org/wiki/Test-driven_development</a></li>
+</ul>
+<p>在本文中，我們將熟悉 nopCommerce 專案中的測試功能，並學習如何新增測試以及檢查其執行效能。我們不會測試抽象的任務，而是會從頭開始為現有的功能編寫一個完整的測試。在文章最後，將提供一個包含所有程式碼變更的參考提交（commit）連結。</p>
+<h2 id="功能概覽">功能概覽</h2>
+<p><img src="_static/unit-tests/tests-project.jpg" alt="tests-project"></p>
+<p>在截圖中，您可以看到 <code>Nop.Tests</code> 專案的結構。像是 <code>Nop.Core.Tests</code> 這樣的資料夾包含了對應方案專案的測試程式。其他檔案則負責輔助類別與基礎類別。讓我們來看看 <code>BaseNopTest</code> 類別。</p>
+<h3 id="basenoptest">BaseNopTest</h3>
+<p>這是主要用來公開測試用 IoC 容器，並讓我們能夠運用所有相依性注入（DI）優勢的抽象類別。</p>
+<p><img src="_static/unit-tests/base-nop-test.jpg" alt="base-nop-test"></p>
+<p>此類別包含兩個可供子類別使用的方法：</p>
+<ul>
+<li><p><code>PropertiesShouldEqual</code>：用於比較資料庫實體的所有欄位與模型欄位。</p>
+</li>
+<li><p><code>GetService</code>：允許運用相依性注入的優勢，並簡化建立測試所需類別的過程。</p>
+</li>
+</ul>
+<p><strong>IoC</strong> 容器的初始化是在該類別的靜態建構函式中進行；此建構函式包含了大部分的程式碼。</p>
+<h2 id="ischeduletaskservice">IScheduleTaskService</h2>
+<p>我們將以建立實作 <code>IScheduleTaskService</code> 介面的類別測試為例。</p>
+<pre><code class="lang-csharp">public partial interface IScheduleTaskService
+{
+    System.Threading.Tasks.Task DeleteTaskAsync(ScheduleTask task);
+
+    Task&lt;ScheduleTask&gt; GetTaskByIdAsync(int taskId);
+
+    Task&lt;ScheduleTask&gt; GetTaskByTypeAsync(string type);
+
+    Task&lt;IList&lt;ScheduleTask&gt;&gt; GetAllTasksAsync(bool showHidden = false);
+
+    System.Threading.Tasks.Task InsertTaskAsync(ScheduleTask task);
+
+    System.Threading.Tasks.Task UpdateTaskAsync(ScheduleTask task);
+}
+</code></pre>
+<p>如您所見，這是一個簡單的介面，但同時它允許 nopCommerce 執行非常重要的任務，例如向顧客發送電子郵件。因此，我們需要確保它能正常運作。接下來，我們將為該介面的每個方法撰寫測試。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>我們雖然沒有採用 <strong>TDD</strong>，但並不反對這種開發方式。對我們而言，功能的可信賴性比特定的測試方法更為重要。</p>
+</div>
+<h2 id="scheduletaskservicetests-類別">ScheduleTaskServiceTests 類別</h2>
+<p>在專案（Nop.Tests\Nop.Services.Tests\Tasks）中新增一個 <code>ScheduleTaskServiceTests</code> 類別，其程式碼如下所示：</p>
+<pre><code class="lang-csharp">using NUnit.Framework;
+
+namespace Nop.Tests.Nop.Services.Tests.Tasks
+{
+    [TestFixture]
+    public class ScheduleTaskServiceTests : ServiceTest
+    {
+    }
+}
+</code></pre>
+<p>這是用於測試的類別範本。從這段程式碼中，我們可以看到 nopCommerce 使用 <strong>NUnit framework</strong> 進行測試。
+有兩點需要注意：</p>
+<ol>
+<li>我們的類別具有 <strong>TestFixture</strong> 屬性，這會告訴引擎該類別包含測試項目。</li>
+<li>我們不是直接繼承 <code>BaseNopTest</code> 類別，而是繼承另一個抽象類別 <code>ServiceTest</code>，它會將主要的外掛加入到設定中。</li>
+</ol>
+<p>下一步是為我們的測試新增初始化方法。原則上，這類方法通常稱為 <strong>SetUp</strong>。在此方法中，我們取得一個實作了 <code>IScheduleTaskService</code> 介面的類別實例，我們將對其進行測試。</p>
+<pre><code class="lang-csharp">private IScheduleTaskService _scheduleTaskService;
+
+[OneTimeSetUp]
+public void SetUp()
+{
+    _scheduleTaskService = GetService&lt;IScheduleTaskService&gt;();
+}
+</code></pre>
+<p>如您所見，<strong>SetUp</strong> 方法除了可以使用 <strong>SetUp</strong> 屬性外，也應宣告使用 <strong>OneTimeSetUp</strong> 屬性。這兩個屬性之間的區別僅在於方法呼叫的次數：前者 <strong>SetUp</strong> 方法會在所有測試執行前呼叫一次，而後者則會針對每個測試分別呼叫。</p>
+<p>接下來，讓我們為 CRUD 方法新增測試。在此服務中，這些方法包括：<strong>InsertTaskAsync</strong>、<strong>GetTaskByIdAsync</strong>、<strong>UpdateTaskAsync</strong> 以及 <strong>DeleteTaskAsync</strong>。</p>
+<p>但首先，讓我們再為該類別新增一個欄位。這將是一個用於測試的 <code>ScheduleTask</code> 類別實例：</p>
+<pre><code class="lang-csharp"> private ScheduleTask _task;
+</code></pre>
+<p>Update the <strong>SetUp</strong> method the following way:</p>
+<pre><code class="lang-csharp">[OneTimeSetUp]
+public void SetUp()
+{
+   _scheduleTaskService = GetService&lt;IScheduleTaskService&gt;();
+
+   _task = new ScheduleTask { Enabled = true, Name = &quot;Test task&quot;, Seconds = 60, Type = &quot;nop.test.task&quot; };
+}
+</code></pre>
+<p>所有 CRUD 測試方法如下所示，您可以發現其中並無複雜之處：</p>
+<pre><code class="lang-csharp">#region CRUD tests
+
+[Test]
+public async System.Threading.Tasks.Task CanInsertAndGetTask()
+{
+    _task.Id = 0;
+    await _scheduleTaskService.InsertTaskAsync(_task);
+    var task = await _scheduleTaskService.GetTaskByIdAsync(_task.Id);
+    await _scheduleTaskService.DeleteTaskAsync(_task);
+
+    _task.Id.Should().NotBe(0);
+    task.Id.Should().Be(_task.Id);
+    task.Name.Should().Be(_task.Name);
+}
+
+[Test]
+public void InsertTaskShouldRaiseExceptionIfTaskIsNull()
+{
+    Assert.Throws&lt;AggregateException&gt;(() =&gt;
+            _scheduleTaskService.InsertTaskAsync(null).Wait());
+}
+
+[Test]
+public async System.Threading.Tasks.Task GetTaskByIdShouldReturnNullIfTaskIdIsZero()
+{
+    var task = await _scheduleTaskService.GetTaskByIdAsync(0);
+    task.Should().BeNull();
+}
+
+[Test]
+public async System.Threading.Tasks.Task GetTaskByIdShouldReturnNullIfTaskIdIsNotExists()
+{
+    var task = await _scheduleTaskService.GetTaskByIdAsync(int.MaxValue);
+    task.Should().BeNull();
+}
+
+[Test]
+public async System.Threading.Tasks.Task CanUpdateTask()
+{
+    _task.Id = 0;
+    await _scheduleTaskService.InsertTaskAsync(_task);
+    var task = await _scheduleTaskService.GetTaskByIdAsync(_task.Id);
+    task.Name = &quot;new test name&quot;;
+    await _scheduleTaskService.UpdateTaskAsync(task);
+    var task2 = await _scheduleTaskService.GetTaskByIdAsync(_task.Id);
+    await _scheduleTaskService.DeleteTaskAsync(_task);
+
+    task.Id.Should().Be(task2.Id);
+    task2.Name.Should().NotBe(_task.Name);
+}
+
+[Test]
+public void UpdateTaskShouldRaiseExceptionIfTaskIsNull()
+{
+    Assert.Throws&lt;AggregateException&gt;(() =&gt;
+        _scheduleTaskService.UpdateTaskAsync(null).Wait());
+}
+
+public async System.Threading.Tasks.Task CanDeleteTask()
+{
+    _task.Id = 0;
+    await _scheduleTaskService.InsertTaskAsync(_task);
+    await _scheduleTaskService.DeleteTaskAsync(_task);
+    var task = await _scheduleTaskService.GetTaskByIdAsync(_task.Id);
+    task.Should().BeNull();
+}
+
+[Test]
+public void DeleteTaskShouldRaiseExceptionIfTaskIsNull()
+{
+    Assert.Throws&lt;AggregateException&gt;(() =&gt;
+        _scheduleTaskService.DeleteTaskAsync(null).Wait());
+}
+
+#endregion
+</code></pre>
+<p>此外，已連線的命名空間列表也已變更。更新後的列表如下提供：</p>
+<pre><code class="lang-csharp">using System;
+using FluentAssertions;
+using Nop.Core.Domain.Tasks;
+using Nop.Services.Tasks;
+using NUnit.Framework;
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>我們必須刪除測試對資料庫所做的所有變更。在我們的範例中，我們為此目的使用了 <code>DeleteTaskAsync</code> 方法。此外，請注意這必須在呼叫測試方法（例如 <code>task.Should().BeNull();</code>、<code>task2.Name.Should().NotBe(_task.Name);</code> 等）之前完成，因為如果測試失敗，資料庫中將會殘留資料，進而影響其他測試程序。</p>
+</div>
+<p>接著，讓我們測試剩餘的兩個方法：</p>
+<pre><code class="lang-csharp">[Test]
+public async System.Threading.Tasks.Task CanGetTaskByType()
+{
+    _task.Id = 0;
+    var task = await _scheduleTaskService.GetTaskByTypeAsync(_task.Type);
+    task.Should().BeNull();
+    await _scheduleTaskService.InsertTaskAsync(_task);
+    task = await _scheduleTaskService.GetTaskByTypeAsync(_task.Type);
+    await _scheduleTaskService.DeleteTaskAsync(_task);
+    task.Should().NotBeNull();
+}
+
+[Test]
+public async System.Threading.Tasks.Task GetTaskByTypeShouldReturnNullIfTypeIsNull()
+{
+    var task = await _scheduleTaskService.GetTaskByTypeAsync(null);
+    task.Should().BeNull();
+}
+
+[Test]
+public async System.Threading.Tasks.Task GetTaskByTypeShouldReturnNullIfTypeIsEmpty()
+{
+    var task = await _scheduleTaskService.GetTaskByTypeAsync(string.Empty);
+    task.Should().BeNull();
+}
+
+[Test]
+public async System.Threading.Tasks.Task CanGetAllTasks()
+{
+    _task.Id = 0;
+    var tasks = await _scheduleTaskService.GetAllTasksAsync(true);
+    tasks.Count.Should().Be(0);
+    tasks = await _scheduleTaskService.GetAllTasksAsync(false);
+    tasks.Count.Should().Be(0);
+
+    await _scheduleTaskService.InsertTaskAsync(_task);
+    var tasksWithHidden = await _scheduleTaskService.GetAllTasksAsync(true);
+    var tasksWitoutHidden = await _scheduleTaskService.GetAllTasksAsync(false);
+    await _scheduleTaskService.DeleteTaskAsync(_task);
+
+    tasksWithHidden.Count.Should().Be(1);
+    tasksWitoutHidden.Count.Should().Be(1);
+
+    _task.Enabled = false;
+
+    await _scheduleTaskService.InsertTaskAsync(_task);
+    tasksWithHidden = await _scheduleTaskService.GetAllTasksAsync(true);
+    tasksWitoutHidden = await _scheduleTaskService.GetAllTasksAsync(false);
+    await _scheduleTaskService.DeleteTaskAsync(_task);
+    _task.Enabled = true;
+
+    tasksWithHidden.Count.Should().Be(1);
+    tasksWitoutHidden.Count.Should().Be(0);
+}
+</code></pre>
+<p>最後，讓我們為許多測試新增一個通常稱為 <strong>TearDown</strong> 的標準方法。在此方法中，我們將執行資料庫的最終清理工作，以清除我們在測試過程中可能造成的變更。此方法必須具有 <strong>OneTimeTearDown</strong> 或 <strong>TearDown</strong> 屬性，與 SetUp 方法的屬性類似。</p>
+<pre><code class="lang-csharp">[OneTimeTearDown]
+public async System.Threading.Tasks.Task TearDown()
+{
+    var tasks = await _scheduleTaskService.GetAllTasksAsync(true);
+
+    foreach (var task in tasks.Where(t=&gt;t.Type.Equals(_task.Type, StringComparison.InvariantCultureIgnoreCase))) 
+        await _scheduleTaskService.DeleteTaskAsync(task);
+}
+</code></pre>
+<p>這樣就完成了，我們的測試類別已準備就緒。正如我在開頭所承諾的，您可以在 <a href="https://github.com/nopSolutions/nopCommerce/blob/develop/src/Tests/Nop.Tests/Nop.Services.Tests/ScheduleTasks/ScheduleTaskServiceTests.cs">this link</a> 找到完整的類別，並透過 <a href="https://github.com/nopSolutions/nopCommerce/commit/81c31e1ee754f771ddfdc26e9b95a729e38b2d29">this link</a> 查看其提交記錄。</p>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/developer/tutorials/unit-tests.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

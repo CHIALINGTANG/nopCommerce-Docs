@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>管理顧客 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="管理顧客 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/running-your-store/customer-management/managing-customers">
+<h1 id="管理顧客">管理顧客</h1>
+
+<p>顧客清單包含所有現有顧客的詳細資料，並允許您新增顧客。此功能以及其他顧客管理設定，使 nopCommerce 成為具備內建 <a href="https://www.nopCommerce.com/omnichannel-commerce">全通路功能 (omnichannel feature)</a> 的電子商務平台。在 nopCommerce 中，顧客包含了所有使用者，例如管理員、供應商與購買者。若要管理顧客，請前往 <strong>顧客 → 顧客</strong>。屆時將顯示下列視窗：</p>
+<p><img src="_static/managing-customers/customers.png" alt="Customers"></p>
+<p>若要搜尋顧客，請在「顧客」視窗中輸入下列一項或多項搜尋條件：</p>
+<ul>
+<li><strong>電子郵件 (Email)</strong>。</li>
+<li><strong>使用者名稱 (Username)</strong>，若已在 <a class="xref" href="customer-settings.html">顧客設定</a> 中啟用。</li>
+<li><strong>名字 (First name)</strong>。</li>
+<li><strong>姓氏 (Last name)</strong>。</li>
+<li><strong>啟用狀態 (Is active)</strong>。依帳戶狀態搜尋顧客。</li>
+<li><strong>出生日期 (Date of birth)</strong>，若已在 <a class="xref" href="customer-settings.html">顧客設定</a> 中啟用。</li>
+<li><strong>公司 (Company)</strong>，若已在 <a class="xref" href="customer-settings.html">顧客設定</a> 中啟用。</li>
+<li><strong>電話 (Phone)</strong>，若已在 <a class="xref" href="customer-settings.html">顧客設定</a> 中啟用。</li>
+<li><strong>郵遞區號 (Zip code)</strong>，若已在 <a class="xref" href="customer-settings.html">顧客設定</a> 中啟用。</li>
+<li><strong>IP 位址 (IP address)</strong>。</li>
+<li><strong>顧客角色 (Customer roles)</strong> — 您可以選擇一或多個要顯示的顧客角色。</li>
+<li><strong>註冊日期起 (Registration date from)</strong> 與 <strong>註冊日期迄 (Registration date to)</strong>。</li>
+<li><strong>最後活動時間起 (Last activity from)</strong> 與 <strong>最後活動時間迄 (Last activity to)</strong>。</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>您可以透過點擊 <strong>匯出為 XML (全部)</strong> 或 <strong>匯出為 Excel (全部)</strong> 將顧客資料匯出至外部檔案。您也可以透過點擊 <strong>匯出為 XML (選取)</strong> 或 <strong>匯出為 Excel (選取)</strong> 將所選的顧客資料匯出至外部檔案。</p>
+</div>
+<p>接著點擊 <strong>搜尋 (Search)</strong> 按鈕。</p>
+<h2 id="新增顧客">新增顧客</h2>
+<p>若要新增顧客，請在 <em>Customers</em> 視窗中點擊 <strong>Add new</strong>。
+系統將會顯示 <em>Add a new customer</em> 視窗。請定義下列顧客詳細資料：</p>
+<h2 id="顧客資訊">顧客資訊</h2>
+<p><em>顧客資訊</em> 面板允許您輸入顧客的個人及帳戶資訊，例如更改密碼、指派或移除顧客角色。</p>
+<p><img src="_static/managing-customers/add-new.png" alt="Customer details"></p>
+<p>您可以編輯以下欄位：</p>
+<ul>
+<li><strong>Email</strong> 位址。</li>
+<li><strong>Password</strong>（密碼）。</li>
+<li><strong>First name</strong>（名字）。</li>
+<li><strong>Last name</strong>（姓氏）。</li>
+<li><strong>Gender</strong>（性別）。</li>
+<li><strong>Date of birth</strong>（出生日期）。</li>
+<li><strong>Company name</strong>（公司名稱）。</li>
+<li><strong>Is tax exempt</strong>（是否免稅）指出該顧客是否免稅。</li>
+<li><strong>Customer roles</strong>（顧客角色）— 單一或多個顧客角色。請注意，任何需要登入系統的角色（例如管理員、供應商）都應該具備「Registered」（已註冊）顧客角色。您可以在 <a class="xref" href="customer-roles.html">顧客角色</a> 區段中設定顧客角色。</li>
+<li>在 <strong>Manager of vendor</strong>（供應商管理員）下拉式清單中，若有需要，請選擇與此顧客帳戶相關聯的供應商。建立關聯後，該顧客將能夠登入所選供應商的入口網站，並管理其商品與訂單。請注意，如果您將某個供應商與此顧客關聯，則應確保此顧客記錄已包含在 <a href="xref:zh-Hant/running-your-store/vendor-management">供應商</a> 清單中。</li>
+<li>勾選 <strong>Active</strong>（啟用）核取方塊以啟用該顧客。</li>
+<li><strong>Customer must change password</strong>（顧客必須變更密碼）— 勾選此項以要求顧客變更密碼。</li>
+<li><strong>Admin comment</strong>（管理員備註）— 若有需要，供內部使用的管理員備註。</li>
+</ul>
+<p>點擊 <strong>Save</strong>（儲存）按鈕以儲存變更，或點擊 <strong>Save and continue edit</strong>（儲存並繼續編輯）按鈕以繼續編輯更多顧客資訊。在這種情況下，您將會在顧客詳細資料頁面看到新增加的面板。</p>
+<p>您也會看到 <strong>Send email</strong>（發送電子郵件）、<strong>Send private message</strong>（發送私人訊息，若已啟用 <a class="xref" href="../content-management/forums.html">論壇</a> 功能）以及 <strong>Delete</strong>（刪除）按鈕。</p>
+<p><img src="_static/managing-customers/edit_customer_details.png" alt="Buttons"></p>
+<p>點擊 <strong>Send email</strong> 按鈕後，會顯示 <em>發送電子郵件</em> 視窗，讓商店擁有者可以發送郵件給顧客。點擊 <strong>Send private message</strong> 按鈕後，會顯示 <em>發送私人訊息</em> 視窗，讓您可以發送訊息給顧客。若要使用私人訊息功能，請在 <a class="xref" href="../content-management/forums.html">論壇設定</a> 中允許私人訊息功能。</p>
+<h2 id="訂單">訂單</h2>
+<p>在 <em>Orders</em> 面板中，您可以檢視顧客的訂單詳情。
+<img src="_static/managing-customers/customer-orders.png" alt="customer_info"></p>
+<h2 id="地址">地址</h2>
+<p>在 <em>地址</em> 面板中，您可以檢視、編輯並建立顧客的新地址。
+<img src="_static/managing-customers/customert-adresses.png" alt="addresses"></p>
+<p>點擊 <strong>新增地址</strong> 按鈕來新增一個顧客地址。填寫適當的欄位後點擊 <strong>儲存</strong>。新的地址將會新增至該顧客名下。</p>
+<h2 id="目前購物車與願望清單">目前購物車與願望清單</h2>
+<p>在「目前購物車與願望清單」面板中，您可以檢視顧客的購物車與願望清單。</p>
+<h2 id="活動記錄">活動記錄</h2>
+<p>在「活動記錄」面板中，您可以檢視顧客的活動記錄。請參閱 <a class="xref" href="activity-log.html#customer-activity-types">活動記錄 - 顧客活動類型</a> 章節，了解如何管理活動類型。</p>
+<h2 id="下單模擬顧客">下單（模擬顧客）</h2>
+<p>在「下單（模擬顧客）」面板中，商店經營者可以在無需顧客密碼的情況下為其建立訂單。這對於不想註冊的顧客，或是大型網站透過客戶服務代表（CSR）以電話協助下單的情況非常實用。</p>
+<p>此面板包含一個 <strong>下單</strong> 按鈕。點擊此按鈕後，您將被重新導向至前台網站。選擇顧客想要的商品，並像顧客在前台網站操作一樣將其加入購物車，接著使用 <strong>結帳</strong> 按鈕完成一般的結帳流程，最後點擊頁面頂端的 <strong>結束工作階段</strong> 連結以結束此工作階段。</p>
+<h2 id="補貨通知訂閱">補貨通知訂閱</h2>
+<p>在「補貨通知訂閱」面板中，可以查看顧客所訂閱的商品。</p>
+<h2 id="紅利點數">紅利點數</h2>
+<p>在「紅利點數」面板中，商店擁有者可以為顧客新增紅利點數，或是檢視他們的紅利點數使用記錄。當紅利點數計畫啟用時，此面板才會顯示。欲知更多資訊，請參考 <a class="xref" href="../promotional-tools/reward-points.html">紅利點數</a> 章節。</p>
+<h3 id="新增減少點數">新增（減少）點數</h3>
+<p><img src="_static/managing-customers/customer-reward-points.png" alt="Reward points"></p>
+<p>在此面板中：</p>
+<ul>
+<li>輸入 <strong>點數</strong> 數量。若要減少點數，請輸入負值。</li>
+<li>在 <strong>點數有效期限</strong> 欄位中，指定所獲點數的有效天數（僅適用於正數點數）。</li>
+<li>輸入 <strong>訊息</strong> 或註解。</li>
+<li>若您希望顧客在獲得紅利點數後立即使用，請勾選 <strong>立即啟用點數</strong> 核取方塊。若您未勾選此核取方塊，將會出現另一個選項：</li>
+<li>若前一個核取方塊未勾選，請在 <strong>紅利點數啟用</strong> 欄位中，指定紅利點數啟用所需的時間週期（天數/小時數）。</li>
+</ul>
+<h2 id="參閱">參閱</h2>
+<ul>
+<li><a class="xref" href="customer-roles.html">顧客角色</a></li>
+<li><a href="xref:zh-Hant/running-your-store/vendor-management">供應商</a></li>
+</ul>
+<h2 id="教學課程">教學課程</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=DOl-g-NNFEM&amp;list=PLnL_aDfmRHwsbhj621A-RFb1KnzeFxYz4&amp;index=1">nopCommerce 中的顧客管理</a></li>
+<li><a href="https://www.youtube.com/watch?v=lqmrWJdXZEE&amp;t=1s">重新指派已刪除的電子郵件地址</a></li>
+<li><a href="https://www.youtube.com/watch?v=KQi-CDVawJ4">模擬登入模式概覽</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/running-your-store/customer-management/managing-customers.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

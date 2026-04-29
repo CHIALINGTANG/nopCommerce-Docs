@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>在 Microsoft Azure 上安裝 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="在 Microsoft Azure 上安裝 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/installation-and-upgrading/installing-nopcommerce/installing-on-microsoft-azure">
+<h1 id="在-microsoft-azure-上安裝">在 Microsoft Azure 上安裝</h1>
+
+<p>在 Microsoft Azure 上部署 nopCommerce 有三種方式：</p>
+<ol>
+<li><p><strong>FTP</strong>。如果您已經有準備好要部署的套件（沒有原始程式碼），請使用此方法。您可以將專案發佈到本機檔案系統，然後透過 FTP 上傳已發佈的檔案。
+如何取得 Azure 的 FTP 憑證？您應該前往 <strong><a href="https://azure.microsoft.com/">Azure.com</a> → 我的帳戶 → 管理入口網站 → 選擇您的網站 → 前往儀表板 → 快速概覽</strong>。在這裡，您可以找到 FTP 憑證，或執行「重設您的部署憑證」或「下載發佈設定檔」。
+若為新的 Azure 入口網站，請前往 <a href="http://portal.azure.com/">portal.azure.com</a> → 瀏覽網站 → 導覽至您的網站 → 屬性。在這裡，您可以找到 FTP 憑證，或執行「重設您的部署憑證」或「下載發佈設定檔」。</p>
+</li>
+<li><p><strong>Visual Studio</strong> - Web 部署。您也可以直接從 <em>Visual Studio</em> 部署到 Azure。使用上述方法從 Azure 下載或取得部署憑證，並在 <em>Visual Studio</em> 中設定 Web 部署設定檔。</p>
+</li>
+<li><p><strong>Web Platform Installer</strong>。nopCommerce 可在 Azure Web Sites 應用程式庫中取得。因此，請前往 Azure 入口網站，點擊「開始、新網站、從應用程式庫」。從可用應用程式清單中選擇 nopCommerce。輸入資料庫連線資訊並點擊 <em><code>OK</code></em> 後，nopCommerce 即可啟動。</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>如果您收到錯誤「HTTP Error 500.32 - ANCM Failed to Load dll」，可能是因為平台必須變更為 64 位元（透過 Azure：<strong>App Settings - Settings - Configuration - General settings - Platform settings - Platform</strong>）。</p>
+</div>
+</li>
+</ol>
+<p>網站部署完成後，您必須安裝 nopCommerce。請 <a class="xref" href="index.html">在此處閱讀更多相關資訊</a>。</p>
+<p>自 3.70 版本起，Azure 已支援多重執行個體。這對於任何應用程式的擴充性都非常出色。現在，您不必擔心網站是否能處理大量的訪客。那麼，為了支援 Azure 和 Web 伺服器陣列（Web farms）中的多重執行個體，具體做了哪些調整呢？</p>
+<ul>
+<li><p><strong>支援 Microsoft Azure 中的 BLOB 儲存體帳戶</strong>。請在此進一步了解 <a href="https://azure.microsoft.com/documentation/articles/storage-introduction/">Azure 中的儲存體帳戶</a>。<em>如何設定：</em></p>
+<ul>
+<li>在 Azure 中設定好 BLOB 儲存體後，開啟您的 <code>appsettings.json</code>（或舊版本的 <code>web.config</code>）檔案，找到 <strong>AzureBlobStorage</strong> 元素，並指定您的 BLOB 儲存體連接字串、容器（container）和端點（endpoint）。
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>這些設定適用於 nopCommerce 4.80 及更低版本。</p>
+</div>
+</li>
+<li>在 Azure 中設定好 BLOB 儲存體後，開啟 <strong>Azure Blob Storage</strong> 外掛的設定頁面，並指定 BLOB 儲存體的連接字串、容器和端點。
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>這些設定適用於 nopCommerce 4.90 及更高版本。</p>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>支援分散式快取與工作階段管理</strong>。支援的選項包括 SQL Server 和 Redis。若要設定 SQL Server，請參閱 <a href="https://docs.nopcommerce.com/en/developer/tutorials/appsettings-json-file.html#distributedcacheconfig">DistributedCacheConfig</a> 章節以取得更多詳細資訊。以下說明假設您已選擇 <a href="http://redis.io/">Redis</a> 作為快取伺服器（已在 Azure、Amazon 及其他雲端託管公司中提供）。<em>如何設定：</em></p>
+<ul>
+<li>首先，您必須安裝並設定 Redis。請在此了解 <a href="https://azure.microsoft.com/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/">如何在 Azure 中使用 Redis</a>。</li>
+<li>設定完成後，您必須在 nopCommerce 中進行設定。為了在 Redis 中啟用快取，請開啟 <code>appsettings.json</code> 檔案。找到 <strong>DistributedCacheConfig</strong> 設定區段。將 <strong>DistributedCacheType</strong> 設定為 Redis，並將 <strong>Enabled</strong> 設定為 <em><code>true</code></em>，然後指定指向您 Redis 伺服器的 <strong>ConnectionString</strong>（於第一步設定）。</li>
+<li>對於 3.90（及更低）版本，您還必須啟用 Redis 作為分散式工作階段管理。請開啟 <code>web.config</code> 檔案。找到並取消註解 <strong>sessionState</strong> 元素。指定其屬性（例如 <em>host</em>、<em>accessKey</em> 等），使其指向您的 Redis 伺服器。</li>
+</ul>
+</li>
+<li><p>建議設定 <code>appsettings.json</code> 檔案以提升穩定性（適用於 nopCommerce 4.50 及更低版本）：</p>
+<ul>
+<li><strong>UsePluginsShadowCopy</strong> - 將其設為 <em><code>false</code></em>，以防止 IIS 應用程式集區回收（pool recycle）與水平擴充時發生的問題。</li>
+</ul>
+</li>
+<li><p><strong>將 Azure 監控代理程式設定為爬蟲程式（nopCommerce 4.70 及更高版本）</strong>。當使用 Azure Traffic Manager 端點監控（例如，當路徑設為 <code>/</code>）或 Azure App Service <strong>Always On</strong> 時，它們對根 URL 的請求可能會在每次呼叫時建立新的訪客顧客。為避免此情況，請在 <code>additional.crawlers.xml</code> 檔案中將這些使用者代理程式設定為爬蟲程式（請參閱 <code>appsettings.json</code> 中的 <code>CrawlerOnlyAdditionalUserAgentStringsPath</code> 設定）：</p>
+<pre><code class="lang-xml">&lt;browscapitem name=&quot;Azure Traffic Manager Endpoint Monitor&quot;&gt; &lt;!-- Azure Traffic Manager --&gt;
+  &lt;item name=&quot;Crawler&quot; value=&quot;true&quot; /&gt;
+&lt;/browscapitem&gt;
+
+&lt;browscapitem name=&quot;AlwaysOn&quot;&gt; &lt;!-- Azure AppService AlwaysOn --&gt;
+  &lt;item name=&quot;Crawler&quot; value=&quot;true&quot; /&gt;
+&lt;/browscapitem&gt;
+</code></pre>
+</li>
+<li><p>確保 nopCommerce 排程任務每次只在一個執行個體上執行。設定方式如下：</p>
+<ul>
+<li>對於 3.90（及更低）版本，開啟 <code>web.config</code> 檔案，找到 <strong>WebFarms</strong> 元素，並將其 <strong>MultipleInstancesEnabled</strong> 屬性設為 <em><code>true</code></em>。如果您使用的是 Microsoft Azure Websites（而非雲端服務），則將 <strong>RunOnAzureWebsites</strong> 屬性也設為 <em><code>true</code></em>。</li>
+<li>對於較新的版本，無需變更任何設定，因為任務執行程式會使用分散式快取來確保任務每次只會在一個執行個體上執行。</li>
+</ul>
+</li>
+</ul>
+<h2 id="安裝程序">安裝程序</h2>
+<p>nopCommerce 的後續安裝程序與 Windows 上的安裝程序相同；您可以參閱 <a class="xref" href="installing-on-windows.html#install-nopcommerce">this link</a> 中的說明。</p>
+<h2 id="web-farms">Web farms</h2>
+<p>您也可以透過 IIS web farms 來設定負載平衡。請 <a class="xref" href="web-farms.html">在此處閱讀更多相關資訊</a>。</p>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/installation-and-upgrading/installing-nopcommerce/installing-on-microsoft-azure.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

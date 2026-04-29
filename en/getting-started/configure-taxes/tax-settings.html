@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Tax settings </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Tax settings ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/getting-started/configure-taxes/tax-settings">
+<h1 id="tax-settings">Tax settings</h1>
+
+<p>This section describes your store's tax settings, for example, defining prices including or excluding tax, defining the tax display type, and more.</p>
+<p>To manage your tax settings, go to <strong>Configuration → Settings → Tax settings</strong>.</p>
+<p><img src="_static/tax-settings/tax-settings.jpg" alt="Tax settings"></p>
+<p>First of all define <strong>common</strong> tax settings:</p>
+<ul>
+<li>From the <strong>Tax based on</strong> dropdown list, select the required option on which the tax is based, as follows:
+<ul>
+<li><strong>Billing address</strong>. When this option is selected, the tax is based on the customer's billing address. If the billing address is unknown, the default address is used (entered below).</li>
+<li><strong>Shipping address</strong>. When this option is selected, the tax is based on the customer's shipping address. If the shipping address is unknown, the default address is used (entered below).</li>
+<li><strong>Default address</strong>. When this option is selected, the tax is based on the default address that is entered below.</li>
+</ul>
+</li>
+<li><strong>Automatically detect country by IP address</strong> When this setting is enabled, if the customer's billing/shipping address is not already set, the country of address used for tax calculation will be determined automatically by the GEO service (by IP address).</li>
+<li>Choose the <strong>Default tax category</strong> for products. It will be pre-selected on the <em>Add new product</em> page.</li>
+<li><strong>Tax based on pickup point address</strong> checkbox defines if a pickup point address should be used for tax calculation when the pickup point is chosen.</li>
+<li>Select the <strong>Prices include tax</strong> checkbox to indicate whether entered prices include tax.</li>
+</ul>
+<p>Then define the <strong>default tax address (used for tax calculation)</strong> as follows:</p>
+<ul>
+<li>Select the <strong>Country</strong>.</li>
+<li>Select the <strong>State/province</strong>.</li>
+<li>Define the <strong>County/region</strong>.</li>
+<li>Define the <strong>City</strong>.</li>
+<li>Define the <strong>Address 1</strong>.</li>
+<li>Enter <strong>Zip/postal code</strong>.</li>
+</ul>
+<p>In the <strong>Tax displaying</strong> panel you can set up how tax will be displayed for customers:</p>
+<ul>
+<li>Select the <strong>Allow customers to select tax display type</strong> checkbox to indicate whether customers are allowed to select the tax display type. When cleared the <strong>Tax display type</strong> dropdown list is displayed:
+<ul>
+<li><strong>Excluding tax</strong>: select to enforce excluding tax.</li>
+<li><strong>Including tax</strong>: select to enforce including tax.</li>
+</ul>
+</li>
+<li>Select the <strong>Display tax suffix</strong> checkbox to display the tax suffix (incl. tax\excl. tax).</li>
+<li>Select the <strong>Display all applied tax rates</strong> checkbox to display all applied tax rates on a separate line in the shopping cart page.</li>
+<li>Select the <strong>Hide zero tax</strong> checkbox to hide the zero tax value in the order summary.</li>
+<li>Select the <strong>Hide tax in order summary</strong> checkbox to hide the tax value in the order summary when prices are shown as tax inclusive.</li>
+<li>Select the <strong>Force tax exclusion from order subtotal</strong> checkbox to always exclude tax from the order subtotal (irrelevant to the selected tax display type). This checkbox affects only pages where the order totals are displayed.</li>
+</ul>
+<p>In the <em>Shipping</em> panel, select the <strong>Shipping is taxable</strong> checkbox to indicate that the shipping is taxable. The following fields are then displayed:</p>
+<ul>
+<li><strong>Shipping price includes tax</strong>: select to indicate the shipping price includes tax.</li>
+<li><strong>Shipping tax category</strong>: select the required tax category used for the shipping tax calculation.</li>
+</ul>
+<p>In the <em>Payment</em> panel, select the <strong>Payment method additional fee is taxable</strong> checkbox to indicate the payment method additional fee is taxable. The following options will be displayed:</p>
+<ul>
+<li><strong>Payment method additional fee includes tax</strong>: select to indicate that the payment method additional fee is taxable.</li>
+<li><strong>Payment method additional fee tax category</strong>: from the dropdown list, select the required tax category used for the payment method additional fee tax calculation.</li>
+</ul>
+<p>Then set up the VAT in the <em>VAT</em> panel:</p>
+<ul>
+<li>Select the <strong>EU VAT enabled</strong> checkbox to indicate that European Union Value Added Tax is enabled. When this option is selected, customers will be requested for the <em>Company VAT number</em> during registration or on the customer account details page. This VAT number can be automatically validated through a web service, if the <strong>Use web service</strong> checkbox is ticked, or manually on the customer details page in the administration area by the store owner.</li>
+<li><strong>EU VAT enabled for guests</strong>  - Check to enable EU VAT (the European Union Value Added Tax) for guest customers. They will have to enter it during the checkout at the billing address step.</li>
+<li><strong>VAT number required</strong> - Check if 'EU VAT number' is required.</li>
+<li><strong>Your shop country</strong>: from the dropdown list, select the country where your store is located.</li>
+<li><strong>Allow VAT exemption</strong>: select this checkbox to exempt eligible VAT registered customers from VAT.</li>
+<li><strong>Assume VAT always valid</strong>: select this checkbox to skip VAT validation. Entered VAT numbers will always be valid. It is the client's responsibility to provide the current VAT number.</li>
+<li><strong>Use web service</strong>: select this checkbox to use the web service to validate VAT numbers.</li>
+<li><strong>Notify admin when a new VAT number is submitted</strong>: select this checkbox to receive a notification by email when a new VAT number is submitted.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If VAT is enabled, then it charges 0% tax to shipping outside the EU and 0% to those who have supplied a validated and approved VAT number and are shipping within the EU but outside the shop country. Refer to the article for further information on the EU VAT.</p>
+</div>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Read how to set up the EU VAT here: <a class="xref" href="index.html#eu-vat-configuration-guide">EU VAT configuration guide</a>.</p>
+</div>
+<p>Click <strong>Save</strong>.</p>
+<h2 id="tutorials">Tutorials</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=8iF5nQvIoLs&amp;feature=youtu.be">Managing tax settings</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/getting-started/configure-taxes/tax-settings.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

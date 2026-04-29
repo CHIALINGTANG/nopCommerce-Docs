@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Architecture of nopCommerce </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Architecture of nopCommerce ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/developer/tutorials/architecture-of-nopCommerce">
+<h1 id="architecture-of-nopcommerce">Architecture of nopCommerce</h1>
+
+<h2 id="introduction">Introduction</h2>
+<p>nopCommerce is a highly customizable and flexible, multi-store, multi-vendor, SEO friendly, full-featured open-source E-Commerce solution. Which is built on top of Microsoft <code>ASP.NET Core</code> framework. nopCommerce is always up to date with the latest technology and follows best practices.</p>
+<h2 id="overview">Overview</h2>
+<p>This document provides a comprehensive architectural overview of the nopCommerce system. This documentation is targeted at new nopCommerce developers. In this documentation, we will be exploring each project in nopCommerce solution, dependencies between those projects, etc.</p>
+<h2 id="overview-of-nopcommerce-architecture">Overview of nopCommerce Architecture</h2>
+<p>nopCommerce is one of the most popular and successful <code>Dot NET based</code> open-source <code>E-Commerce</code> solutions. The success of nopCommerce is not only because it contains most of the features required by a modern E-Commerce solution, out of the box and its UI is highly customizable and User friendly, but also because the nopCommerce solution is equally organized and developer-friendly. The main strength of nopCommerce is its flexible, extendable architecture and well-organized source code. The nopCommerce architecture is very close to the onion architecture. Which is mainly focused on controlling the code coupling. According to this architecture, all code can depend on layers more central, but code cannot depend on layers further out from the core. In other words, all coupling is toward the center.</p>
+<p><img src="_static/architecture-of-nopCommerce/nopCommerceArchitecture.png" alt="nopCommerceArchitecturalDiagram"></p>
+<p>This means projects can only have a dependency on the other projects that reside inward from the current project. For example, if you see the above diagram <code>Nop.Data</code> project can depend on the <code>Nop.Core</code> project and can have <code>Nop.Core</code> as a dependency, but <code>Nop.Core</code> cannot depend on <code>Nop.Data</code> similarly <code>Nop.Services</code> can have <code>Nop.Data</code> and <code>Nop.Core</code> as it's dependencies but neither <code>Nop.Core</code> nor <code>Nop.Data</code> can have <code>Nop.Service</code> as their dependency. This means projects can only have another project as a dependency only if it resides inward or more center from the layer the current project resides. Which is the key to code decoupling. The main advantage of this approach/architecture is that, now if we want to test the Application Core then we can do so even if we do not have any <code>UI</code> for our application. Because the Application core does not depend on <code>UI layer</code>. Or we can change our <code>UI framework</code> from <code>Razor</code> view engine and <code>JQuery</code> to <code>Angular</code> or <code>React</code> or <code>Vue</code> without affecting our Application Core and can use the same core to build Mobile Applications or Desktop Applications. All of this without changing a bit of code in our Application Core.</p>
+<h2 id="projects-in-nopcommerce-solution">Projects in nopCommerce Solution</h2>
+<h3 id="application-core">Application Core</h3>
+<p>This is the innermost layer in the nopCommerce architecture. It is the core of the application. All the data access logic and business logic classes reside inside this layer. In the nopCommerce solution, we can find all of the projects for this layer inside the &quot;Libraries&quot; directory. This layer contains three projects.</p>
+<h4 id="nopcore">Nop.Core</h4>
+<p>This project contains a set of core classes for nopCommerce. This project is at the center of the architecture and does not have any dependencies on other projects in the solution. This project contains core classes that are shared with the entire solution like Domain Entities, Caching, Events, and other Helper classes.</p>
+<h4 id="nopdata">Nop.Data</h4>
+<p>The <code>Nop.Data</code> project depends on the <code>Nop.Core</code> project, which is in the middle of the architecture. It does not depend on any other project in the solution. The <code>Nop.Data</code> project has classes and functions for reading and writing to a database or other data store. It separates data-access logic from business objects.</p>
+<h4 id="nopservices">Nop.Services</h4>
+<p>The <code>Nop.Services</code> project is the outermost layer of the Application Core in nopCommerce architecture. It depends on the other two projects in the Application Core. It has core services, business logic, validations, and calculations for the data. Some people call it the Business Access Layer (BAL) or Business Logic Layer (BLL). It serves as the facade for all the other layers. It has service classes and uses a repository pattern to expose its features and functionalities. This approach decouples the core from the other layer outside the core. It also prevents or reduces code changes in the other layers if the logic for the Application Core changes. This approach is ideal for dependency injection.</p>
+<h3 id="ui-layer">UI Layer</h3>
+<p>This layer resides outside the &quot;Application Core&quot;. In the nopCommerce solution, we can find all of the projects for this layer inside the &quot;Presentation&quot; directory. All the presentation logic and UI resides in this layer. This is the layer where the UI which users can interact with, presents. In nopCommerce, this layer breaks into two other layers.</p>
+<h4 id="nopwebframework">Nop.Web.Framework</h4>
+<p>The <code>Nop.Web.Framework</code> project is the inner layer of the Presentation layer and depends on the Application Core layer. It is a class library project that serves as a framework for the Presentation layer. It has shared logic for both the nopCommerce public website and the admin panel.</p>
+<h4 id="nopweb">Nop.Web</h4>
+<p>The <code>Nop.Web</code> project is the outermost layer of the Presentation layer in nopCommerce architecture. It has the E-Commerce front-end website user interface that users can interact with. It is an ASP.NET Core application that depends on <code>Nop.Web.Framework</code> and the Application Core. It uses <code>Nop.Web.Framework</code> for the shared logic between this and the Admin panel. It uses the Application Core for data access and manipulation.</p>
+<h4 id="admin">Admin</h4>
+<p>In nopCommerce, it belongs in the same layer as the <code>Nop.Web</code> project. This lives inside the <code>Nop.Web</code> project as an area. It is also a UI(User Interface), but this part of the Presentation contains UI for the Admin panel. Admin panel is where all the contents for a public website are maintained and from where we can monitor the activities of our public website. A public website can be accessed without any restriction but the &quot;Admin panel&quot; requires some Authentication and Authorization to access it since it contains information that only the site admin has the right to access.</p>
+<h3 id="test-layer">Test Layer</h3>
+<p>This layer resides in the same layer as the &quot;Presentation Layer&quot;, right outside the &quot;Application Core&quot; This layer is all about testing the different parts of the application. Testing in nopCommerce is easy and more reliable due to the architecture it follows for its system design. In the nopCommerce solution, we can find all of the projects for this layer inside the &quot;Tests&quot; directory. nopCommerce uses <strong>NUnit</strong> testing framework for <em>Unit Testing</em>.</p>
+<h4 id="noptests">Nop.Tests</h4>
+<p>This layer is the inner layer of the &quot;Test layer&quot; and has a dependency on the &quot;Application Core&quot; layer. This project contains the core logic for testing.</p>
+<h4 id="nopcoretests">Nop.Core.Tests</h4>
+<p>These tests are built for <em>Unit Testing</em> the <code>Nop.Core</code> project, it tests for cashing, domain entities, and so on.</p>
+<h4 id="nopdatatests">Nop.Data.Tests</h4>
+<p>These tests are created for <em>Unit Testing</em> the <code>Nop.Data</code> project, they test the work of various data providers with operations on an entity, such as insert delete, etc.</p>
+<h4 id="nopservicestests">Nop.Services.Tests</h4>
+<p>These tests are built for <em>Unit Testing</em> the <code>Nop.Service</code> project. It contains logic to test every service class for every operation.</p>
+<h4 id="nopwebtests">Nop.Web.Tests</h4>
+<p>These tests can be used to test the Presentation layer of the nopCommerce, which contains &quot;Public website&quot; and &quot;Admin Panel&quot;.</p>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/developer/tutorials/architecture-of-nopCommerce.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

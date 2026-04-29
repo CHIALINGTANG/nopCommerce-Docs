@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>自動內容翻譯 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="自動內容翻譯 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/getting-started/advanced-configuration/translation">
+<h1 id="自動內容翻譯">自動內容翻譯</h1>
+
+<h2 id="概覽">概覽</h2>
+<p>此功能將自動翻譯能力整合至核心應用程式中，讓商店管理員能夠使用兩大主流機器翻譯平台：<strong>DeepL</strong> 與 <strong>Google Translate</strong>，將網站內容翻譯成多種語言。</p>
+<p>目前，自動翻譯功能支援以下實體：</p>
+<ul>
+<li>分類</li>
+<li>製造商</li>
+<li>商品</li>
+<li>商品屬性</li>
+<li>規格屬性</li>
+</ul>
+<h2 id="設定">設定</h2>
+<p>此功能的所有設定皆位於 <strong>一般設定</strong> 頁面中的 <strong>翻譯</strong> 區塊。</p>
+<p><img src="_static/translation/settings.png" alt="Translation"></p>
+<p>關鍵設定選項包括：</p>
+<ul>
+<li><strong>允許預先翻譯 (Allow to pre-translate)</strong>：用來開啟或關閉整個翻譯功能的總開關。</li>
+<li><strong>翻譯來源語言 (Translate from the language)</strong>：在「標準」索引標籤中，您可以指定一個預設語言，作為所有翻譯的生成來源。</li>
+<li><strong>忽略的語言 (Languages to ignore)</strong>：排除在自動翻譯流程之外的語言列表。</li>
+<li><strong>翻譯服務 (Translation service)</strong>：用來選擇所要使用的翻譯服務（DeepL 或 Google Translate）的下拉式選單。
+<ul>
+<li><strong>DeepL</strong>：需要 <strong>Auth key</strong>。</li>
+<li><strong>Google Translate</strong>：需要 <strong>API key</strong>。</li>
+</ul>
+</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>系統不會自動覆寫已手動儲存內容的欄位。</p>
+</div>
+<h2 id="使用方式">使用方式</h2>
+<p>一旦啟用該功能，使用方式非常直接。在所有支援實體的編輯頁面中，主要按鈕區塊會出現一個新按鈕。例如，在商品編輯頁面上，它看起來如下：</p>
+<p><img src="_static/translation/pretranslate.png" alt="Translation"></p>
+<ol>
+<li><p>點擊 <strong>&quot;Pre-translate&quot;</strong> 按鈕。</p>
+</li>
+<li><p>若翻譯成功，將會出現確認訊息，其他語言的在地化欄位將會填入翻譯後的文字。</p>
+<p><img src="_static/translation/translate.png" alt="Translation"></p>
+</li>
+<li><p>若翻譯過程中發生錯誤，將會顯示警告訊息。</p>
+<p><img src="_static/translation/error.png" alt="Translation"></p>
+</li>
+</ol>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>請務必注意，此功能的作用為 <strong>預先翻譯</strong> 工具。翻譯後的內容會填入欄位中，但 <strong>不會自動儲存</strong>。這讓使用者擁有完全的控制權，能在手動儲存變更前，審閱、編輯或捨棄這些翻譯內容。</p>
+</div>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/getting-started/advanced-configuration/translation.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

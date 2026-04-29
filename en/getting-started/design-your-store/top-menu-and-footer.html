@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Top menu &amp; footer </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Top menu &amp; footer ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/getting-started/design-your-store/top-menu-and-footer">
+<h1 id="top-menu--footer">Top menu &amp; footer</h1>
+
+<div class="WARNING">
+<h5>Warning</h5>
+<p>This article is relevant for nopCommerce versions 4.80 and below. The new menu generation method, available starting with nopCommerce 4.90, is described in article <a class="xref" href="../../running-your-store/content-management/menu.html">Menu</a>.</p>
+</div>
+<p>In nopCommerce, you can choose how the top menu and footer will be displayed. You can include the most important and interesting links in the top menu to attract more customers and add service links to the footer to provide the current store information to your clients.</p>
+<h2 id="top-menu">Top menu</h2>
+<p>In the Default Clean theme, the top menu looks as follows:
+<img src="_static/top-menu-and-footer/top-menu.jpg" alt="Default Clean theme top menu"></p>
+<p>As you can see, it displays the store categories. Please note, if you want a category to be displayed in the top menu you should select the <strong>Include in top menu</strong> checkbox on the category edit page. For more details, read below.</p>
+<p>You can include the following items in the top menu:</p>
+<ul>
+<li>Categories</li>
+<li>Custom topics (pages)</li>
+<li>Links to the site's sections</li>
+</ul>
+<p>See below how to add each of these items.</p>
+<h3 id="categories">Categories</h3>
+<p>To include a category in the top menu, go to the category edit page in the admin area: choose <strong>Catalog → Categories</strong>. Then click the <strong>Edit</strong> button beside the category. The <em>Edit category details</em> window will be displayed:</p>
+<p><img src="_static/top-menu-and-footer/category-details.jpg" alt="Edit category details"></p>
+<p>Select the <strong>Include in top menu</strong> checkbox and click <strong>Save</strong>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If this category is a subcategory, then ensure that its parent category has this property enabled as well.</p>
+</div>
+<h3 id="custom-topics-pages">Custom topics (pages)</h3>
+<p>To include a topic in the top menu, go to the topic edit page in the admin area: choose <strong>Content management → Topics (pages)</strong>. Then click the <strong>Edit</strong> button beside the topic. The <em>Edit topic details</em> window will be displayed:</p>
+<p><img src="_static/top-menu-and-footer/topic-details-top-menu.jpg" alt="Edit topic details"></p>
+<p>Select the <strong>Include in top menu</strong> checkbox and click <strong>Save</strong>.</p>
+<h3 id="links-to-the-sites-sections">Links to the site's sections</h3>
+<p>To include some of the site's sections in the top menu, go to <strong>Configuration → Settings → General settings</strong>. Proceed to the <em>Top menu items</em> panel:</p>
+<p><img src="_static/top-menu-and-footer/general-settings-top-menu.jpg" alt="Top menu settings"></p>
+<p>Choose the items you want to be displayed in the top menu from the following list:</p>
+<ul>
+<li><strong>Display &quot;Home page&quot;</strong></li>
+<li><strong>Display &quot;New products&quot;</strong></li>
+<li><strong>Display &quot;Search&quot;</strong></li>
+<li><strong>Display &quot;My account&quot;</strong></li>
+<li><strong>Display &quot;Blog&quot;</strong></li>
+<li><strong>Display &quot;Forums&quot;</strong></li>
+<li><strong>Display &quot;Contact us&quot;</strong></li>
+</ul>
+<p>Then click <strong>Save</strong>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The &quot;New products&quot; menu item will only be displayed when the &quot;New products&quot; page is enabled on the <strong>Configuration → Settings → Catalog settings</strong> page (<em>Additional sections</em> panel).</p>
+</div>
+<h2 id="footer">Footer</h2>
+<p>In the Default Clean theme, the footer looks as follows:
+<img src="_static/top-menu-and-footer/footer.jpg" alt="Default Clean theme footer"></p>
+<p>By default, it displays site section links grouped by three types: <em>Information, Customer service, My account</em>. You can remove any of the displayed links or add new ones.</p>
+<p>You can include the following items in the footer:</p>
+<ul>
+<li>Custom topics (pages)</li>
+<li>Links to the site's sections</li>
+</ul>
+<p>See below how to add each of these items.</p>
+<h3 id="custom-topics">Custom topics</h3>
+<p>To include a topic in the footer, go to the topic edit page in the admin area: choose <strong>Content management → Topics (pages)</strong>. Then click the <strong>Edit</strong> button beside the topic. The <em>Edit topic details</em> window will be displayed:</p>
+<p><img src="_static/top-menu-and-footer/topic-details-footer.jpg" alt="Edit topic details"></p>
+<p>Choose where you want the topic link to be displayed. You can select one or more checkboxes:</p>
+<ul>
+<li><strong>Include in footer (column 1)</strong></li>
+<li><strong>Include in footer (column 2)</strong></li>
+<li><strong>Include in footer (column 3)</strong></li>
+</ul>
+<p>For example, if you choose <strong>Include in footer (column 1)</strong>, then the link will be displayed in the <em>Information</em> column.</p>
+<p>Click <strong>Save</strong> to save the changes.</p>
+<h3 id="link-to-the-sites-sections">Link to the site's sections</h3>
+<p>To include some of the site's sections in the footer, go to <strong>Configuration → Settings → General settings</strong>. Proceed to the <em>Footer items</em> panel:</p>
+<p><img src="_static/top-menu-and-footer/general-settings-footer.jpg" alt="Footer settings"></p>
+<p>Choose the items you want to be displayed in the footer from the following list:</p>
+<ul>
+<li><strong>Display &quot;Sitemap&quot;</strong></li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The &quot;Sitemap&quot; menu item will only be displayed when the <strong>Sitemap enabled</strong> checkbox is selected on the <strong>Configuration → Settings → General settings</strong> page (<em>Sitemap</em> panel).</p>
+</div>
+<ul>
+<li><strong>Display &quot;Contact us&quot;</strong></li>
+<li><strong>Display &quot;Search&quot;</strong></li>
+<li><strong>Display &quot;News&quot;</strong></li>
+<li><strong>Display &quot;Blog&quot;</strong></li>
+<li><strong>Display &quot;Forums&quot;</strong></li>
+<li><strong>Display &quot;Recently viewed products&quot;</strong></li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The &quot;Recently viewed products&quot; menu item will only be displayed when the &quot;Recently viewed products&quot; page is enabled on the <strong>Configuration → Settings → Catalog settings</strong> page (<em>Additional sections</em> panel).</p>
+</div>
+<ul>
+<li><strong>Display &quot;Compare products list&quot;</strong></li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The &quot;Compare products list&quot; menu item will only be displayed when the &quot;Compare products&quot; functionality is enabled on the <strong>Configuration → Settings → Catalog settings</strong> page (<em>Compare products</em> panel).</p>
+</div>
+<ul>
+<li><strong>Display &quot;New products&quot;</strong></li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The &quot;New products&quot; menu item will only be displayed when the &quot;New products&quot; page is enabled on the <strong>Configuration → Settings → Catalog settings</strong> page (<em>Additional sections</em> panel).</p>
+</div>
+<ul>
+<li><strong>Display &quot;My account&quot;</strong></li>
+<li><strong>Display &quot;Orders&quot;</strong></li>
+<li><strong>Display &quot;Addresses&quot;</strong></li>
+<li><strong>Display &quot;Shopping cart&quot;</strong></li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The &quot;Shopping cart&quot; menu item will only be displayed to a certain customer when the &quot;Public store. Enable shopping cart&quot; permission is enabled for the customer's role. To manage permissions, go to the <strong>Configuration → Access control list</strong> page. Or read more about permissions in the <a class="xref" href="../../running-your-store/customer-management/access-control-list.html">Access control list</a> section.</p>
+</div>
+<ul>
+<li><strong>Display &quot;Wishlist&quot;</strong></li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The &quot;Wishlist&quot; menu item will only be displayed to a certain customer when the &quot;Public store. Enable wishlist&quot; permission is enabled for the customer's role. To manage permissions, go to the <strong>Configuration → Access control list</strong> page. Or read more about permissions in the <a class="xref" href="../../running-your-store/customer-management/access-control-list.html">Access control list</a> section.</p>
+</div>
+<ul>
+<li><strong>Display &quot;Apply for vendor account&quot;</strong></li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The &quot;Apply for vendor account&quot; menu item will only be displayed when the <strong>Allow customers to apply for vendor account</strong> checkbox is selected on the <strong>Configuration → Settings → Vendor settings</strong> page (<em>Common</em> panel).</p>
+</div>
+<p>Click <strong>Save</strong> to save the changes.</p>
+<h3 id="follow-us">Follow us</h3>
+<p>To customize the <strong>Follow us</strong> block of the footer, go to <strong>Configuration → Settings → General settings</strong>. Proceed to the <em>Social media</em> panel as follows:</p>
+<p><img src="_static/top-menu-and-footer/social-media-settings.jpg" alt="Social media settings"></p>
+<p>Enter your social media links:</p>
+<ul>
+<li><strong>Facebook page URL</strong></li>
+<li><strong>Twitter page URL</strong></li>
+<li><strong>YouTube channel URL</strong></li>
+<li><strong>Instagram page URL</strong></li>
+</ul>
+<p>If you want to enable/disable the RSS link in the footer, you need to enable/disable news accordingly on the <strong>Configuration → Settings → News settings</strong> page (<em>Common</em> panel).</p>
+<h3 id="newsletter">Newsletter</h3>
+<p>The newsletter block is displayed in the footer by default. To hide this block go to <strong>Configuration → Settings → Customer settings</strong>. Proceed to the <em>Account</em> panel and select the <strong>Hide newsletter box</strong> checkbox as follows:</p>
+<p><img src="_static/top-menu-and-footer/newsletter-settings.jpg" alt="Newsletter box settings"></p>
+<p>Click <strong>Save</strong> to save the changes. The footer will be updated accordingly.</p>
+<h3 id="powered-by-nopcommerce">Powered by nopCommerce</h3>
+<p>According to the terms of the nopCommerce license, without purchasing the <em>Copyright removal key</em>:</p>
+<ul>
+<li>You may NOT remove or hide the &quot;Powered by nopCommerce&quot; statement that appears at the bottom of each page within a nopCommerce-powered website</li>
+<li>When users click on the &quot;powered by nopCommerce&quot; text it must direct them to <a href="https://www.nopcommerce.com">https://www.nopcommerce.com</a>. The &quot;Powered by nopCommerce&quot; link must be in the same format, unedited, as delivered in the program source code. This obligation shall also apply to any copies or derivative works!</li>
+<li>The copyright notice at the footer of your store (website) must remain intact, unedited and clearly visible. Please do NOT attempt to edit, remove or hide the copyright notice in any way.</li>
+</ul>
+<p>Upon purchase of a &quot;copyright removal key,&quot; you are permitted to remove the &quot;Powered by nopCommerce&quot; statement.
+Copyright infringement is illegal — please be advised.</p>
+<p>For more information please visit the <a href="https://nopcommerce.com/nopcommerce-copyright-removal-key?utm_source=documentation&amp;utm_medium=link&amp;utm_campaign=powered_by_nopcommerce&amp;utm_content=topmenu_footer">nopCommerce copyright removal key</a> page.</p>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/getting-started/design-your-store/top-menu-and-footer.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

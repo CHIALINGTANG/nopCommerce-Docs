@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Reports </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Reports ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="preload" href="../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+  
+  <meta property="docfx:rel" content="../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/running-your-store/reports">
+<h1 id="reports">Reports</h1>
+
+<p>Reports are important for management; they allow for monitoring store's performance, tracking key metrics, and supporting decision-making. nopCommerce reports provide access to sales and customer information.</p>
+<h2 id="dashboard">Dashboard</h2>
+<p>The dashboard is the first page you see when accessing the admin area. It enables you to view your store statistics, including the total number of orders processed over the chosen period (year, month, week), registered customers, low-stock products, and the most popular products in your store.</p>
+<p><img src="_static/reports/dashboard.png" alt="Dashboard"></p>
+<p>The dashboard consists of several blocks:</p>
+<h3 id="nopcommerce-news">nopCommerce news</h3>
+<p>Displays general nopCommerce news like new version releases.
+<img src="_static/reports/news.png" alt="News"></p>
+<h3 id="common-statistics">Common statistics</h3>
+<p><img src="_static/reports/common.png" alt="Common"></p>
+<p>Here, you can find links to more detailed reports:</p>
+<ul>
+<li>Sales → Orders</li>
+<li>Sales → Return requests</li>
+<li>Customers → Registered customers</li>
+<li>Reports → Low stock</li>
+</ul>
+<h3 id="orders">Orders</h3>
+<p>This diagram shows the number of orders processed in the last week, month, year.
+<img src="_static/reports/orders.jpg" alt="Orders"></p>
+<h3 id="new-customers">New customers</h3>
+<p>This diagram shows the number of customers registered in the last week, month, year.
+<img src="_static/reports/customers.jpg" alt="New customers"></p>
+<h3 id="order-totals">Order totals</h3>
+<p>This section shows the total of orders processed in the last day, week, month, year. Orders are shown by order status.
+<img src="_static/reports/order-totals.png" alt="Order totals"></p>
+<h3 id="incomplete-orders">Incomplete orders</h3>
+<p>This section shows the number of orders that are currently incomplete.
+<img src="_static/reports/order-incomplete.png" alt="Orders incomplete"></p>
+<h3 id="latest-orders">Latest orders</h3>
+<p>The Latest orders section shows you the latest placed orders.
+<img src="_static/reports/order-latest.png" alt="Latest orders"></p>
+<h3 id="popular-search-keywords">Popular search keywords</h3>
+<p>This block displays the most used keywords.</p>
+<p><img src="_static/reports/keywords.png" alt="Keywords"></p>
+<h3 id="bestsellers-reports">Bestsellers reports</h3>
+<p>This section displays the bestsellers by quantity and by amount.
+<img src="_static/reports/bestsellers.png" alt="Bestsellers"></p>
+<h2 id="sales-summary">Sales summary</h2>
+<p>This report represents the total orders summary. To generate a report, you can use the following filters:</p>
+<ul>
+<li><strong>Start date</strong> for the search.</li>
+<li><strong>End date</strong> for the search.</li>
+<li><strong>Order status</strong> to search by a specific order status, for example, &quot;Complete.&quot;</li>
+<li><strong>Payment status</strong> to search by a specific payment status, for example, &quot;Paid.&quot;</li>
+<li><strong>Category</strong> to search in a specific category.</li>
+<li><strong>Manufacturer</strong> to search by a specific manufacturer.</li>
+<li><strong>Billing country</strong> to filter by order billing country.</li>
+<li><strong>Vendor</strong> to search by a specific vendor.</li>
+<li><strong>Product</strong> to search by a specific product.</li>
+<li><strong>Group by</strong> for grouping by time periods. When this option is set to &quot;Day,&quot; it will display a list of dates for a selected period (start/end date). For example, &quot;Nov 8th, 2020,&quot; &quot;Nov 7th, 2020,&quot; etc. When it is set to &quot;Week&quot;, it will display a list of weeks (for example, &quot;December 7th, 2020 - December 12th, 2020,&quot; etc.). When it is set to &quot;Month&quot;, it will display a list of months (for example, &quot;December 2020,&quot; &quot;November 2020,&quot; etc.).</li>
+</ul>
+<p>Then click <strong>Run report</strong>.</p>
+<p><img src="_static/reports/sales-summary.jpg" alt="Sales summary"></p>
+<h2 id="low-stock-report">Low stock report</h2>
+<p>A low stock report contains a list of products currently under stock. In the example shown below, the min stock quantity was set to 20, and the stock quantity is 0; therefore a low stock report is generated for this product. You can set up low stock settings when adding the product.</p>
+<p>To view low stock reports, go to <strong>Reports → Low stock</strong>. The <em>Low stock</em> report window will be displayed as follows:
+<img src="_static/reports/low-stock-reports.png" alt="Low stock report"></p>
+<p>The low stock reports can be filtered by the <strong>Published</strong> property, which represents the <em>Published</em> property of products.</p>
+<p>In the displayed table, click <strong>View</strong> to view the product details page where the stock quantity can be updated.</p>
+<h2 id="bestsellers-and-never-purchased">Bestsellers and never purchased</h2>
+<p>Knowing the best-selling products and products never purchased is essential for any shop owner.</p>
+<p>First of all, this can help in making better purchasing decisions: you can scale up on your popular items and exclude unpopular ones from your product list. When analyzing, consider, for example, whether certain colors sell faster or whether your product sales depend on a season.</p>
+<p>Secondly, defining most and least selling goods can help you <em>re-evaluate product design and marketing</em>. Maybe your best items go faster just because of their placement in your webstore or better description. Come up with various options and test them. To do it more effectively, engage with your customers. <em>Conduct various surveys</em> to find out why the best-selling items are preferred, what makes them special for your buyers. Use the insights to improve your marketing and increase sales.</p>
+<h3 id="bestsellers">Bestsellers</h3>
+<p>To view bestsellers in nopCommerce, go to <strong>Reports → Bestsellers</strong>. Enter one or more of the following search criteria to run the report:</p>
+<ul>
+<li><strong>Start date</strong> and/or <strong>End date</strong>.</li>
+<li><strong>Store</strong> if you want to select one of your stores.</li>
+<li><strong>Order status</strong>, such as <em>All</em>, <em>Pending</em>, <em>Processing</em>, <em>Complete</em> or <em>Cancelled</em>.</li>
+<li><strong>Payment status</strong>, such as <em>All</em>, <em>Pending</em>, <em>Authorized</em>, <em>Paid</em>, <em>Refunded</em>, <em>Partially refunded</em> or <em>Voided</em>.</li>
+<li>Choose the <strong>Category</strong>.</li>
+<li>Choose the <strong>Manufacturer</strong>.</li>
+<li>Choose the <strong>Billing country</strong>.</li>
+<li>Choose the <strong>Vendor</strong>.</li>
+</ul>
+<p>Then click <strong>Run report</strong>.</p>
+<p>The report will break down your best-selling products based on both units sold and revenue:</p>
+<p><img src="_static/reports/bestsellers.jpeg" alt="Bestsellers"></p>
+<h3 id="products-never-purchased">Products never purchased</h3>
+<p>To view products never purchased, go to <strong>Reports → Products never purchased</strong>. Enter one or more of the following search criteria to run the report:</p>
+<ul>
+<li>Choose the <strong>Category</strong>.</li>
+<li>Choose the <strong>Manufacturer</strong>.</li>
+<li><strong>Store</strong> if you want to select one of your stores.</li>
+<li>Choose the <strong>Vendor</strong>.</li>
+<li><strong>Start date</strong> and/or <strong>End date</strong>.</li>
+</ul>
+<p>Then click <strong>Run report</strong>.</p>
+<p><img src="_static/reports/never-purchased.jpg" alt="Products never purchased"></p>
+<h2 id="country-sales">Country sales</h2>
+<p>A country report contains a list of orders that includes the number of orders and the total order sum in each country. This enables store owners to view the orders per country.</p>
+<p>To view a country sales report, go to <strong>Reports → Country sales</strong>.</p>
+<p><img src="_static/reports/country-report.png" alt="Country sales"></p>
+<p>To set up the report, enter one or more of the following search criteria:</p>
+<ul>
+<li><strong>Start date</strong> for the search.</li>
+<li><strong>End date</strong> for the search.</li>
+<li><strong>Order status</strong>, such as <em>All</em>, <em>Pending</em>, <em>Processing</em>, <em>Complete</em> or <em>Cancelled</em>.</li>
+<li><strong>Payment status</strong>, such as <em>All</em>, <em>Pending</em>, <em>Authorized</em>, <em>Paid</em>, <em>Refunded</em>, <em>Partially refunded</em> or <em>Voided</em>.</li>
+<li><strong>Store</strong> if you want to select one of your stores.</li>
+</ul>
+<p>Then click <strong>Run report</strong>.</p>
+<h2 id="customer-reports">Customer reports</h2>
+<p>Customer reports give a store owner general information about registered customers and their orders. You can find various reports in the <strong>Reports → Customer reports</strong> menu.</p>
+<h3 id="registered-customers">Registered customers</h3>
+<p>To run this report, go to <strong>Reports → Customer reports → Registered customers</strong>.
+This report displays the number of registered customers for a certain period.
+You can track the number of users registered within the last day, week, two weeks, month, and year.</p>
+<p><img src="_static/reports/customer-registered.png" alt="Registered customers"></p>
+<h3 id="customers-by-order-total">Customers by order total</h3>
+<p>To run this report, go to <strong>Reports → Customer reports → Customers by order total</strong>.
+In this report, you can see the order totals spent and number of orders made by customers.</p>
+<p><img src="_static/reports/Customers-by-order-total.png" alt="Customers by order total"></p>
+<p>Enter one or several search criteria to compile a report:</p>
+<ul>
+<li>Registration <strong>Start date</strong>.</li>
+<li>Registration <strong>End date</strong>.</li>
+<li><strong>Order status</strong>, such as <em>All</em>, <em>Pending</em>, <em>Processing</em>, <em>Complete</em> or <em>Cancelled</em>.</li>
+<li><strong>Payment status</strong>, such as <em>All</em>, <em>Pending</em>, <em>Authorized</em>, <em>Paid</em>, <em>Refunded</em>, <em>Partially refunded</em> or <em>Voided</em>.</li>
+<li><strong>Shipping Status</strong>, such as <em>All</em>, <em>Shipping not required</em>, <em>Not yet shipped</em>, <em>Partially shipped</em>, <em>Shipped</em>, <em>Delivered</em>.</li>
+</ul>
+<p>Then click <strong>Run report</strong>.</p>
+<h3 id="customers-by-number-of-orders">Customers by number of orders</h3>
+<p>To run this report, go to <strong>Reports → Customer reports → Customers by number of orders</strong>.
+This report displays the top 20 customers based on the total number of orders issued.</p>
+<p><img src="_static/reports/Customers-by-number-of-orders.png" alt="Customers by number of orders"></p>
+<p>Enter one or several search criteria to compile a report:</p>
+<ul>
+<li>Registration <strong>Start date</strong>.</li>
+<li>Registration <strong>End date</strong>.</li>
+<li><strong>Order status</strong>, such as <em>All</em>, <em>Pending</em>, <em>Processing</em>, <em>Complete</em> or <em>Cancelled</em>.</li>
+<li><strong>Payment status</strong>, such as <em>All</em>, <em>Pending</em>, <em>Authorized</em>, <em>Paid</em>, <em>Refunded</em>, <em>Partially refunded</em> or <em>Voided</em>.</li>
+<li><strong>Shipping Status</strong>, such as <em>All</em>, <em>Shipping not required</em>, <em>Not yet shipped</em>, <em>Partially shipped</em>, <em>Shipped</em>, <em>Delivered</em>.</li>
+</ul>
+<p>Then click <strong>Run report</strong>.</p>
+<h2 id="tutorials">Tutorials</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=IbfoppTG9tM">Running reports in nopCommerce</a></li>
+</ul>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="reports/microsoft-power-bi.html">Microsoft Power BI</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/running-your-store/reports.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

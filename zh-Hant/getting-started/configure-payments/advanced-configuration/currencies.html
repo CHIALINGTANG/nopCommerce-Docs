@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>貨幣 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="貨幣 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="preload" href="../../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/getting-started/configure-payments/advanced-configuration/currencies">
+<h1 id="貨幣">貨幣</h1>
+
+<p>在 nopCommerce 中，<strong>僅使用一個主要商店貨幣</strong>。主要商店貨幣是用於設定所有其他允許貨幣的基準貨幣。儘管 nopCommerce 允許使用多種貨幣來顯示您的商品價格，但主要貨幣會用於與線上付款閘道的交易。</p>
+<p>如果您正在使用線上付款閘道（例如 PayPal），金額將會發送至該付款閘道，且金額會是您以主要商店貨幣輸入的價格。</p>
+<p>主要商店貨幣僅供商店管理員使用。它用於設定商品價格，且不必與公開發布的貨幣相同。</p>
+<p>如果您只有一種公開發布的貨幣，商店將不會顯示貨幣選擇器，也不會在價格旁顯示貨幣符號。如果發布了超過一種貨幣，所有價格都會標記目前選擇的貨幣。nopCommerce 建議移除任何不需要的貨幣。</p>
+<p>nopCommerce 使用<strong>匯率</strong>來計算公開發布貨幣的金額。匯率是在新增或編輯貨幣時輸入的。或者，您可以使用<strong>即時匯率</strong>服務來計算金額，商品的價格將會乘以所提供的匯率。</p>
+<p>匯率每天都會波動。因此，您可以視需要隨時編輯匯率以保持最新狀態。實際交易僅會以您商店的主要貨幣進行處理。對於信用卡交易，銀行通常會根據最新的貨幣價值自動進行換算。</p>
+<p>若要定義貨幣設定，請前往 <strong>設定 → 貨幣</strong>。</p>
+<p><img src="_static/currencies/currencies1.png" alt="Currencies"></p>
+<p>從 <strong>目前匯率提供者</strong> 下拉清單中，選擇將用於獲取即時匯率的匯率提供者。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>預設情況下，nopCommerce 中僅提供一個匯率提供者 — ECB（歐洲中央銀行）。若要從 ECB 獲取即時匯率，您應該選擇 EUR 作為主要匯率貨幣。</p>
+</div>
+<p>選取 <strong>啟用自動更新</strong> 核取方塊，以啟用每小時接收自動更新匯率的功能。</p>
+<p>點擊 <strong>儲存</strong>。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>預設情況下，所有匯率每小時更新一次。您可以在 <strong>系統 → 排程工作</strong> 中變更匯率更新設定；選擇 <strong>更新貨幣匯率</strong>。</p>
+</div>
+<p><img src="_static/currencies/tasks.jpg" alt="Schedule task"></p>
+<h2 id="新增幣別">新增幣別</h2>
+<p>點擊 <strong>新增 (Add new)</strong> 按鈕。</p>
+<p><img src="_static/currencies/currencies3.png" alt="currencies3"></p>
+<p>定義幣別設定：</p>
+<ul>
+<li><p>幣別 <strong>名稱 (Name)</strong>。</p>
+</li>
+<li><p><strong>幣別代碼 (Currency code)</strong>。若要查看幣別代碼列表，請前往：<a href="https://en.wikipedia.org/wiki/ISO_4217">https://en.wikipedia.org/wiki/ISO_4217</a></p>
+</li>
+<li><p>輸入相對於主要匯率的 <strong>匯率 (Rate)</strong>。</p>
+</li>
+<li><p>從 <strong>顯示語系 (Display locale)</strong> 下拉式選單中，選擇幣別數值的顯示語系。</p>
+</li>
+<li><p>輸入要套用於幣別數值的 <strong>自訂格式 (Custom formatting)</strong>。在此欄位中，您可以指定前台商店顯示幣別時使用的任何符號、小數位數等。</p>
+</li>
+<li><p>在 <strong>限於商店 (Limited to stores)</strong> 中，從下拉式選單選擇一個預先建立的商店。若不需要此功能，請將此欄位留空。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>若要使用此功能，您必須停用下列設定：<strong>目錄設定 (Catalog settings) → 忽略「各商店限制」規則 (全站) (Ignore &quot;limit per store&quot; rules (sitewide))</strong>。閱讀更多關於多商店功能的資訊 <a class="xref" href="../../advanced-configuration/multi-store.html">here</a>。</p>
+</div>
+</li>
+<li><p>從 <strong>捨入類型 (Rounding type)</strong> 下拉式選單中，選擇下列其中一種捨入類型：</p>
+<ul>
+<li><em>預設捨入 (Default rounding)</em></li>
+<li><em>以 0.05 為間隔無條件進位 (0.06 進位至 0.10)</em></li>
+<li><em>以 0.05 為間隔無條件捨去 (0.06 捨去至 0.05)</em></li>
+<li><em>以 0.10 為間隔無條件進位 (1.05 進位至 1.10)</em></li>
+<li><em>以 0.10 為間隔無條件捨去 (1.05 捨去至 1.00)</em></li>
+<li><em>以 0.50 為間隔捨入</em></li>
+<li><em>以 1.00 為間隔捨入 (1.01–1.49 捨去至 1.00，1.50–1.99 進位至 2.00)</em></li>
+<li><em>以 1.00 為間隔無條件進位 (1.01–1.99 進位至 2.00)</em></li>
+</ul>
+</li>
+<li><p>勾選 <strong>已發佈 (Published)</strong> 核取方塊，使此幣別在您的商店中可見並供訪客選擇。nopCommerce 支援多幣別價格顯示。如果您有多個已發佈的幣別，顧客將能夠選擇他們想要的幣別。</p>
+</li>
+<li><p>在 <strong>顯示順序 (Display order)</strong> 欄位中，輸入此幣別的顯示順序。數值 1 代表列表的最上方。</p>
+</li>
+</ul>
+<p>點擊 <strong>儲存 (Save)</strong>。</p>
+<h2 id="取得即時匯率">取得即時匯率</h2>
+<p>點擊 <em>Currencies</em>（貨幣）視窗右上方的 <strong>Get live rates</strong>（取得即時匯率）按鈕。面板將會在頁面底部展開，如下所示：</p>
+<p><img src="_static/currencies/live-rates.jpg" alt="Live rates"></p>
+<p>點擊此處的 <strong>Apply all</strong>（全部套用），或是使用 <strong>Apply rate</strong>（套用匯率）按鈕手動為所有需要的貨幣套用新的匯率。</p>
+<h2 id="教學">教學</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=2nzVxGyc5-M">在 nopCommerce 中管理貨幣</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/getting-started/configure-payments/advanced-configuration/currencies.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

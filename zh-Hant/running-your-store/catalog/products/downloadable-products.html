@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>可下載商品 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="可下載商品 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="preload" href="../../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/running-your-store/catalog/products/downloadable-products">
+<h1 id="可下載商品">可下載商品</h1>
+
+<p>當您打算銷售電子書、有聲書、課程、PDF、音樂、軟體，或是想要建立一個圖片庫時，可下載商品功能將會非常實用。</p>
+<h2 id="範例">範例</h2>
+<p>假設您希望銷售電子書。</p>
+<p>什麼因素使電子書店與其他商店有所不同？</p>
+<ul>
+<li><p>首先，您應該為顧客提供一種從您的商店下載書籍的簡單方式。
+在 nopCommerce 中，顧客可以在「我的帳戶」區段找到他們購買的所有可下載商品：
+<img src="_static/downloadable-products/my-account.jpg" alt="Sample"></p>
+</li>
+<li><p>您可能也希望允許顧客預覽他們想要購買的書籍部分內容。
+在此情況下，顧客將會在商品詳細資訊頁面上看到以下的 <em>Download sample</em>（下載範例）按鈕：
+<img src="_static/downloadable-products/sample.jpg" alt="Sample"></p>
+</li>
+<li><p>或者，要求顧客在下載電子書前簽署一份 <em>user agreement</em>（使用者協議）也是很有用的做法。例如，同意僅供個人使用，下載並列印每一章電子書的一份副本。
+這是顧客看到此協議的方式：
+<img src="_static/downloadable-products/agree.jpg" alt="Agree"></p>
+</li>
+</ul>
+<p>所有這些功能都可以在編輯商品時進行設定。此外，在特殊情況下，您可以透過設定顧客保留存取權限的天數或最大下載次數來限制特定書籍的下載。您也可以選擇顧客何時能夠下載書籍：在書籍付款後立即下載，或是在人工驗證之後。</p>
+<p>如果您已經學會如何設定 <a class="xref" href="add-products.html">一般商品</a>，請參考下方章節學習如何將該商品製作成可下載商品。</p>
+<h2 id="設定可下載商品">設定可下載商品</h2>
+<p>若要建立可下載商品，請前往 <strong>目錄 → 商品</strong>。點選 <strong>新增</strong>，填寫一般商品欄位，並在 <em>可下載商品</em> 面板中勾選相應的核取方塊。</p>
+<p><img src="_static/downloadable-products/DownloadableProduct.png" alt="DownloadableProduct"></p>
+<p>定義以下詳細資訊：</p>
+<ul>
+<li>在 <strong>下載檔案</strong> 區段中，使用 <strong>上傳檔案</strong> 按鈕上傳檔案，或是透過勾選相應的核取方塊並輸入 <strong>下載 URL</strong> 來使用 <strong>使用下載 URL</strong> 功能。</li>
+<li><strong>無限制下載</strong>：若商品可以下載無限次數時使用。當此選項未勾選時，會出現額外的欄位。</li>
+<li><strong>最大下載次數</strong> 欄位：輸入顧客購買商品後可獲得的最大下載次數。</li>
+<li><strong>天數</strong>：顧客保留檔案存取權限的天數。如果您希望啟用持續下載，請將此欄位留空。</li>
+<li><strong>下載啟用類型</strong>：
+<ul>
+<li><em>訂單已付款時</em> — 選擇此選項可僅在訂單付款狀態為「已付款」時啟用下載。</li>
+<li><em>手動</em> — 選擇此選項可將控制權交給商店管理員。選擇此選項後，管理員必須手動啟用下載。這是在「編輯訂單詳細資訊」頁面的 <em>商品</em> 面板中執行。</li>
+</ul>
+</li>
+<li><strong>具有使用者協議</strong> — 若顧客必須簽署使用者協議才能下載商品時勾選。</li>
+<li>接著會顯示 <strong>使用者協議文字</strong> 編輯器，讓您可以輸入或編輯使用者協議內容。</li>
+<li><strong>具有範例下載檔案</strong> 允許顧客下載範例檔案。
+<ul>
+<li>如果適用，請使用 <strong>上傳檔案</strong> 按鈕上傳 <strong>範例下載檔案</strong>，或是透過勾選相應的核取方塊並輸入 <strong>下載 URL</strong> 來使用 <strong>使用下載 URL</strong> 功能。它將會顯示在商品詳細資訊頁面上，並可由任何顧客免費下載。</li>
+</ul>
+</li>
+</ul>
+<div class="TIP">
+<h5>Tip</h5>
+<p>由於可下載商品不需要寄送，請確保在 <em>出貨</em> 面板中 <strong>啟用出貨</strong> 欄位為未勾選狀態。</p>
+</div>
+<div class="TIP">
+<h5>Tip</h5>
+<p>由於您不需要追蹤可下載商品的庫存，請確保在 <em>庫存</em> 面板中 <strong>庫存方式</strong> 欄位設為 <em>不追蹤庫存</em>。</p>
+</div>
+<h2 id="顧客註冊">顧客註冊</h2>
+<p>您可以決定可下載商品是否需要顧客註冊，請前往 <strong>設定 → 設定 → 顧客設定</strong> 頁面，並在 <em>一般</em> 面板中勾選 <strong>可下載商品需要註冊</strong> 核取方塊。</p>
+<h2 id="可下載商品帳戶頁面">可下載商品帳戶頁面</h2>
+<p>如果您想要在顧客帳戶頁面隱藏「可下載商品」選單項目，請前往 <strong>設定 → 設定 → 顧客設定</strong> 頁面，並勾選 <strong>隱藏「可下載商品」頁籤</strong> 核取方塊。</p>
+<h2 id="參閱">參閱</h2>
+<ul>
+<li><a class="xref" href="../../order-management/orders.html">訂單</a></li>
+</ul>
+<h2 id="教學課程">教學課程</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=om-HKr-B2yA">管理數位商品</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/running-your-store/catalog/products/downloadable-products.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

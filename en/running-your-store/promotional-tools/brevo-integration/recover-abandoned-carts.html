@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Recover abandoned carts </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Recover abandoned carts ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="preload" href="../../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/running-your-store/promotional-tools/brevo-integration/recover-abandoned-carts">
+<h1 id="recover-abandoned-carts">Recover abandoned carts</h1>
+
+<p>In this tutorial, you will learn how to create abandoned cart email and how to set up the workflow to recover lost sales. You will also learn which nopCommerce order data is compatible with the Brevo platform.</p>
+<h2 id="before-getting-started">Before getting started</h2>
+<p>You will need the following:</p>
+<ul>
+<li>Brevo account credentials. If you don't have one, <a href="https://get.brevo.com/v70whp">sign up for free</a>.</li>
+<li>Make sure that Brevo's <a href="https://get.brevo.com/eg4z2v"><em>New Template Language</em></a> for emails is enabled on your account.</li>
+<li>Follow <a class="xref" href="set-up-brevo-plugin.html">these steps</a> to set up the brevo plugin.</li>
+</ul>
+<h2 id="create-an-abandoned-cart-email-template">Create an abandoned cart email template</h2>
+<p>First, log into your Brevo account then go to the Automation platform &gt; <a href="https://get.brevo.com/e8j7a">Email Templates</a>. Click on the <strong>New Template</strong> button at the top right.</p>
+<p>The email template can be personalized with several types of data:</p>
+<ul>
+<li><a href="#personalize-your-email-with-contact-attributes">contact attributes saved in your Brevo list</a></li>
+<li><a href="#personalize-your-email-with-the-abandoned-items-details">abandoned item details</a></li>
+<li><a href="#personalize-your-email-with-the-abandoned-cart-details">abandoned cart details</a></li>
+</ul>
+<h3 id="personalize-your-email-with-contact-attributes">Personalize your email with contact attributes</h3>
+<p>Let's start by <a href="https://get.brevo.com/bynyff">personalizing with contact attributes</a>.</p>
+<p>In the example below, we have included a personalization of:</p>
+<ul>
+<li>the recipient's first name using {{ contact.FIRSTNAME }}</li>
+<li>the recipient's last name using {{ contact.LASTNAME }}</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>FIRSTNAME and LASTNAME should be existing attributes in your Brevo account.</p>
+</div>
+<p><img src="_static/recover-abandoned-carts/attribute-personalization.gif" alt="Attribute personalization"></p>
+<p>Now let's personalize the email template with order variables such as the name of the items left behind, their images, price etc. To do so, we will use the <em>New Template Language</em> to insert a dynamic list.</p>
+<h3 id="personalize-your-email-with-the-abandoned-items-details">Personalize your email with the abandoned items details</h3>
+<p>The following variables may be included directly from a dynamic list within your Brevo template content:</p>
+<table>
+<thead>
+<tr>
+<th>Items data</th>
+<th>Insert this placeholder in your template</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Name</td>
+<td>{{ item.name }}</td>
+</tr>
+<tr>
+<td>SKU</td>
+<td>{{ item.sku }}</td>
+</tr>
+<tr>
+<td>Category</td>
+<td>{{ item.category }}</td>
+</tr>
+<tr>
+<td>ID</td>
+<td>{{ item.id }}</td>
+</tr>
+<tr>
+<td>ID of the item variation</td>
+<td>{{ item.variant_id }}</td>
+</tr>
+<tr>
+<td>Name of the item variation</td>
+<td>{{ item.variant_name }}</td>
+</tr>
+<tr>
+<td>Price</td>
+<td>{{ item.price }}</td>
+</tr>
+<tr>
+<td>Quantity</td>
+<td>{{ item.quantity }}</td>
+</tr>
+<tr>
+<td>Storefront link of the purchased item</td>
+<td>{{ item.url }}</td>
+</tr>
+<tr>
+<td>Image</td>
+<td>{{ item.image }}</td>
+</tr>
+</tbody>
+</table>
+<p>In the <em>Drag &amp; Drop Editor</em>, select your desired block that will display the abandoned items.</p>
+<ol>
+<li>Click the <strong>pencil icon</strong> to edit the settings for the design block.</li>
+<li>Enable the <strong>dynamic list</strong> option.</li>
+<li>In the <strong>parameter</strong> field, write <code>items</code>.</li>
+<li>In the <strong>variable</strong> field, write <code>item</code>.</li>
+<li>Set the limit for the number of items that will be displayed. For example, if there are 5 items left in the cart, and you set 3 as the limit, only 3 items will be shown in the email.</li>
+</ol>
+<p><img src="_static/recover-abandoned-carts/items.jpg" alt="Email editor"></p>
+<p>Now add the variables to your email template. In the example above, we have added:</p>
+<ul>
+<li><code>{{ item.name }}</code> - the name of the item</li>
+<li><code>{{ item.quantity }}</code> - the quantity of the item</li>
+<li><code>{{ item.price | floatformat: 2 }}</code> - the price of the item</li>
+</ul>
+<p>To add the link of the item, select the <strong>Call-To-Action (CTA)</strong> button. On the right sidebar, under <em>Link</em>, type <code>{{ item.url }}</code>.</p>
+<p><img src="_static/recover-abandoned-carts/item-url.jpg" alt="item.url"></p>
+<p>To add the image of the item, select the image. On the right sidebar, under <em>Image source</em>, choose <em>From URL</em> then type <code>{{ item.image }}</code>.</p>
+<p><img src="_static/recover-abandoned-carts/item-image.jpg" alt="item.image"></p>
+<p>Once your design is complete, click the green <strong>Save &amp; Quit</strong> button. Then click the <strong>Save &amp; Activate</strong> button.</p>
+<h3 id="personalize-your-email-with-the-abandoned-cart-details">Personalize your email with the abandoned cart details</h3>
+<p>The following variables may be included directly within your Brevo template content:</p>
+<table>
+<thead>
+<tr>
+<th>Cart details</th>
+<th>Insert this placeholder</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Affiliation</td>
+<td>{{ params.affiliation }}</td>
+</tr>
+<tr>
+<td>Currency</td>
+<td>{{ params.currency }}</td>
+</tr>
+<tr>
+<td>Discount</td>
+<td>{{ params.discount }}</td>
+</tr>
+<tr>
+<td>Shipping</td>
+<td>{{ params.shipping }}</td>
+</tr>
+<tr>
+<td>Subtotal</td>
+<td>{{ params.subtotal }}</td>
+</tr>
+<tr>
+<td>Tax</td>
+<td>{{ params.tax }}</td>
+</tr>
+<tr>
+<td>Total before tax</td>
+<td>{{ params.tax }}</td>
+</tr>
+<tr>
+<td>Total</td>
+<td>{{ params.total_before_tax }}</td>
+</tr>
+<tr>
+<td>Link to cart</td>
+<td>{{ params.url }}</td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Items shown in the link to cart page will be different based on where the session is opened from. For example, let's say a customer is browsing from their laptop. If they click on the abandoned cart email from their phone, it will not show their abandoned cart.</p>
+</div>
+<p>In the <em>Drag &amp; Drop Editor</em>, select your desired block that will display the abandoned cart information then add the order variables you want.</p>
+<p>We recommend formatting numbers by using <a href="https://get.brevo.com/ogcn5b">floatformat</a>. In the example below, we have added:</p>
+<ul>
+<li><code>{{ params.currency }}</code> - the currency of the abandoned cart</li>
+<li><code>{{ params.subtotal | floatformat: 2 }}</code> - the subtotal of the abandoned cart</li>
+<li><code>{{ params.discount | floatformat: 2 }}</code> - the discount of the abandoned cart</li>
+<li><code>{{ params.total | floatformat: 2 }}</code> - the total of the abandoned cart</li>
+</ul>
+<p><img src="_static/recover-abandoned-carts/cart.jpg" alt="Cart"></p>
+<p>To add the link of the abandoned cart, select the <strong>Call-To-Action (CTA)</strong> button. On the right sidebar, under <em>Link</em>, type <code>{{ params.url }}</code>.</p>
+<p><img src="_static/recover-abandoned-carts/url.jpg" alt="params.url"></p>
+<p>Once your design is complete, click the green <strong>Save &amp; Quit</strong> button. Then click the <strong>Save &amp; Activate</strong> button.</p>
+<h2 id="creating-the-abandoned-cart-workflow">Creating the abandoned cart workflow</h2>
+<div class="NOTE">
+<h5>Note</h5>
+<p>A customer has to be identified by their email address to trigger the workflow, i.e. a customer should be logged into their account on your nopCommerce store or input their email address during checkout.</p>
+</div>
+<p>Navigate to the <a href="https://get.brevo.com/tvl7ng">Automation</a> tab of your Brevo account.</p>
+<p>Click on <strong>+ CREATE A NEW WORKFLOW</strong>, then select <strong>Detailed Abandoned Cart</strong> and follow the steps.</p>
+<p><img src="_static/recover-abandoned-carts/detailed-abandoned-cart.jpg" alt="Detailed Abandoned Cart"></p>
+<p>At the <em>Send an email</em> step, select the email template you have just created and activated from the dropdown list.</p>
+<p>When your workflow is complete, click on <strong>DONE</strong> to save and activate it.</p>
+<p>Feel free to read this tutorials to help you creating the workflow:</p>
+<ul>
+<li><a href="https://get.brevo.com/gqqwh">Recovering abandoned carts: automatically send the emails (step 3)</a></li>
+</ul>
+<h2 id="example">Example</h2>
+<p>Let's say that customer Jean Blue <a href="mailto:jean.blue@brevo.com">jean.blue@brevo.com</a> has visited your store but the following 3 items have been left in the cart.</p>
+<p><img src="_static/recover-abandoned-carts/cart-example.jpg" alt="Cart example"></p>
+<p>Your template will look like this:</p>
+<p><img src="_static/recover-abandoned-carts/template.jpg" alt="Cart example"></p>
+<p>The email received by Jean Blue will look like this:</p>
+<p><img src="_static/recover-abandoned-carts/email.jpg" alt="Cart example"></p>
+<h2 id="learn-more">Learn more</h2>
+<ul>
+<li><a class="xref" href="send-an-order-confirmation-email.html">Send an order confirmation email</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/running-your-store/promotional-tools/brevo-integration/recover-abandoned-carts.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

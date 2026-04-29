@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>如何編寫自己的付款方式 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="如何編寫自己的付款方式 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/developer/plugins/payment-method">
+<h1 id="如何編寫自己的付款方式">如何編寫自己的付款方式</h1>
+
+<p>在 nopCommerce 中，付款方式是以「外掛」的形式實作。我們建議您在開始編寫新的付款方式之前，先閱讀 <a class="xref" href="how-to-write-plugin-4.90.html">如何為 nopCommerce 4.90 編寫外掛</a>。它會向您說明建立外掛所需的步驟。</p>
+<p>實際上，付款方式是一個實作了 <strong><code>IPaymentMethod</code></strong> 介面（位於 <em>Nop.Services.Payments</em> 命名空間）的一般外掛。正如您所料，<em>IPaymentMethod</em> 介面是用於建立付款方式外掛的。它包含了一些專屬於付款方式的方法，例如 <code>ProcessPaymentAsync()</code> 或 <code>GetAdditionalHandlingFeeAsync()</code>。那麼，請將一個新的付款外掛專案（<em>類別庫</em>）加入到解決方案中，讓我們開始吧。</p>
+<h2 id="控制器檢視模型">控制器、檢視、模型</h2>
+<p>您首先需要做的是建立一個控制器。此控制器負責回應針對 ASP.NET MVC 網站所提出的請求。</p>
+<ol>
+<li><p>在實作新的付款方式時，此控制器應繼承自特殊的 <strong>BasePaymentController</strong> 抽象類別。</p>
+</li>
+<li><p>接著，實作用於外掛設定的 <strong>Configure</strong> 動作方法（由商店擁有者在管理後台操作）。此方法以及對應的檢視將定義商店擁有者如何在管理後台（<em>系統 → 設定 → 付款方式</em>）中查看設定選項。</p>
+</li>
+</ol>
+<h2 id="public-view-componentgetpublicviewcomponent">Public view component.GetPublicViewComponent</h2>
+<p>接著，您必須建立一個 View component 以便在外掛中顯示於前台商店。這個 View component 與對應的 view 將決定顧客在結帳期間如何查看付款資訊頁面。首先，讓我們建立一個 View component 類別。它應該放置在 <em><code>/Components</code></em> 資料夾中。請參考 <em>PayPalCommerce</em> 外掛的做法：</p>
+<pre><code class="lang-csharp">public class PaymentInfoViewComponent : NopViewComponent
+{
+    public IViewComponentResult Invoke(string widgetZone, object additionalData)
+    {
+        return View(&quot;~/Plugins/Payments.PayPalCommerce/Views/Public/PaymentInfo.cshtml&quot;);
+    }
+}
+</code></pre>
+<p><strong>Invoke</strong> 方法會從外掛的 <em>/Views</em> 資料夾中回傳適當的 <code>PaymentInfo</code> view。請注意，我們是使用自訂的 <code>NopViewComponent</code> 類別作為基底類別，而不是使用現有的內建 <code>ViewComponent</code>。</p>
+<p>接著，讓我們建立顯示付款資訊的 <code>PaymentInfo</code> view。在該處，我們只需呈現一段文字，告知顧客將被重新導向至付款頁面。但如有需要，也可以建立更複雜的 View component。例如，如果您想在付款資訊頁面上收集顧客資訊，可以參考 <code>PayPalDirect</code> 付款外掛的實作方式。</p>
+<h2 id="付款處理">付款處理</h2>
+<p>現在您需要建立一個實作 <strong>IPaymentMethod</strong> 介面的類別。這個類別將負責與您的金流閘道（payment gateway）進行通訊的所有實際作業。當有人建立訂單時，系統將會呼叫您類別中的 <code>ProcessPayment</code> 或 <code>PostProcessPayment</code> 方法。以下是 <strong>CheckMoneyOrderPaymentProcessor</strong> 類別的定義方式（以 <code>CheckMoneyOrder</code> 付款方式為例）：</p>
+<pre><code class="lang-csharp">public class CheckMoneyOrderPaymentProcessor : BasePlugin, IPaymentMethod
+</code></pre>
+<p><strong>IPaymentMethod</strong> 介面包含數個必須實作的方法與屬性。</p>
+<ul>
+<li><p><strong>ValidatePaymentFormAsync</strong> 用於在前台網站中驗證顧客的輸入。它會回傳一個警告清單（例如：顧客未輸入信用卡名稱）。如果您的付款方式不需要顧客輸入額外資訊，則 <code>ValidatePaymentFormAsync</code> 應回傳一個空清單：</p>
+<pre><code class="lang-csharp">public Task&lt;IList&lt;string&gt;&gt; ValidatePaymentFormAsync(IFormCollection form)
+{
+    return Task.FromResult&lt;IList&lt;string&gt;&gt;(new List&lt;string&gt;());
+}
+</code></pre>
+</li>
+<li><p><strong>GetPaymentInfoAsync</strong> 方法用於在前台網站中解析顧客的輸入，例如信用卡資訊。此方法會回傳一個 ProcessPaymentRequest 物件，其中包含解析後的顧客輸入資訊（例如信用卡資訊）。如果您的付款方式不需要顧客輸入額外資訊，則 <code>GetPaymentInfoAsync</code> 將會回傳一個空的 ProcessPaymentRequest 物件：</p>
+<pre><code class="lang-csharp">public Task&lt;ProcessPaymentRequest&gt; GetPaymentInfoAsync(IFormCollection form)
+{
+    return Task.FromResult(new ProcessPaymentRequest());
+}
+</code></pre>
+</li>
+<li><p><strong>ProcessPaymentAsync</strong>。此方法總是在顧客下訂單前立即被觸發。當您需要在訂單儲存至資料庫之前處理付款時，請使用此方法。例如，信用卡請款（capture）或授權（authorize）。通常當顧客不需要重新導向至第三方網站以完成付款，且所有付款都在您的網站上處理時（例如 <em>PayPalCommerce</em>），會使用此方法。</p>
+<pre><code class="lang-csharp">public Task&lt;ProcessPaymentResult&gt; ProcessPaymentAsync(ProcessPaymentRequest processPaymentRequest)
+{
+    return Task.FromResult(new ProcessPaymentResult());
+}
+</code></pre>
+</li>
+<li><p><strong>PostProcessPaymentAsync</strong>。此方法在顧客下訂單後立即被觸發。通常當您需要將顧客重新導向至第三方網站以完成付款時（例如 PayPal Standard），會使用此方法。</p>
+</li>
+<li><p><strong>HidePaymentMethodAsync</strong>。您可以在此處放入任何邏輯。例如，如果購物車內所有商品皆為可下載商品，則隱藏此付款方式；或者如果當前顧客來自特定國家/地區，則隱藏此付款方式。</p>
+</li>
+<li><p><strong>GetAdditionalHandlingFeeAsync</strong>。您可以回傳任何將會加總至訂單總額的額外處理費。</p>
+</li>
+<li><p><strong>CaptureAsync</strong>。部分金流閘道允許您在請款前先進行付款授權。這讓商店管理者能在付款完成前審核訂單詳情。在此情況下，您只需在上述的 <strong>ProcessPaymentAsync</strong> 或 <strong>PostProcessPaymentAsync</strong> 方法中授權付款，然後再進行請款。此時，管理後台的訂單詳情頁面將會顯示一個「請款（Capture）」按鈕。請注意，訂單必須已完成授權，且 <strong>SupportCapture</strong> 屬性應回傳 <strong><code>true</code></strong>。</p>
+</li>
+<li><p><strong>RefundAsync</strong>。此方法允許您進行退款。在此情況下，管理後台的訂單詳情頁面將會顯示一個「退款（Refund）」按鈕。請注意，訂單必須已付款，且 <strong>SupportRefund</strong> 或 <strong>SupportPartiallyRefund</strong> 屬性應回傳 <strong><code>true</code></strong>。</p>
+</li>
+<li><p><strong>VoidAsync</strong>。此方法允許您取消（void）已授權但未請款的付款。在此情況下，管理後台的訂單詳情頁面將會顯示一個「取消授權（Void）」按鈕。請注意，訂單必須已授權，且 <strong>SupportVoid</strong> 屬性應回傳 <strong><code>true</code></strong>。</p>
+</li>
+<li><p><strong>ProcessRecurringPaymentAsync</strong>。使用此方法處理週期性付款。</p>
+</li>
+<li><p><strong>CancelRecurringPaymentAsync</strong>。使用此方法取消週期性付款。</p>
+</li>
+<li><p><strong>CanRePostProcessPaymentAsync</strong>。通常此方法用於將顧客重新導向至第三方網站完成付款的情境。如果第三方付款失敗，此選項將允許顧客稍後嘗試重新處理訂單，而無需建立新訂單。<strong>CanRePostProcessPaymentAsync</strong> 應回傳 <strong><code>true</code></strong> 以啟用此功能。</p>
+</li>
+<li><p><strong>GetConfigurationPageUrl</strong>。如您所記得的，我們在先前的步驟中建立了一個控制器。此方法應回傳其 <code>Configure</code> 方法的 URL。例如：</p>
+<pre><code class="lang-csharp">public override string GetConfigurationPageUrl()
+{
+    return $&quot;{_webHelper.GetStoreLocation()}Admin/PaymentCheckMoneyOrder/Configure&quot;;
+}
+</code></pre>
+</li>
+<li><p><strong>GetPaymentMethodDescriptionAsync</strong>。此方法取得將會顯示於前台網站結帳頁面上的付款方式描述。</p>
+<pre><code class="lang-csharp">public async Task&lt;string&gt; GetPaymentMethodDescriptionAsync()
+{
+    return await _localizationService.GetResourceAsync(&quot;Plugins.Payment.CheckMoneyOrderPaymentMethodDescription&quot;);
+}
+</code></pre>
+</li>
+<li><p><strong>SupportCapture、SupportPartiallyRefund、SupportRefund、SupportVoid</strong>。這些屬性指出是否支援付款方式的對應方法。</p>
+</li>
+<li><p><strong>RecurringPaymentType</strong>。此屬性指出是否支援週期性付款。</p>
+</li>
+<li><p><strong>PaymentMethodType</strong>。此屬性指出付款方式的類型。目前共有三種類型。<strong><code>Standard</code></strong> 用於顧客無需重新導向至第三方網站的付款方式。<strong><code>Redirection</code></strong> 用於顧客需被重新導向至第三方網站的付款方式。<strong><code>Button</code></strong> 則類似於 <strong><code>Redirection</code></strong> 付款方式，唯一的差別在於它會以按鈕形式顯示在購物車頁面上（例如 <em>Google Checkout</em>）。</p>
+</li>
+<li><p><strong>SkipPaymentInfo</strong>。指出我們是否應為此外掛顯示付款資訊頁面。</p>
+</li>
+</ul>
+<h2 id="結論">結論</h2>
+<p>希望這些說明能幫助您開始新增付款方式。</p>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/developer/plugins/payment-method.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

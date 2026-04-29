@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>How to install and configure SSL certificates </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="How to install and configure SSL certificates ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/getting-started/advanced-configuration/how-to-install-and-configure-ssl-certificates">
+<h1 id="how-to-install-and-configure-ssl-certificates">How to install and configure SSL certificates</h1>
+
+<p>What is an SSL certificate? SSL stands for Secure Socket Layer. SSL certificates validate your website's identity and encrypt the information visitors send to (or receive from) your site. When you have an SSL certificate protecting your website, your customers can rest assured that the information they enter on any secured page is private and can't be viewed by cyber crooks.</p>
+<h2 id="how-to-get-an-ssl-certificate">How to get an SSL certificate</h2>
+<ol>
+<li><p>First, to implement SSL on your website, you will need to get an SSL certificate from an SSL Certificate Provider, aka Certification Authority. There are plenty of Certification Authorities for securing an SSL certificate on your website, such as SSL.com, Namecheap, or GoDaddy.</p>
+</li>
+<li><p>Then, you need to install the SSL certificate you bought on your server. The way you do this depends on the server. For more instructions and recommendations, you should refer to the SSL Certificate Provider guideline or your server documentation. In this article, I will just provide you with a link to such guideline by GoDaddy: <a href="https://www.godaddy.com/help/install-ssl-certificates-16623">Install SSL certificates</a>.</p>
+</li>
+<li><p>In the last step, you need to set up your nopCommerce store in the admin area. To do this, go to the <strong>Configuration → Stores</strong> page. Select the store you want to set up and click the <strong>Edit</strong> button beside it. The <em>Edit store details</em> window will be displayed as follows:
+<img src="_static/how-to-install-and-configure-ssl-certificates/store.jpg" alt="Store"></p>
+</li>
+</ol>
+<ul>
+<li>Enter your <strong>Store URL</strong> with the <code>https://</code> prefix.</li>
+<li>Select the <strong>SSL enabled</strong> checkbox.
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Do not enable it until you have an SSL certificate installed on the server.</p>
+</div>
+</li>
+</ul>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h3 id="admin-panel-is-not-available-due-to-problems-with-ssl-certificate">Admin panel is not available due to problems with SSL certificate</h3>
+<p>A common problem is when the SSL certificate is not installed on the server or there are problems with the SSL configuration. At the same time, the <strong>SSL enabled</strong> setting was activated in the store (as we have done in the previous section).</p>
+<p><strong>Affected versions</strong>: All</p>
+<p><strong>Solution</strong>:
+Run the following SQL Query:</p>
+<pre><code class="lang-sql">UPDATE [dbo].[Store] SET [SslEnabled] = 'False'
+</code></pre>
+<h3 id="mixed-content-http-and-https">Mixed Content HTTP and HTTPS</h3>
+<p>Mixed content occurs when a site operates over the SSL security protocol, but some of the resources (for example, images) are loaded over an insecure HTTP connection. This causes errors on the page, as the original request was secured over HTTPS.</p>
+<p>When using a load balancer, similar problems can arise due to the fact that it communicates with the application over HTTP.</p>
+<p><strong>Affected versions</strong>: 4.20 and below</p>
+<p><strong>Solutions</strong>:</p>
+<ul>
+<li><p>Make sure you have activated the setting:</p>
+<pre><code class="lang-json">securitysettings.forcesslforallpages = true
+</code></pre>
+</li>
+<li><p>Make sure your website is listening on port 443 on the hosting server.</p>
+</li>
+</ul>
+<p><strong>Affected versions</strong>: All</p>
+<p><strong>Solutions</strong>:</p>
+<ul>
+<li><p>Missing field <code>UseHttpXForwardedProto</code> in the request header. Try to enable the <code>UseHttpXForwardedProto</code> setting in the <code>appsettings.json</code> file and restart the website.</p>
+<pre><code class="lang-json">&quot;UseHttpXForwardedProto&quot;: true
+</code></pre>
+</li>
+<li><p>You can fix it by adding the CSP &quot;upgrade-insecure-requests&quot; directive. This can be done either in the <code>web.config</code> file.
+Or by embedding the same inline directive in the <code>&lt;head&gt;</code> section of the document using the <code>&lt;meta&gt;</code> element:</p>
+<pre><code class="lang-XML">&lt;meta http-equiv = &quot;Content-Security-Policy&quot; content = &quot;upgrade-insecure-requests&quot;&gt;
+</code></pre>
+</li>
+<li><p>In the case of using Cloudflare, check if your SSL setting is in <code>Full</code> or <code>Flexible</code> mode by logging into your Cloudflare dashboard and clicking the <code>SSL/TLS app</code> to check the SSL setting.</p>
+</li>
+</ul>
+<h3 id="infinite-redirection-loop-err_too_many_redirects">Infinite redirection loop (ERR_TOO_MANY_REDIRECTS)</h3>
+<p>When an unauthorized user tries to log in or visit the shopping cart, the site enters an infinite redirection loop.</p>
+<p><strong>Affected versions</strong>: All</p>
+<p><strong>Solutions</strong>:</p>
+<ul>
+<li><p>Try to delete cookies on the site; this procedure may slightly differ depending on the browser used. Alternatively, you can simply open the page in private mode to check if this is the cause of the error.</p>
+</li>
+<li><p>Clear Server, Proxy, and Browser Cache.</p>
+</li>
+<li><p>Check HTTP to HTTPS Redirects on Server. It could very well be that the HTTPS redirect rules on your server were misconfigured. You can add a redirect rule to your IIS from http to https. The rule pattern has the following form:</p>
+<pre><code class="lang-xml">&lt;configuration&gt;
+  &lt;system.webServer&gt;
+    &lt;rewrite&gt;
+      &lt;rules&gt;
+        &lt;rule name=&quot;http_to_https&quot; stopProcessing=&quot;true&quot;&gt;
+          &lt;match url=&quot;(.*)&quot; /&gt;
+          &lt;conditions logicalGrouping=&quot;MatchAll&quot; trackAllCaptures=&quot;false&quot;&gt;
+            &lt;add input=&quot;{HTTPS}&quot; pattern=&quot;^OFF$&quot; /&gt;
+          &lt;/conditions&gt;
+          &lt;action type=&quot;Redirect&quot; url=&quot;https://{HTTP_HOST}/{R:1}&quot; redirectType=&quot;SeeOther&quot; /&gt;
+        &lt;/rule&gt;
+      &lt;/rules&gt;
+    &lt;/rewrite&gt;
+  &lt;/system.webServer&gt;
+&lt;/configuration&gt;
+</code></pre>
+</li>
+<li><p>ERR_TOO_MANY_REDIRECTS is also often commonly caused by reverse-proxy services, such as Cloudflare. This usually happens when their Flexible SSL option is enabled and you already have an SSL certificate installed with your web host. When flexible is selected, all requests to your hosting server are sent over HTTP. Your host server most likely already has a redirect in place from HTTP to HTTPS, and therefore, a redirect loop occurs. To fix this, you need to change the Cloudflare Crypto settings from Flexible to either Full or Full (strict).</p>
+</li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/getting-started/advanced-configuration/how-to-install-and-configure-ssl-certificates.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

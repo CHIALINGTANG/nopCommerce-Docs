@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Avalara 稅務提供者 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Avalara 稅務提供者 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="preload" href="../../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/getting-started/configure-taxes/tax-providers/avalara">
+<h1 id="avalara-稅務提供者">Avalara 稅務提供者</h1>
+
+<h2 id="連接到-avatax">連接到 AvaTax</h2>
+<p>安裝 Avalara 稅務提供者後，您需要設定其整合功能。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>請確保該外掛已安裝並設定為「啟用」狀態（<strong>設定 → 本地外掛</strong>）。若要啟用此外掛，請點擊 <strong>編輯</strong> 並勾選 <strong>已啟用</strong> 核取方塊。</p>
+</div>
+<p><img src="_static/avalara/local-plugins.png" alt="Local plugins"></p>
+<p>若要設定 Avalara 稅務提供者，請前往 <strong>設定 → 稅務提供者</strong>。</p>
+<p><img src="_static/avalara/tax-providers.png" alt="Tax Providers"></p>
+<p>點擊 <strong>標記為主要提供者</strong>。</p>
+<p>點擊清單中 Avalara 稅務提供者選項旁邊的 <strong>設定</strong>。</p>
+<p>請依照頁面頂端的說明建立帳戶。
+接著進行外掛設定；當滑鼠游標停留在「?」圖示上時，會顯示各欄位的功能說明。</p>
+<ol>
+<li><p>設定您的 AvaTax 憑證：</p>
+<p><img src="_static/avalara/avalara-configuration-common.png" alt="Configuration Credentials"></p>
+<ul>
+<li><strong>Account ID</strong>：在 AvaTax 帳戶啟用過程中提供。</li>
+<li><strong>License key</strong>：在 AvaTax 帳戶啟用過程中提供。</li>
+<li><strong>Company</strong>：AvaTax 管理控制台中的公司設定檔識別碼。</li>
+<li><strong>Use sandbox</strong>：啟用後即可提交測試交易。</li>
+<li><strong>Enable logging</strong>：啟用後會記錄所有對 Avalara 服務的請求。</li>
+</ul>
+</li>
+<li><p>設定稅額計算設定：</p>
+<p><img src="_static/avalara/avalara-configuration-tax-calculation.png" alt="Configuration Tax"></p>
+<ul>
+<li><strong>Commit transactions</strong>：啟用後可在交易儲存後立即提交。</li>
+<li><strong>Validate address</strong>：啟用後可驗證所輸入的地址。</li>
+<li><strong>Tax origin address</strong>：用於向 Avalara 服務發送稅務請求。</li>
+<li><strong>Use tax rate tables to estimate</strong>：決定是否使用稅率表進行預估。此設定將作為目錄頁面的預設稅額計算方式，並在結帳期間調整與核對為最終交易稅額。稅率會根據郵遞區號（僅限美國）在 Avalara 定期更新的檔案中查詢（參閱排程任務）。</li>
+<li><strong>Tax rates by address only</strong>：若上述設定未勾選，則會顯示此選項。啟用它可僅根據地址獲取稅率（可減少 API 呼叫次數，但可能會影響結果準確度）。</li>
+</ul>
+</li>
+<li><p>設定稅務免稅設定：</p>
+<p><img src="_static/avalara/avalara-configuration-exemption.png" alt="Configuration Exemption"></p>
+<ul>
+<li><strong>Enable exemption certificates</strong>：啟用後可啟用免稅證明功能。</li>
+<li><strong>Limited to customer roles</strong>：用於限制可存取此功能的顧客角色。</li>
+<li><strong>Auto validate certificates</strong>：啟用後可自動驗證新上傳或建立的證明。</li>
+<li><strong>Allow edit info</strong>：啟用後允許顧客在管理證明時編輯其資訊（如姓名、電話、地址）。</li>
+<li><strong>Display 'No valid certificates' message</strong>：啟用後，若顧客在訂單確認頁面上沒有有效的證明，將會顯示相關訊息。</li>
+</ul>
+<p><img src="_static/avalara/avalara-configuration-exemption-none.png" alt="Configuration Exemption None"></p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>此訊息文字可在語言資源中進行編輯。</p>
+</div>
+</li>
+<li><p><strong>儲存</strong> 並點擊 <strong>測試連線</strong> 按鈕以執行連線測試。</p>
+</li>
+<li><p>若要執行「測試稅額計算」，請填寫頁面底部的地址表單（請注意，nopCommerce Avalara 稅務外掛僅針對美國地址提交交易），然後點擊 <strong>測試稅務交易</strong>。</p>
+<p><img src="_static/avalara/avalara-configuration-test.png" alt="Configuration Test"></p>
+</li>
+</ol>
+<h2 id="指派-avatax-代碼">指派 AvaTax 代碼</h2>
+<p>前往 <strong>設定 → 稅務類別</strong>。</p>
+<p>在頁面的右上角，您會看到品牌化的 <strong>Avalara 稅務代碼</strong> 按鈕。點擊它將會顯示以下的下拉式選單：</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>只有當 <em>Avalara</em> 外掛在 <strong>設定 → 稅務提供者</strong> 頁面中被選為主要稅務提供者時，才會顯示 <strong>Avalara 稅務代碼</strong> 按鈕。</p>
+</div>
+<p><img src="_static/avalara/tax-categories.jpg" alt="Tax categories"></p>
+<ul>
+<li><strong>匯出稅務代碼至 Avalara</strong> – 將您商店中的所有代碼匯出至您的 AvaTax 後台。</li>
+<li><strong>匯入 Avalara 系統稅務代碼</strong> – 從 Avalara 匯入所有的 AvaTax 稅務代碼。
+<img src="_static/avalara/tax-categories-import.jpg" alt="Tax categories import"></li>
+<li><strong>刪除 Avalara 系統稅務代碼</strong> – 刪除所有從 Avalara 匯出的代碼。</li>
+</ul>
+<h2 id="指定-avatax-系統稅碼給商品">指定 AvaTax 系統稅碼給商品</h2>
+<ol>
+<li><p>前往 <strong>目錄 → 商品</strong>。</p>
+</li>
+<li><p>選擇一項商品以開啟商品詳細資料畫面，並點擊 <strong>編輯</strong>。</p>
+</li>
+<li><p>在 <strong>商品詳細資料</strong> 畫面的 <strong>價格</strong> 面板中，從 <strong>稅務類別</strong> 欄位的下拉式選單中指定合適的代碼。</p>
+<p><img src="_static/avalara/product-tax-category.png" alt="Product tax category"></p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>請確保已輸入 <strong>SKU</strong>，以便在 AvaTax 後台進行更好的導覽。</p>
+</div>
+</li>
+<li><p>點擊 <strong>儲存</strong>。</p>
+</li>
+<li><p>若要查看所有可用的 AvaTax 系統稅碼清單，請造訪 <a href="http://taxcode.avatax.avalara.com">http://taxcode.avatax.avalara.com</a>。</p>
+</li>
+</ol>
+<h2 id="商品分類">商品分類</h2>
+<p>Managed Tariff Code Classification 是 Avalara 提供的一項服務，用於將商品統一分類編碼（HS Code，即海關編碼）指派給您的商品目錄。一旦 Avalara 完成您所銷售商品的分類，即可在 AvaTax 計算中自動納入關稅編碼，或將其匯出以供您自己的商業應用程式使用。</p>
+<p>海關當局使用海關編碼（HS Code）來計算所有國際貿易產品的關稅稅率。與銷售稅和使用稅代碼不同，關稅編碼並非全球通用。請為您銷往國際的產品指派完整合規的關稅編碼，以計算關稅與進口稅。</p>
+<p>在 AvaTax 中，父層產品會被指派一個關稅編碼，而任何子層 SKU 都會繼承該分類。</p>
+<ol>
+<li><p>在名稱相同的頁籤上啟用 <em>Item Classification</em> 功能。</p>
+</li>
+<li><p>指定要獲取 HS 分類代碼的目標國家。</p>
+</li>
+<li><p>使用 <strong>Save</strong> 按鈕儲存設定。</p>
+<p><img src="_static/avalara/item-classification.png" alt="Item classification"></p>
+</li>
+<li><p>前往您 Avalara 個人帳戶中的 <strong>Item Classification settings</strong>。
+<img src="_static/avalara/item-classification-avalara.png" alt="Item classification avalara"></p>
+</li>
+<li><p>指定 webhook 的端點位址 - <code>{your.store.url}/avalara/item-classification-webhook</code></p>
+<p><img src="_static/avalara/item-classification-endpoint.png" alt="Item classification endpoint"></p>
+</li>
+<li><p>再次前往外掛設定頁面，指定應發送哪些產品進行分類。</p>
+<p><img src="_static/avalara/item-classification-sync.png" alt="Item classification sync"></p>
+</li>
+<li><p>點擊 <strong>Sync now</strong> 按鈕，開始發送產品進行分類的流程。在收到 Avalara 服務的回應後，表格將會填入接收到的數值（您需要手動更新表格）。之後，這些接收到的分類代碼數值將會被轉移用於計算稅率。</p>
+</li>
+</ol>
+<h2 id="驗證顧客地址">驗證顧客地址</h2>
+<ol>
+<li><p>確保 <strong>Validate address</strong> 核取方塊已勾選；在這種情況下，地址將會自動進行驗證。</p>
+</li>
+<li><p>使用者將會看到以下畫面：</p>
+<p><img src="_static/avalara/validate-customer-address.png" alt="Validate address"></p>
+</li>
+</ol>
+<h2 id="免稅-tax-exemption">免稅 (Tax exemption)</h2>
+<p>使用此外掛啟用免稅有兩種方式：</p>
+<ol>
+<li><p>在管理後台將 AvaTax 免稅類別指派給特定顧客或整個顧客角色：</p>
+<ul>
+<li><p>點選 <strong>顧客 → 顧客 → 編輯顧客</strong></p>
+</li>
+<li><p>找到反白顯示的 <strong>Entity use code</strong> 欄位，選取該欄位，並選擇適當的顧客類型代碼。</p>
+<p><img src="_static/avalara/customer-entity-use-code.png" alt="Customer details"></p>
+</li>
+<li><p>點選 <strong>儲存</strong></p>
+</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>不需要勾選 <strong>免稅 (Tax exempt)</strong> 核取方塊：指派 <strong>Entity use code</strong> 即已足夠。</p>
+</div>
+</li>
+<li><p>啟用免稅證明功能：</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>您需要一個 <a href="https://avlr.co/3bA1P1X">CertCapture 帳戶</a> 才能使此功能正常運作。</p>
+</div>
+<ul>
+<li><p>確保 <strong>啟用免稅證明 (Enable exemption certificates)</strong> 核取方塊已勾選；在這種情況下，顧客將能夠在購物前管理他們的免稅證明。</p>
+</li>
+<li><p>帳戶區域將會新增一個新頁面：</p>
+<p><img src="_static/avalara/exemption-certificates.png" alt="Tax exemption certificates"></p>
+</li>
+</ul>
+</li>
+</ol>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/getting-started/configure-taxes/tax-providers/avalara.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

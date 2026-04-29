@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Plugin with data access </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Plugin with data access ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/developer/plugins/plugin-with-data-access">
+<h1 id="plugin-with-data-access">Plugin with data access</h1>
+
+<p>In this tutorial, I'll be using the nopCommerce plugin architecture to implement a product view tracker. Before we begin with the development you must read, understood, and completed the tutorials listed below. I'll be skipping over some explanations covered in the previous articles, but you can recap using the links provided.</p>
+<ul>
+<li><a class="xref" href="../tutorials/index.html">Developer tutorials</a></li>
+<li><a class="xref" href="../tutorials/update-existing-entity.html">Updating an existing entity. How to add a new property.</a></li>
+<li><a class="xref" href="how-to-write-plugin-4.90.html">How to write a plugin for nopCommerce 4.90</a></li>
+</ul>
+<p>We will start coding with the data access layer, move on to the service layer, and finally end on dependency injection.</p>
+<h2 id="getting-started">Getting started</h2>
+<p>Create a new class library project &quot;Nop.Plugin.Misc.ProductViewTracker&quot;.</p>
+<p>Add the  <code>plugin.json</code> file.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>For information about the <code>plugin.json</code> file, please see <a class="xref" href="plugin.json.html">plugin.json file</a>.</p>
+</div>
+<p>Then add references to the <strong>Nop.Web.Framework</strong> projects. This will be enough for us, as other dependencies, such as <strong>Nop.Core</strong> and <strong>Nop.Data</strong>will be connected automatically</p>
+<h2 id="the-data-access-layer-aka-creating-new-entities-in-nopcommerce">The Data Access Layer (A.K.A. Creating new entities in nopCommerce)</h2>
+<p>Inside of the &quot;<em>domain</em>&quot; namespace we're going to create a public class named <strong><code>ProductViewTrackerRecord</code></strong>. This class extends <strong><code>BaseEntity</code></strong>, but it is otherwise a very simple file. Something to remember is that we do not have navigation properties (relational properties), because the <em>Linq2DB</em> framework, which we use to work with databases does not support the navigation properties.</p>
+<pre><code class="lang-csharp">namespace Nop.Plugin.Misc.ProductViewTracker.Domain
+
+public class ProductViewTrackerRecord : BaseEntity
+{
+    public int ProductId { get; set; }
+    public string ProductName { get; set; }
+    public int CustomerId { get; set; }
+    public string IpAddress { get; set; }
+    public bool IsRegistered { get; set; }
+}
+</code></pre>
+<p>The next class to create is the <em>FluentMigrator</em> entity builder class. Inside the mapping class, we map the columns, table relationships, and the database table.</p>
+<pre><code class="lang-csharp">using FluentMigrator.Builders.Create.Table;
+using Nop.Core.Domain.Catalog;
+using Nop.Core.Domain.Customers;
+using Nop.Data.Mapping.Builders;
+using Nop.Plugin.Other.ProductViewTracker.Domains;
+using Nop.Data.Extensions;
+using System.Data;
+
+namespace Nop.Plugin.Other.ProductViewTracker.Mapping.Builders
+
+public class ProductViewTrackerRecordBuilder : NopEntityBuilder&lt;ProductViewTrackerRecord&gt;
+{
+    /// &lt;summary&gt;
+    /// Apply entity configuration
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;table&quot;&gt;Create table expression builder&lt;/param&gt;
+    public override void MapEntity(CreateTableExpressionBuilder table)
+    {
+        //map the primary key (not necessary if it is Id field)
+        table.WithColumn(nameof(ProductViewTrackerRecord.Id)).AsInt32().PrimaryKey()
+        //map the additional properties as foreign keys
+        .WithColumn(nameof(ProductViewTrackerRecord.ProductId)).AsInt32().ForeignKey&lt;Product&gt;(onDelete: Rule.Cascade)
+        .WithColumn(nameof(ProductViewTrackerRecord.CustomerId)).AsInt32().ForeignKey&lt;Customer&gt;(onDelete: Rule.Cascade)
+        //avoiding truncation/failure
+        //so we set the same max length used in the product name
+        .WithColumn(nameof(ProductViewTrackerRecord.ProductName)).AsString(400)
+        //not necessary if we don't specify any rules
+        .WithColumn(nameof(ProductViewTrackerRecord.IpAddress)).AsString()
+        .WithColumn(nameof(ProductViewTrackerRecord.IsRegistered)).AsInt32();
+    }
+}
+</code></pre>
+<p>The next important class for us will be the migration class, which creates our table directly in the database. You can create as many migrations as you like in your plugin, the only thing you need to keep track of is the version of your migration. We specially created our <strong>NopMigration</strong> attribute to make it easier for you. By indicating here the most complete and accurate file creation date, you practically guarantee the uniqueness of your migration number.</p>
+<pre><code class="lang-csharp">using FluentMigrator;
+using Nop.Data.Extensions;
+using Nop.Data.Migrations;
+using Nop.Plugin.Other.ProductViewTracker.Domains;
+
+namespace Nop.Plugin.Other.ProductViewTracker.Migrations
+
+[NopSchemaMigration(&quot;2020/05/27 08:40:55:1687541&quot;, &quot;Other.ProductViewTracker base schema&quot;, MigrationProcessType.Installation)]
+public class SchemaMigration : ForwardOnlyMigration
+{
+    public override void Up()
+    {
+        Create.TableFor&lt;ProductViewTrackerRecord&gt;();            
+    }
+}
+</code></pre>
+<h2 id="service-layer">Service layer</h2>
+<p>The service layer connects the data access layer and the presentation layer. Since it is bad form to share any type of responsibility in code each layer needs to be isolated. The service layer wraps the data layer with business logic and the presentation layer depends on the service layer. Because our task is very small our service layer does nothing but communicate with the repository (the repository in nopCommerce acts as a facade to the object context).</p>
+<pre><code class="lang-csharp">using Nop.Data;
+using Nop.Plugin.Other.ProductViewTracker.Domains;
+using System;
+
+namespace Nop.Plugin.Other.ProductViewTracker.Services
+
+public interface IProductViewTrackerService
+{
+    /// &lt;summary&gt;
+    /// Logs the specified record.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;record&quot;&gt;The record.&lt;/param&gt;
+    void Log(ProductViewTrackerRecord record);
+}
+
+
+namespace Nop.Plugin.Misc.ProductViewTracker.Services
+
+public class ProductViewTrackerService : IProductViewTrackerService
+{
+    private readonly IRepository&lt;ProductViewTrackerRecord&gt; _productViewTrackerRecordRepository;
+    public ProductViewTrackerService(IRepository&lt;ProductViewTrackerRecord&gt; productViewTrackerRecordRepository)
+    {
+        _productViewTrackerRecordRepository = productViewTrackerRecordRepository;
+    }
+    /// &lt;summary&gt;
+    /// Logs the specified record.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;record&quot;&gt;The record.&lt;/param&gt;
+    public virtual void Log(ProductViewTrackerRecord record)
+    {
+        if (record == null)
+            throw new ArgumentNullException(nameof(record));
+        _productViewTrackerRecordRepository.Insert(record);
+    }
+}
+</code></pre>
+<h2 id="dependency-injection">Dependency Injection</h2>
+<p>Martin Fowler has written a great description of dependency injection or Inversion of Control. I'm not going to duplicate his work, and you can find <a href="https://martinfowler.com/articles/injection.html">his article here</a>. Dependency injection manages the life cycle of objects and provides instances for dependent objects to use. First, we need to configure the dependency container so it understands which objects it will control and what rules might apply to the creation of those objects.</p>
+<pre><code class="lang-csharp">using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Nop.Core.Infrastructure;
+using Nop.Plugin.Other.ProductViewTracker.Services;
+
+namespace Nop.Plugin.Other.ProductViewTracker.Infrastructure
+
+/// &lt;summary&gt;
+/// Represents object for the configuring services on application startup
+/// &lt;/summary&gt;
+public class NopStartup : INopStartup
+{
+    /// &lt;summary&gt;
+    /// Add and configure any of the middleware
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;services&quot;&gt;Collection of service descriptors&lt;/param&gt;
+    /// &lt;param name=&quot;configuration&quot;&gt;Configuration of the application&lt;/param&gt;
+    public void ConfigureServices(IServiceCollection services, IConfiguration configuration)
+    {
+        services.AddScoped&lt;IProductViewTrackerService, ProductViewTrackerService&gt;();
+    }
+    /// &lt;summary&gt;
+    /// Configure the using of added middleware
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;application&quot;&gt;Builder for configuring an application's request pipeline&lt;/param&gt;
+    public void Configure(IApplicationBuilder application)
+    {
+    }
+    /// &lt;summary&gt;
+    /// Gets order of this startup configuration implementation
+    /// &lt;/summary&gt;
+    public int Order =&gt; 3000;
+}
+</code></pre>
+<p>In the code above we register different types of objects so they can later be injected into controllers, services, and repositories. Now that we've covered the new topics I'll bring back some of the older ones so we can finish the plugin.</p>
+<h2 id="the-view-component">The view component</h2>
+<p>Let's create a view component:</p>
+<pre><code class="lang-csharp">using Microsoft.AspNetCore.Mvc;
+using Nop.Core;
+using Nop.Plugin.Other.ProductViewTracker.Domains;
+using Nop.Plugin.Other.ProductViewTracker.Services;
+using Nop.Services.Catalog;
+using Nop.Services.Customers;
+using Nop.Web.Framework.Components;
+using Nop.Web.Models.Catalog;
+
+namespace Nop.Plugin.Other.ProductViewTracker.Components
+
+public class ProductViewTrackerViewComponent : NopViewComponent
+{
+    private readonly ICustomerService _customerService;
+    private readonly IProductService _productService;
+    private readonly IProductViewTrackerService _productViewTrackerService;
+    private readonly IWorkContext _workContext;
+    public ProductViewTrackerViewComponent(ICustomerService customerService,
+        IProductService productService,
+        IProductViewTrackerService productViewTrackerService,
+        IWorkContext workContext)
+    {
+        _customerService = customerService;
+        _productService = productService;
+        _productViewTrackerService = productViewTrackerService;
+        _workContext = workContext;
+    }
+    public async Task&lt;IViewComponentResult&gt; InvokeAsync(string widgetZone, object additionalData)
+    {
+        if (!(additionalData is ProductDetailsModel model))
+            return Content(&quot;&quot;);
+        //Read from the product service
+        var productById = await _productService.GetProductByIdAsync(model.Id);
+        //If the product exists we will log it
+        if (productById != null)
+        {
+            var currentCustomer = await _workContext.CurrentCustomerAsync();
+            //Setup the product to save
+            var record = new ProductViewTrackerRecord
+            {
+                ProductId = model.Id,
+                ProductName = productById.Name,
+                CustomerId = currentCustomer.Id,
+                IpAddress = currentCustomer.LastIpAddress,
+                IsRegistered = await _customerService.Async(currentCustomer)
+            };
+            //Map the values we're interested in to our new entity
+            _productViewTrackerService.Log(record);
+        }
+        return Content(&quot;&quot;);
+    }
+}
+</code></pre>
+<h2 id="the-main-plugin-class">The main plugin class</h2>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>We implement our plugin as a widget. In this case, we won't need to edit a <code>cshtml</code> file.</p>
+</div>
+<pre><code class="lang-csharp">using Nop.Services.Cms;
+using Nop.Services.Plugins;
+using Nop.Web.Framework.Infrastructure;
+using System.Collections.Generic;
+
+namespace Nop.Plugin.Other.ProductViewTracker
+
+public class ProductViewTrackerPlugin : BasePlugin, IWidgetPlugin
+{
+    /// &lt;summary&gt;
+    /// Gets a value indicating whether to hide this plugin on the widget list page in the admin area
+    /// &lt;/summary&gt;
+    public bool HideInWidgetList =&gt; true;
+    /// &lt;summary&gt;
+    /// Gets a type of a view component for displaying widget
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;widgetZone&quot;&gt;Name of the widget zone&lt;/param&gt;
+    /// &lt;returns&gt;View component type&lt;/returns&gt;
+    public Type GetWidgetViewComponent(string widgetZone)
+    {
+        return typeof(ProductViewTrackerViewComponent);
+    }
+    /// &lt;summary&gt;
+    /// Gets widget zones where this widget should be rendered
+    /// &lt;/summary&gt;
+    /// &lt;returns&gt;Widget zones&lt;/returns&gt;
+    public Task&lt;IList&lt;string&gt;&gt; GetWidgetZonesAsync()
+    {
+        return Task.FromResult&lt;IList&lt;string&gt;&gt;(new List&lt;string&gt; { PublicWidgetZones.ProductDetailsTop });
+    }
+}
+</code></pre>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/developer/plugins/plugin-with-data-access.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

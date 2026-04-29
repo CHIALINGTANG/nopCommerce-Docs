@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>YMM (Year-Make-Model) 篩選器 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="YMM (Year-Make-Model) 篩選器 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/running-your-store/catalog/ymm">
+<h1 id="ymm-year-make-model-篩選器">YMM (Year-Make-Model) 篩選器</h1>
+
+<h2 id="總覽">總覽</h2>
+<p>YMM (Year-Make-Model，年份-廠牌-型號) 篩選器讓顧客能透過結構化的多層次篩選系統來尋找商品。儘管其名稱暗示用於汽車產業，但此功能具有高度自訂性，可應用於任何需要相容性檢查的商品目錄，例如電子零件（例如：依「廠牌、型號、顯示尺寸」進行篩選）。</p>
+<p>其核心目的是協助顧客輕鬆找到與特定車輛或產品相容的零件，進而提升使用者體驗並減少購買錯誤的可能性。</p>
+<h3 id="主要功能">主要功能</h3>
+<ul>
+<li><strong>可設定的多層次篩選：</strong> 管理員最多可定義三個巢狀篩選層級（例如：年份 → 廠牌 → 型號）。</li>
+<li><strong>靈活的數值管理：</strong> 透過管理後台或 Excel 匯入/匯出功能，即可輕鬆新增、編輯及大量管理篩選值（例如：2023、Audi、A4）。</li>
+<li><strong>商品與篩選器對應：</strong> 將商品指派給一個或多個相容的篩選組合，以確保精確的搜尋結果。</li>
+<li><strong>無縫整合前台網站：</strong> 在首頁顯示篩選器以便於操作，並在商品頁面顯示詳細的相容性資訊。</li>
+</ul>
+<h2 id="管理後台設定">管理後台設定</h2>
+<h3 id="篩選器設定">篩選器設定</h3>
+<p>若要設定此功能，請前往 <strong>設定 → 設定 → 篩選器 (YMM) 設定</strong>。</p>
+<p><img src="_static/ymm/ymm_settings.png" alt="YMM"></p>
+<ul>
+<li><strong><code>Enabled</code></strong>：這是用來啟用或停用網站上所有 YMM 功能的總開關。預設為停用。</li>
+<li><strong><code>Display on home page</code></strong>：勾選此方塊可在網站首頁顯示 YMM 篩選區塊。</li>
+<li><strong><code>Display filter values on product details page</code></strong>：勾選後，商品頁面會出現一個「相容於」表格，列出所有相關聯的篩選組合。預設為啟用。</li>
+</ul>
+<h4 id="篩選層級網格">篩選層級網格</h4>
+<p>您可以在此自訂三個可用的篩選層級：</p>
+<p><img src="_static/ymm/ymm_fl_edit.png" alt="YMM"></p>
+<ul>
+<li><strong>Enabled：</strong> 啟用或停用各個層級。</li>
+<li><strong>Name：</strong> 為每個層級設定一個可自訂且可在地化的名稱。
+<div class="NOTE">
+<h5>Note</h5>
+<p>在預設情況下，新安裝的系統會設定並啟用「年份 (Year)」、「廠牌 (Make)」和「型號 (Model)」。</p>
+</div>
+</li>
+</ul>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>若子層級目前處於啟用狀態，則無法停用其父層級。</p>
+</div>
+<h3 id="管理篩選值">管理篩選值</h3>
+<p>若要建立及管理每個篩選層級的選項，請前往 <strong>目錄 → 篩選層級值 (YMM)</strong>。</p>
+<p><img src="_static/ymm/ymm_flv_list.png" alt="YMM"></p>
+<ul>
+<li><p><strong>建立與編輯數值：</strong> 管理員可以針對已啟用的篩選層級新增或編輯數值組合（例如：年份：2024、廠牌：BMW、型號：X5）。系統會防止重複組合的建立。</p>
+<p><img src="_static/ymm/ymm_flv_edit.png" alt="YMM"></p>
+</li>
+<li><p><strong>商品對應：</strong> 建立或編輯數值組時，會出現一個新視窗，您可以在其中將商品直接對應到該特定組合。此視窗也會顯示已對應的商品。</p>
+</li>
+<li><p><strong>管理功能：</strong></p>
+<ul>
+<li><strong>篩選：</strong> 管理網格可透過每個啟用層級進行篩選，以快速找到項目。</li>
+<li><strong>匯入/匯出：</strong> 使用 Excel 匯入與匯出工具大量管理篩選值。</li>
+<li><strong>刪除選取項目：</strong> 同時移除多個數值組合。</li>
+</ul>
+</li>
+</ul>
+<h3 id="從商品編輯頁面進行對應">從商品編輯頁面進行對應</h3>
+<p>您也可以直接從商品的設定頁面管理對應關係。</p>
+<ol>
+<li><p>前往 <strong>目錄 → 商品</strong> 並開啟商品進行編輯。</p>
+</li>
+<li><p>找到新的 <strong>「篩選層級值 (YMM)」</strong> 面板（位於「交叉銷售」面板之後）。</p>
+<p><img src="_static/ymm/ymm_product_map.png" alt="YMM"></p>
+</li>
+<li><p>您可以在此新增或移除商品與現有篩選組合之間的關聯。</p>
+</li>
+</ol>
+<h2 id="前台網站功能">前台網站功能</h2>
+<h3 id="首頁篩選器">首頁篩選器</h3>
+<p>如果已啟用在首頁顯示的功能，顧客將會看到一個包含各個啟用篩選層級下拉式選單的篩選區塊。</p>
+<p><img src="_static/ymm/ymm_public.png" alt="YMM"></p>
+<p>這些下拉式選單是<strong>相依且循序的</strong>。必須先在第一層篩選器（例如「年份」）中選擇一個值，第二層下拉式選單（例如「廠牌」）才會變為可操作，依此類推。</p>
+<h3 id="搜尋結果頁面">搜尋結果頁面</h3>
+<p>搜尋動作僅會在顧客針對<strong>所有已啟用的篩選層級</strong>皆選定數值後才會執行。
+點擊 <strong>搜尋</strong> 後，使用者將被重新導向至專屬的 YMM 搜尋結果頁面。</p>
+<p><img src="_static/ymm/ymm_search.png" alt="YMM"></p>
+<p>此頁面會在頂部顯示所選的篩選條件，並在下方顯示所有符合條件的商品分頁列表。</p>
+<h3 id="商品詳細頁面">商品詳細頁面</h3>
+<p>如果對應的設定已啟用，商品頁面上會顯示一個標題為 <strong>「相容於」</strong> 的表格。此表格清楚列出了該特定商品所相容的所有 YMM 組合，讓顧客對他們的購買更有信心。</p>
+<p><img src="_static/ymm/ymm_product_compatible.png" alt="YMM"></p>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/running-your-store/catalog/ymm.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

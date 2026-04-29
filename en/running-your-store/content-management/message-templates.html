@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Message templates </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Message templates ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/running-your-store/content-management/message-templates">
+<h1 id="message-templates">Message templates</h1>
+
+<p>Message templates define the layout, content, and formatting of automated messages sent from your store. They are called transactional emails because each one is associated with a specific type of transaction.</p>
+<p>There are several message templates available in nopCommerce by default to notify users and the store owner about order statuses and more. To access message templates, go to <strong>Content management → Message templates</strong>.</p>
+<p><img src="_static/message-templates/list.png" alt="MessageTemplate1"></p>
+<p>Filtering:</p>
+<ul>
+<li><p>You can search for message templates by keywords or store. Keywords are used to search in the name, body or subject of a message template. The list of available stores is shown if you have more than one store and the <strong>Performance → Ignore &quot;limit per store&quot; rules (sitewide)</strong> setting on the <em>Catalog settings</em> page is not active.</p>
+</li>
+<li><p><strong>Email account</strong>. This drop-down list appears if the store has two or more email accounts.</p>
+</li>
+<li><p>You can also filter message templates by <strong>Is active</strong>.</p>
+</li>
+</ul>
+<h2 id="edit-a-message-template">Edit a message template</h2>
+<p>Find the message template you want to edit and click <strong>Edit</strong>. The <em>Edit message template details</em> window will be displayed as follows:</p>
+<p><img src="_static/message-templates/edit.jpg" alt="Editing message templates"></p>
+<p>If you have more than one language installed, select the required <strong>language tab</strong>.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>By default, only the English language is used in the system. You can manage languages in <strong>Configuration → Language</strong>. Read more about languages in nopCommerce in the <a class="xref" href="../../getting-started/advanced-configuration/localization.html">Localization</a> section.</p>
+</div>
+<p>Edit the message template details as follows:</p>
+<ul>
+<li>Edit the <strong>Subject</strong> of the message. You can include tokens in the subject. You can see the list with all the tokens allowed at the top of the page.</li>
+<li>Edit the <strong>Body</strong> of the message.</li>
+<li>In the <strong>BCC</strong> field, enter the blind copy recipients of this email message if needed.</li>
+<li>From the <strong>Email account</strong> dropdown list, select the email account used to send this message template.</li>
+<li>You can test this message template by clicking the <strong>Test template</strong> button. When clicked, the <em>Send test email</em> will be displayed as follows:
+<img src="_static/message-templates/test-template.jpg" alt="Send test email">
+Enter your email in the <strong>Send email to</strong> field, fill the tokens with some test values, then click the <strong>Send</strong> button.</li>
+</ul>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Email accounts are configured in <strong>Configuration → Email accounts</strong>. Read more about it in the <a class="xref" href="../../getting-started/email-accounts.html">Emails accounts</a> section.</p>
+</div>
+<ul>
+<li>Select the <strong>Is active</strong> option to indicate this message should be sent.</li>
+<li>Select the <strong>Send immediately</strong> checkbox if you want this email to be sent immediately.
+<ul>
+<li>If the previous checkbox is clear, the <strong>Delay send</strong> field will be displayed.</li>
+</ul>
+</li>
+<li>Select the <strong>Attached static</strong> file checkbox to upload a file that will be attached to each email sent.</li>
+<li>Choose the stores in the <strong>Limited to stores</strong> field if the message template is for specific stores only. Leave the field empty in case this functionality is not required.
+<div class="NOTE">
+<h5>Note</h5>
+<p>In order to use this functionality, you have to disable the following setting: <strong>Catalog settings → Ignore &quot;limit per store&quot; rules (sitewide)</strong>. Read more about multi-store functionality <a class="xref" href="../../getting-started/advanced-configuration/multi-store.html">here</a>.</p>
+</div>
+</li>
+</ul>
+<p>Click <strong>Save</strong>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>To create a full copy of the message template, click <strong>Copy template</strong> in the top right. This is useful if you have several stores configured and want to create distinct templates for each of your stores.</p>
+</div>
+<h2 id="see-also">See also</h2>
+<ul>
+<li><a class="xref" href="../../getting-started/email-accounts.html">Email accounts</a></li>
+<li><a class="xref" href="../../getting-started/advanced-configuration/localization.html">Languages</a></li>
+</ul>
+<h2 id="tutorials">Tutorials</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=5chrb1yH1v4&amp;feature=youtu.be">Adding conditions in message templates</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/running-your-store/content-management/message-templates.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

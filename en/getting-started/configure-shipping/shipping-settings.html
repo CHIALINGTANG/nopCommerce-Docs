@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Shipping settings </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Shipping settings ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/getting-started/configure-shipping/shipping-settings">
+<h1 id="shipping-settings">Shipping settings</h1>
+
+<p>This chapter describes how to set up the shipping details of a store. Besides the location and warehouse set, other things make good logistics as well.</p>
+<p>To manage shipping settings, go to <strong>Configuration → Settings → Shipping settings</strong>.</p>
+<p>Define your shipping settings in the <em>Common</em> panel as follows:</p>
+<p><img src="_static/shipping-settings/shipping-settings-common.jpg" alt="Shipping Settings"></p>
+<ul>
+<li>Select <strong>Estimate shipping enabled (cart page)</strong> to display estimated shipping information based on the customer's shipping address on the shopping cart page. See the screenshot below to understand what it looks like.</li>
+<li>Select <strong>Estimate shipping enabled (product page)</strong> to display estimate shipping information based on the customer's shipping address on the product details page. See the screenshot below to understand what it looks like.</li>
+</ul>
+<p><img src="_static/shipping-settings/estimate-shipping.png" alt="Estimate shipping"></p>
+<ul>
+<li>Select the <strong>Use a city name for estimate shipping</strong> checkbox to allow customers to enter a city name instead of a ZIP or postal code.</li>
+<li>Select the <strong>&quot;Pick up in store&quot; enabled</strong> to display the pickup in store option during checkout at the shipping address step. Users will see the following screen:</li>
+</ul>
+<p><img src="_static/shipping-settings/shipping-address.png" alt="Shipping Address"> <img src="_static/shipping-settings/Pickup-Point-address.png" alt="Pickup Point Address"></p>
+<ul>
+<li>Tick the <strong>Ignore additional shipping charge for pick up in store</strong> checkbox if needed.</li>
+<li>Choose to <strong>Display pickup points on the map</strong> if you want to display them on Google Maps. Customers should not enter a shipping address and choose a shipping method when this option is selected.</li>
+<li><strong>Google maps API key</strong>. If the previous setting is turned on specify the Google maps API key here.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You can also specify a fee for the 'Pick up in store' option. To do this, go to <strong>Configuration → Shipping → Pickup points</strong> and configure the appropriate pickup point provider. Learn more here: <a class="xref" href="advanced-configuration/pickup-points.html">Pickup points</a>.</p>
+</div>
+<ul>
+<li>Select <strong>Free shipping over 'x'</strong> to enable free shipping for orders over a certain total amount. The following field is then displayed, enabling you to define the value of 'x'.</li>
+<li>In the <strong>Value of 'x'</strong> field, enter the value over which all orders with a total greater than this will qualify for free shipping.</li>
+<li><strong>Calculate 'x' including tax</strong>. If it is not selected the value is calculated excluding tax.</li>
+<li>Select <strong>Use warehouse location</strong> to use it when requesting shipping rates. This is useful when you ship from multiple warehouses.</li>
+<li>Select <strong>Consider associated products dimensions and weight</strong> to consider associated products dimensions and weight on shipping; clear, for example, if the main product already includes them.</li>
+<li>In the <strong>Sort shipping methods by</strong> dropdown, select the field to sort shipping methods by.</li>
+</ul>
+<p>Define your shipping settings in the <em>Notifications</em> panel as follows:</p>
+<p><img src="_static/shipping-settings/shipping-settings-notifications.jpg" alt="Shipping Settings notifications"></p>
+<ul>
+<li><p>Tick <strong>Notify customer about shipping from multiple locations</strong> if required. This is useful when you ship from multiple warehouses.</p>
+</li>
+<li><p>Select <strong>Display shipment events (customers)</strong> to enable customers to view shipment events on their shipment details page.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Note: to be enabled, this feature must be supported by the shipment computation method.</p>
+</div>
+</li>
+<li><p>Tick <strong>Display shipment events (store owners)</strong>, to enable store owners to view shipment events on their shipment details page.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Note: to be enabled, this feature must be supported by the shipment computation method as well.</p>
+</div>
+</li>
+</ul>
+<p>Then define the <em>checkout</em> settings:</p>
+<p><img src="_static/shipping-settings/shipping-settings-checkout.jpg" alt="Shipping Settings checkout"></p>
+<ul>
+<li><p>Select the <strong>Hide shipping total if shipping not required</strong> checkbox if you want to hide the <em>Shipping total</em> label if shipping is not required.</p>
+</li>
+<li><p>Select the <strong>Ship to the same address</strong> checkbox to display the &quot;ship to the same address&quot; option during checkout (&quot;billing address&quot; step). In this case &quot;shipping address&quot; with appropriate options (for example, pick up in store) will be skipped.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>When using this setting make sure that all billing countries (<strong>Configuration → Countries</strong>) support shipping (<strong>Allows shipping</strong> checkbox selected).</p>
+</div>
+</li>
+<li><p>Select <strong>Bypass shipping method page</strong> if there's only one shipping method available. This page will not be displayed during the checkout process.</p>
+</li>
+</ul>
+<p>Define the <em>shipping origin details</em>:</p>
+<p><img src="_static/shipping-settings/shipping-settings-origin.jpg" alt="Shipping Settings origin"></p>
+<p>It includes address fields such as:</p>
+<ul>
+<li>Select the <strong>Country</strong>.</li>
+<li>Select the <strong>State/province</strong>.</li>
+<li>Define the <strong>County/region</strong>.</li>
+<li>Enter the required <strong>City</strong>.</li>
+<li>Enter the required <strong>Address 1</strong>.</li>
+<li>Enter the required <strong>Zip/postal code</strong>.</li>
+</ul>
+<p>and other fields.</p>
+<p>Click <strong>Save</strong>.</p>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/getting-started/configure-shipping/shipping-settings.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

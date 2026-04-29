@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>UPS </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="UPS ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="preload" href="../../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/getting-started/configure-shipping/shipping-providers/ups">
+<h1 id="ups">UPS</h1>
+
+<h2 id="define-the-ups-real-time-shipping-calculations">Define the UPS Real Time Shipping Calculations</h2>
+<ol>
+<li><p>Create a UPS user account via <a href="https://www.ups.com/">UPS.com</a>, then go to <a href="https://developer.ups.com/">developer.ups.com</a>, and create an app to receive the following:</p>
+<ul>
+<li><p>Client ID</p>
+</li>
+<li><p>Client Secret</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>This is to use UPS OAuth, which is required for all new accounts after June 2023, and all accounts after June 2024</p>
+</div>
+<p><img src="_static/ups/ups-apps-configuration.jpg" alt="Shipping rate methods"></p>
+</li>
+</ul>
+</li>
+<li><p>Add UPS Products to enable shipment tracking, rate calculations, etc. Recommended products are:</p>
+<ul>
+<li>Rating</li>
+<li>Address Validation</li>
+<li>Landed Cost Quoting</li>
+<li>Tracking</li>
+<li>Shipping</li>
+<li>Time In Transit</li>
+</ul>
+</li>
+<li><p>In the nopCommerce admin area, go to <strong>Configuration → Settings → Shipping Settings</strong>. Configure the shipping point location. The default option is to configure a single <strong>Shipping Origin</strong>, which is configured lower on the page. However you may also choose <strong>Use Warehouse Location</strong>, if you wish to use the settings configured in <strong>Configuration → Shipping → Warehouse</strong>. The <strong>Use Warehouse Location</strong> checkbox is revealed by choosing <strong>Advanced</strong> from the page configuration selector under the <strong>Shipping settings</strong> header.</p>
+<p><img src="_static/ups/shipping-settings-advanced.jpg" alt="Shipping rate methods"></p>
+</li>
+<li><p>In the nopCommerce admin area, go to <strong>Configuration → Shipping → Shipping providers</strong>.
+<img src="_static/ups/shipping-rate-methods.jpg" alt="Shipping rate methods"></p>
+</li>
+<li><p>Enable this method as follows:</p>
+<ul>
+<li>In the UPS (United Postal Service) row, click the <strong>Edit</strong> button.</li>
+<li>In the Is <strong>active</strong> column, select the check mark.</li>
+<li>Click <strong>Update</strong>. The <em>false</em> option will becomes <em>true</em>.</li>
+</ul>
+</li>
+<li><p>Click <strong>Configure</strong> beside the UPS (United Parcel Service) option in the list.
+The <em>Configure – UPS (United Parcel Service)</em> window will be displayed as follows: <img src="_static/ups/ups-configure.jpg" alt="Configure page"></p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Beginning in June of 2024, you will no longer be able to transact with UPS APIs using an access key for authentication and are required to update your security model to OAuth 2.0</p>
+</div>
+</li>
+<li><p>Enter the following information obtained from the UPS provider, and choose the options that are relevant to your store:</p>
+<ul>
+<li>Select the <strong>Use sandbox</strong> checkbox to use the testing environment.</li>
+<li>Enter the <strong>Client ID</strong> of the UPS provider.</li>
+<li>Enter the <strong>Client Secret</strong> obtained from the provider.</li>
+<li>Enter your <strong>Account Number</strong> obtained from the provider.</li>
+<li>Select your required <strong>UPS Customer Classification</strong> as follows:
+<ul>
+<li>Rates Associated With Shipper Number</li>
+<li>Daily Rates</li>
+<li>Retail Rates</li>
+<li>Regional Rates</li>
+<li>General List Rates</li>
+<li>Standard List Rates</li>
+</ul>
+</li>
+<li>Select the required <strong>UPS Pickup Type</strong> as follows:
+<ul>
+<li>Daily Pickup</li>
+<li>Customer Counter</li>
+<li>One Time Pickup</li>
+<li>On Call Air</li>
+<li>Letter Center</li>
+<li>Air Service Center</li>
+</ul>
+</li>
+<li>Select the required <strong>UPS Packaging Type</strong> as follows:
+<ul>
+<li>Unknown</li>
+<li>Letter</li>
+<li>Customer Supplied Package</li>
+<li>Tube</li>
+<li>P A K</li>
+<li>Express Box</li>
+<li>10 kg Box</li>
+<li>25 kg Box</li>
+<li>Pallet</li>
+<li>Small Express Box</li>
+<li>Medium Express Box</li>
+<li>Large Express Box</li>
+</ul>
+</li>
+<li>Select the <strong>Insure package</strong> checkbox, to indicate the package will be insured.</li>
+<li>Enter <strong>Additional handling charge</strong>. It is an additional fee to charge your customers.</li>
+<li>Select the <strong>Carrier Services</strong> you want to offer to your customers.</li>
+<li>Select to get rates for <strong>Saturday Delivery enabled</strong>.</li>
+<li>Select the <strong>Packing type</strong>, as follows:
+<ul>
+<li>Pack by dimensions</li>
+<li>Pack by one item per package</li>
+<li>Pack by volume</li>
+</ul>
+</li>
+<li>Tick the <strong>Pass dimensions</strong> checkbox to pass package dimensions when requesting for rates.</li>
+<li>Select the <strong>Weight type</strong> – pounds or kilograms.</li>
+<li>Select the <strong>Dimensions type</strong> – inches or centimeters.</li>
+<li>Tick the <strong>Tracing</strong> checkbox to record system tracing in the system log. The entire request and response XML will be logged (including AccessKey/Username, Password). Do not leave this enabled in a production environment.</li>
+</ul>
+<p>Click <strong>Save</strong>.</p>
+</li>
+</ol>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/getting-started/configure-shipping/shipping-providers/ups.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

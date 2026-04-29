@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>外掛系統簡介 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="外掛系統簡介 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/developer/tutorials/description-of-plugin-system">
+<h1 id="外掛系統簡介">外掛系統簡介</h1>
+
+<h2 id="如何初始化一個新的外掛系統如何建立一個新的外掛專案">如何初始化一個新的外掛系統（如何建立一個新的外掛專案）</h2>
+<p>nopCommerce 使用外掛系統來擴充 nopCommerce 商店的功能。外掛是一組獨立的程式或組件，可以被加入到現有的系統中以擴充某些特定功能，並且在過程中也可以從系統中移除，而不會影響主系統的運作。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>關於如何建立外掛的更多資訊，您可以前往 <a class="xref" href="../plugins/index.html"><strong>此頁面</strong></a>。</p>
+</div>
+<h2 id="如何搜尋並使用來自-nopcommerce-商店的外掛">如何搜尋並使用來自 nopCommerce 商店的外掛</h2>
+<p>nopCommerce 已經內建了幾個可直接使用的外掛。您也可以搜尋並尋找 nopCommerce 官方市集（marketplace）中現有的外掛，看看是否已經有人開發了符合您需求的外掛。如果沒有，您總是可以根據自己的需求開發專屬的外掛。但現在，讓我們來看看如何從 nopCommerce 商店中尋找並使用外掛。為此，nopCommerce 提供了一個市集，我們可以在其中找到不同的佈景主題與外掛。您可以前往 <a href="https://www.nopcommerce.com/marketplace">nopCommerce 市集</a> 查看。</p>
+<p><img src="_static/description-of-plugin-system/image4.png" alt="image4"></p>
+<p>在這裡，您可以看到三個分頁。<strong>All</strong>（全部）分頁包含所有的佈景主題與擴充功能；<strong>Themes</strong>（佈景主題）分頁包含所有用於 nopCommerce 網站外觀的佈景主題；最後是 <strong>Extensions</strong>（擴充功能）分頁，我們可以在這裡找到外掛。請點選 Extensions 分頁，在這裡您可以找到所有免費與商業用途的外掛。若要尋找特定的外掛，您可以從這裡進行搜尋。在右側，您可以找到篩選區塊，從中可以縮小您的搜尋範圍。在找到您搜尋的外掛後，只需下載並安裝即可。每個外掛在其下載頁面上都有關於如何使用的完整說明，所以請務必閱讀這些說明。</p>
+<h2 id="iplugin-介面"><code>IPlugin</code> 介面</h2>
+<p><code>IPlugin</code> 是一個介面，用於公開安裝或解除安裝外掛時所使用的功能。每個外掛專案都必須有一個類別繼承此介面，這樣 nopCommerce 才能將該專案視為一個外掛。</p>
+<h3 id="方法-getconfigurationpageurl">方法 <code>GetConfigurationPageUrl</code></h3>
+<pre><code class="lang-cs">string GetConfigurationPageUrl()
+</code></pre>
+<p>此方法應回傳設定檢視的 URL。當我們安裝此外掛時會看到一個 <code>Configuration</code> 按鈕，因此如果我們在類別中實作此方法，我們從該方法回傳的字串值將被用作該 <code>configuration</code> 按鈕的 URL。</p>
+<h3 id="屬性-plugindescriptor">屬性 <code>PluginDescriptor</code></h3>
+<pre><code class="lang-cs">PluginDescriptor PluginDescriptor{ get; set; }
+</code></pre>
+<p>此屬性用於取得或設定描述目前外掛的資訊。當我們撰寫新的外掛或小工具時，需要建立一個 <strong>plugin.json</strong> 檔案。nopCommerce 會使用該檔案來初始化此屬性的值。</p>
+<h3 id="installasync-方法"><code>InstallAsync</code> 方法</h3>
+<pre><code class="lang-cs">Task InstallAsync();
+</code></pre>
+<p>當外掛安裝時會執行此方法，此邏輯通常用於實作設定、語言包以及其他為了讓外掛能正確配置所需之基礎架構的初始化。</p>
+<h3 id="uninstallasync-方法"><code>UninstallAsync</code> 方法</h3>
+<pre><code class="lang-cs">Task UninstallAsync();
+</code></pre>
+<p>此方法與 &quot;InstallAsync&quot; 的功能相反，它應該在執行外掛解除安裝後，將該外掛所配置的所有資源完整刪除。</p>
+<h3 id="updateasync-方法"><code>UpdateAsync</code> 方法</h3>
+<pre><code class="lang-cs">Task UpdateAsync(string currentVersion, string targetVersion);
+</code></pre>
+<p>此方法用於將外掛更新至指定的版本。</p>
+<h3 id="prepareplugintouninstallasync-方法"><code>PreparePluginToUninstallAsync</code> 方法</h3>
+<pre><code class="lang-cs">Task PreparePluginToUninstallAsync()
+</code></pre>
+<p>當我們點擊外掛的 <code>UninstallAsync</code> 按鈕時，此方法將會被呼叫。在此方法內的程式碼會在 nopCommerce 從系統解除安裝此外掛之前執行。我們可以在此方法中撰寫邏輯，以驗證外掛是否符合解除安裝的條件。例如，我們可以在此檢查是否有其他外掛正依賴於我們嘗試解除安裝的外掛。若確實存在依賴關係，我們可能不希望讓使用者在解除安裝該依賴外掛之前，先行移除目前的外掛。</p>
+<h2 id="類別-plugindescriptor">類別 <code>PluginDescriptor</code></h2>
+<p>顧名思義，此類別保存了用於描述外掛的資訊。如果您將此類別的 <em>properties</em> 與 <strong>plugin.json</strong> 檔案中的 <em>key</em> 進行比較，您會發現它們具有相似的結構。這是因為 <strong>PluginDescriptor.cs</strong> 類別用於將該 <strong>plugin.json</strong> 檔案對應至 C# 類別，以便 nopCommerce 可以使用 <strong>plugin.json</strong> 中提供的資訊。除了這些屬性外，<code>PluginDescriptor</code> 類別還包含一些額外的屬性與輔助方法。</p>
+<h3 id="屬性-installed">屬性 <code>Installed</code></h3>
+<pre><code class="lang-cs">public virtual bool Installed { get; set; }
+</code></pre>
+<p>此屬性用於驗證外掛是否已安裝在我們的 nopCommerce 應用程式中。</p>
+<h3 id="plugintype-屬性"><code>PluginType</code> 屬性</h3>
+<pre><code class="lang-cs">public virtual Type PluginType { get; set; }
+</code></pre>
+<p>此屬性用於取得或設定外掛的類型。此類型會參考外掛專案中實作 <code>IPlugin</code> 介面的類別。</p>
+<h3 id="originalassemblyfile-屬性"><code>OriginalAssemblyFile</code> 屬性</h3>
+<pre><code class="lang-cs">public virtual string OriginalAssemblyFile { get; set; }
+</code></pre>
+<p>它用於取得或設定製作陰影複製（shadow copy）時所依據的原始組件檔案。</p>
+<h3 id="referencedassembly-屬性"><code>ReferencedAssembly</code> 屬性</h3>
+<pre><code class="lang-cs">public virtual Assembly ReferencedAssembly { get; set; }
+</code></pre>
+<p>此屬性用於取得或設定已進行陰影複製（shadow copied）且在應用程式中處於啟用狀態的組件（assembly）。</p>
+<h3 id="屬性-showinpluginslist">屬性 <code>ShowInPluginsList</code></h3>
+<pre><code class="lang-cs">public virtual bool ShowInPluginsList { get; set; } = true;
+</code></pre>
+<p>此屬性用於指出是否要在外掛清單中顯示該外掛。</p>
+<h3 id="method-getplugindescriptorfromtext">Method GetPluginDescriptorFromText</h3>
+<pre><code class="lang-cs">public static PluginDescriptor GetPluginDescriptorFromText(string text)
+</code></pre>
+<p>此方法接收 <em>json string</em> 作為輸入，並將該 <em>json string</em> 解析為 <code>PluginDescriptor</code> 類型。最後會回傳從該 <em>json string</em> 解析出的 <code>PluginDescriptor</code> 物件。</p>
+<h3 id="save-方法"><code>Save</code> 方法</h3>
+<pre><code class="lang-cs">public virtual void Save()
+</code></pre>
+<p>此方法用於將外掛描述從 <code>PluginDescriptor</code> 儲存至 <strong>plugin.json</strong> 檔案。</p>
+<h3 id="compareto-方法"><code>CompareTo</code> 方法</h3>
+<pre><code class="lang-cs">public int CompareTo(PluginDescriptor other)
+</code></pre>
+<p>它透過比較 <em>FriendlyName</em> 屬性，將 <code>PluginDescriptor</code> 的目前實例與作為參數提供的其他 <code>PluginDescriptor</code> 實例進行比較，並傳回一個整數，用以指示該實例在排序順序中是位於指定參數之前、之後，還是處於相同位置。</p>
+<h3 id="instance-方法"><code>Instance</code> 方法</h3>
+<pre><code class="lang-cs">public virtual TPlugin Instance&lt;TPlugin&gt;() where TPlugin : class, IPlugin
+</code></pre>
+<p>此方法用於從目前的 <code>PluginDescriptor</code> 中取得 <code>PluginType</code> 屬性類型的 <em>Plugin</em> 執行個體。</p>
+<h2 id="介面-ipluginmanager">介面 <code>IPluginManager</code></h2>
+<p><code>IPluginManager</code> 是一個泛型類別介面。它包含了用於透過不同篩選參數載入外掛的方法宣告。我們可以在位於命名空間 <code>{Nop.Services.Plugins}</code> 下的 <code>PluginManager</code> 中找到此介面的實作。</p>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/developer/tutorials/description-of-plugin-system.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

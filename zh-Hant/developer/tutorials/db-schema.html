@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>預設資料庫綱要 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="預設資料庫綱要 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/developer/tutorials/db-schema">
+<h1 id="預設資料庫綱要">預設資料庫綱要</h1>
+
+<p>在本文中，我們將介紹在初始安裝期間所建立，且在 90% 的情況下保持不變的資料庫綱要。</p>
+<p>我們不會列出整個綱要，而是會描述預設安裝中提供的 126 個資料表。</p>
+<p>為了更輕易地理解此綱要，我們將其拆分為幾個部分。以下我們將資料表進行了最自然且易於理解的分組：</p>
+<ul>
+<li><a href="#customers-info">顧客資訊</a></li>
+<li><a href="#products-info">商品資訊</a>
+<ul>
+<li><a href="#product-attributes">商品屬性</a></li>
+<li><a href="#tier-price">階梯價格</a></li>
+<li><a href="#inventory-by-warehouses">各倉儲庫存</a></li>
+</ul>
+</li>
+<li><a href="#orders">訂單</a></li>
+<li><a href="#shipments">出貨</a></li>
+<li><a href="#discounts">折扣</a></li>
+<li><a href="#shopping-cart">購物車</a></li>
+<li><a href="#addresses">地址</a></li>
+<li><a href="#database-naming-convention">資料庫命名慣例</a></li>
+</ul>
+<h2 id="顧客資訊">顧客資訊</h2>
+<p><img src="_static/db-schema/customers-info.jpg" alt="Customers info"></p>
+<p>此圖表顯示了一組包含基本顧客資訊的資料表，同時也標示了連結的方向。</p>
+<p>我們不會深入探討各個資料表與欄位的目的，因為它們的名稱已經足夠清楚明確。</p>
+<h3 id="功能顧客資訊">功能（顧客資訊）</h3>
+<ul>
+<li><p>在 <strong>Customer</strong> 資料表中，有三個欄位實際上應該定義為外鍵，但實務上並沒有這樣設定：</p>
+<ol>
+<li>AffiliateId</li>
+<li>VendorId</li>
+<li>RegisteredInStoreId</li>
+</ol>
+<p>這麼做是刻意為之，為了避免系統負載過多不必要的連結，因為這些欄位並非每個線上商店都會用到。</p>
+</li>
+<li><p>部分顧客資料儲存在 <strong>GenericAttribute</strong> 資料表中。您可以在 <code>\src\Libraries\Nop.Core\Domain\Customers\NopCustomerDefaults.cs</code> 中找到所有相關定義。</p>
+<p>此資料表的結構如下所示：</p>
+<p><img src="_static/db-schema/generic-attribute.jpg" alt="GenericAttribute"></p>
+<p>除了上述的顧客資料外，此資料表也能儲存其他實體的任何資料。我們刻意加入此資料表，是為了讓您在不更動資料表結構的情況下，也能擴充任何實體。</p>
+<p>此外，此資料表以 XML 格式儲存自訂的 <strong>Customer attributes</strong>（顧客屬性）與 <strong>Vendor attributes</strong>（供應商屬性），以及供應商與顧客所選擇的值。請參閱以下資料列以了解其呈現方式：</p>
+<p><img src="_static/db-schema/xml.jpg" alt="Xml"></p>
+<p>透過 <em>Value</em> 欄位中的 XML 字串範例，我們可以觀察特定供應商的屬性值是如何儲存的：</p>
+<pre><code class="lang-csharp">&lt;Attributes&gt;&lt;VendorAttribute ID=&quot;2&quot;&gt;&lt;VendorAttributeValue&gt;&lt;Value&gt;1&lt;/Value&gt;&lt;/VendorAttributeValue&gt;&lt;/VendorAttribute&gt;&lt;/Attributes&gt;
+</code></pre>
+<p>如您所見，ID 為 1 的供應商只有填寫一項供應商屬性。該屬性的 ID 為 2，其值為 1。</p>
+<p>自訂顧客屬性的結構與供應商屬性相同。下方的截圖呈現了 <strong>Customer attributes</strong> 與 <strong>Vendor attributes</strong> 及其值之間的關聯：</p>
+<p><img src="_static/db-schema/attributes.jpg" alt="Xml"></p>
+</li>
+</ul>
+<h2 id="商品資訊">商品資訊</h2>
+<p><img src="_static/db-schema/products-info.jpg" alt="Products info"></p>
+<p>在圖表中，您可以看到商品的基礎資料（下方商品資訊資料表的結構）。通常情況下，99% 的情況都會使用這些資料。</p>
+<p><img src="_static/db-schema/product.png" alt="Product table"></p>
+<h3 id="功能商品資訊">功能（商品資訊）</h3>
+<p>根據商店設定，其他資料表可能會連接到此結構。例如，將商品數量分配到多個倉庫。</p>
+<p><img src="_static/db-schema/warehouse.jpg" alt="Product table"></p>
+<p>或是如果您想使用商品評論功能：</p>
+<p><img src="_static/db-schema/product-review.jpg" alt="Product table"></p>
+<h3 id="商品屬性">商品屬性</h3>
+<p>接下來，讓我們參考下方呈現的屬性結構及其組合方式：</p>
+<p><img src="_static/db-schema/product-attributes.jpg" alt="Product attributes"></p>
+<h3 id="階梯價格">階梯價格</h3>
+<p>如果您為商品使用階梯價格（tier pricing），您也應該注意以下架構：</p>
+<p><img src="_static/db-schema/tier-price.jpg" alt="Tier price"></p>
+<h3 id="各倉庫庫存">各倉庫庫存</h3>
+<p>儘管此功能不常被使用，但若您需要提供特定倉庫中的貨物會計架構，它可能會有所幫助：</p>
+<p><img src="_static/db-schema/stock-quantity-history.jpg" alt="Inventory by warehouses"></p>
+<h2 id="訂單">訂單</h2>
+<p><img src="_static/db-schema/orders.jpg" alt="orders"></p>
+<p>在此圖表中，我們可以看到與訂單資料相關的資料表。<strong>Order</strong> 資料表具有以下結構：</p>
+<p><img src="_static/db-schema/order.png" alt="order"></p>
+<p>由於圖表中的內容一目了然，且欄位名稱已具備足夠的自我描述性，因此無需多做說明。僅需注意，<strong>RewardPointsHistory</strong> 資料表僅在商店啟用了<em>紅利點數系統</em>時才會使用。</p>
+<h2 id="出貨">出貨</h2>
+<p><img src="_static/db-schema/shipments.jpg" alt="shipments"></p>
+<p>與先前一樣，圖表中的所有資料表用途皆十分明確，無須多作贅述。不過，我們還是針對幾點進行說明。<strong>ShippingMethod</strong> 資料表用於管理已連接的外掛清單，而特定的貨運方式則儲存在 <strong>Order</strong> 資料表的 <em>ShippingRateComputationMethodSystemName</em> 和 <em>ShippingMethod</em> 欄位中。</p>
+<p><strong>ShipmentItem</strong> 資料表的 <em>OrderItemId</em> 欄位本質上是對 <strong>OrderItem</strong> 資料表的參考。</p>
+<h2 id="折扣">折扣</h2>
+<p><img src="_static/db-schema/discounts.jpg" alt="discounts"></p>
+<p>從上圖中，我們可以看到折扣可以應用於三種類別：<strong>商品 (Products)</strong>、<strong>製造商 (Manufacturers)</strong>、<strong>分類 (Categories)</strong>。
+並且可以透過外掛 (<code>IDiscountRequirementRule</code>) 來設定各種規則。</p>
+<p>在 <strong>DiscountRequirement</strong> 資料表中，<em>InteractionTypeId</em> 欄位必須包含 <code>RequirementGroupInteractionType</code> 列舉中所指定的其中一個值：</p>
+<pre><code class="lang-csharp">/// &lt;summary&gt;
+/// Represents an interaction type within the group of requirements
+/// &lt;/summary&gt;
+public enum RequirementGroupInteractionType
+{
+    /// &lt;summary&gt;
+    /// All requirements within the group must be met
+    /// &lt;/summary&gt;
+    And = 0,
+
+    /// &lt;summary&gt;
+    /// At least one of the requirements within the group must be met 
+    /// &lt;/summary&gt;
+    Or = 2
+}
+</code></pre>
+<h2 id="購物車">購物車</h2>
+<p>商店中另一個重要的部分是購物車。在我們的案例中，此機制的架構非常簡單：</p>
+<p><img src="_static/db-schema/shopping-cart-item.jpg" alt="Shopping cart"></p>
+<p>唯一值得注意的是，此架構也用於願望清單。為了區分這兩種類型，使用了 <em>ShoppingCartTypeId</em> 欄位。此欄位中的值必須與 <strong>ShoppingCartType</strong> 列舉中的值相符：</p>
+<pre><code class="lang-csharp">/// &lt;summary&gt;
+/// Represents a shopping cart type
+/// &lt;/summary&gt;
+public enum ShoppingCartType
+{
+    /// &lt;summary&gt;
+    /// Shopping cart
+    /// &lt;/summary&gt;
+    ShoppingCart = 1,
+
+    /// &lt;summary&gt;
+    /// Wishlist
+    /// &lt;/summary&gt;
+    Wishlist = 2
+}
+</code></pre>
+<h2 id="地址">地址</h2>
+<p>或許您也會對儲存地址（包括配送地址與顧客地址）所涉及的資料表結構感興趣：</p>
+<p><img src="_static/db-schema/addresses.jpg" alt="addresses"></p>
+<p>如您所知，標準安裝包含了更多的資料表。我們不會在此全部說明，因為其中許多資料表並無關聯，僅用於特定目的，而有些則極少被使用。</p>
+<h2 id="資料庫命名慣例">資料庫命名慣例</h2>
+<p>您可能已經注意到，資料庫在表格與欄位的命名上使用了混合方式（包含 <code>_</code> 字元、不含 <code>_</code> 以及 CamelCase）。在很久以前，我們曾使用 <code>_</code> 字元，但現在我們已完全轉向使用 <strong>PascalCase</strong> 標記法。我們選擇不更改現有表格或欄位的名稱，因為許多使用者已經撰寫了自訂指令碼，若更改將會導致這些指令碼失效。</p>
+<p>為了與新標準保持向下相容性，我們引入了 <code>INameCompatibility</code> 介面。它允許您重新命名表格與欄位，以便將物件正確對應到遵循舊命名標準的表格。位於 <code>Nop.Data.Mapping</code> 命名空間中的 <a href="https://github.com/nopSolutions/nopCommerce/blob/develop/src/Libraries/Nop.Data/Mapping/BaseNameCompatibility.cs">BaseNameCompatibility</a> 類別包含了完整的覆寫清單。</p>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/developer/tutorials/db-schema.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

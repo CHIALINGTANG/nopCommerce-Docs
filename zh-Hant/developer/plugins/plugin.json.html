@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>plugin.json 檔案結構說明 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="plugin.json 檔案結構說明 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/developer/plugins/plugin_json">
+<h1 id="pluginjson-檔案結構說明"><code>plugin.json</code> 檔案結構說明</h1>
+
+<p>此檔案包含外掛的 Meta 資訊描述，nopCommerce 使用這些資訊來判斷此檔案屬於哪個外掛群組、該外掛是否與當前的 nopCommerce 版本相容、外掛的版本號，以及其他相關資訊。每個 nopCommerce 外掛都必須包含此檔案。</p>
+<h2 id="檔案結構">檔案結構</h2>
+<pre><code class="lang-json">{
+  &quot;Group&quot;: &quot;Payment methods&quot;,
+  &quot;FriendlyName&quot;: &quot;PayPal Commerce&quot;,
+  &quot;SystemName&quot;: &quot;Payments.PayPalCommerce&quot;,
+  &quot;Version&quot;: &quot;4.70.1&quot;,
+  &quot;SupportedVersions&quot;: [ &quot;4.70&quot; ],
+  &quot;Author&quot;: &quot;nopCommerce team&quot;,
+  &quot;DisplayOrder&quot;: -1,
+  &quot;FileName&quot;: &quot;Nop.Plugin.Payments.PayPalCommerce.dll&quot;,
+  &quot;Description&quot;: &quot;&quot;
+}
+</code></pre>
+<ul>
+<li><p><strong>Group</strong>：nopCommerce 用於在 <strong>後台 → 設定 → 本地外掛</strong> 選單的外掛列表中，識別、搜尋或篩選外掛所屬的群組名稱。這可以是您的公司名稱。</p>
+</li>
+<li><p><strong>FriendlyName</strong>：這是外掛的顯示名稱，用於從外掛列表中識別該外掛。</p>
+</li>
+<li><p><strong>SystemName</strong>：nopCommerce 用於唯一識別該外掛，因此它必須與所有其他外掛不同。我們無法註冊超過一個具有相同 <code>SystemName</code> 的外掛。</p>
+</li>
+<li><p><strong>Version</strong>：這是外掛的版本號，您可以將其設定為任何您喜歡的值。此數字用於識別目前安裝在 nopCommerce 應用程式中的外掛版本。不過，我們建議遵循以下格式 - <code>&quot;{nopCommerce_version_number}.{build_number}&quot;</code>。</p>
+</li>
+<li><p><strong>SupportedVersions</strong>：這是一個字串陣列。它包含此項外掛所支援的一個或多個 nopCommerce 版本。在開發過程中，請確保當前您正在開發此項外掛的 nopCommerce 版本已包含在此清單中，否則它將不會載入到外掛列表中。</p>
+</li>
+<li><p><strong>Author</strong>：這是關於外掛創作者的資訊。可以是個人姓名、公司名稱或開發此項外掛的團隊名稱。</p>
+</li>
+<li><p><strong>DisplayOrder</strong>：用於設定此項外掛在外掛列表中顯示的順序。其值為數字類型。</p>
+</li>
+<li><p><strong>FileName</strong>：具有以下格式 <strong>Nop.Plugin.{Group}.{Name}.dll</strong>（這是您的外掛組件檔案名稱）。</p>
+</li>
+<li><p><strong>Description</strong>：包含外掛的簡短描述，例如此項外掛的用途以及功能。這將顯示在插件列表中的外掛名稱下方。</p>
+</li>
+<li><p><strong>LimitedToStores</strong>：可使用此項外掛的商店識別碼清單。若為空，則此項外掛可在所有商店中使用。</p>
+</li>
+<li><p><strong>LimitedToCustomerRoles</strong>：可使用此項外掛的顧客角色識別碼清單。若為空，則此項外掛適用於所有角色。</p>
+</li>
+<li><p><strong>DependsOnSystemNames</strong>：此項外掛所依賴的其他外掛系統名稱清單。</p>
+</li>
+</ul>
+<div class="TIP">
+<h5>Tip</h5>
+<p>編輯完 <strong>plugin.json</strong> 檔案內容後，您需要將其 <code>Copy to Output Directory</code>（複製到輸出目錄）屬性值設為 <code>Copy if newer</code>（若有更新則複製）。
+<img src="_static/plugin.json/plugin_json_0.jpg" alt="image3">
+這是必要的，因為我們需要將此檔案複製到編譯後的目錄，nopCommerce 才能存取此檔案，以便在管理後台的外掛列表中顯示我們的外掛。</p>
+</div>
+<h2 id="範例">範例</h2>
+<ul>
+<li><p><strong>FixedOrByCountryStateZip</strong> 外掛擁有以下 <code>plugin.json</code> 檔案：</p>
+<pre><code class="lang-json">  {
+      &quot;Group&quot;: &quot;Tax providers&quot;,
+      &quot;FriendlyName&quot;: &quot;Manual (Fixed or By Country/State/Zip)&quot;,
+      &quot;SystemName&quot;: &quot;Tax.FixedOrByCountryStateZip&quot;,
+      &quot;Version&quot;: &quot;4.70.1&quot;,
+      &quot;SupportedVersions&quot;: [ &quot;4.70&quot; ],
+      &quot;Author&quot;: &quot;nopCommerce team&quot;,
+      &quot;DisplayOrder&quot;: 1,
+      &quot;FileName&quot;: &quot;Nop.Plugin.Tax.FixedOrByCountryStateZip.dll&quot;,
+      &quot;Description&quot;: &quot;This plugin allow to configure fix tax rates or tax rates by countries, states and zip codes&quot;
+  }
+</code></pre>
+</li>
+<li><p><strong>Google Analytics</strong> 小工具擁有以下 <em>plugin.json</em> 檔案：</p>
+<pre><code class="lang-json">  {
+      &quot;Group&quot;: &quot;Widgets&quot;,
+      &quot;FriendlyName&quot;: &quot;Google Analytics&quot;,
+      &quot;SystemName&quot;: &quot;Widgets.GoogleAnalytics&quot;,
+      &quot;Version&quot;: &quot;4.70.1&quot;,
+      &quot;SupportedVersions&quot;: [ &quot;4.70&quot; ],
+      &quot;Author&quot;: &quot;nopCommerce team, Nicolas Muniere&quot;,
+      &quot;DisplayOrder&quot;: 1,
+      &quot;FileName&quot;: &quot;Nop.Plugin.Widgets.GoogleAnalytics.dll&quot;,
+      &quot;Description&quot;: &quot;This plugin integrates with Google Analytics. It keeps track of statistics about    the visitors and ecommerce conversion on your website&quot;
+  }
+</code></pre>
+</li>
+</ul>
+
+                  <div class="course-banner">
+                      <a target="_blank" href="https://www.nopcommerce.com/training?utm_source=docs_nopcommerce&utm_medium=documentation&utm_campaign=course&utm_content=Developers_Guide">
+                          <div class="course-banner-left"></div>
+                          <div class="course-banner-center">
+                              <div class="course-banner-title"><span>nopCommerce training course</span></div>
+                              <div class="course-banner-description"><span>Start developing your skills and become a Certified Developer</span></div>
+                          </div>
+                          <div class="course-banner-right"></div>
+                      </a> 
+                  </div>            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/developer/plugins/plugin.json.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

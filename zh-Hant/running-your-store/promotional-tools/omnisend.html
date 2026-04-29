@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Omnisend 整合 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Omnisend 整合 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/running-your-store/promotional-tools/omnisend">
+<h1 id="omnisend-整合">Omnisend 整合</h1>
+
+<p>本章節說明如何將 Omnisend 外掛整合至您的商店中。該外掛支援所有 nopCommerce 版本，包含從 4.30 到 4.70 的次要版本。</p>
+<h2 id="什麼是-omnisend">什麼是 Omnisend</h2>
+<p>Omnisend 是一個電子郵件與簡訊行銷自動化平台，旨在協助電子商務商店與其顧客建立連結並進行互動。您可以建立彈出式視窗與註冊表單來收集新的訂閱者。透過電子郵件與簡訊等管道與他們互動。利用您的商店資料來劃分顧客群組，並透過個人化的自動化功能來提升銷售。</p>
+<h2 id="omnisend-外掛的功能">Omnisend 外掛的功能</h2>
+<p>適用於 nopCommerce 的 Omnisend 外掛允許商店擁有者執行以下操作：</p>
+<ul>
+<li>同步聯絡人 - 執行訂閱電子報之顧客的同步作業。</li>
+<li>同步商品 - 同步商品類別與商品資訊。</li>
+</ul>
+<h2 id="安裝並啟用外掛">安裝並啟用外掛</h2>
+<p>Omnisend 外掛是 nopCommerce 內建的外掛。您可以在這裡找到它：<strong>設定 → 本地外掛</strong>。若要更快速地找到此外掛，請使用搜尋面板中的 <strong>群組</strong> 欄位，將外掛篩選為 <em>Misc</em> 類型：
+<img src="_static/omnisend/plugin-list.jpg" alt="Find the plugin"></p>
+<p>如果外掛尚未安裝，請點擊 <strong>安裝</strong> 按鈕進行安裝。接著，點擊 <strong>編輯</strong> 按鈕來啟用它。此時您會看到 <em>編輯外掛詳細資訊</em> 視窗。透過 <strong>已啟用</strong> 核取方塊將外掛標記為啟用，然後點擊 <strong>儲存</strong> 按鈕。</p>
+<h2 id="如何設定此外掛">如何設定此外掛</h2>
+<ol>
+<li><p>點擊 <strong>Configure</strong> 按鈕。您將會看到 <em>Configure - Omnisend</em> 視窗：
+<img src="_static/omnisend/configure-window.jpg" alt="Configure - Omnisend"></p>
+<p>若要在 nopCommerce 中使用 Omnisend，您需要 <a href="https://your.omnisend.com/g1K9y2">建立一個帳號</a>。您可以從免費方案開始探索平台功能，無需信用卡。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>如果您已經在使用 Omnisend，且該帳號已連結到其他商店，請務必先 <a href="https://support.omnisend.com/en/articles/3022953-managing-multiple-stores?irclickid=VWt1B4VIXxyPTkbVXw2OtWsaUkHVGdTU12dV0g0&amp;irpartnerid=5274744&amp;irprogramid=21260&amp;irgwc=1#register-a-new-store-under-the-owners-account">建立一個新的空白商店</a>。</p>
+</div>
+</li>
+<li><p>若要將 Omnisend 連接到您的商店：請 <a href="https://app.omnisend.com/login?irclickid=VWt1B4VIXxyPTkbVXw2OtWsaUkHVGf2o12dV0g0&amp;irpartnerid=5274744&amp;irprogramid=21260&amp;irgwc=1">登入</a> 您的 Omnisend 帳號。</p>
+</li>
+<li><p>點擊儀表板或帳號導覽選單中的 <em>Connect store</em>。
+<img src="_static/omnisend/connect-store.jpg" alt="Connect store - Omnisend"></p>
+</li>
+<li><p>產生一組 API key 並將其貼到外掛設定頁面中的對應欄位。
+<img src="_static/omnisend/store-api-key.jpg" alt="API key - Omnisend"></p>
+</li>
+<li><p>點擊 <strong>Save</strong> 按鈕。</p>
+</li>
+<li><p>前往 <strong>Synchronization</strong> 面板，將您的 nopCommerce 顧客與商品同步到您的 Omnisend 帳號。
+<img src="_static/omnisend/sync.jpg" alt="Sync"></p>
+</li>
+</ol>
+<h3 id="支援哪些功能">支援哪些功能？</h3>
+<ul>
+<li><a href="https://support.omnisend.com/en/articles/6070131-building-an-email-campaign?irclickid=VWt1B4VIXxyPTkbVXw2OtWsaUkHVGqRM12dV0g0&amp;irpartnerid=5274744&amp;irprogramid=21260&amp;irgwc=1">電子郵件</a> 與 <a href="https://support.omnisend.com/en/articles/1918472-sms-in-campaigns?irclickid=VWt1B4VIXxyPTkbVXw2OtWsaUkHVGqQs12dV0g0&amp;irpartnerid=5274744&amp;irprogramid=21260&amp;irgwc=1">簡訊行銷活動</a>。</li>
+<li><a href="https://support.omnisend.com/en/articles/1061792-types-of-signup-forms?irclickid=VWt1B4VIXxyPTkbVXw2OtWsaUkHVJfyY12dV0g0&amp;irpartnerid=5274744&amp;irprogramid=21260&amp;irgwc=1">Omnisend 註冊表單</a>。</li>
+<li><a href="https://support.omnisend.com/en/collections/35918-integrations-with-3rd-party-apps?irclickid=VWt1B4VIXxyPTkbVXw2OtWsaUkHVGM2w12dV0g0&amp;irpartnerid=5274744&amp;irprogramid=21260&amp;irgwc=1">其他第三方整合</a>。</li>
+<li>這些自動化工作流程：
+<ul>
+<li><a href="https://support.omnisend.com/en/articles/1421803-order-confirmation-automation?irclickid=VWt1B4VIXxyPTkbVXw2OtWsaUkHVGMw012dV0g0&amp;irpartnerid=5274744&amp;irprogramid=21260&amp;irgwc=1">訂單確認</a>（適用於「訂單已付款」與「訂單已建立」事件），</li>
+<li><a href="https://support.omnisend.com/en/articles/1649441-cancellation-confirmation-automation?irclickid=VWt1B4VIXxyPTkbVXw2OtWsaUkHVGMyw12dV0g0&amp;irpartnerid=5274744&amp;irprogramid=21260&amp;irgwc=1">取消確認</a>（適用於「訂單已取消」事件），</li>
+<li><a href="https://support.omnisend.com/en/articles/1061790-birthday-email-automation?irclickid=VWt1B4VIXxyPTkbVXw2OtWsaUkHVGMRM12dV0g0&amp;irpartnerid=5274744&amp;irprogramid=21260&amp;irgwc=1">生日</a>，</li>
+<li><a href="https://support.omnisend.com/en/articles/1061818-welcome-email-automation?irclickid=VWt1B4VIXxyPTkbVXw2OtWsaUkHVGMTk12dV0g0&amp;irpartnerid=5274744&amp;irprogramid=21260&amp;irgwc=1">歡迎信</a>，</li>
+<li><a href="https://support.omnisend.com/en/articles/2398171-contact-enters-exits-a-segment-automation?irclickid=VWt1B4VIXxyPTkbVXw2OtWsaUkHVGMQI12dV0g0&amp;irpartnerid=5274744&amp;irprogramid=21260&amp;irgwc=1">顧客進入/離開區隔</a>，</li>
+<li><a href="https://support.omnisend.com/en/articles/1692754-browse-abandonment?irclickid=VWt1B4VIXxyPTkbVXw2OtWsaUkHVGMXU12dV0g0&amp;irpartnerid=5274744&amp;irprogramid=21260&amp;irgwc=1">瀏覽放棄</a>，</li>
+<li><a href="https://support.omnisend.com/en/articles/1690227-product-abandonment?irclickid=VWt1B4VIXxyPTkbVXw2OtWsaUkHVGMSM12dV0g0&amp;irpartnerid=5274744&amp;irprogramid=21260&amp;irgwc=1">商品放棄</a>，</li>
+<li><a href="https://support.omnisend.com/en/articles/6659889-abandoned-cart-and-abandoned-checkout?irclickid=VWt1B4VIXxyPTkbVXw2OtWsaUkHVGJx812dV0g0&amp;irpartnerid=5274744&amp;irprogramid=21260&amp;irgwc=1">放棄結帳與放棄購物車</a>。</li>
+</ul>
+</li>
+<li><a href="https://support.omnisend.com/en/articles/5945163-using-omnisend-segmentation?irclickid=VWt1B4VIXxyPTkbVXw2OtWsaUkHVGJzE12dV0g0&amp;irpartnerid=5274744&amp;irprogramid=21260&amp;irgwc=1">區隔分析</a>。區隔分析中的大多數篩選器皆可使用，除了以下訂單狀態事件：訂單已付款、訂單已取消、訂單已出貨、訂單已部分出貨、訂單已退款、訂單已部分退款。不過，您仍然可以使用「訂單已建立」篩選器。</li>
+<li><a href="https://support.omnisend.com/en/articles/1689912-live-view-tracking-store-activity?irclickid=VWt1B4VIXxyPTkbVXw2OtWsaUkHVGJwY12dV0g0&amp;irpartnerid=5274744&amp;irprogramid=21260&amp;irgwc=1">即時活動</a>。</li>
+<li>新增您的 <a href="https://support.omnisend.com/en/articles/6099524-brand-assets-management?irclickid=VWt1B4VIXxyPTkbVXw2OtWsaUkHVGJ3w12dV0g0&amp;irpartnerid=5274744&amp;irprogramid=21260&amp;irgwc=1">品牌資產</a>。</li>
+</ul>
+<h3 id="同步哪些資料">同步哪些資料？</h3>
+<p>下列商店資料現在將會同步至 Omnisend：</p>
+<ul>
+<li>顧客詳細資料</li>
+<li>商品與已瀏覽的分類</li>
+<li>訂單相關事件</li>
+<li>購物車放棄相關事件</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>手動同步應僅執行一次，若進行多次同步，批次寫入（batch insert）將會回報資料寫入錯誤。後續的同步會自動執行，無需管理員參與。</p>
+</div>
+<h2 id="聯絡人同步">聯絡人同步</h2>
+<p>此外掛實作了兩種型態的聯絡人同步：</p>
+<ul>
+<li><p>初始匯入所有現有聯絡人。此動作在使用者剛安裝外掛，並希望將所有現有的商店聯絡人匯入至 Omnisend 帳號時執行。</p>
+</li>
+<li><p>訂閱或取消訂閱時的聯絡人同步。</p>
+</li>
+</ul>
+<h2 id="顧客追蹤事件-js-snippet">顧客追蹤事件 (JS snippet)</h2>
+<p>為了追蹤商店中的使用者動作，會在網站的所有頁面上安裝一段 JS 腳本。預設情況下，該腳本會追蹤所有頁面的造訪紀錄，包含對商品頁面的造訪。此外，還會使用額外的腳本來通知使用者識別資訊。</p>
+<h2 id="購物車事件訂單事件">購物車事件、訂單事件</h2>
+<p>在外掛中，需追蹤多項事件以通知 Omnisend 服務：</p>
+<ul>
+<li>將商品加入購物車。</li>
+<li>下訂單。</li>
+<li>訂單付款。</li>
+<li>訂單退款。</li>
+<li>取消訂單。</li>
+<li>完成訂單處理。</li>
+<li>開始結帳流程。</li>
+<li>變更購物車中的商品（增加數量、折扣等）。</li>
+<li>從購物車中刪除最後一個商品。</li>
+<li>變更訂單狀態。</li>
+<li>還原購物車。顧客可以選擇從 Omnisend 的電子郵件（廢棄購物車提醒）中的連結回到商店。</li>
+</ul>
+<h2 id="商品同步">商品同步</h2>
+<p>此外掛實作了類別與商品的匯入功能。
+當您點擊 <strong>Sync products</strong> 按鈕時，同步處理程序就會執行。</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>如果類別數量較多（&gt;300 個），系統會向使用者顯示警告，說明匯入可能需要較長時間。</p>
+</div>
+<p>除了初始匯入外，此外掛亦實作了商品的即時同步，但僅追蹤 <code>StockQuantity</code> 參數的變更，以確保商品狀態（<em>inStock</em>、<em>outOfStock</em>、<em>notAvailable</em>）維持在最新狀態。</p>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/running-your-store/promotional-tools/omnisend.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>PayPal Standard </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="PayPal Standard ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="preload" href="../../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/getting-started/configure-payments/payment-methods/paypal-standard">
+<h1 id="paypal-standard">PayPal Standard</h1>
+
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>This plugin is currently deprecated and has been replaced by the <a class="xref" href="paypal-commerce.html"><strong>PayPal Commerce</strong></a> plugin.</p>
+</div>
+<p>PayPal Standard is the easiest way to securely accept credit card and PayPal payments online.</p>
+<p>To configure the PayPal Standard plugin, go to <strong>Configuration → Payment methods</strong>. Then find the <strong>PayPal Standard</strong> payment method in the payment method list:</p>
+<p><img src="_static/paypal-standard/list.jpg" alt="List"></p>
+<h2 id="activate-the-method-edit-its-name-and-display-order">Activate the method, edit its name, and display order</h2>
+<p>You can edit the payment method name, which will be displayed for customers in the public store, or its display order. To do this, click the <strong>Edit</strong> button in the plugin row on the payment method list page. You will be able to enter <strong>Friendly name</strong> and <strong>Display order</strong>. In this row, you can also activate the plugin or make it inactive using the <strong>Is active</strong> field. Click the <strong>Update</strong> button. Your changes will be saved.</p>
+<h2 id="configure-the-payment-method">Configure the payment method</h2>
+<p>To use the <strong>PayPal Standard</strong> plugin as a payment method, please follow these steps:</p>
+<ol>
+<li><p>Register a Business account on <a href="http://www.paypal.com">www.paypal.com</a>. Follow the link <a href="https://www.paypal.com/bizsignup/">https://www.paypal.com/bizsignup/</a>. Then fill in the information about yourself and your business:</p>
+<p><img src="_static/paypal-standard/signUp1step.png" alt="step1"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>If you already have an account, you will be redirected to the authorization.</p>
+</div>
+<p><img src="_static/paypal-standard/signUp2step.png" alt="step2"></p>
+<p><img src="_static/paypal-standard/signUp3step.png" alt="step3"></p>
+<p><img src="_static/paypal-standard/signUp4step.png" alt="step4"></p>
+<p><img src="_static/paypal-standard/signUp5step.png" alt="step5"></p>
+</li>
+<li><p>In the top navigation bar, click the <strong>Settings</strong> icon <img src="_static/paypal-standard/settings_icon.png" alt="settings"></p>
+</li>
+<li><p>Select <strong>Website payments</strong> in the left panel and click <strong>Update</strong> in the <strong>Website preferences</strong> line.</p>
+<p><img src="_static/paypal-standard/websitepaymentsppal.png" alt="websitepayments"></p>
+</li>
+<li><p>In the <strong>Auto return for website payments</strong> section, set the switch to <strong>On.</strong> As the <strong>Return URL</strong>, enter the URL of your site, which will receive ID transactions sent by PayPal after customer payment. In our case, it's <code>http://localhost:15536/Plugins/PaymentPayPalStandard/PDTHandler</code> but don't forget to replace localhost with your site URL.</p>
+<p><img src="_static/paypal-standard/autoreturnURLPP.png" alt="autoreturnURLPP"></p>
+</li>
+<li><p>In the <strong>Payment data transfer</strong> section, set the switch to <strong>On</strong> and copy <strong>Identity Token.</strong></p>
+<p><img src="_static/paypal-standard/PDTtoken.png" alt="PDTtoken"></p>
+</li>
+<li><p>To configure the plugin in the admin panel of nopCommerce, go to <strong>Configuration  → Payment methods</strong>. In the <strong>PayPal Standard</strong> line, click <strong>Configure</strong>.</p>
+<p><img src="_static/paypal-standard/nopConfigPP.png" alt="nopconfig"></p>
+</li>
+<li><p>In the <strong>Business Email</strong> field, enter the email specified when registering a Business account on paypal.com.</p>
+</li>
+<li><p>In the <strong>PDT Identity Token</strong> field, enter the copied <strong>Identity Token</strong> from clause #5.</p>
+</li>
+<li><p>Click <strong>Save</strong>.</p>
+</li>
+</ol>
+<p>For the <strong>IPN</strong> (Instant Payment Notification) activation:</p>
+<ol>
+<li><p>Select <strong>Notifications</strong> in the left panel and click the <strong>Update in the Instant payment notifications</strong> line.</p>
+<p><img src="_static/paypal-standard/notificationsPP.png" alt="notifications"></p>
+</li>
+<li><p>Familiarize yourself with the information regarding <strong>IPN</strong> and click <strong>Choose IPN Settings</strong>.</p>
+<p><img src="_static/paypal-standard/chooseIPNSettings.png" alt="chooseIPN"></p>
+</li>
+<li><p>Select <strong>Receive IPN messages (Enabled)</strong>. As <strong>Notification URL</strong>, enter the URL of your IPN handler.</p>
+<p><img src="_static/paypal-standard/editIPN.png" alt="editIPN"></p>
+</li>
+<li><p>Click <strong>Save.</strong> You should get a message that you have successfully activated IPN.</p>
+</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Instant Payment Notification (IPN) is a PayPal message service that sends a notification when a transaction is affected. Once IPN is integrated, sellers can automate their back office so that they don't have to wait for payments to come in to trigger the order fulfillment.</p>
+</div>
+<h2 id="limit-to-stores-and-customer-roles">Limit to stores and customer roles</h2>
+<p>You can limit any payment method to store and customer role. This means that the method will be available to certain stores or customer roles only. You can do this from the <em>plugin list</em> page.</p>
+<ol>
+<li><p>Go to <strong>Configuration → Local plugins</strong>. Find the plugin you want to limit. In our case, it's <strong>PayPal Standard</strong>. To find it faster, use the <em>Search</em> panel at the top of the page and search by <strong>Plugin name</strong> or <strong>Group</strong> using the <em>Payment methods</em> option.</p>
+<p><img src="_static/paypal-standard/plugin.jpg" alt="Plugins"></p>
+</li>
+<li><p>Click the <strong>Edit</strong> button, and the <em>Edit plugin details</em> window will be displayed as follows:</p>
+<p><img src="_static/paypal-standard/edit.jpg" alt="Plugins"></p>
+</li>
+<li><p>You can set up the following limits:</p>
+<ul>
+<li><p>In the <strong>Limited to customer roles</strong> field, choose one or several customer roles, that is, administrators, vendors, guests, who will be able to use this plugin. If you don't need this option just leave this field empty.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>In order to use this functionality, you have to disable the following setting: <strong>Catalog settings → Ignore ACL rules (sitewide)</strong>. Read more about the access control list <a class="xref" href="../../../running-your-store/customer-management/access-control-list.html">here</a>.</p>
+</div>
+</li>
+<li><p>Use the <strong>Limited to stores</strong> option to limit this plugin to a certain store. If you have multiple stores, choose one or several from the list. If you don't use this option, just leave this field empty.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>In order to use this functionality, you have to disable the following setting: <strong>Catalog settings → Ignore &quot;limit per store&quot; rules (sitewide)</strong>. Read more about multi-store functionality <a class="xref" href="../../advanced-configuration/multi-store.html">here</a>.</p>
+</div>
+</li>
+<li><p>Click <strong>Save</strong>.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="known-issues">Known Issues</h2>
+<h3 id="error-things-dont-appear-to-be-working-at-the-moment-paypal">Error: Things don't appear to be working at the moment (PayPal)</h3>
+<p>If you see the error &quot;Things don't appear to be working at the moment. Please try again later&quot;</p>
+<p><img src="_static/paypal-standard/file-6jjW2AH7yT.png" alt="paypalerror"></p>
+<p>The error is caused by a setting within your PayPal Account.</p>
+<p><strong>Step 1</strong>: On the left sidebar, under &quot;Products &amp; Services,&quot; click &quot;Website Payments&quot;</p>
+<p><strong>Step 2</strong>: Click &quot;Update&quot; next to the &quot;Website Preferences&quot; section</p>
+<p><strong>Step 3</strong>: Scroll down to the &quot;Encrypted Website Payments&quot; section, select &quot;Off&quot; on the right, and then save your changes.</p>
+<p><img src="_static/paypal-standard/file-c2yKWw2xMN.png" alt="encryptedwebsitepayments"></p>
+<p>After saving the change, you can go back to your site and try the button/forms again, and they should work.</p>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/getting-started/configure-payments/payment-methods/paypal-standard.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

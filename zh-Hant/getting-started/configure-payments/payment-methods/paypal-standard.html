@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>PayPal Standard </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="PayPal Standard ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="preload" href="../../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/getting-started/configure-payments/payment-methods/paypal-standard">
+<h1 id="paypal-standard">PayPal Standard</h1>
+
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>此此外掛目前已棄用，並由 <a class="xref" href="paypal-commerce.html"><strong>PayPal Commerce</strong></a> 外掛所取代。</p>
+</div>
+<p>PayPal Standard 是在線上安全地接受信用卡與 PayPal 付款最簡單的方式。</p>
+<p>若要設定 PayPal Standard 外掛，請前往 <strong>設定 → 付款方式</strong>。接著在付款方式列表中找到 <strong>PayPal Standard</strong> 付款方式：</p>
+<p><img src="_static/paypal-standard/list.jpg" alt="List"></p>
+<h2 id="啟用付款方式編輯名稱與顯示順序">啟用付款方式、編輯名稱與顯示順序</h2>
+<p>您可以編輯付款方式的名稱（該名稱將會在前台網站顯示給顧客）或其顯示順序。若要進行此操作，請在付款方式列表頁面中，點擊該外掛所在列的 <strong>Edit</strong> 按鈕。您將可以輸入 <strong>Friendly name</strong>（友善名稱）與 <strong>Display order</strong>（顯示順序）。在這一列中，您也可以透過 <strong>Is active</strong> 欄位來啟用或停用此外掛。點擊 <strong>Update</strong> 按鈕，您的變更即會儲存。</p>
+<h2 id="設定付款方式">設定付款方式</h2>
+<p>若要使用 <strong>PayPal Standard</strong> 外掛作為付款方式，請遵循以下步驟：</p>
+<ol>
+<li><p>在 <a href="http://www.paypal.com">www.paypal.com</a> 註冊一個企業帳戶。請點選連結 <a href="https://www.paypal.com/bizsignup/">https://www.paypal.com/bizsignup/</a>，然後填寫關於您個人及企業的資訊：</p>
+<p><img src="_static/paypal-standard/signUp1step.png" alt="step1"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>如果您已經擁有帳戶，系統將會導向至授權頁面。</p>
+</div>
+<p><img src="_static/paypal-standard/signUp2step.png" alt="step2"></p>
+<p><img src="_static/paypal-standard/signUp3step.png" alt="step3"></p>
+<p><img src="_static/paypal-standard/signUp4step.png" alt="step4"></p>
+<p><img src="_static/paypal-standard/signUp5step.png" alt="step5"></p>
+</li>
+<li><p>在上方導覽列中，點選 <strong>Settings</strong> 圖示 <img src="_static/paypal-standard/settings_icon.png" alt="settings">。</p>
+</li>
+<li><p>在左側面板中選擇 <strong>Website payments</strong>，並在 <strong>Website preferences</strong> 這一行點選 <strong>Update</strong>。</p>
+<p><img src="_static/paypal-standard/websitepaymentsppal.png" alt="websitepayments"></p>
+</li>
+<li><p>在 <strong>Auto return for website payments</strong> 區段中，將開關設為 <strong>On</strong>。在 <strong>Return URL</strong> 欄位中，輸入您的網站 URL，該網址將會在顧客付款後接收由 PayPal 發送的交易 ID。以我們的範例來說，網址為 <code>http://localhost:15536/Plugins/PaymentPayPalStandard/PDTHandler</code>，但請別忘了將 localhost 替換成您實際的網站 URL。</p>
+<p><img src="_static/paypal-standard/autoreturnURLPP.png" alt="autoreturnURLPP"></p>
+</li>
+<li><p>在 <strong>Payment data transfer</strong> 區段中，將開關設為 <strong>On</strong> 並複製 <strong>Identity Token</strong>。</p>
+<p><img src="_static/paypal-standard/PDTtoken.png" alt="PDTtoken"></p>
+</li>
+<li><p>若要在 nopCommerce 的管理後台設定此外掛，請前往 <strong>後台 → 設定 → 付款方式</strong>。在 <strong>PayPal Standard</strong> 這一行，點選 <strong>Configure</strong>。</p>
+<p><img src="_static/paypal-standard/nopConfigPP.png" alt="nopconfig"></p>
+</li>
+<li><p>在 <strong>Business Email</strong> 欄位中，輸入您在 paypal.com 註冊企業帳戶時所指定的電子郵件地址。</p>
+</li>
+<li><p>在 <strong>PDT Identity Token</strong> 欄位中，貼上第 5 點所複製的 <strong>Identity Token</strong>。</p>
+</li>
+<li><p>點選 <strong>Save</strong>。</p>
+</li>
+</ol>
+<p>若要啟用 <strong>IPN</strong> (即時付款通知)：</p>
+<ol>
+<li><p>在左側面板選擇 <strong>Notifications</strong>，並點選 <strong>Instant payment notifications</strong> 這一行的 <strong>Update</strong>。</p>
+<p><img src="_static/paypal-standard/notificationsPP.png" alt="notifications"></p>
+</li>
+<li><p>閱讀關於 <strong>IPN</strong> 的資訊，並點選 <strong>Choose IPN Settings</strong>。</p>
+<p><img src="_static/paypal-standard/chooseIPNSettings.png" alt="chooseIPN"></p>
+</li>
+<li><p>選擇 <strong>Receive IPN messages (Enabled)</strong>。在 <strong>Notification URL</strong> 欄位中，輸入您的 IPN 處理程式 URL。</p>
+<p><img src="_static/paypal-standard/editIPN.png" alt="editIPN"></p>
+</li>
+<li><p>點選 <strong>Save</strong>。您應該會收到訊息，告知您已成功啟用 IPN。</p>
+</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>即時付款通知 (IPN) 是一項 PayPal 訊息服務，會在交易發生變動時傳送通知。一旦整合 IPN，賣家即可自動化其後勤作業，無需等待款項入帳即可觸發訂單履行流程。</p>
+</div>
+<h2 id="限制商店與顧客角色">限制商店與顧客角色</h2>
+<p>您可以將任何付款方式限制在特定商店與顧客角色中使用。這代表該付款方式將僅適用於特定的商店或顧客角色。您可以從<em>外掛清單</em>頁面執行此操作。</p>
+<ol>
+<li><p>前往 <strong>設定 → 本地外掛</strong>。找到您想要限制的外掛。在本範例中，它是 <strong>PayPal Standard</strong>。若要更快速找到它，請使用頁面頂端的<em>搜尋</em>面板，透過「付款方式」選項，以 <strong>外掛名稱</strong> 或 <strong>群組</strong> 進行搜尋。</p>
+<p><img src="_static/paypal-standard/plugin.jpg" alt="Plugins"></p>
+</li>
+<li><p>點擊 <strong>編輯</strong> 按鈕，系統會顯示如下的<em>編輯外掛詳情</em>視窗：</p>
+<p><img src="_static/paypal-standard/edit.jpg" alt="Plugins"></p>
+</li>
+<li><p>您可以設定下列限制：</p>
+<ul>
+<li><p>在 <strong>限制顧客角色</strong> 欄位中，選擇一個或多個能夠使用此外掛的顧客角色（例如：管理員、供應商、訪客）。如果您不需要此選項，只需將此欄位留空即可。</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>為了使用此功能，您必須停用下列設定：<strong>目錄設定 → 忽略 ACL 規則 (全站)</strong>。閱讀更多關於存取控制清單的內容 <a class="xref" href="../../../running-your-store/customer-management/access-control-list.html">here</a>。</p>
+</div>
+</li>
+<li><p>使用 <strong>限制商店</strong> 選項將此外掛限制於特定商店。如果您有多個商店，請從清單中選擇一個或多個。如果您不需要此選項，只需將此欄位留空即可。</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>為了使用此功能，您必須停用下列設定：<strong>目錄設定 → 忽略「依商店限制」規則 (全站)</strong>。閱讀更多關於多商店功能的內容 <a class="xref" href="../../advanced-configuration/multi-store.html">here</a>。</p>
+</div>
+</li>
+<li><p>點擊 <strong>儲存</strong>。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="已知問題">已知問題</h2>
+<h3 id="錯誤目前似乎出了點問題-paypal">錯誤：目前似乎出了點問題 (PayPal)</h3>
+<p>如果您看到錯誤訊息「目前似乎出了點問題。請稍後再試 (Things don't appear to be working at the moment. Please try again later)」</p>
+<p><img src="_static/paypal-standard/file-6jjW2AH7yT.png" alt="paypalerror"></p>
+<p>此錯誤是由您 PayPal 帳戶內的設定所導致。</p>
+<p><strong>步驟 1</strong>：在左側邊欄的「產品與服務 (Products &amp; Services)」下方，點選「網站付款 (Website Payments)」。</p>
+<p><strong>步驟 2</strong>：點選「網站偏好設定 (Website Preferences)」區塊旁邊的「更新 (Update)」。</p>
+<p><strong>步驟 3</strong>：向下捲動至「加密網站付款 (Encrypted Website Payments)」區塊，將右側選取為「關閉 (Off)」，然後儲存您的變更。</p>
+<p><img src="_static/paypal-standard/file-c2yKWw2xMN.png" alt="encryptedwebsitepayments"></p>
+<p>儲存變更後，您可以回到您的網站並再次嘗試該按鈕或表單，它們應該就能正常運作了。</p>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/getting-started/configure-payments/payment-methods/paypal-standard.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

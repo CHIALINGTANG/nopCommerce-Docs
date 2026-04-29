@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Localization </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Localization ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html" selected>
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="en/getting-started/advanced-configuration/localization">
+<h1 id="localization">Localization</h1>
+
+<p>In nopCommerce, your store can have several languages installed. However, the customers will only see the data that has been defined in their selected language.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>By default, the English language is installed.</p>
+</div>
+<p>To see or edit the installed languages, go to <strong>Configuration → Languages</strong>:
+<img src="_static/localization/Language.png" alt="language"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>You can download new language packs from the official <a href="https://www.nopcommerce.com/translations">Translations</a> page.</p>
+</div>
+<h2 id="adding-a-new-language">Adding a new language</h2>
+<p>To add a new language, click <strong>Add new</strong>. In the <em>Add a new language</em> window, define the following settings:</p>
+<p><img src="_static/localization/addlanguage.png" alt="addlanguage"></p>
+<ul>
+<li><p>The <strong>Name</strong> of the new language.</p>
+</li>
+<li><p>The <strong>Language culture</strong> — a specific language code (for example, de-AT for Austrian German).</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>When updating the <strong>Language culture</strong> field, please make sure the appropriate CLDR package is installed for this culture. You can set CLDR for the specified culture in the <em>Localization</em> panel of the <strong>Configuration → Settings → General Settings</strong> page.</p>
+</div>
+</li>
+<li><p>The <strong>Unique SEO code</strong> — a two-letter language SEO code used to generate URLs like <code>http://www.yourstore.com/en/</code> when you have more than one published language.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The <strong>SEO friendly URLs with multiple languages</strong> option should be enabled in the <strong>Configuration → Settings → General settings → Localization settings</strong> panel.</p>
+</div>
+</li>
+<li><p>The <strong>Flag image file name</strong> — enter the flag image file name. The image should be saved under the <code>…/images/flags</code> directory. You can also choose an image from a predefined list.</p>
+</li>
+<li><p>Select <strong>Right-to-Left</strong> if needed (for example, for Arabic or Hebrew).</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>The active theme should support RTL (have an appropriate CSS style file). This option only affects the public store.</p>
+</div>
+</li>
+<li><p>The <strong>Default currency</strong> for a specific language. If not specified, then the first found one (with the lowest display order) will be used.</p>
+</li>
+<li><p><strong>Limited to stores option</strong> allowing to set this language for a specific store(s). You can choose the store(s) from a precreated list. Leave this field empty if you don't use this option.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>To use the store limitation, the <strong>Ignore &quot;limit per store&quot; rules (sitewide)</strong> option should be disabled in the <strong>Configuration → Settings → Catalog settings → Performance</strong> panel.</p>
+</div>
+</li>
+<li><p><strong>Publish</strong> the language to enable it to be visible and selected by visitors to your store.</p>
+</li>
+<li><p><strong>Display order</strong> of the language. 1 represents the top of the list.</p>
+</li>
+</ul>
+<p>Click <strong>Save</strong> to save the changes.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Since language cultures are only loaded when the application is starting, you have to restart the application once a language is added or deleted.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>After adding a new language, you will be able to import and export string resources using the <strong>Import resources</strong>
+and <strong>Export resources</strong> buttons at the top of the page. The <em>String resources</em> panel on the language edit page will allow you to view the existing language resources and add new ones manually.</p>
+</div>
+<h2 id="import-language-pack">Import language pack</h2>
+<p>If you wish to add a new language to your store, you should:</p>
+<ol>
+<li><p>Visit the nopCommerce <a href="https://www.nopcommerce.com/translations">translations</a> page.</p>
+</li>
+<li><p>Choose the nopCommerce version and download the desired language pack.</p>
+</li>
+<li><p>Go to <strong>Configuration → Languages</strong> and click the <strong>AddNew</strong> button.
+<img src="_static/localization/language-add-new.png" alt="LanguageAddNew"></p>
+</li>
+<li><p>Fill in the required fields and click <strong>Save and continue edit</strong>.
+<img src="_static/localization/language-save.png" alt="LanguageSave"></p>
+</li>
+<li><p>Click <strong>Import resources</strong>. And specify the path to the language pack file (*.xml) that you downloaded.
+<img src="_static/localization/language-import.png" alt="LanguageImport"></p>
+</li>
+</ol>
+<p>If you found a mistake in translation or want custom naming, you can edit the string resources in the <em>String resources</em> panel.</p>
+<h2 id="manage-string-resources">Manage string resources</h2>
+<p>Go to <strong>Configuration → Languages</strong>. The <em>Languages</em> window will be displayed:</p>
+<p><img src="_static/localization/languages.png" alt="Languages"></p>
+<p>Click the <strong>Edit</strong> button beside the language. In the <strong>Edit language details</strong> window, find the <strong>String resources</strong> panel.</p>
+<p>For example, you want to change the name of a panel at the top of the page from &quot;Administration&quot; (on the picture below) to &quot;Control panel.&quot;</p>
+<p><img src="_static/localization/lang-example-before-change.jpeg" alt="Example 1"></p>
+<ol>
+<li><p>To find the locale resource you need to edit, in the <strong>Resource name</strong> field, enter &quot;administration.&quot; If the resource exists, it will be found. Click <strong>Edit</strong> beside it.</p>
+</li>
+<li><p>Enter a new value in the <strong>Value</strong> field and click <strong>Update</strong>.
+<img src="_static/localization/lang-resource-edit.png" alt="Example 2"></p>
+</li>
+<li><p>The changes will be applied:
+<img src="_static/localization/lang-example-after-change.jpeg" alt="Example 3"></p>
+</li>
+</ol>
+<p>To add a new string resource, use the <strong>Add new record</strong> panel. This window enables you to add a new resource record to the grid as follows:
+<img src="_static/localization/lang-add-resource.png" alt="Add new record"></p>
+<ul>
+<li>In the <strong>Resource name</strong> field, enter the resource string identifier.</li>
+<li>In the <strong>Value</strong> field, enter a value for this resource string identifier.</li>
+</ul>
+<p>Click <strong>Save</strong>.</p>
+<h2 id="localization-settings">Localization settings</h2>
+<p>To configure localization settings, go to <strong>Configuration  → Settings  → General settings</strong>:</p>
+<p><img src="_static/localization/lang-localization-settings.jpg" alt="Localization settings"></p>
+<ul>
+<li>To set the <a href="http://cldr.unicode.org/">CLDR</a> pattern for localizing client-side validation to the current culture, click the <strong>Set CLDR for current culture</strong> button.</li>
+<li>Select the <strong>Load all locale resources on startup</strong> checkbox to load all locale resources on the application startup. When enabled, all locale resources will be loaded on the application startup. The application start will be slower, but then all pages can be opened much faster.</li>
+<li>Select the <strong>Load all localized properties on startup</strong> checkbox to load all localized properties on the application startup. When enabled, all localized properties (such as localized product properties) will be loaded on the application startup. The application start will be slower, but then all pages can be opened much faster. It's only used with two or more languages enabled. It is not recommended to enable it when you have a large catalog (several thousand localized entities).</li>
+<li>Select the <strong>Load all search engine friendly names on startup</strong> checkbox to load all search engine friendly names (slugs) on the application startup. When enabled, all slugs will be loaded on the application startup. The application start will be slower, but then all pages can be opened much faster. It is not recommended to enable it when you have a large catalog (several thousand entities).</li>
+<li>Select the <strong>Use images for language selection</strong> checkbox to use images instead of language names.</li>
+<li>Select the <strong>SEO friendly URLs with multiple languages enabled</strong> checkbox to allow SEO-friendly URLs for all languages. When enabled, your URLs will be <code>http://www.yourStore.com/en/</code> or <code>http://www.yourStore.com/fr/</code> (SEO-friendly).
+<div class="NOTE">
+<h5>Note</h5>
+<p>You must restart the application after the <strong>SEO friendly URLs with multiple languages enabled</strong>  setting is updated. Otherwise, it can cause errors.</p>
+</div>
+</li>
+<li>Select the <strong>Automatically detect language</strong> checkbox for detecting language based on customer browser settings.</li>
+</ul>
+<h2 id="localize-entities">Localize entities</h2>
+<p>If you have more than one language installed in your store, you will be able to enter some fields displayed to customers in different languages. For example:</p>
+<p><img src="_static/localization/fields.jpg" alt="Fields"></p>
+<ul>
+<li>In the <em>Standard tab</em>, enter the text that will be displayed to customers if the localized fields are not specified.</li>
+<li>In the <em>tabs with language names</em>, enter the localized text.</li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/en/getting-started/advanced-configuration/localization.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

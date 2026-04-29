@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>商品屬性 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="商品屬性 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="../../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../../styles/main.css">
+    <link rel="preload" href="../../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../../toc.html">
+    <meta property="docfx:tocrel" content="../../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/running-your-store/catalog/products/product-attributes">
+<h1 id="商品屬性">商品屬性</h1>
+
+<p>商品屬性是商品的變體（例如：顏色、尺寸）。</p>
+<p>使用者可以建立各種屬性組合。例如，一個商品可以有各種尺寸和顏色。因此，使用者會建立兩個屬性及其值，例如「尺寸」（S、M、L）和「顏色」（紅、藍、白），然後根據商品的庫存狀況來設定群組。</p>
+<p>在 nopCommerce 中，商品屬性用於 <strong>庫存追蹤</strong>，也可能造成 <strong>價格差異</strong>。</p>
+<p>若要定義商品屬性，請前往 <strong>目錄 → 屬性 → 商品屬性</strong>。</p>
+<p><img src="_static/product-attributes/product_attributes.png" alt="Product attributes"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>預設情況下，nopCommerce 並未預先建立任何商品屬性。</p>
+</div>
+<h2 id="新增商品屬性">新增商品屬性</h2>
+<p>點擊 <strong>新增</strong> 以增加一個屬性。</p>
+<p><img src="_static/product-attributes/add_a_new_product_attribute.png" alt="Add new"></p>
+<p>在「新增商品屬性」視窗中，填寫 <strong>名稱</strong> 和 <strong>描述</strong> 欄位。</p>
+<p>點擊 <strong>儲存並繼續編輯</strong> 以進入「預定義值」編輯面板。</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p><a href="https://youtu.be/QihipwQ61YU">YouTube 教學：新增具有顏色屬性的商品</a></p>
+</div>
+<h2 id="新增預定義值">新增預定義值</h2>
+<p>在「預定義值」面板中，點擊 <strong>新增一個值</strong>，系統將會開啟「新增一個值」視窗：</p>
+<p><img src="_static/product-attributes/add_a_new_value.png" alt="Adding predefined values"></p>
+<p>在「新增一個值」視窗中，定義以下項目：</p>
+<ul>
+<li>屬性 <strong>名稱</strong>。</li>
+<li>選擇此屬性值時所套用的 <strong>價格調整</strong>。例如，填入 '10' 即增加 10 元。若勾選 <strong>價格調整：使用百分比</strong>，則以百分比計算。</li>
+<li><strong>價格調整：使用百分比</strong> 核取方塊可用於決定價格調整為百分比而非絕對數值。</li>
+<li>選擇此屬性值時所套用的 <strong>重量調整</strong>。</li>
+<li><strong>成本</strong> 屬性值是指構成此值的所有元件成本。這可能是向第三方供應商購買元件時的採購價格，或是若元件為自行製造時，材料與生產流程的合併成本。</li>
+<li>此值是否為顧客 <strong>預先勾選</strong>。</li>
+<li>在屬性清單中的 <strong>顯示順序</strong>。</li>
+</ul>
+<p>填寫欄位後，點擊 <strong>儲存</strong>。</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>在新增商品屬性時，不需要立即建立屬性值；您可以稍後在將特定的商品屬性套用到商品時再進行建立。
+一旦設定好屬性和值，即可在商品編輯頁面的「商品屬性」面板中進行分組與管理。</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>某些商店經營者傾向於強調透過屬性區分的商品，並為每個特定屬性建立獨立的商品（例如，將藍色 T 恤和紅色 T 恤分開列出）。在這種情況下，我們建議建立群組商品（如範例中的襯衫），這樣當顧客查看該群組商品時，所有的變體都會顯示在同一個頁面上。閱讀更多關於 <a class="xref" href="grouped-products-variants.html">群組商品</a> 的資訊。</p>
+</div>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>新增或更新現有的「預定義值」不會影響已經擁有該屬性的商品。</p>
+</div>
+<h2 id="商品使用面板">商品使用面板</h2>
+<p>在「商品使用」面板中，您可以選擇哪些商品使用此屬性：</p>
+<p><img src="_static/product-attributes/used-by.jpg" alt="Used by products"></p>
+<h2 id="參見">參見</h2>
+<ul>
+<li><a class="xref" href="add-products.html">新增商品</a></li>
+<li><a class="xref" href="grouped-products-variants.html">群組商品</a></li>
+</ul>
+<h2 id="教學">教學</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=eIdHVcEdos8&amp;t=55s">條件式商品屬性概述</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/running-your-store/catalog/products/product-attributes.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../../styles/main.js"></script>
+  </body>
+</html>

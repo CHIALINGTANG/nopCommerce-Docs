@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>在 Linux 上安裝 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="在 Linux 上安裝 ">
+    <meta name="generator" content="docfx ">
+  
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="preload" href="../../../fonts/fonts.css" )" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+  
+  <meta property="docfx:rel" content="../../../">
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GRDMWZ6J3B"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GRDMWZ6J3B');
+    </script>
+    <script>
+      /*! loadCSS. [c]2017 Filament Group, Inc. MIT License
+      - testing support for link[rel=preload]
+      - enabling async CSS loading in browsers that do not support rel=preload
+      - applying rel preload css once loaded, whether supported or not.
+      */
+      !function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.addEventListener?t.removeEventListener("load",a):t.attachEvent&&t.detachEvent("onload",a),t.setAttribute("onload",null),t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this);
+    </script>
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="170">
+    <div id="wrapper">
+      <header>
+        <div class="container">
+          <div id="header" class="header navbar-header">
+            <div class="header-logo">
+              <a href="https://www.nopcommerce.com/">
+                <img id="logo" class="svg" src="../../../logo.png" alt="">
+              </a>
+            </div>          </div>
+          <div class="navbar-collapse collapse in">
+            <form class="navbar-form navbar-right" role="search" id="search">
+              <div class="form-group">
+                <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+              </div>
+
+              <div class="form-group lang-container">
+
+                    <select id="lang-switcher" class="select-css">
+                        <option value="../../../en/index.html">
+      English
+                        </option>
+                    </select>                </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+
+        <div id="search-results">
+          <div class="search-list">Search Results for <span></span></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination" data-first=First data-prev=Previous data-next=Next data-last=Last></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="zh-Hant/installation-and-upgrading/installing-nopcommerce/installing-on-linux">
+<h1 id="在-linux-上安裝">在 Linux 上安裝</h1>
+
+<p>本章節將以 <em>Xubuntu 22.04</em> 為例，說明如何在 Linux 系統上安裝 nopCommerce 軟體：</p>
+<ul>
+<li><a href="#installing-on-linux">在 Linux 上安裝</a>
+<ul>
+<li><a href="#install-and-configure-software">安裝與設定軟體</a>
+<ul>
+<li><a href="#add-the-net-repository">新增 .NET 軟體庫</a></li>
+<li><a href="#install-the-net-core-runtime">安裝 .NET Core Runtime</a></li>
+<li><a href="#install-mysql-server">安裝 MySql Server</a></li>
+<li><a href="#install-nginx">安裝 nginx</a></li>
+</ul>
+</li>
+<li><a href="#get-nopcommerce">取得 nopCommerce</a></li>
+<li><a href="#create-the-nopcommerce-service">建立 nopCommerce 服務</a></li>
+<li><a href="#installation-process">安裝流程</a></li>
+<li><a href="#troubleshooting">疑難排解</a>
+<ul>
+<li><a href="#gdip">Gdip</a></li>
+<li><a href="#ssl">SSL</a></li>
+</ul>
+</li>
+<li><a href="#see-also">參閱</a></li>
+</ul>
+</li>
+</ul>
+<h2 id="安裝與設定軟體">安裝與設定軟體</h2>
+<p>.NET 可於 Ubuntu 的 .NET backports 套件儲存庫中取得。</p>
+<h3 id="新增-net-repository">新增 .NET Repository</h3>
+<p>開啟終端機並執行以下指令：</p>
+<pre><code class="lang-cmd">sudo add-apt-repository ppa:dotnet/backports
+</code></pre>
+<p><img src="_static/installing-on-linux/add_repository.png" alt="nopCommerce installation"></p>
+<h3 id="安裝-net-core-runtime">安裝 .NET Core Runtime</h3>
+<p>更新可用於安裝的產品，然後安裝 .NET runtime：</p>
+<pre><code class="lang-cmd">sudo apt-get update
+
+sudo apt-get install -y aspnetcore-runtime-9.0
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>如果您遇到錯誤，請參閱 <a href="https://learn.microsoft.com/en-us/dotnet/core/install/linux-ubuntu-install">Install .NET SDK or .NET Runtime on Ubuntu</a> 頁面上的詳細資訊。</p>
+</div>
+<p>您可以使用下列指令查看所有已安裝的 .Net Core runtime：</p>
+<pre><code class="lang-cmd">dotnet --list-runtimes
+</code></pre>
+<h3 id="安裝-mysql-server">安裝 MySql Server</h3>
+<p>安裝 MySql server 8.0 版本：</p>
+<pre><code class="lang-cmd">sudo apt-get install mysql-server-8.0
+</code></pre>
+<p><img src="_static/installing-on-linux/install_mysql.png" alt="nopCommerce installation"></p>
+<p>預設情況下，root 的密碼是空的；讓我們來設定它。執行以下指令以存取 MySQL 提示字元：</p>
+<pre><code class="lang-cmd">sudo mysql
+</code></pre>
+<p>執行以下的 ALTER USER 指令，將 root 使用者的驗證方式切換為 mysql_native_password，此方式會使用密碼進行驗證。請將 ‘password’ 取代為您想要設定的新密碼，並確保密碼前後保留單引號：</p>
+<pre><code class="lang-cmd">ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>為您的 MySQL root 使用者選擇一個高強度且唯一的密碼非常重要。強密碼長度應至少為 12 個字元，並包含大小寫字母、數字及特殊字元的組合。</p>
+</div>
+<p>輸入 <strong>exit</strong> 並按下 Enter 鍵以離開 MySQL 提示字元。</p>
+<p><img src="_static/installing-on-linux/config_mysql.png" alt="nopCommerce installation"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>如果您在設定 MySql server 的 root 密碼時遇到問題，請閱讀以下文章：
+<a href="https://dev.mysql.com/doc/refman/8.0/en/resetting-permissions.html">如何重設 Root 密碼</a> 以及
+<a href="https://stackoverflow.com/questions/41645309/mysql-error-access-denied-for-user-rootlocalhost">MySQL 錯誤：'Access denied for user 'root'@'localhost'</a>。</p>
+</div>
+<h3 id="安裝-nginx">安裝 nginx</h3>
+<p>安裝 nginx 套件：</p>
+<pre><code class="lang-cmd">sudo apt-get install nginx
+</code></pre>
+<p><img src="_static/installing-on-linux/install_nginx.png" alt="nopCommerce installation"></p>
+<p>執行 nginx 服務：</p>
+<pre><code class="lang-cmd">sudo systemctl start nginx
+</code></pre>
+<p>並檢查其狀態：</p>
+<pre><code class="lang-cmd">sudo systemctl status nginx
+</code></pre>
+<p><img src="_static/installing-on-linux/status_nginx.png" alt="nopCommerce installation"></p>
+<p>若要將 nginx 設定為反向代理以轉發請求至您的 ASP.NET Core 應用程式，請修改 /etc/nginx/sites-available/default。使用文字編輯器開啟該檔案，並將內容取代為以下程式碼：</p>
+<pre><code class="lang-cmd">
+# Default server configuration
+#
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    server_name   nopCommerce.com;
+
+    location / {
+    proxy_pass         http://localhost:5000;
+    proxy_http_version 1.1;
+    proxy_set_header   Upgrade $http_upgrade;
+    proxy_set_header   Connection keep-alive;
+    proxy_set_header   Host $host;
+    proxy_cache_bypass $http_upgrade;
+    proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header   X-Forwarded-Proto $scheme;
+    }
+
+    # SSL configuration
+    #
+    # listen 443 ssl default_server;
+    # listen [::]:443 ssl default_server;
+    #
+    # Note: You should disable gzip for SSL traffic.
+    # See: https://bugs.debian.org/773332
+    #
+    # Read up on ssl_ciphers to ensure a secure configuration.
+    # See: https://bugs.debian.org/765782
+    #
+    # Self signed certs generated by the ssl-cert package
+    # Don't use them in a production server!
+    #
+    # include snippets/snakeoil.conf;
+}
+</code></pre>
+<h2 id="取得-nopcommerce">取得 nopCommerce</h2>
+<p>建立一個目錄：</p>
+<pre><code class="lang-cmd">sudo mkdir /var/www/nopCommerce
+</code></pre>
+<p>下載並解壓縮 nopCommerce：</p>
+<pre><code class="lang-cmd">cd /var/www/nopCommerce
+
+sudo wget https://github.com/nopSolutions/nopCommerce/releases/download/release-4.90.4/nopCommerce_4.90.4_NoSource_linux_x64.zip
+
+sudo apt-get install unzip
+
+sudo unzip nopCommerce_4.90.4_NoSource_linux_x64.zip
+</code></pre>
+<p>建立幾個用來執行 nopCommerce 的目錄：</p>
+<pre><code class="lang-cmd">sudo mkdir bin
+sudo mkdir logs
+</code></pre>
+<p>變更檔案權限：</p>
+<pre><code class="lang-cmd">cd ..
+sudo chgrp -R www-data nopCommerce/
+sudo chown -R www-data nopCommerce/
+</code></pre>
+<h2 id="建立-nopcommerce-服務">建立 nopCommerce 服務</h2>
+<p>建立 <em>/etc/systemd/system/nopCommerce.service</em> 檔案，並填入以下內容：</p>
+<pre><code class="lang-cmd">[Unit]
+Description=Example nopCommerce app running on Xubuntu
+
+[Service]
+WorkingDirectory=/var/www/nopCommerce
+ExecStart=/usr/bin/dotnet /var/www/nopCommerce/Nop.Web.dll
+Restart=always
+
+# Restart service after 10 seconds if the dotnet service crashes:
+RestartSec=10
+KillSignal=SIGINT
+SyslogIdentifier=nopCommerce-example
+User=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+
+[Install]
+WantedBy=multi-user.target
+</code></pre>
+<p>啟動該服務：</p>
+<pre><code class="lang-cmd">sudo systemctl start nopCommerce.service
+</code></pre>
+<p>檢查 nopCommerce 服務狀態：</p>
+<pre><code class="lang-cmd">sudo systemctl status nopCommerce.service
+</code></pre>
+<p><img src="_static/installing-on-linux/status_nopCommerce.png" alt="nopCommerce installation"></p>
+<p>重新啟動 nginx 伺服器：</p>
+<pre><code class="lang-cmd">sudo systemctl restart nginx
+</code></pre>
+<p>現在所有設定已就緒，您可以繼續進行商店的安裝與設定。</p>
+<h2 id="安裝流程">安裝流程</h2>
+<p>nopCommerce 的後續安裝流程與 Windows 上的安裝流程相同；您可以參考 <a class="xref" href="installing-on-windows.html#install-nopcommerce">this link</a> 中的說明。</p>
+<h2 id="疑難排解">疑難排解</h2>
+<h3 id="gdip">Gdip</h3>
+<p><em>如果您在 RichText Box 中載入圖片時遇到問題（類型初始化器 'Gdip' 拋出了例外狀況），只需安裝 libgdiplus 程式庫即可：</em></p>
+<pre><code class="lang-cmd">sudo apt-get install libgdiplus
+</code></pre>
+<h3 id="ssl">SSL</h3>
+<p><em>如果您希望在網站上使用 SSL，請別忘了將 <strong>appsettings.json</strong> 檔案中的 <code>UseProxy</code> 設定值設為 <strong><code>true</code></strong>。</em></p>
+<h2 id="參閱">參閱</h2>
+<ul>
+<li><a href="https://www.nopcommerce.com/running-nopcommerce-on-linux-vps-part-2">在 Linux VPS 上執行 nopCommerce。第二部分</a></li>
+</ul>
+            </article>
+          </div>
+
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/nopSolutions/nopCommerce-Docs/blob/master/zh-Hant/installation-and-upgrading/installing-nopcommerce/installing-on-linux.md/#L1" class="contribution-link">Edit this page</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+      
+      <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script type="text/javascript" src="../../../styles/docfx.vendor.min.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>
